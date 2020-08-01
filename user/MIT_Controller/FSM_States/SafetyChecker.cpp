@@ -130,7 +130,8 @@ bool SafetyChecker<T>::checkForceFeedForward() {
   // Maximum force limits for each robot
   maxLateralForce = 350*4;
   maxVerticalForce = 350*4;
-
+  //printf("force:%f \n",data->_legController->commands[0].forceFeedForward(0));
+  //这里的力都是0,为什么?
   // Check all of the legs
   for (int leg = 0; leg < 4; leg++) {
     // Limit the lateral forces in +x body frame
@@ -209,7 +210,6 @@ bool SafetyChecker<T>::checkForceFeedForward() {
       safeForceFeedForward = false;
     }
   }
-
   // Return true if all feed forward forces are safe
   return safeForceFeedForward;
 }

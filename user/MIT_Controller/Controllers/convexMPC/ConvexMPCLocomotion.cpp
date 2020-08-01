@@ -144,8 +144,10 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
           data._legController->datas[i].p);
   }
 
+  //y方向随波逐流,x方向保证不后退
   if(gait != &standing) {
-    world_position_desired += dt * Vec3<float>(v_des_world[0], v_des_world[1], 0);
+    world_position_desired[0] += dt * v_des_world[0];
+    world_position_desired[1] = seResult.position[1] +  dt * v_des_world[1];
   }
 
   // foot placement
@@ -270,7 +272,8 @@ void ConvexMPCLocomotion::updateMPCIfNeeded(int *mpcTable, ControlFSMData<float>
   if((iterationCounter % iterationsBetweenMPC) == 0)
   {
     auto seResult = data._stateEstimator->getResult();
-
+    float* p = seResult.position.data();
+    
     Vec3<float> v_des_robot(_x_vel_des, _y_vel_des,0);
     Vec3<float> v_des_world = seResult.rBody.transpose() * v_des_robot;
 
@@ -291,12 +294,24 @@ void ConvexMPCLocomotion::updateMPCIfNeeded(int *mpcTable, ControlFSMData<float>
     }
     else
     {
+      const float max_pos_error = .01;
+      float xStart = world_position_desired[0];
+      float yStart = world_position_desired[1];
+
+      if(xStart - p[0] > max_pos_error) xStart = p[0] + max_pos_error;
+      if(p[0] - xStart > max_pos_error) xStart = p[0] - max_pos_error;
+
+      if(yStart - p[1] > max_pos_error) yStart = p[1] + max_pos_error;
+      if(p[1] - yStart > max_pos_error) yStart = p[1] - max_pos_error;
+
+      world_position_desired[0] = xStart;
+      world_position_desired[1] = yStart;
       float trajInitial[12] = {
         0.0,                                      // 0
         0.0,                                      // 1
         _yaw_des,                                 // 2
-        world_position_desired[0],                // 3
-        world_position_desired[1],                // 4
+        xStart,                                   // 3
+        yStart,                                   // 4
         (float)_body_height,                      // 5
         0,                                        // 6
         0,                                        // 7
@@ -334,7 +349,7 @@ void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &da
   auto seResult = data._stateEstimator->getResult();
 
    float Q[12] = {0.25, 0.25, 10,    //角度
-                  2, 2, 50,          //位置
+                  1, 1, 50,          //位置
                   0, 0, 0.3,         //角速度
                   0.2, 0.2, 0.1};    //速度
 
@@ -360,15 +375,13 @@ void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &da
 
   Timer t2;
   update_problem_data_floats(p,v,q,w,r,yaw,weights,trajAll,alpha,mpcTable);
-  printf("MPC Solve time %f ms\n", t2.getMs());
+  //printf("MPC Solve time %f ms\n", t2.getMs());
 
   for(int leg = 0; leg < 4; leg++)
   {
     Vec3<float> f;
     for(int axis = 0; axis < 3; axis++)
       f[axis] = get_solution(leg*3 + axis);
-
-    //printf("[%d] %7.3f %7.3f %7.3f\n", leg, f[0], f[1], f[2]);
 
     f_ff[leg] = -seResult.rBody * f;
     // Update for WBC

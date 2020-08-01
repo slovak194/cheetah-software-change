@@ -226,10 +226,6 @@ void FSM_State_Locomotion<T>::onExit() {
  */
 template <typename T>
 void FSM_State_Locomotion<T>::LocomotionControlStep() {
-  // StateEstimate<T> stateEstimate = this->_data->_stateEstimator->getResult();
-
-  // Contact state logic
-  // estimateContact();
 
   cMPCOld->run<T>(*this->_data);
   Vec3<T> pDes_backup[4];
@@ -258,9 +254,7 @@ void FSM_State_Locomotion<T>::LocomotionControlStep() {
     _wbc_data->Fr_des[i] = cMPCOld->Fr_des[i]; 
   }
   _wbc_data->contact_state = cMPCOld->contact_state;
-  //Timer t1;
   _wbc_ctrl->run(_wbc_data, *this->_data);
-  //printf("MPC Solve time %f ms\n", t1.getMs());
   
   for(int leg(0); leg<4; ++leg){
     //this->_data->_legController->commands[leg].pDes = pDes_backup[leg];

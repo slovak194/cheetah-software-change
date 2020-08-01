@@ -10,12 +10,12 @@ sit_down_height   : 0.098  #蹲下后的高度
 stand_up_height   : 0.4    #站起时的高度
 sit_down_time     : 1.0    #蹲下所需时间
 
-Swing_step_offset : [0,0,0]           #落足点偏移量,向外为正方向
-Kd_joint          : [16, 3.2, 3.2]
-Kp_joint          : [48, 48, 48]
+Swing_step_offset : [0, -0.03, 0]           #落足点偏移量,向外为正方向
+Kd_joint          : [1.6, 3.2, 3.2]
+Kp_joint          : [4.8, 48, 48]
 
-Kp_body           : [400, 400, 400]
-Kd_body           : [40, 40, 40]
+Kp_body           : [40, 40, 40]
+Kd_body           : [4, 4, 4]
 
 Kp_foot           : [4000, 4000, 4000]
 Kd_foot           : [80, 80, 80]

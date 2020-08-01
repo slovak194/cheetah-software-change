@@ -1,3 +1,0 @@
-<map id="SharedMemoryTestNamespace::TestType" name="SharedMemoryTestNamespace::TestType">
-<area shape="rect" id="node2" href="$db/d41/class_shared_memory_semaphore.html" title="{SharedMemorySemaphore\n|&#45; _sem\l&#45; _init\l|+ init()\l+ increment()\l+ decrement()\l+ tryDecrement()\l+ decrementTimeout()\l+ destroy()\l}" alt="" coords="19,5,194,171"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="spatial::translationFromSXform" name="spatial::translationFromSXform">
-<area shape="rect" id="node2" href="$d6/db1/class_floating_base_model.html#a620e24c0c340885940f610875a35f3c7" title="FloatingBaseModel::\lrunABA" alt="" coords="209,5,347,47"/>
-<area shape="rect" id="node4" href="$de/d1a/namespacespatial.html#ab521121fc7af2392144a78003c100a10" title="spatial::sXFormPoint" alt="" coords="208,103,348,130"/>
-<area shape="rect" id="node8" href="$d3/dc1/test__spatial_8cpp.html#a3949f366b31ebddfac7c8c792ef472c8" title="TEST" alt="" coords="251,154,305,181"/>
-<area shape="rect" id="node3" href="$d4/dc6/test__cheetah3__model_8cpp.html#ae0a791e1383a7227ea33c31f94bca12d" title="TEST" alt="" coords="583,25,637,51"/>
-<area shape="rect" id="node5" href="$d6/db1/class_floating_base_model.html#a4c4c27d3bc26c3ad1a3306d16b57f085" title="FloatingBaseModel::\lforwardKinematics" alt="" coords="396,47,535,88"/>
-<area shape="rect" id="node6" href="$d6/db1/class_floating_base_model.html#a6a46aad02aba5eae6cb0a6cda14780ce" title="FloatingBaseModel::\lgetPosition" alt="" coords="396,112,535,153"/>
-<area shape="rect" id="node7" href="$d3/dc1/test__spatial_8cpp.html#adb9f5cc98a8c39b15edb7f5b93be9bd2" title="TEST" alt="" coords="438,178,493,205"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="SimControlPanel::on_saveRobotButton_clicked" name="SimControlPanel::on_saveRobotButton_clicked">
-<area shape="rect" id="node2" href="$d8/dcd/_sim_control_panel_8cpp.html#a771db95f0473f6530892c739de3c1b83" title="createErrorMessage" alt="" coords="253,5,389,32"/>
-<area shape="rect" id="node3" href="$dd/d14/class_simulation.html#a72521ff0a387ce6a53fec3bd9b209b5e" title="Simulation::getRobotParams" alt="" coords="228,56,413,83"/>
-<area shape="rect" id="node4" href="$d8/d86/class_control_parameters.html#a3eabcba112adc206c8a11d0cbfc75619" title="ControlParameters::\lwriteToYamlFile" alt="" coords="253,107,388,149"/>
-<area shape="rect" id="node5" href="$de/df0/utilities_8h.html#a12c9857847f253886a46da7b5c32dbc6" title="writeStringToFile" alt="" coords="461,115,580,141"/>
-</map>

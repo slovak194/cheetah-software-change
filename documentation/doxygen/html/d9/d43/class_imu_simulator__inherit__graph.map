@@ -1,3 +1,0 @@
-<map id="ImuSimulator&lt; T &gt;" name="ImuSimulator&lt; T &gt;">
-<area shape="rect" id="node2" href="$d8/da4/class_imu_simulator.html" title="{ImuSimulator\&lt; double \&gt;\n|&#45; _simSettings\l&#45; _mt\l&#45; _vectornavGyroDistribution\l&#45; _vectornavAccelerometerDistribution\l&#45; _vectornavQuatDistribution\l&#45; _vectorNavOrientationNoise\l|+ ImuSimulator()\l+ updateVectornav()\l+ computeAcceleration()\l+ updateCheaterState()\l}" alt="" coords="5,263,244,457"/>
-</map>

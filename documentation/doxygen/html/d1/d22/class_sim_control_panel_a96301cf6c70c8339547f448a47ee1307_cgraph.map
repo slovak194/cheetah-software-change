@@ -1,5 +1,0 @@
-<map id="SimControlPanel::on_saveUserButton_clicked" name="SimControlPanel::on_saveUserButton_clicked">
-<area shape="rect" id="node2" href="$d8/dcd/_sim_control_panel_8cpp.html#a771db95f0473f6530892c739de3c1b83" title="createErrorMessage" alt="" coords="220,5,356,32"/>
-<area shape="rect" id="node3" href="$d8/d86/class_control_parameters.html#a3eabcba112adc206c8a11d0cbfc75619" title="ControlParameters::\lwriteToYamlFile" alt="" coords="221,57,355,98"/>
-<area shape="rect" id="node4" href="$de/df0/utilities_8h.html#a12c9857847f253886a46da7b5c32dbc6" title="writeStringToFile" alt="" coords="404,64,523,91"/>
-</map>

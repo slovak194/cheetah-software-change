@@ -1,6 +1,0 @@
-<map id="deadband" name="deadband">
-<area shape="rect" id="node2" href="$d0/d27/class_desired_state_command.html#a21143e9f676a1558f8ba3f742750b98b" title="DesiredStateCommand\l::convertToStateCommands" alt="" coords="145,5,326,47"/>
-<area shape="rect" id="node3" href="$d0/d27/class_desired_state_command.html#a6391bbd6e69e6418a8abb5793c89b04b" title="DesiredStateCommand\l\&lt; float \&gt;::DesiredStateCommand" alt="" coords="132,71,339,112"/>
-<area shape="rect" id="node4" href="$d4/d51/struct_gamepad_command.html#a69a169eab70721fa587df490fa61da0b" title="GamepadCommand::applyDeadband" alt="" coords="387,162,617,189"/>
-<area shape="rect" id="node5" href="$de/df0/utilities_8h.html#ae3f93eed76d65a061a54d0b0b46db70a" title="eigenDeadband" alt="" coords="180,187,291,214"/>
-</map>

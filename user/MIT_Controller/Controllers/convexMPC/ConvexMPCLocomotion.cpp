@@ -152,7 +152,8 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
   for(int l = 0; l < 4; l++)
     swingTimes[l] = gait->getCurrentSwingTime(dtMPC, l);
 
-  float side_sign[4] = {-1, 1, -1, 1};
+  float x_side_sign[4] = {1, 1, -1, -1};
+  float y_side_sign[4] = {-1, 1, -1, 1};
   for(int i = 0; i < 4; i++)
   {
     if(firstSwing[i]) {
@@ -161,9 +162,12 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
       swingTimeRemaining[i] -= dt;
     }
     footSwingTrajectories[i].setHeight(_parameters->foot_hight);
-    Vec3<float> offset(0, side_sign[i] * data._quadruped->_abadLinkLength, 0);
+    Vec3<float> abad_offset(0, y_side_sign[i] * data._quadruped->_abadLinkLength, 0);
+    Vec3<float> user_offset(x_side_sign[i]*_parameters->Swing_step_offset[0], 
+                            y_side_sign[i]*_parameters->Swing_step_offset[1],
+                            0);
 
-    Vec3<float> pRobotFrame = (data._quadruped->getHipLocation(i) + offset);
+    Vec3<float> pRobotFrame = (data._quadruped->getHipLocation(i) + abad_offset + user_offset);
 
     float stance_time = gait->getCurrentStanceTime(dtMPC, i);
     Vec3<float> pYawCorrected = 

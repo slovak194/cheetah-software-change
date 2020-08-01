@@ -1,8 +1,0 @@
-<map id="Graphics3D::updateCameraMatrix" name="Graphics3D::updateCameraMatrix">
-<area shape="rect" id="node2" href="$da/d9b/namespaceori.html#abb3365c40bad692ba94734339d8c9df9" title="ori::deg2rad" alt="" coords="275,5,363,32"/>
-<area shape="rect" id="node3" href="$d1/d03/class_draw_list.html#a80d11f2bac48b35639f991bd2bf6db81" title="DrawList::doScrolling" alt="" coords="249,56,390,83"/>
-<area shape="rect" id="node5" href="$dc/d6f/class_first_order_i_i_r_filter.html#a11abac204c75fb6ef53e830d052dfab1" title="FirstOrderIIRFilter::get" alt="" coords="245,107,394,133"/>
-<area shape="rect" id="node6" href="$d1/d03/class_draw_list.html#acdf51fca776b0e13bdbb756e40741442" title="DrawList::getCameraOrigin" alt="" coords="232,157,407,184"/>
-<area shape="rect" id="node7" href="$dc/d6f/class_first_order_i_i_r_filter.html#a6b1e22e84349dfe5b4c166a9d46c5d4b" title="FirstOrderIIRFilter\l::update" alt="" coords="257,209,382,250"/>
-<area shape="rect" id="node4" href="$d1/d03/class_draw_list.html#abb4874ec78af884a830aef981e580137" title="DrawList::getModelKinematic\lTransform" alt="" coords="455,49,643,90"/>
-</map>

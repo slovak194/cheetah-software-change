@@ -1,4 +1,0 @@
-<map id="RobotControlParameters" name="RobotControlParameters">
-<area shape="rect" id="node2" href="$d8/d86/class_control_parameters.html" title="{ControlParameters\n|# _name\l# _mutex\l|+ ControlParameters()\l+ isFullyInitialized()\l+ initializeDouble()\l+ initializeFloat()\l+ initializeInteger()\l+ initializeVec3f()\l+ initializeVec3d()\l+ lockMutex()\l+ unlockMutex()\l+ writeToIniFile()\l+ initializeFromIniFile()\l+ initializeFromYamlFile()\l+ defineAndInitializeFromYamlFile()\l+ writeToYamlFile()\l+ generateUnitializedList()\l}" alt="" coords="5,263,232,560"/>
-<area shape="rect" id="node3" href="$dd/da1/class_control_parameter_collection.html" title="{ControlParameterCollection\n|+ _map\l&#45; _name\l|+ ControlParameterCollection()\l+ addParameter()\l+ lookup()\l+ printToIniString()\l+ printToYamlString()\l+ checkIfAllSet()\l+ clearAllSet()\l+ deleteAll()\l}" alt="" coords="19,5,218,200"/>
-</map>

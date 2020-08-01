@@ -1,5 +1,0 @@
-<map id="FootstepPlanner" name="FootstepPlanner">
-<area shape="rect" id="node2" href="$d7/dd0/struct_default_gaits.html" title="{DefaultGaits\n|+ trotting\l+ standing\l|}" alt="" coords="5,13,99,105"/>
-<area shape="rect" id="node3" href="$dc/dfd/struct_footplan_stats.html" title="{FootplanStats\n|+ nodesVisited\l+ maxMemory\l|+ FootplanStats()\l+ reset()\l}" alt="" coords="123,5,245,112"/>
-<area shape="rect" id="node4" href="$da/d3a/struct_footplan_goal.html" title="{FootplanGoal\n|+ goalPos\l|}" alt="" coords="269,20,368,97"/>
-</map>

@@ -1,3 +1,0 @@
-<map id="SimulatorMessage" name="SimulatorMessage">
-<area shape="rect" id="node2" href="$d4/d34/struct_simulator_syncronized_message.html" title="{SimulatorSyncronizedMessage\n|&#45; robotToSimSemaphore\l&#45; simToRobotSemaphore\l|+ init()\l+ waitForSimulator()\l+ simulatorIsDone()\l+ waitForRobot()\l+ tryWaitForRobot()\l+ waitForRobotWithTimeout()\l+ robotIsDone()\l}" alt="" coords="5,145,204,325"/>
-</map>

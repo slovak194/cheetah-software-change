@@ -1,3 +1,0 @@
-<map id="LegControllerCommand&lt; T &gt;" name="LegControllerCommand&lt; T &gt;">
-<area shape="rect" id="node2" href="$d1/d6a/struct_leg_controller_command.html" title="{LegControllerCommand\l\&lt; float \&gt;\n|+ tauFeedForward\l+ forceFeedForward\l+ qDes\l+ qdDes\l+ pDes\l+ vDes\l+ kpCartesian\l+ kdCartesian\l+ kpJoint\l+ kdJoint\l|+ LegControllerCommand()\l+ zero()\l}" alt="" coords="11,292,187,531"/>
-</map>

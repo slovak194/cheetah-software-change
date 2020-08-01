@@ -1,5 +1,0 @@
-<map id="DrawList::addCheetah3" name="DrawList::addCheetah3">
-<area shape="rect" id="node2" href="$de/d6f/class_graphics3_d.html#a9763080d1e92fcd993afe2d5e2f5446b" title="Graphics3D::setupCheetah3" alt="" coords="207,31,388,57"/>
-<area shape="rect" id="node3" href="$d6/d05/class_robot_interface.html#af09b1f8b1e20aa72ee5e02cad4ca43c9" title="RobotInterface::RobotInterface" alt="" coords="436,5,635,32"/>
-<area shape="rect" id="node4" href="$dd/d14/class_simulation.html#a973095f827be06983911bd0547fe8c9e" title="Simulation::Simulation" alt="" coords="460,56,611,83"/>
-</map>

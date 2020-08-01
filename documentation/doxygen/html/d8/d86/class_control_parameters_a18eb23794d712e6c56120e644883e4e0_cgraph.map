@@ -1,7 +1,0 @@
-<map id="ControlParameters::initializeFromYamlFile" name="ControlParameters::initializeFromYamlFile">
-<area shape="rect" id="node2" href="$da/d98/class_control_parameter.html#a13b0c1993d779ecd063a2177507f2704" title="ControlParameter::initialize\lDouble" alt="" coords="203,5,377,47"/>
-<area shape="rect" id="node3" href="$da/d98/class_control_parameter.html#a758ba2c0d184af0c0a19caee656b2af3" title="ControlParameter::initialize\lFloat" alt="" coords="203,71,377,112"/>
-<area shape="rect" id="node4" href="$da/d98/class_control_parameter.html#abc08f598172aee1e86f51edc67f3fdd8" title="ControlParameter::initialize\lInteger" alt="" coords="203,136,377,177"/>
-<area shape="rect" id="node5" href="$da/d98/class_control_parameter.html#a09a2be4eb342febe00c60d9eaa735d4e" title="ControlParameter::initialize\lVec3d" alt="" coords="203,201,377,243"/>
-<area shape="rect" id="node6" href="$da/d98/class_control_parameter.html#adc8af6ad0dfb0c862cae6ec8ae8d4afd" title="ControlParameter::initialize\lVec3f" alt="" coords="203,267,377,308"/>
-</map>

@@ -1,3 +1,0 @@
-<map id="StateEstimatorContainer&lt; T &gt;" name="StateEstimatorContainer&lt; T &gt;">
-<area shape="rect" id="node2" href="$d1/d3b/class_state_estimator_container.html" title="{StateEstimatorContainer\l\&lt; float \&gt;\n|&#45; _data\l&#45; _estimators\l&#45; _phase\l|+ StateEstimatorContainer()\l+ run()\l+ getResult()\l+ getResultHandle()\l+ setContactPhase()\l+ addEstimator()\l+ removeEstimator()\l+ removeAllEstimators()\l+ ~StateEstimatorContainer()\l}" alt="" coords="7,292,195,531"/>
-</map>

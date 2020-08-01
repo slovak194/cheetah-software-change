@@ -1,9 +1,0 @@
-<map id="ImuSimulator.h" name="ImuSimulator.h">
-<area shape="rect" id="node2" href="$d3/d6a/_imu_simulator_8cpp.html" title="Simulated IMU. " alt="" coords="5,80,128,107"/>
-<area shape="rect" id="node3" href="$d9/d1d/test___imu_simulator_8cpp.html" title="test_ImuSimulator.cpp" alt="" coords="153,80,303,107"/>
-<area shape="rect" id="node4" href="$d2/ded/_simulation_8h.html" title="Main simulation class. " alt="" coords="328,80,421,107"/>
-<area shape="rect" id="node5" href="$d7/dab/_sim_control_panel_8h.html" title="QT gui for the simulator. " alt="" coords="310,155,439,181"/>
-<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html" title="Main Function for the robot program. " alt="" coords="235,229,309,256"/>
-<area shape="rect" id="node8" href="$db/d98/_simulation_8cpp.html" title="Simulation.cpp" alt="" coords="464,155,571,181"/>
-<area shape="rect" id="node7" href="$d8/dcd/_sim_control_panel_8cpp.html" title="SimControlPanel.cpp" alt="" coords="333,229,475,256"/>
-</map>

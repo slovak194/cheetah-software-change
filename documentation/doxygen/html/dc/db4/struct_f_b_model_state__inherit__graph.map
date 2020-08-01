@@ -1,4 +1,0 @@
-<map id="FBModelState&lt; T &gt;" name="FBModelState&lt; T &gt;">
-<area shape="rect" id="node2" href="$de/d75/struct_f_b_model_state.html" title="{FBModelState\&lt; double \&gt;\n|+ bodyOrientation\l+ bodyPosition\l+ bodyVelocity\l+ q\l+ qd\l|+ print()\l}" alt="" coords="5,204,171,340"/>
-<area shape="rect" id="node3" href="$de/d75/struct_f_b_model_state.html" title="{FBModelState\&lt; float \&gt;\n|+ bodyOrientation\l+ bodyPosition\l+ bodyVelocity\l+ q\l+ qd\l|+ print()\l}" alt="" coords="195,204,346,340"/>
-</map>

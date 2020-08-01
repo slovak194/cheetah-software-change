@@ -1,9 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$de/d2f/class_periodic_task.html" title="PeriodicTask" alt="" coords="5,132,103,159"/>
-<area shape="rect" id="node2" href="$d2/da2/class_periodic_function.html" title="PeriodicFunction" alt="" coords="189,5,308,32"/>
-<area shape="rect" id="node3" href="$dd/de7/class_periodic_member_function.html" title="PeriodicMemberFunction\&lt; T \&gt;" alt="" coords="151,56,347,83"/>
-<area shape="rect" id="node4" href="$dc/d6d/class_print_task_status.html" title="PrintTaskStatus" alt="" coords="191,107,306,133"/>
-<area shape="rect" id="node5" href="$d6/d05/class_robot_interface.html" title="RobotInterface" alt="" coords="195,157,302,184"/>
-<area shape="rect" id="node6" href="$d9/d42/class_robot_runner.html" title="RobotRunner" alt="" coords="200,208,297,235"/>
-<area shape="rect" id="node7" href="$d4/d77/class_test_periodic_task.html" title="TestPeriodicTask" alt="" coords="187,259,310,285"/>
-</map>

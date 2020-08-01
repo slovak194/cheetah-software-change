@@ -1,9 +1,0 @@
-<map id="Quadruped::buildModel" name="Quadruped::buildModel">
-<area shape="rect" id="node2" href="$d6/d05/class_robot_interface.html#af09b1f8b1e20aa72ee5e02cad4ca43c9" title="RobotInterface::RobotInterface" alt="" coords="207,5,405,32"/>
-<area shape="rect" id="node3" href="$d9/d42/class_robot_runner.html#affa2cfda073a7b1742561154c3081ae5" title="RobotRunner::init" alt="" coords="246,56,366,83"/>
-<area shape="rect" id="node8" href="$dd/d14/class_simulation.html#a973095f827be06983911bd0547fe8c9e" title="Simulation::Simulation" alt="" coords="231,107,381,133"/>
-<area shape="rect" id="node4" href="$d8/d3a/class_simulation_bridge.html#a3396c7d142b6d3be5c65fc17adad05a0" title="SimulationBridge::runRobot\lControl" alt="" coords="453,49,632,90"/>
-<area shape="rect" id="node5" href="$d8/d3a/class_simulation_bridge.html#a0a9846e88d9afe3370ffe10db348a366" title="SimulationBridge::run" alt="" coords="680,31,824,57"/>
-<area shape="rect" id="node7" href="$d8/d3a/class_simulation_bridge.html#a5cdefecff31a17a54c840de90020d230" title="SimulationBridge::Simulation\lBridge" alt="" coords="872,74,1059,115"/>
-<area shape="rect" id="node6" href="$d3/dfa/main__helper_8cpp.html#acd1b6ffaae55ecc3c765c38ce5bf3a95" title="main_helper" alt="" coords="919,23,1011,49"/>
-</map>

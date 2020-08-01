@@ -268,7 +268,6 @@ void FSM_State_Locomotion<T>::LocomotionControlStep() {
     //this->_data->_legController->commands[leg].kpCartesian = Kp_backup[leg];
     this->_data->_legController->commands[leg].kdCartesian = Kd_backup[leg];
   }
-
 }
 
 // template class FSM_State_Locomotion<double>;

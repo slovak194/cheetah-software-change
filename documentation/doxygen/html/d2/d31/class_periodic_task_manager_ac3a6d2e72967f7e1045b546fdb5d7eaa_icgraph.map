@@ -1,9 +1,0 @@
-<map id="PeriodicTaskManager::stopAll" name="PeriodicTaskManager::stopAll">
-<area shape="rect" id="node2" href="$d6/d05/class_robot_interface.html#a66c4458fa8f57b3b8dfe6cf3ad707a76" title="RobotInterface::stopInterface" alt="" coords="200,107,388,134"/>
-<area shape="rect" id="node8" href="$dc/ddb/test__periodic__tasks_8cpp.html#a7aae74ac92ff35c7384f64f25ecc3350" title="TEST" alt="" coords="267,158,321,185"/>
-<area shape="rect" id="node3" href="$d6/d05/class_robot_interface.html#a273ece51bef7819a95e7924d2a130976" title="RobotInterface::getParams" alt="" coords="436,78,611,105"/>
-<area shape="rect" id="node7" href="$d1/d22/class_sim_control_panel.html#af65b310d0bd0bc382519de762ce32f90" title="SimControlPanel::on\l_stopButton_clicked" alt="" coords="454,129,593,171"/>
-<area shape="rect" id="node4" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="675,5,815,47"/>
-<area shape="rect" id="node5" href="$d1/d22/class_sim_control_panel.html#aac45ac89880d2d316de41365cd6b7cfb" title="SimControlPanel::on\l_robotTable_cellChanged" alt="" coords="661,71,829,112"/>
-<area shape="rect" id="node6" href="$d1/d22/class_sim_control_panel.html#a932918fe9325002dec7f5585c4bfc4f3" title="SimControlPanel::on\l_loadRobotButton_clicked" alt="" coords="659,136,832,177"/>
-</map>

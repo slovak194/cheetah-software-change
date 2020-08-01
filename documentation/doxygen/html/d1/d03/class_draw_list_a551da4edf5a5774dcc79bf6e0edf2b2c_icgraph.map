@@ -1,9 +1,0 @@
-<map id="DrawList::updateAdditionalInfo" name="DrawList::updateAdditionalInfo">
-<area shape="rect" id="node2" href="$dd/d14/class_simulation.html#a6186855f477a8b0add3cf41d5e5a6001" title="Simulation::updateGraphics" alt="" coords="248,53,427,79"/>
-<area shape="rect" id="node3" href="$dd/d14/class_simulation.html#a8639e8b6997a8e44a65a3ed820dc998d" title="Simulation::runAtSpeed" alt="" coords="475,27,632,54"/>
-<area shape="rect" id="node5" href="$dd/d14/class_simulation.html#a8a3a6fa9691b58d5dc614d98b8e4fefb" title="Simulation::setRobotState" alt="" coords="680,78,851,105"/>
-<area shape="rect" id="node4" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="695,12,835,53"/>
-<area shape="rect" id="node6" href="$d1/d22/class_sim_control_panel.html#a9fd8fa720052f15525637834f456c465" title="SimControlPanel::on\l_goHomeButton_clicked" alt="" coords="899,5,1061,47"/>
-<area shape="rect" id="node7" href="$d1/d22/class_sim_control_panel.html#a18191363c7461cd1af623e790df2e71e" title="SimControlPanel::on\l_kickButton_clicked" alt="" coords="911,71,1049,112"/>
-<area shape="rect" id="node8" href="$dd/d14/class_simulation.html#a973095f827be06983911bd0547fe8c9e" title="Simulation::Simulation" alt="" coords="905,137,1055,163"/>
-</map>

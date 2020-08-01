@@ -1,9 +1,0 @@
-<map id="DrawList::updateCheckerboardFromCollisionPlane" name="DrawList::updateCheckerboardFromCollisionPlane">
-<area shape="rect" id="node2" href="$d6/dff/sim__utilities_8h.html#a0f56070ba183dd4f6f435a4619134429" title="spatialTransformToQT" alt="" coords="249,81,400,108"/>
-<area shape="rect" id="node3" href="$de/d1a/namespacespatial.html#af37757ee8ad4510df5478202a62c9502" title="spatial::invertSXform" alt="" coords="478,56,618,83"/>
-<area shape="rect" id="node8" href="$de/d1a/namespacespatial.html#a30b33586f68f1f6b31718848914a90ca" title="spatial::sxformToHomogeneous" alt="" coords="448,107,648,133"/>
-<area shape="rect" id="node4" href="$de/d1a/namespacespatial.html#abdc3cd991206414d80d9f89be27e3633" title="spatial::rotationFromSXform" alt="" coords="696,5,879,32"/>
-<area shape="rect" id="node5" href="$da/d9b/namespaceori.html#a0d9277fde185aecf3eae4a6d6450d25f" title="ori::matToSkewVec" alt="" coords="721,107,854,133"/>
-<area shape="rect" id="node6" href="$de/d1a/namespacespatial.html#ae4a2145f3028087511b4f17c0152ec83" title="spatial::createSXform" alt="" coords="715,56,860,83"/>
-<area shape="rect" id="node7" href="$da/d9b/namespaceori.html#a153f2a76610f0c5524da3f8bf8fa4dfa" title="ori::vectorToSkewMat" alt="" coords="927,56,1073,83"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="JPosInitializer.h" name="JPosInitializer.h">
-<area shape="rect" id="node2" href="$d3/d41/_robot_runner_8h.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="162,80,269,107"/>
-<area shape="rect" id="node7" href="$d0/d85/_j_pos_initializer_8cpp.html" title="Controller to initialize the position of the legs on power&#45;on. " alt="" coords="293,80,420,107"/>
-<area shape="rect" id="node3" href="$db/d55/_simulation_bridge_8h.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="75,155,206,181"/>
-<area shape="rect" id="node6" href="$db/d28/_robot_runner_8cpp.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="231,155,352,181"/>
-<area shape="rect" id="node4" href="$d3/dfa/main__helper_8cpp.html" title="main_helper.cpp" alt="" coords="5,229,121,256"/>
-<area shape="rect" id="node5" href="$dc/da6/_simulation_bridge_8cpp.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="146,229,290,256"/>
-</map>

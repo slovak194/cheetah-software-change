@@ -1,7 +1,0 @@
-<map id="GameController.cpp" name="GameController.cpp">
-<area shape="rect" id="node2" href="$de/d5e/_game_controller_8h.html" title="Code to read the Logitech F310 Game Controller Creates a DriverCommand object to be sent to the robot..." alt="" coords="485,80,608,107"/>
-<area shape="rect" id="node3" href="$d7/d24/_gamepad_command_8h.html" title="The GamepadCommand type containing joystick information. " alt="" coords="348,155,564,181"/>
-<area shape="rect" id="node4" href="$de/df0/utilities_8h.html" title="Common utility functions. " alt="" coords="261,229,379,256"/>
-<area shape="rect" id="node10" href="$d9/d8e/cpp_types_8h.html" title="cppTypes.h" alt="" coords="451,304,538,331"/>
-<area shape="rect" id="node11" href="$d0/d99/c_types_8h.html" title="Common types that are only valid in C++. " alt="" coords="462,379,535,405"/>
-</map>

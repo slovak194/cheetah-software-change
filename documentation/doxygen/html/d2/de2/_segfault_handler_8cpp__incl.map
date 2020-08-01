@@ -1,6 +1,0 @@
-<map id="SegfaultHandler.cpp" name="SegfaultHandler.cpp">
-<area shape="rect" id="node8" href="$dd/d6d/_segfault_handler_8h.html" title="Handler for segfaults. This will catch a segfault, print a stack trace, and put an error code in the ..." alt="" coords="536,87,707,114"/>
-<area shape="rect" id="node10" href="$d3/d68/_utilities__print_8h.html" title="Common utilities for printing. " alt="" coords="758,80,869,121"/>
-<area shape="rect" id="node15" href="$d9/d8e/cpp_types_8h.html" title="cppTypes.h" alt="" coords="995,169,1082,196"/>
-<area shape="rect" id="node17" href="$d0/d99/c_types_8h.html" title="Common types that are only valid in C++. " alt="" coords="1002,244,1075,271"/>
-</map>

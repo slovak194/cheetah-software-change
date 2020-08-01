@@ -1,5 +1,0 @@
-<map id="install_segfault_handler" name="install_segfault_handler">
-<area shape="rect" id="node2" href="$db/d17/_segfault_handler_8cpp.html#a20c4060e48b7a8bc188d81b87e974c05" title="segfault_handler" alt="" coords="209,5,325,32"/>
-<area shape="rect" id="node4" href="$db/d17/_segfault_handler_8cpp.html#aed429b7c618757d735b6bea2609c229a" title="sigint_handler" alt="" coords="217,56,318,83"/>
-<area shape="rect" id="node3" href="$d3/d68/_utilities__print_8h.html#ad7bc2708d6f29fc64b4b961eac94c2da" title="fprintf_color" alt="" coords="373,5,464,32"/>
-</map>

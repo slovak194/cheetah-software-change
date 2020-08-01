@@ -1,9 +1,0 @@
-<map id="TEST" name="TEST">
-<area shape="rect" id="node2" href="$de/dda/_math_utilities_8h.html#aa06ec79f1e3170ea41b58ffbf35b9fb6" title="almostEqual" alt="" coords="163,5,255,32"/>
-<area shape="rect" id="node3" href="$da/d9b/namespaceori.html#a73c3872af6870d856cedd662856fcaea" title="ori::rotationMatrixToQuaternion" alt="" coords="109,56,308,83"/>
-<area shape="rect" id="node4" href="$d8/da4/class_imu_simulator.html#a1c6eaa5dfe26a97bdfeec6b58cad0ad4" title="ImuSimulator::updateVectornav" alt="" coords="108,107,309,133"/>
-<area shape="rect" id="node5" href="$da/d9b/namespaceori.html#af88fa91d686c646d41f9b747a6bc90f0" title="ori::quaternionToRotation\lMatrix" alt="" coords="357,41,523,82"/>
-<area shape="rect" id="node6" href="$de/df0/utilities_8h.html#abbe68d910024077560aa4d2c88c9ca76" title="fillEigenWithRandom" alt="" coords="370,107,510,133"/>
-<area shape="rect" id="node7" href="$da/d9b/namespaceori.html#ac12ecf143879de178929ecaad1714a6a" title="ori::integrateQuat" alt="" coords="380,157,500,184"/>
-<area shape="rect" id="node8" href="$da/d9b/namespaceori.html#a89494866325446c634184782e56113ff" title="ori::quatProduct" alt="" coords="571,157,683,184"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="spatial::jointXform" name="spatial::jointXform">
-<area shape="rect" id="node2" href="$d6/db1/class_floating_base_model.html#aad1c033e1d94d42ee028accaf6a48b1e" title="FloatingBaseModel::\lupdateArticulatedBodies" alt="" coords="177,5,340,47"/>
-<area shape="rect" id="node3" href="$d6/db1/class_floating_base_model.html#a4c4c27d3bc26c3ad1a3306d16b57f085" title="FloatingBaseModel::\lforwardKinematics" alt="" coords="189,71,328,112"/>
-<area shape="rect" id="node5" href="$d3/dc1/test__spatial_8cpp.html#af8aab3878bce7ae92c3a4f8a72a7ac0b" title="TEST" alt="" coords="231,137,286,163"/>
-<area shape="rect" id="node4" href="$d4/dc6/test__cheetah3__model_8cpp.html#ae0a791e1383a7227ea33c31f94bca12d" title="TEST" alt="" coords="388,78,443,105"/>
-</map>

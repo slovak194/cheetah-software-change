@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d8/d86/class_control_parameters.html" title="ControlParameters" alt="" coords="5,81,135,108"/>
-<area shape="rect" id="node2" href="$d0/d73/class_robot_control_parameters.html" title="RobotControlParameters" alt="" coords="197,5,359,32"/>
-<area shape="rect" id="node3" href="$da/dcf/class_simulator_control_parameters.html" title="SimulatorControlParameters" alt="" coords="186,56,370,83"/>
-<area shape="rect" id="node4" href="$d9/d1d/class_test_control_parameters.html" title="TestControlParameters" alt="" coords="201,107,355,133"/>
-<area shape="rect" id="node5" href="$d6/dbe/class_test_vector_control_parameters.html" title="TestVectorControlParameters" alt="" coords="183,157,373,184"/>
-</map>

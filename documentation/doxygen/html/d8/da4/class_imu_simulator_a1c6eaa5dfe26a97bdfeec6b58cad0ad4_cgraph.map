@@ -1,6 +1,0 @@
-<map id="ImuSimulator::updateVectornav" name="ImuSimulator::updateVectornav">
-<area shape="rect" id="node2" href="$de/df0/utilities_8h.html#abbe68d910024077560aa4d2c88c9ca76" title="fillEigenWithRandom" alt="" coords="267,5,407,32"/>
-<area shape="rect" id="node3" href="$da/d9b/namespaceori.html#ac12ecf143879de178929ecaad1714a6a" title="ori::integrateQuat" alt="" coords="277,56,397,83"/>
-<area shape="rect" id="node5" href="$da/d9b/namespaceori.html#af88fa91d686c646d41f9b747a6bc90f0" title="ori::quaternionToRotation\lMatrix" alt="" coords="255,107,420,149"/>
-<area shape="rect" id="node4" href="$da/d9b/namespaceori.html#a89494866325446c634184782e56113ff" title="ori::quatProduct" alt="" coords="468,56,580,83"/>
-</map>

@@ -1,3 +1,0 @@
-<map id="RobotRunner" name="RobotRunner">
-<area shape="rect" id="node2" href="$de/d2f/class_periodic_task.html" title="{PeriodicTask\n|&#45; _period\l&#45; _running\l&#45; _lastRuntime\l&#45; _lastPeriodTime\l&#45; _maxPeriod\l&#45; _maxRuntime\l&#45; _name\l&#45; _thread\l|+ PeriodicTask()\l+ start()\l+ stop()\l+ printStatus()\l+ clearMax()\l+ isSlow()\l+ init()\l+ run()\l+ cleanup()\l+ ~PeriodicTask()\l+ getPeriod()\l+ getRuntime()\l+ getMaxPeriod()\l+ getMaxRuntime()\l&#45; loopFunction()\l}" alt="" coords="29,5,160,391"/>
-</map>

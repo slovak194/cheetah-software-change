@@ -1,7 +1,0 @@
-<map id="Graphics3D::_DrawContactForce" name="Graphics3D::_DrawContactForce">
-<area shape="rect" id="node2" href="$de/d6f/class_graphics3_d.html#adfa1218d3a0f71638ad7095d2efe51aa" title="Graphics3D::_drawArrow" alt="" coords="233,5,396,32"/>
-<area shape="rect" id="node4" href="$d1/d03/class_draw_list.html#a0c2c941704b8e8099f5dc4fb7f2d13f9" title="DrawList::getGCForce" alt="" coords="241,56,388,83"/>
-<area shape="rect" id="node5" href="$d1/d03/class_draw_list.html#ae4b99509d0985cf5302c0ce09e6eb715" title="DrawList::getGCPos" alt="" coords="247,107,383,133"/>
-<area shape="rect" id="node6" href="$d1/d03/class_draw_list.html#a1e061a3a3e49ebfa5cda903410138397" title="DrawList::getTotalNumGC" alt="" coords="229,157,400,184"/>
-<area shape="rect" id="node3" href="$de/d6f/class_graphics3_d.html#aa7f5cf1109caec4c347a2b2536f32e64" title="Graphics3D::_setColor" alt="" coords="448,5,597,32"/>
-</map>

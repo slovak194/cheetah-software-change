@@ -1,8 +1,0 @@
-<map id="TEST" name="TEST">
-<area shape="rect" id="node2" href="$de/dda/_math_utilities_8h.html#aa06ec79f1e3170ea41b58ffbf35b9fb6" title="almostEqual" alt="" coords="145,5,237,32"/>
-<area shape="rect" id="node3" href="$d6/d81/class_spatial_inertia.html#aca01456bae9ae59c9c2951a3f20f23ba" title="SpatialInertia::getCOM" alt="" coords="115,56,267,83"/>
-<area shape="rect" id="node4" href="$d6/d81/class_spatial_inertia.html#aaad7e12bff8c241087de23177ec067f0" title="SpatialInertia::getInertia\lTensor" alt="" coords="111,107,270,149"/>
-<area shape="rect" id="node5" href="$d6/d81/class_spatial_inertia.html#a028068e045683d277c68c931ee466d25" title="SpatialInertia::getMass" alt="" coords="115,173,267,200"/>
-<area shape="rect" id="node6" href="$d6/d81/class_spatial_inertia.html#a593dcefeff8e432d7ad09e620aa9e155" title="SpatialInertia::getMatrix" alt="" coords="112,224,269,251"/>
-<area shape="rect" id="node7" href="$d6/d81/class_spatial_inertia.html#a0aad367456ae80e3223f5c37b98dc441" title="SpatialInertia::getPseudo\lInertia" alt="" coords="108,275,273,317"/>
-</map>

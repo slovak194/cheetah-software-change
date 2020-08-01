@@ -1,6 +1,0 @@
-<map id="ControlParameters" name="ControlParameters">
-<area shape="rect" id="node2" href="$d0/d73/class_robot_control_parameters.html" title="{RobotControlParameters\n||+ RobotControlParameters()\l+ DECLARE_PARAMETER()\l}" alt="" coords="5,395,192,487"/>
-<area shape="rect" id="node3" href="$da/dcf/class_simulator_control_parameters.html" title="{SimulatorControlParameters\n||+ SimulatorControlParameters()\l}" alt="" coords="216,402,419,479"/>
-<area shape="rect" id="node4" href="$d9/d1d/class_test_control_parameters.html" title="{TestControlParameters\n|+ test_double\l+ test_double_param\l+ test_float\l+ test_float_param\l+ test_integer\l+ test_integer_param\l|+ TestControlParameters()\l}" alt="" coords="443,365,616,516"/>
-<area shape="rect" id="node5" href="$d6/dbe/class_test_vector_control_parameters.html" title="{TestVectorControlParameters\n|+ test_double\l+ test_double_param\l+ test_float\l+ test_float_param\l|+ TestVectorControlParameters()\l}" alt="" coords="640,380,851,501"/>
-</map>

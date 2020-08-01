@@ -1,4 +1,0 @@
-<map id="SpatialInertia&lt; T &gt;" name="SpatialInertia&lt; T &gt;">
-<area shape="rect" id="node2" href="$d6/d81/class_spatial_inertia.html" title="{SpatialInertia\&lt; double \&gt;\n|&#45; _inertia\l|+ SpatialInertia()\l+ SpatialInertia()\l+ SpatialInertia()\l+ SpatialInertia()\l+ SpatialInertia()\l+ asMassPropertyVector()\l+ getMatrix()\l+ setMatrix()\l+ addMatrix()\l+ getMass()\l+ getCOM()\l+ getInertiaTensor()\l+ getPseudoInertia()\l+ flipAlongAxis()\l}" alt="" coords="5,336,175,604"/>
-<area shape="rect" id="node3" href="$d6/d81/class_spatial_inertia.html" title="{SpatialInertia\&lt; float \&gt;\n|&#45; _inertia\l|+ SpatialInertia()\l+ SpatialInertia()\l+ SpatialInertia()\l+ SpatialInertia()\l+ SpatialInertia()\l+ asMassPropertyVector()\l+ getMatrix()\l+ setMatrix()\l+ addMatrix()\l+ getMass()\l+ getCOM()\l+ getInertiaTensor()\l+ getPseudoInertia()\l+ flipAlongAxis()\l}" alt="" coords="199,336,368,604"/>
-</map>

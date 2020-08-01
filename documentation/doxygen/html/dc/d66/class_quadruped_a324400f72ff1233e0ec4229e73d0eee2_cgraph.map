@@ -1,9 +1,0 @@
-<map id="Quadruped::buildModel" name="Quadruped::buildModel">
-<area shape="rect" id="node2" href="$d6/db1/class_floating_base_model.html#ab3dfc6605561bee26b4f7a893e44c78d" title="FloatingBaseModel::\laddBase" alt="" coords="231,5,370,47"/>
-<area shape="rect" id="node3" href="$d6/db1/class_floating_base_model.html#adcff6806f39aedf95a3723fc10c6144e" title="FloatingBaseModel::\laddBody" alt="" coords="231,71,370,112"/>
-<area shape="rect" id="node4" href="$d6/db1/class_floating_base_model.html#aff2cddc3077b282fe3504ecd28bc08cb" title="FloatingBaseModel::\laddGroundContactBoxPoints" alt="" coords="207,136,395,177"/>
-<area shape="rect" id="node5" href="$d6/db1/class_floating_base_model.html#a3f2a319bbd26e5e7f91c7d3b980e28c4" title="FloatingBaseModel::\laddGroundContactPoint" alt="" coords="221,201,381,243"/>
-<area shape="rect" id="node6" href="$de/d1a/namespacespatial.html#ae4a2145f3028087511b4f17c0152ec83" title="spatial::createSXform" alt="" coords="228,267,373,294"/>
-<area shape="rect" id="node8" href="$d6/db1/class_floating_base_model.html#a32274ad578f7ad30bd79e786b62cdd62" title="FloatingBaseModel::\lsetGravity" alt="" coords="231,319,370,360"/>
-<area shape="rect" id="node7" href="$da/d9b/namespaceori.html#a153f2a76610f0c5524da3f8bf8fa4dfa" title="ori::vectorToSkewMat" alt="" coords="443,267,589,294"/>
-</map>

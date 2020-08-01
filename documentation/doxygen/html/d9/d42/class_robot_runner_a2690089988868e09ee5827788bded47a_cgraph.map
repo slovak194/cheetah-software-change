@@ -1,5 +1,0 @@
-<map id="RobotRunner::initializeStateEstimator" name="RobotRunner::initializeStateEstimator">
-<area shape="rect" id="node2" href="$d1/d3b/class_state_estimator_container.html#a82af04a884b97b78cabfa79e85fd353f" title="StateEstimatorContainer\l::addEstimator" alt="" coords="233,5,396,47"/>
-<area shape="rect" id="node3" href="$d1/d3b/class_state_estimator_container.html#ad14b9aedc91b17e460bec6f5b73e024e" title="StateEstimatorContainer\l::removeAllEstimators" alt="" coords="233,71,396,112"/>
-<area shape="rect" id="node4" href="$d1/d3b/class_state_estimator_container.html#a100bfcb62c735fef211ae5564ca2e4f6" title="StateEstimatorContainer\l::setContactPhase" alt="" coords="233,136,396,177"/>
-</map>

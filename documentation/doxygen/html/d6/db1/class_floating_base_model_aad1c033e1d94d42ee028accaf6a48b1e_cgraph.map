@@ -1,7 +1,0 @@
-<map id="FloatingBaseModel::updateArticulatedBodies" name="FloatingBaseModel::updateArticulatedBodies">
-<area shape="rect" id="node2" href="$de/d1a/namespacespatial.html#a6440807f3b1854b1708f49048331811a" title="spatial::jointXform" alt="" coords="216,31,340,57"/>
-<area shape="rect" id="node3" href="$de/d1a/namespacespatial.html#acab0e3d82f9a5385d482b83f2ee88eb1" title="spatial::spatialRotation" alt="" coords="388,5,539,32"/>
-<area shape="rect" id="node5" href="$de/d1a/namespacespatial.html#ae4a2145f3028087511b4f17c0152ec83" title="spatial::createSXform" alt="" coords="391,56,536,83"/>
-<area shape="rect" id="node4" href="$da/d9b/namespaceori.html#a537b8d0769c03e4cd8ef2b9a9dc8a760" title="ori::coordinateRotation" alt="" coords="587,5,737,32"/>
-<area shape="rect" id="node6" href="$da/d9b/namespaceori.html#a153f2a76610f0c5524da3f8bf8fa4dfa" title="ori::vectorToSkewMat" alt="" coords="589,56,735,83"/>
-</map>

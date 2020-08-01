@@ -1,0 +1,4 @@
+<map id="JoystickTestWindow" name="JoystickTestWindow">
+<area shape="rect" id="node3" href="$d1/d8b/class_game_controller.html" title="{GameController\n|&#45; _qGamepad\l|+ GameController()\l+ updateGamepadCommand()\l+ findNewController()\l+ ~GameController()\l}" alt="" coords="98,220,293,341"/>
+<area shape="rect" id="node5" href="$d4/d51/struct_gamepad_command.html" title="{GamepadCommand\n|+ leftBumper\l+ rightBumper\l+ leftTriggerButton\l+ rightTriggerButton\l+ back\l+ start\l+ a\l+ b\l+ x\l+ y\land 7 more...\l|+ GamepadCommand()\l+ zero()\l+ set()\l+ get()\l+ applyDeadband()\l+ toString()\l}" alt="" coords="317,132,473,429"/>
+</map>

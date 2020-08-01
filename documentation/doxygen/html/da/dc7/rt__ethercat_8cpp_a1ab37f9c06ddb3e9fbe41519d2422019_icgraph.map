@@ -1,0 +1,5 @@
+<map id="degraded_handler" name="degraded_handler">
+<area shape="rect" id="node2" href="$da/dc7/rt__ethercat_8cpp.html#ad5f2892e4d748ba7af0b22b9f46b8a05" title="ecatcheck" alt="" coords="191,5,273,32"/>
+<area shape="rect" id="node4" href="$da/dc7/rt__ethercat_8cpp.html#a6342e412eae82f78f8bf86d03bc77ced" title="Send and receive data over EtherCAT. " alt="" coords="177,56,287,83"/>
+<area shape="rect" id="node3" href="$da/dc7/rt__ethercat_8cpp.html#a15b2c420e85dbdc167eeec58a974a052" title="rt_ethercat_init" alt="" coords="335,5,443,32"/>
+</map>

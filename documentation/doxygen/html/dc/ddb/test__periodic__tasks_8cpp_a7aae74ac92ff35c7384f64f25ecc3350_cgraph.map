@@ -1,0 +1,11 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node2" href="$dc/ddb/test__periodic__tasks_8cpp.html#af19082c18a61cca79f6ffda46e469dc4" title="inc_scount" alt="" coords="139,5,223,32"/>
+<area shape="rect" id="node3" href="$de/d2f/class_periodic_task.html#a23a65ac2dff9750a0f0d6416f2f32a6f" title="PeriodicTask::start" alt="" coords="117,56,245,83"/>
+<area shape="rect" id="node10" href="$d2/d31/class_periodic_task_manager.html#ac3a6d2e72967f7e1045b546fdb5d7eaa" title="PeriodicTaskManager\l::stopAll" alt="" coords="108,107,255,149"/>
+<area shape="rect" id="node4" href="$de/d2f/class_periodic_task.html#a8bc384b67a67e01b29afc0362732204d" title="PeriodicTask::init" alt="" coords="331,31,451,57"/>
+<area shape="rect" id="node5" href="$de/d2f/class_periodic_task.html#a749e849501c8369723c1b7822c5a2dc5" title="PeriodicTask::loopFunction" alt="" coords="303,81,480,108"/>
+<area shape="rect" id="node6" href="$d8/d08/class_timer.html#aa42cb0519d30540b49a8c73f8ea81470" title="Timer::getSeconds" alt="" coords="528,31,657,57"/>
+<area shape="rect" id="node8" href="$d8/d08/class_timer.html#a3a8b5272198d029779dc9302a54305a8" title="Timer::start" alt="" coords="549,81,636,108"/>
+<area shape="rect" id="node9" href="$de/d2f/class_periodic_task.html#ae6976f44c995555b6403b38443fb2eb5" title="PeriodicTask::run" alt="" coords="532,132,653,159"/>
+<area shape="rect" id="node7" href="$d8/d08/class_timer.html#a737da4ccd6ba451d0c03b6c4fef6e5e9" title="Timer::getNs" alt="" coords="705,31,800,57"/>
+</map>

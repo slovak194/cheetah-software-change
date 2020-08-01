@@ -1,0 +1,6 @@
+<map id="RobotInterface::startInterface" name="RobotInterface::startInterface">
+<area shape="rect" id="node2" href="$d6/d05/class_robot_interface.html#a273ece51bef7819a95e7924d2a130976" title="RobotInterface::getParams" alt="" coords="243,74,417,101"/>
+<area shape="rect" id="node3" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="482,5,622,47"/>
+<area shape="rect" id="node4" href="$d1/d22/class_sim_control_panel.html#aac45ac89880d2d316de41365cd6b7cfb" title="SimControlPanel::on\l_robotTable_cellChanged" alt="" coords="468,71,636,112"/>
+<area shape="rect" id="node5" href="$d1/d22/class_sim_control_panel.html#a932918fe9325002dec7f5585c4bfc4f3" title="SimControlPanel::on\l_loadRobotButton_clicked" alt="" coords="465,136,639,177"/>
+</map>

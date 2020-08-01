@@ -1,0 +1,13 @@
+<map id="ImuSimulator.h" name="ImuSimulator.h">
+<area shape="rect" id="node3" href="$d2/dc1/_simulator_parameters_8h.html" title="ControlParameters/Simulator\lParameters.h" alt="" coords="169,80,357,121"/>
+<area shape="rect" id="node12" href="$d9/d8e/cpp_types_8h.html" title="cppTypes.h" alt="" coords="519,408,606,435"/>
+<area shape="rect" id="node17" href="$d5/d9a/_floating_base_model_8h.html" title="Implementation of Rigid Body Floating Base model data structure. " alt="" coords="759,87,961,114"/>
+<area shape="rect" id="node26" href="$d0/df2/_i_m_u_types_8h.html" title="Data from IMUs. " alt="" coords="381,87,539,114"/>
+<area shape="rect" id="node4" href="$d2/d01/_control_parameters_8h.html" title="Interface to set gains/control parameters for simulator and robot These are designed to be updated in..." alt="" coords="190,169,365,211"/>
+<area shape="rect" id="node8" href="$de/df0/utilities_8h.html" title="Common utility functions. " alt="" coords="222,259,341,285"/>
+<area shape="rect" id="node13" href="$d0/d99/c_types_8h.html" title="Common types that are only valid in C++. " alt="" coords="194,483,267,509"/>
+<area shape="rect" id="node18" href="$d4/dfb/orientation__tools_8h.html" title="Utility functions for 3D rotations. " alt="" coords="826,333,985,360"/>
+<area shape="rect" id="node23" href="$d4/d7d/_spatial_inertia_8h.html" title="Class representing spatial inertia tensors. " alt="" coords="966,177,1074,203"/>
+<area shape="rect" id="node24" href="$d9/dc8/spatial_8h.html" title="Utility functions for manipulating spatial quantities. " alt="" coords="1089,259,1159,285"/>
+<area shape="rect" id="node22" href="$de/dda/_math_utilities_8h.html" title="Utility functions for math. " alt="" coords="857,408,993,435"/>
+</map>

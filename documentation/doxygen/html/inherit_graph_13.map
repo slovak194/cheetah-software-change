@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$df/dc6/class_collision.html" title="Collision\&lt; T \&gt;" alt="" coords="5,56,105,83"/>
+<area shape="rect" id="node2" href="$d1/db3/class_collision_box.html" title="CollisionBox\&lt; T \&gt;" alt="" coords="159,5,281,32"/>
+<area shape="rect" id="node3" href="$d4/daa/class_collision_mesh.html" title="CollisionMesh\&lt; T \&gt;" alt="" coords="155,56,285,83"/>
+<area shape="rect" id="node4" href="$d4/d38/class_collision_plane.html" title="CollisionPlane\&lt; T \&gt;" alt="" coords="153,107,287,133"/>
+</map>

@@ -1,0 +1,35 @@
+<map id="ControlParameters.h" name="ControlParameters.h">
+<area shape="rect" id="node2" href="$d6/de9/_control_parameter_interface_8h.html" title="Types to allow remote access of control parameters, for use with LCM/Shared memory. " alt="" coords="1208,80,1392,107"/>
+<area shape="rect" id="node10" href="$d8/dcd/_sim_control_panel_8cpp.html" title="SimControlPanel.cpp" alt="" coords="1918,379,2060,405"/>
+<area shape="rect" id="node16" href="$d9/d53/_robot_parameters_8h.html" title="RobotParameters.h" alt="" coords="1454,80,1586,107"/>
+<area shape="rect" id="node28" href="$db/d74/test___control_parameters_8cpp.html" title="test_ControlParameters.cpp" alt="" coords="1749,155,1930,181"/>
+<area shape="rect" id="node30" href="$d2/dc1/_simulator_parameters_8h.html" title="SimulatorParameters.h" alt="" coords="1887,80,2040,107"/>
+<area shape="rect" id="node34" href="$d5/d90/_control_parameters_8cpp.html" title="Interface to set gains/control parameters for simulator and robot These are designed to be updated in..." alt="" coords="2327,80,2480,107"/>
+<area shape="rect" id="node3" href="$d1/db1/_simulator_message_8h.html" title="Messages sent to/from the development simulator. " alt="" coords="1192,155,1330,181"/>
+<area shape="rect" id="node7" href="$d2/ded/_simulation_8h.html" title="Main simulation class. " alt="" coords="1484,229,1577,256"/>
+<area shape="rect" id="node12" href="$d9/dd2/_control_parameter_interface_8cpp.html" title="Types to allow remote access of control parameters, for use with LCM/Shared memory. " alt="" coords="112,155,311,181"/>
+<area shape="rect" id="node13" href="$d3/d41/_robot_runner_8h.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="864,379,970,405"/>
+<area shape="rect" id="node15" href="$dd/d4a/_robot_interface_8cpp.html" title="RobotInterface.cpp" alt="" coords="1601,229,1732,256"/>
+<area shape="rect" id="node4" href="$db/d55/_simulation_bridge_8h.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="1345,453,1476,480"/>
+<area shape="rect" id="node5" href="$d3/dfa/main__helper_8cpp.html" title="main_helper.cpp" alt="" coords="1204,528,1320,555"/>
+<area shape="rect" id="node6" href="$dc/da6/_simulation_bridge_8cpp.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="1345,528,1489,555"/>
+<area shape="rect" id="node8" href="$d7/dab/_sim_control_panel_8h.html" title="QT gui for the simulator. " alt="" coords="1704,304,1834,331"/>
+<area shape="rect" id="node9" href="$df/d0a/main_8cpp.html" title="Main Function for the robot program. " alt="" coords="1680,379,1754,405"/>
+<area shape="rect" id="node11" href="$db/d98/_simulation_8cpp.html" title="Simulation.cpp" alt="" coords="1477,304,1584,331"/>
+<area shape="rect" id="node14" href="$db/d28/_robot_runner_8cpp.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="488,453,610,480"/>
+<area shape="rect" id="node17" href="$d8/d87/_state_estimator_container_8h.html" title="StateEstimatorContainer.h" alt="" coords="831,155,1003,181"/>
+<area shape="rect" id="node29" href="$d4/df6/_robot_interface_8h.html" title="Interface between simulator and hardware using LCM. " alt="" coords="1608,155,1725,181"/>
+<area shape="rect" id="node18" href="$db/d94/_contact_estimator_8h.html" title="All Contact Estimation Algorithms. " alt="" coords="749,304,880,331"/>
+<area shape="rect" id="node20" href="$d8/dfc/_desired_state_command_8h.html" title="Logic to convert a joystick command into a desired trajectory for the robot. " alt="" coords="982,229,1148,256"/>
+<area shape="rect" id="node22" href="$d3/dff/_robot_controller_8h.html" title="Parent class of user robot controllers. This is an interface between the control code and the common ..." alt="" coords="1208,304,1330,331"/>
+<area shape="rect" id="node24" href="$dd/df4/_orientation_estimator_8h.html" title="All Orientation Estimation Algorithms. " alt="" coords="302,229,452,256"/>
+<area shape="rect" id="node26" href="$df/ddd/_position_velocity_estimator_8h.html" title="All State Estimation Algorithms. " alt="" coords="540,229,718,256"/>
+<area shape="rect" id="node19" href="$d1/dfb/_contact_estimator_8cpp.html" title="All Contact Estimation Algorithms. " alt="" coords="694,379,839,405"/>
+<area shape="rect" id="node21" href="$d3/d4e/_desired_state_command_8cpp.html" title="DesiredStateCommand.cpp" alt="" coords="1005,304,1184,331"/>
+<area shape="rect" id="node23" href="$d6/da5/main__helper_8h.html" title="Function which should be called in main to start your robot control code. " alt="" coords="1218,453,1320,480"/>
+<area shape="rect" id="node25" href="$d8/d63/_orientation_estimator_8cpp.html" title="All Orientation Estimation Algorithms. " alt="" coords="296,304,458,331"/>
+<area shape="rect" id="node27" href="$d6/d39/_position_velocity_estimator_8cpp.html" title="All State Estimation Algorithms. " alt="" coords="534,304,724,331"/>
+<area shape="rect" id="node31" href="$d2/da4/_imu_simulator_8h.html" title="Simulated IMU with noise. " alt="" coords="2056,155,2165,181"/>
+<area shape="rect" id="node32" href="$d3/d6a/_imu_simulator_8cpp.html" title="Simulated IMU. " alt="" coords="2129,229,2252,256"/>
+<area shape="rect" id="node33" href="$d9/d1d/test___imu_simulator_8cpp.html" title="test_ImuSimulator.cpp" alt="" coords="1954,229,2104,256"/>
+</map>

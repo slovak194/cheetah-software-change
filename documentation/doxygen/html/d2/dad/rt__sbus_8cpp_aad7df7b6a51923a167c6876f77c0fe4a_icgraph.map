@@ -1,0 +1,10 @@
+<map id="map_switch" name="map_switch">
+<area shape="rect" id="node2" href="$d2/dad/rt__sbus_8cpp.html#a53f881ce4247a7932872dac11244ed00" title="update_taranis_x7" alt="" coords="144,72,271,99"/>
+<area shape="rect" id="node3" href="$d8/d68/rt__rc__interface_8cpp.html#a3f348fdbac738fe554e4543dee262081" title="sbus_packet_complete" alt="" coords="319,72,473,99"/>
+<area shape="rect" id="node4" href="$d8/d3a/class_simulation_bridge.html#aad85f4ea0a490daed77d90efff2dcc92" title="SimulationBridge::run_sbus" alt="" coords="521,72,699,99"/>
+<area shape="rect" id="node5" href="$d8/d3a/class_simulation_bridge.html#a3396c7d142b6d3be5c65fc17adad05a0" title="SimulationBridge::runRobot\lControl" alt="" coords="747,31,925,73"/>
+<area shape="rect" id="node9" href="$d8/d3a/class_simulation_bridge.html#a1086e5bf19888451b7f38f4b7eaa04fa" title="SimulationBridge::\l~SimulationBridge" alt="" coords="773,97,899,138"/>
+<area shape="rect" id="node6" href="$d8/d3a/class_simulation_bridge.html#a0a9846e88d9afe3370ffe10db348a366" title="SimulationBridge::run" alt="" coords="973,13,1117,40"/>
+<area shape="rect" id="node8" href="$d8/d3a/class_simulation_bridge.html#a5cdefecff31a17a54c840de90020d230" title="SimulationBridge::Simulation\lBridge" alt="" coords="1165,57,1352,98"/>
+<area shape="rect" id="node7" href="$d3/dfa/main__helper_8cpp.html#acd1b6ffaae55ecc3c765c38ce5bf3a95" title="main_helper" alt="" coords="1213,5,1305,32"/>
+</map>

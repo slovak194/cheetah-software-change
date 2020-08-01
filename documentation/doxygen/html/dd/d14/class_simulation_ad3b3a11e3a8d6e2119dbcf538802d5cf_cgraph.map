@@ -1,0 +1,51 @@
+<map id="Simulation::loadTerrainFile" name="Simulation::loadTerrainFile">
+<area shape="rect" id="node2" href="$dd/d14/class_simulation.html#a33e67c5154f5fdbab0d49f23777f4313" title="Simulation::addCollisionBox" alt="" coords="233,1082,413,1109"/>
+<area shape="rect" id="node8" href="$dd/d14/class_simulation.html#afae53444e828ca1ce1a8b20d2f9fecc6" title="Simulation::addCollisionMesh" alt="" coords="228,1377,417,1403"/>
+<area shape="rect" id="node11" href="$dd/d14/class_simulation.html#a20c4e8286bb7880f186e0aa3fe5f103e" title="Simulation::addCollision\lPlane" alt="" coords="243,1201,402,1243"/>
+<area shape="rect" id="node18" href="$da/d9b/namespaceori.html#add867f41c8046a8bba05611e25c8dfcd" title="ori::rpyToRotMat" alt="" coords="754,1006,870,1033"/>
+<area shape="rect" id="node20" href="$dd/d14/class_simulation.html#a5474b99a1471e382b2e6a87adff814dc" title="Simulation::step" alt="" coords="266,618,379,645"/>
+<area shape="rect" id="node3" href="$d1/d03/class_draw_list.html#a9c2c9531b2de18e928fc8d0d20cfb4c7" title="DrawList::addBox" alt="" coords="503,1057,623,1083"/>
+<area shape="rect" id="node5" href="$d7/d9c/class_dynamics_simulator.html#aa3c1c830bfa1dc1ceed7ff95f2f437c1" title="DynamicsSimulator::\laddCollisionBox" alt="" coords="494,991,633,1032"/>
+<area shape="rect" id="node6" href="$de/d6f/class_graphics3_d.html#ac763bf007eb93804b0350340cc6adb80" title="Graphics3D::lockGfxMutex" alt="" coords="476,1377,651,1403"/>
+<area shape="rect" id="node7" href="$de/d6f/class_graphics3_d.html#a4c7364a808d197a1632386204c6eb20c" title="Graphics3D::unlockGfxMutex" alt="" coords="469,1107,657,1134"/>
+<area shape="rect" id="node4" href="$da/d9b/namespaceori.html#a73c3872af6870d856cedd662856fcaea" title="ori::rotationMatrixToQuaternion" alt="" coords="713,1057,911,1083"/>
+<area shape="rect" id="node9" href="$d7/d9c/class_dynamics_simulator.html#a3ae2854bcabc457357f541359a1c2075" title="DynamicsSimulator::\laddCollisionMesh" alt="" coords="494,1428,633,1469"/>
+<area shape="rect" id="node10" href="$d1/d03/class_draw_list.html#a7e274d87788b859c9099a6b398116304" title="DrawList::addMesh" alt="" coords="499,1494,628,1521"/>
+<area shape="rect" id="node12" href="$d1/d03/class_draw_list.html#a44c90a51cc8b69fe9fbc6a2958481a4e" title="DrawList::addCheckerboard" alt="" coords="474,1259,653,1286"/>
+<area shape="rect" id="node15" href="$d7/d9c/class_dynamics_simulator.html#ac35ba5a30a31d439be9933947e6c806a" title="DynamicsSimulator::\laddCollisionPlane" alt="" coords="494,1311,633,1352"/>
+<area shape="rect" id="node16" href="$d1/d03/class_draw_list.html#a792c90bc3c128f684bd62928b24d2d38" title="DrawList::buildDrawList" alt="" coords="487,1158,640,1185"/>
+<area shape="rect" id="node17" href="$d1/d03/class_draw_list.html#ae3f55365bc72bedb51b835533c515861" title="DrawList::updateCheckerboard" alt="" coords="465,1209,661,1235"/>
+<area shape="rect" id="node13" href="$df/d89/class_checkerboard.html#a7da009b6e556e016815920ee968efa98" title="Checkerboard::computeVertices" alt="" coords="963,1259,1167,1286"/>
+<area shape="rect" id="node14" href="$df/d89/class_checkerboard.html#ac2684bd81769c83fbf0bf2f648a35488" title="Checkerboard::getSize" alt="" coords="737,1285,887,1311"/>
+<area shape="rect" id="node19" href="$da/d9b/namespaceori.html#a537b8d0769c03e4cd8ef2b9a9dc8a760" title="ori::coordinateRotation" alt="" coords="989,1027,1140,1054"/>
+<area shape="rect" id="node21" href="$dd/d14/class_simulation.html#acfb66e9a45bf3c99747d271418f34bfe" title="Simulation::lowLevelControl" alt="" coords="474,589,653,615"/>
+<area shape="rect" id="node22" href="$d7/d9c/class_dynamics_simulator.html#a72892f39ed60e2f50df53ea49ffb6433" title="DynamicsSimulator::\lgetState" alt="" coords="995,505,1134,547"/>
+<area shape="rect" id="node23" href="$dd/d14/class_simulation.html#a04559087d745de92a850e2c490d4981d" title="Simulation::highLevelControl" alt="" coords="471,345,655,371"/>
+<area shape="rect" id="node39" href="$d7/d9c/class_dynamics_simulator.html#a339504f4bd9866588fd73b2fc0fbab0d" title="DynamicsSimulator::\lsetHoming" alt="" coords="494,640,633,681"/>
+<area shape="rect" id="node40" href="$d7/d9c/class_dynamics_simulator.html#a84b25acaf7edf23f4f437a96a0d8ba05" title="Initialize simulator with given model. " alt="" coords="482,823,645,850"/>
+<area shape="rect" id="node24" href="$dd/d14/class_simulation.html#ad20996d43bb2265500b4edb5fcb00dc6" title="Simulation::buildLcmMessage" alt="" coords="716,151,908,178"/>
+<area shape="rect" id="node26" href="$d7/d9c/class_dynamics_simulator.html#a1dc9f92d57994e053f91b9cb619adde4" title="DynamicsSimulator::\lgetDState" alt="" coords="995,188,1134,229"/>
+<area shape="rect" id="node31" href="$de/d6f/class_graphics3_d.html#ac7b1785526bd53f8ff17592fc838a630" title="Graphics3D::getDriverCommand" alt="" coords="709,370,915,397"/>
+<area shape="rect" id="node32" href="$dd/d14/class_simulation.html#aa8bb72cad399da9c09dc8396bd23b2df" title="Simulation::handleControl\lError" alt="" coords="728,421,896,463"/>
+<area shape="rect" id="node33" href="$d8/da4/class_imu_simulator.html#aadd00de99602f7c66cba555527bf3294" title="ImuSimulator::updateCheater\lState" alt="" coords="717,253,907,295"/>
+<area shape="rect" id="node35" href="$d8/da4/class_imu_simulator.html#a1c6eaa5dfe26a97bdfeec6b58cad0ad4" title="ImuSimulator::updateVectornav" alt="" coords="711,319,913,346"/>
+<area shape="rect" id="node25" href="$d7/d9c/class_dynamics_simulator.html#a9afb9649511f0eb19f953bf470d80252" title="DynamicsSimulator::\lgetContactForce" alt="" coords="995,71,1134,112"/>
+<area shape="rect" id="node27" href="$d7/d9c/class_dynamics_simulator.html#a560cb59e43a731fd2a8bb4f54b4086bd" title="DynamicsSimulator::\lgetModel" alt="" coords="995,5,1134,47"/>
+<area shape="rect" id="node28" href="$da/d9b/namespaceori.html#af88fa91d686c646d41f9b747a6bc90f0" title="ori::quaternionToRotation\lMatrix" alt="" coords="982,319,1147,360"/>
+<area shape="rect" id="node29" href="$da/d9b/namespaceori.html#add76bed815809cbebd38a8596b0f6224" title="ori::quatToRPY" alt="" coords="1010,137,1119,163"/>
+<area shape="rect" id="node30" href="$de/dda/_math_utilities_8h.html#a4f88262a43b7f84fc10183a1f82f6b66" title="square" alt="" coords="1258,137,1318,163"/>
+<area shape="rect" id="node34" href="$de/d1a/namespacespatial.html#a13df9ec1359ecd4150251eaae0895198" title="spatial::spatialToLinear\lAcceleration" alt="" coords="989,253,1141,295"/>
+<area shape="rect" id="node36" href="$de/df0/utilities_8h.html#abbe68d910024077560aa4d2c88c9ca76" title="fillEigenWithRandom" alt="" coords="995,385,1135,411"/>
+<area shape="rect" id="node37" href="$da/d9b/namespaceori.html#ac12ecf143879de178929ecaad1714a6a" title="ori::integrateQuat" alt="" coords="1005,825,1125,851"/>
+<area shape="rect" id="node38" href="$da/d9b/namespaceori.html#a89494866325446c634184782e56113ff" title="ori::quatProduct" alt="" coords="1232,850,1344,877"/>
+<area shape="rect" id="node41" href="$de/d1a/namespacespatial.html#a3b32f3f809891285d9f1a8cf3c7cd16e" title="spatial::forceToSpatialForce" alt="" coords="721,706,903,733"/>
+<area shape="rect" id="node42" href="$d7/d9c/class_dynamics_simulator.html#a3c057386e8d437e8c5dbcae02acf935c" title="Do forward kinematics for feet. " alt="" coords="743,757,881,799"/>
+<area shape="rect" id="node43" href="$d7/d9c/class_dynamics_simulator.html#aa713195f636bdfd32743ad5cd5385fcd" title="Integrate to find new _state. " alt="" coords="743,940,881,981"/>
+<area shape="rect" id="node48" href="$da/d9b/namespaceori.html#a90e9fca31a184b48790b43aa6f44fcbd" title="ori::quatToso3" alt="" coords="761,823,863,850"/>
+<area shape="rect" id="node49" href="$d7/d9c/class_dynamics_simulator.html#ab7c1b6d1eb8d4893458b6910b1f9d331" title="Simulate forward one step. " alt="" coords="743,875,881,916"/>
+<area shape="rect" id="node50" href="$d7/d9c/class_dynamics_simulator.html#ac2a79fc7a13298b6fa4b9fa87844106e" title="DynamicsSimulator::\lupdateCollisions" alt="" coords="743,640,881,681"/>
+<area shape="rect" id="node44" href="$de/d1a/namespacespatial.html#ae4a2145f3028087511b4f17c0152ec83" title="spatial::createSXform" alt="" coords="992,926,1137,953"/>
+<area shape="rect" id="node46" href="$da/d9b/namespaceori.html#a24ac869b814e7e46a63c4ee97e3279ea" title="ori::integrateQuatImplicit" alt="" coords="983,875,1146,902"/>
+<area shape="rect" id="node47" href="$de/d1a/namespacespatial.html#abdc3cd991206414d80d9f89be27e3633" title="spatial::rotationFromSXform" alt="" coords="973,977,1156,1003"/>
+<area shape="rect" id="node45" href="$da/d9b/namespaceori.html#a153f2a76610f0c5524da3f8bf8fa4dfa" title="ori::vectorToSkewMat" alt="" coords="1215,926,1361,953"/>
+</map>

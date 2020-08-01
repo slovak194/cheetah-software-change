@@ -1,0 +1,5 @@
+<map id="Simulation::setRobotState" name="Simulation::setRobotState">
+<area shape="rect" id="node2" href="$d1/d22/class_sim_control_panel.html#a9fd8fa720052f15525637834f456c465" title="SimControlPanel::on\l_goHomeButton_clicked" alt="" coords="224,5,387,47"/>
+<area shape="rect" id="node3" href="$d1/d22/class_sim_control_panel.html#a18191363c7461cd1af623e790df2e71e" title="SimControlPanel::on\l_kickButton_clicked" alt="" coords="236,71,375,112"/>
+<area shape="rect" id="node4" href="$dd/d14/class_simulation.html#a973095f827be06983911bd0547fe8c9e" title="Simulation::Simulation" alt="" coords="230,137,381,163"/>
+</map>

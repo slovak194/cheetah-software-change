@@ -1,0 +1,8 @@
+<map id="PeriodicTask::start" name="PeriodicTask::start">
+<area shape="rect" id="node2" href="$de/d2f/class_periodic_task.html#a8bc384b67a67e01b29afc0362732204d" title="PeriodicTask::init" alt="" coords="210,5,330,32"/>
+<area shape="rect" id="node3" href="$de/d2f/class_periodic_task.html#a749e849501c8369723c1b7822c5a2dc5" title="PeriodicTask::loopFunction" alt="" coords="181,56,359,83"/>
+<area shape="rect" id="node4" href="$d8/d08/class_timer.html#aa42cb0519d30540b49a8c73f8ea81470" title="Timer::getSeconds" alt="" coords="407,5,536,32"/>
+<area shape="rect" id="node6" href="$de/d2f/class_periodic_task.html#ae6976f44c995555b6403b38443fb2eb5" title="PeriodicTask::run" alt="" coords="411,56,532,83"/>
+<area shape="rect" id="node7" href="$d8/d08/class_timer.html#a3a8b5272198d029779dc9302a54305a8" title="Timer::start" alt="" coords="428,107,515,133"/>
+<area shape="rect" id="node5" href="$d8/d08/class_timer.html#a737da4ccd6ba451d0c03b6c4fef6e5e9" title="Timer::getNs" alt="" coords="584,5,679,32"/>
+</map>

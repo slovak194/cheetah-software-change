@@ -1,0 +1,5 @@
+<map id="JoystickTestWindow::JoystickTestWindow" name="JoystickTestWindow::JoystickTestWindow">
+<area shape="rect" id="node2" href="$d8/d1d/class_joystick_test_window.html#ae0dddd641a18e6a51750d9c0d830e14d" title="JoystickTestWindow\l::update" alt="" coords="199,5,337,47"/>
+<area shape="rect" id="node3" href="$d1/d8b/class_game_controller.html#ac4544ca562232ab37d073cd7ce69197f" title="GameController::updateGamepad\lCommand" alt="" coords="385,5,599,47"/>
+<area shape="rect" id="node4" href="$d4/d51/struct_gamepad_command.html#a9eaa9194374572d57b23de164ee6b29f" title="GamepadCommand::zero" alt="" coords="647,13,813,39"/>
+</map>

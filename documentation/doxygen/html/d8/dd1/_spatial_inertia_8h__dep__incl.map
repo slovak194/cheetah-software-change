@@ -1,0 +1,51 @@
+<map id="SpatialInertia.h" name="SpatialInertia.h">
+<area shape="rect" id="node2" href="$d5/d9a/_floating_base_model_8h.html" title="Implementation of Rigid Body Floating Base model data structure. " alt="" coords="1081,80,1223,107"/>
+<area shape="rect" id="node27" href="$d3/dc7/_quadruped_8h.html" title="Data structure containing parameters for quadruped robot. " alt="" coords="1847,155,1942,181"/>
+<area shape="rect" id="node50" href="$d3/dc1/test__spatial_8cpp.html" title="Test spatial vector/transform maniuplation functions. " alt="" coords="1611,80,1722,107"/>
+<area shape="rect" id="node3" href="$d5/d79/_contact_constraint_8h.html" title="Virtual class of Contact Constraint logic. " alt="" coords="445,155,579,181"/>
+<area shape="rect" id="node4" href="$da/daa/_contact_impulse_8h.html" title="Implementation of impulse&#45;based contact dynamics. " alt="" coords="451,229,573,256"/>
+<area shape="rect" id="node7" href="$da/d04/_contact_spring_damper_8h.html" title="Spring Damper based Contact dynamics. " alt="" coords="94,229,253,256"/>
+<area shape="rect" id="node8" href="$d6/da7/_contact_spring_damper_8cpp.html" title="Spring Damper based Contact dynamics. " alt="" coords="65,304,239,331"/>
+<area shape="rect" id="node9" href="$d0/d52/_dynamics_simulator_8h.html" title="Rigid Body Dynamics Simulator with Collisions. " alt="" coords="598,229,741,256"/>
+<area shape="rect" id="node10" href="$db/d42/test__dynamics_8cpp.html" title="Test dynamics algorithms. " alt="" coords="1012,304,1140,331"/>
+<area shape="rect" id="node11" href="$d6/d6e/test__mini__cheetah__model_8cpp.html" title="test_mini_cheetah_model.cpp" alt="" coords="1165,304,1358,331"/>
+<area shape="rect" id="node12" href="$df/d65/_draw_list_8h.html" title="Data structure to store robot model to be drawn. " alt="" coords="855,304,937,331"/>
+<area shape="rect" id="node16" href="$df/d0a/main_8cpp.html" title="Main Function for the robot program. " alt="" coords="1100,603,1175,629"/>
+<area shape="rect" id="node23" href="$d6/dce/_cheetah3_8h.html" title="Utility function to build a Cheetah 3 Quadruped object. " alt="" coords="1699,229,1786,256"/>
+<area shape="rect" id="node25" href="$d4/dc6/test__cheetah3__model_8cpp.html" title="test_cheetah3_model.cpp" alt="" coords="1485,304,1654,331"/>
+<area shape="rect" id="node36" href="$d3/dff/_robot_controller_8h.html" title="Parent class of user robot controllers. This is an interface between the control code and the common ..." alt="" coords="2549,453,2670,480"/>
+<area shape="rect" id="node44" href="$d8/db6/_mini_cheetah_8h.html" title="Utility function to build a Mini Cheetah Quadruped object. " alt="" coords="2116,229,2220,256"/>
+<area shape="rect" id="node46" href="$d2/da4/_imu_simulator_8h.html" title="Simulated IMU with noise. " alt="" coords="944,155,1053,181"/>
+<area shape="rect" id="node49" href="$da/de7/_floating_base_model_8cpp.html" title="Implementation of Rigid Body Floating Base model data structure. " alt="" coords="1190,155,1346,181"/>
+<area shape="rect" id="node22" href="$d2/d02/_contact_constraint_8cpp.html" title="ContactConstraint virtual class. " alt="" coords="277,229,427,256"/>
+<area shape="rect" id="node5" href="$da/d75/_contact_impulse_8cpp.html" title="Implementation of impulse&#45;based contact dynamics. " alt="" coords="365,304,501,331"/>
+<area shape="rect" id="node6" href="$de/d4c/_dynamics_simulator_8cpp.html" title="Rigid Body Dynamics Simulator with Collisions. " alt="" coords="525,304,683,331"/>
+<area shape="rect" id="node13" href="$d2/de7/_graphics3_d_8h.html" title="Visualizer window for simulator. " alt="" coords="977,379,1076,405"/>
+<area shape="rect" id="node21" href="$d1/d8b/_draw_list_8cpp.html" title="Data structure to store robot model to be drawn. " alt="" coords="858,379,953,405"/>
+<area shape="rect" id="node14" href="$d4/df6/_robot_interface_8h.html" title="Interface between simulator and hardware using LCM. " alt="" coords="1292,453,1409,480"/>
+<area shape="rect" id="node15" href="$d7/dab/_sim_control_panel_8h.html" title="QT gui for the simulator. " alt="" coords="1073,528,1202,555"/>
+<area shape="rect" id="node18" href="$d2/ded/_simulation_8h.html" title="Main simulation class. " alt="" coords="1175,453,1268,480"/>
+<area shape="rect" id="node20" href="$d7/d90/_graphics3_d_8cpp.html" title="Visualizer window for simulator. " alt="" coords="883,453,997,480"/>
+<area shape="rect" id="node17" href="$dd/d4a/_robot_interface_8cpp.html" title="RobotInterface.cpp" alt="" coords="1805,528,1936,555"/>
+<area shape="rect" id="node19" href="$db/d98/_simulation_8cpp.html" title="Simulation.cpp" alt="" coords="1336,528,1443,555"/>
+<area shape="rect" id="node24" href="$d9/d56/test__actuator_model_8cpp.html" title="Test the actuator model of the mini cheetah and cheetah 3 robots. " alt="" coords="1933,304,2089,331"/>
+<area shape="rect" id="node26" href="$db/d28/_robot_runner_8cpp.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="2811,603,2933,629"/>
+<area shape="rect" id="node28" href="$d0/d41/_leg_controller_8h.html" title="Common Leg Control Interface and Leg Control Algorithms. " alt="" coords="2937,229,3045,256"/>
+<area shape="rect" id="node31" href="$d3/d41/_robot_runner_8h.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="3096,528,3203,555"/>
+<area shape="rect" id="node41" href="$d6/dbf/test___leg_controller_8cpp.html" title="test_LegController.cpp" alt="" coords="2367,304,2518,331"/>
+<area shape="rect" id="node42" href="$d1/df4/_j_pos_initializer_8h.html" title="Controller to initialize the position of the legs on power&#45;on. " alt="" coords="3391,304,3503,331"/>
+<area shape="rect" id="node45" href="$da/dfc/_quadruped_8cpp.html" title="Data structure containing parameters for quadruped robot. " alt="" coords="1983,229,2092,256"/>
+<area shape="rect" id="node29" href="$d8/d87/_state_estimator_container_8h.html" title="StateEstimatorContainer.h" alt="" coords="2819,304,2991,331"/>
+<area shape="rect" id="node34" href="$dc/da6/_simulation_bridge_8cpp.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="3179,677,3323,704"/>
+<area shape="rect" id="node40" href="$da/d2d/_leg_controller_8cpp.html" title="Common Leg Control Interface. " alt="" coords="3016,304,3139,331"/>
+<area shape="rect" id="node30" href="$db/d94/_contact_estimator_8h.html" title="All Contact Estimation Algorithms. " alt="" coords="3033,453,3164,480"/>
+<area shape="rect" id="node35" href="$d8/dfc/_desired_state_command_8h.html" title="Logic to convert a joystick command into a desired trajectory for the robot. " alt="" coords="2745,379,2911,405"/>
+<area shape="rect" id="node38" href="$dd/df4/_orientation_estimator_8h.html" title="All Orientation Estimation Algorithms. " alt="" coords="2740,528,2889,555"/>
+<area shape="rect" id="node39" href="$df/ddd/_position_velocity_estimator_8h.html" title="All State Estimation Algorithms. " alt="" coords="2935,379,3113,405"/>
+<area shape="rect" id="node32" href="$db/d55/_simulation_bridge_8h.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="3084,603,3215,629"/>
+<area shape="rect" id="node33" href="$d3/dfa/main__helper_8cpp.html" title="main_helper.cpp" alt="" coords="2641,677,2757,704"/>
+<area shape="rect" id="node37" href="$d6/da5/main__helper_8h.html" title="Function which should be called in main to start your robot control code. " alt="" coords="2558,603,2661,629"/>
+<area shape="rect" id="node43" href="$d0/d85/_j_pos_initializer_8cpp.html" title="Controller to initialize the position of the legs on power&#45;on. " alt="" coords="3442,379,3569,405"/>
+<area shape="rect" id="node47" href="$d3/d6a/_imu_simulator_8cpp.html" title="Simulated IMU. " alt="" coords="765,229,888,256"/>
+<area shape="rect" id="node48" href="$d9/d1d/test___imu_simulator_8cpp.html" title="test_ImuSimulator.cpp" alt="" coords="913,229,1063,256"/>
+</map>

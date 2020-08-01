@@ -1,0 +1,5 @@
+<map id="GameController::findNewController" name="GameController::findNewController">
+<area shape="rect" id="node2" href="$d1/d8b/class_game_controller.html#ac4a5f18814c1f310079e7c0405b1d298" title="GameController::GameController" alt="" coords="275,5,483,32"/>
+<area shape="rect" id="node3" href="$de/d6f/class_graphics3_d.html#a223a0a4354b534d1d264e50f70ce284f" title="Graphics3D::resetGameController" alt="" coords="272,56,485,83"/>
+<area shape="rect" id="node4" href="$d1/d22/class_sim_control_panel.html#aacc8230b4c29bc35ec7443643447bbf7" title="SimControlPanel::on\l_joystickButton_clicked" alt="" coords="533,49,692,90"/>
+</map>

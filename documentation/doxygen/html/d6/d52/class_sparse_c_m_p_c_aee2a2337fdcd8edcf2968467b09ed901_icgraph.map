@@ -1,0 +1,7 @@
+<map id="SparseCMPC::addConstraint" name="SparseCMPC::addConstraint">
+<area shape="rect" id="node2" href="$d6/d52/class_sparse_c_m_p_c.html#a6f338c50b2333a75169e0fef871e305c" title="SparseCMPC::addX0Constraint" alt="" coords="261,5,463,32"/>
+<area shape="rect" id="node4" href="$d6/d52/class_sparse_c_m_p_c.html#a60714d562be10adca7d7b6934f85bd6b" title="SparseCMPC::addDynamicsConstraints" alt="" coords="239,56,485,83"/>
+<area shape="rect" id="node5" href="$d6/d52/class_sparse_c_m_p_c.html#a6a0dd739c837a2120f86fcf4ccd12b61" title="SparseCMPC::addForceConstraints" alt="" coords="250,107,474,133"/>
+<area shape="rect" id="node6" href="$d6/d52/class_sparse_c_m_p_c.html#ac506dba4bae761803b2674bbca27fda9" title="SparseCMPC::addFrictionConstraints" alt="" coords="245,157,479,184"/>
+<area shape="rect" id="node3" href="$d6/d52/class_sparse_c_m_p_c.html#a255eec0416087b431f8e443e8eb6a68a" title="SparseCMPC::run" alt="" coords="533,81,657,108"/>
+</map>

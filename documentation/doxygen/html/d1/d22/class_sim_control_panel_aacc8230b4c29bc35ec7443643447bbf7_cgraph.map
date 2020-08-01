@@ -1,0 +1,6 @@
+<map id="SimControlPanel::on_joystickButton_clicked" name="SimControlPanel::on_joystickButton_clicked">
+<area shape="rect" id="node2" href="$de/d6f/class_graphics3_d.html#adae86234f670a978f759e05b60b71794" title="Graphics3D::getGameController" alt="" coords="217,5,420,32"/>
+<area shape="rect" id="node3" href="$d1/d22/class_sim_control_panel.html#a9c708c862bdf429cedfe0c744fd425e5" title="SimControlPanel::isRunning" alt="" coords="228,56,409,83"/>
+<area shape="rect" id="node4" href="$de/d6f/class_graphics3_d.html#a223a0a4354b534d1d264e50f70ce284f" title="Graphics3D::resetGameController" alt="" coords="212,107,425,133"/>
+<area shape="rect" id="node5" href="$d1/d8b/class_game_controller.html#aa1bd5962901edc330382cc8b2239e777" title="GameController::findNewController" alt="" coords="473,107,692,133"/>
+</map>

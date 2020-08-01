@@ -1,0 +1,5 @@
+<map id="SimControlPanel::loadSimulationParameters" name="SimControlPanel::loadSimulationParameters">
+<area shape="rect" id="node2" href="$d1/d22/class_sim_control_panel.html#a728b28e7a0ccf97ce92ba1ebcc8d675a" title="SimControlPanel::SimControl\lPanel" alt="" coords="264,5,453,47"/>
+<area shape="rect" id="node3" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="289,71,429,112"/>
+<area shape="rect" id="node4" href="$d1/d22/class_sim_control_panel.html#a24375331e70d23b8e5f39703c009edb8" title="SimControlPanel::on\l_loadSimulatorButton\l_clicked" alt="" coords="285,135,432,191"/>
+</map>

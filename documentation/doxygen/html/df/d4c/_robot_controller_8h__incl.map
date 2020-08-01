@@ -1,0 +1,23 @@
+<map id="RobotController.h" name="RobotController.h">
+<area shape="rect" id="node2" href="$d0/d41/_leg_controller_8h.html" title="Common Leg Control Interface and Leg Control Algorithms. " alt="" coords="1067,266,1240,293"/>
+<area shape="rect" id="node18" href="$d5/d9a/_floating_base_model_8h.html" title="Implementation of Rigid Body Floating Base model data structure. " alt="" coords="155,445,357,471"/>
+<area shape="rect" id="node30" href="$d8/d87/_state_estimator_container_8h.html" title="Controllers/StateEstimator\lContainer.h" alt="" coords="1382,169,1554,211"/>
+<area shape="rect" id="node35" href="$df/d0d/_visualization_data_8h.html" title="Data sent from robot code to simulator GUI for debugging. " alt="" coords="1675,259,1837,300"/>
+<area shape="rect" id="node37" href="$d8/dfc/_desired_state_command_8h.html" title="Logic to convert a joystick command into a desired trajectory for the robot. " alt="" coords="1177,80,1338,121"/>
+<area shape="rect" id="node38" href="$d7/d24/_gamepad_command_8h.html" title="The GamepadCommand type containing joystick information. " alt="" coords="793,177,1009,203"/>
+<area shape="rect" id="node3" href="$d9/d8e/cpp_types_8h.html" title="cppTypes.h" alt="" coords="999,751,1086,777"/>
+<area shape="rect" id="node11" href="$d3/dc7/_quadruped_8h.html" title="Data structure containing parameters for quadruped robot. " alt="" coords="312,355,467,382"/>
+<area shape="rect" id="node28" href="$d0/d6a/_spine_board_8h.html" title="Spine Board Code, used to simulate the SpineBoard. " alt="" coords="1484,676,1652,703"/>
+<area shape="rect" id="node29" href="$d9/d42/ti__boardcontrol_8h.html" title="TI Board Code, used to simulate the TI board. " alt="" coords="1676,676,1863,703"/>
+<area shape="rect" id="node5" href="$d0/d99/c_types_8h.html" title="Common types that are only valid in C++. " alt="" coords="1262,825,1335,852"/>
+<area shape="rect" id="node12" href="$db/dbb/_actuator_model_8h.html" title="Model of actuator Includes friction, max torque, and motor torque speed curve. " alt="" coords="432,445,608,471"/>
+<area shape="rect" id="node25" href="$d4/d7d/_spatial_inertia_8h.html" title="Class representing spatial inertia tensors. " alt="" coords="190,527,298,553"/>
+<area shape="rect" id="node13" href="$de/df0/utilities_8h.html" title="Common utility functions. " alt="" coords="819,527,938,553"/>
+<area shape="rect" id="node20" href="$d4/dfb/orientation__tools_8h.html" title="Utility functions for 3D rotations. " alt="" coords="297,676,455,703"/>
+<area shape="rect" id="node26" href="$d9/dc8/spatial_8h.html" title="Utility functions for manipulating spatial quantities. " alt="" coords="152,601,221,628"/>
+<area shape="rect" id="node24" href="$de/dda/_math_utilities_8h.html" title="Utility functions for math. " alt="" coords="331,751,467,777"/>
+<area shape="rect" id="node31" href="$d9/d53/_robot_parameters_8h.html" title="ControlParameters/RobotParameters.h" alt="" coords="1256,355,1499,382"/>
+<area shape="rect" id="node34" href="$d0/df2/_i_m_u_types_8h.html" title="Data from IMUs. " alt="" coords="1558,445,1717,471"/>
+<area shape="rect" id="node32" href="$d2/d01/_control_parameters_8h.html" title="Interface to set gains/control parameters for simulator and robot These are designed to be updated in..." alt="" coords="987,437,1162,479"/>
+<area shape="rect" id="node40" href="$d4/d21/rt__rc__interface_8h.html" title="robot/include/rt/rt\l_rc_interface.h" alt="" coords="1187,169,1307,211"/>
+</map>

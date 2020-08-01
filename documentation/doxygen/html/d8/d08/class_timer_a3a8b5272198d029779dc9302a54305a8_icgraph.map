@@ -1,0 +1,19 @@
+<map id="Timer::start" name="Timer::start">
+<area shape="rect" id="node2" href="$d6/d52/class_sparse_c_m_p_c.html#a901acd5a2803bed66cf8f6051bdf36c6" title="SparseCMPC::runSolverOSQP" alt="" coords="140,37,339,63"/>
+<area shape="rect" id="node3" href="$d6/d52/class_sparse_c_m_p_c.html#a255eec0416087b431f8e443e8eb6a68a" title="SparseCMPC::run" alt="" coords="421,37,545,63"/>
+<area shape="rect" id="node4" href="$de/d2f/class_periodic_task.html#a749e849501c8369723c1b7822c5a2dc5" title="PeriodicTask::loopFunction" alt="" coords="151,138,328,165"/>
+<area shape="rect" id="node13" href="$dd/d14/class_simulation.html#a8639e8b6997a8e44a65a3ed820dc998d" title="Simulation::runAtSpeed" alt="" coords="161,207,318,234"/>
+<area shape="rect" id="node18" href="$d8/d08/class_timer.html#a5f16e8da27d2a5a5242dead46de05d97" title="Timer::Timer" alt="" coords="192,258,287,285"/>
+<area shape="rect" id="node5" href="$de/d2f/class_periodic_task.html#a23a65ac2dff9750a0f0d6416f2f32a6f" title="PeriodicTask::start" alt="" coords="419,138,547,165"/>
+<area shape="rect" id="node12" href="$de/d2f/class_periodic_task.html#adf7a674830010fe0dddf08683cc977dc" title="PeriodicTask::getMaxRuntime" alt="" coords="387,87,580,114"/>
+<area shape="rect" id="node6" href="$d6/d05/class_robot_interface.html#afb4bc3cd443238371c6b09be6d6e2da7" title="RobotInterface::startInterface" alt="" coords="628,78,817,105"/>
+<area shape="rect" id="node11" href="$dc/ddb/test__periodic__tasks_8cpp.html#a7aae74ac92ff35c7384f64f25ecc3350" title="TEST" alt="" coords="695,129,750,155"/>
+<area shape="rect" id="node7" href="$d6/d05/class_robot_interface.html#a273ece51bef7819a95e7924d2a130976" title="RobotInterface::getParams" alt="" coords="865,78,1040,105"/>
+<area shape="rect" id="node8" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="1105,136,1245,177"/>
+<area shape="rect" id="node9" href="$d1/d22/class_sim_control_panel.html#aac45ac89880d2d316de41365cd6b7cfb" title="SimControlPanel::on\l_robotTable_cellChanged" alt="" coords="1091,71,1259,112"/>
+<area shape="rect" id="node10" href="$d1/d22/class_sim_control_panel.html#a932918fe9325002dec7f5585c4bfc4f3" title="SimControlPanel::on\l_loadRobotButton_clicked" alt="" coords="1088,5,1261,47"/>
+<area shape="rect" id="node14" href="$dd/d14/class_simulation.html#a8a3a6fa9691b58d5dc614d98b8e4fefb" title="Simulation::setRobotState" alt="" coords="398,243,569,270"/>
+<area shape="rect" id="node15" href="$d1/d22/class_sim_control_panel.html#a9fd8fa720052f15525637834f456c465" title="SimControlPanel::on\l_goHomeButton_clicked" alt="" coords="641,180,804,221"/>
+<area shape="rect" id="node16" href="$d1/d22/class_sim_control_panel.html#a18191363c7461cd1af623e790df2e71e" title="SimControlPanel::on\l_kickButton_clicked" alt="" coords="653,245,792,287"/>
+<area shape="rect" id="node17" href="$dd/d14/class_simulation.html#a973095f827be06983911bd0547fe8c9e" title="Simulation::Simulation" alt="" coords="647,311,798,338"/>
+</map>

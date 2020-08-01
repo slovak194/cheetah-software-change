@@ -1,0 +1,15 @@
+<map id="spatial::sxformToHomogeneous" name="spatial::sxformToHomogeneous">
+<area shape="rect" id="node2" href="$d6/dff/sim__utilities_8h.html#a0f56070ba183dd4f6f435a4619134429" title="spatialTransformToQT" alt="" coords="253,64,404,91"/>
+<area shape="rect" id="node14" href="$d3/dc1/test__spatial_8cpp.html#a3949f366b31ebddfac7c8c792ef472c8" title="TEST" alt="" coords="301,115,356,141"/>
+<area shape="rect" id="node3" href="$d1/d03/class_draw_list.html#afab0fbc56961ba8e101a2b28188efd98" title="DrawList::updateRobotFrom\lModel" alt="" coords="460,23,640,65"/>
+<area shape="rect" id="node13" href="$d1/d03/class_draw_list.html#a7f1af5bbb384f1298b9b0a651576f2c9" title="DrawList::updateCheckerboard\lFromCollisionPlane" alt="" coords="452,89,648,130"/>
+<area shape="rect" id="node4" href="$d6/d05/class_robot_interface.html#a3432a54d34a7752e6e25bb0bcaa0be2a" title="RobotInterface::run" alt="" coords="720,5,851,32"/>
+<area shape="rect" id="node6" href="$dd/d14/class_simulation.html#a6186855f477a8b0add3cf41d5e5a6001" title="Simulation::updateGraphics" alt="" coords="696,56,875,83"/>
+<area shape="rect" id="node5" href="$d6/d05/class_robot_interface.html#a4600563c9f745e9d9e649a8db1f8cd78" title="RobotInterface::init" alt="" coords="936,5,1067,32"/>
+<area shape="rect" id="node7" href="$dd/d14/class_simulation.html#a8639e8b6997a8e44a65a3ed820dc998d" title="Simulation::runAtSpeed" alt="" coords="923,56,1080,83"/>
+<area shape="rect" id="node9" href="$dd/d14/class_simulation.html#a8a3a6fa9691b58d5dc614d98b8e4fefb" title="Simulation::setRobotState" alt="" coords="1128,107,1299,133"/>
+<area shape="rect" id="node8" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="1143,41,1283,82"/>
+<area shape="rect" id="node10" href="$d1/d22/class_sim_control_panel.html#a9fd8fa720052f15525637834f456c465" title="SimControlPanel::on\l_goHomeButton_clicked" alt="" coords="1347,34,1509,75"/>
+<area shape="rect" id="node11" href="$d1/d22/class_sim_control_panel.html#a18191363c7461cd1af623e790df2e71e" title="SimControlPanel::on\l_kickButton_clicked" alt="" coords="1359,99,1497,141"/>
+<area shape="rect" id="node12" href="$dd/d14/class_simulation.html#a973095f827be06983911bd0547fe8c9e" title="Simulation::Simulation" alt="" coords="1353,165,1503,192"/>
+</map>

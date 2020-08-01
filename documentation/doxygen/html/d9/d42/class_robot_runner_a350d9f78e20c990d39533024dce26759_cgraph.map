@@ -1,0 +1,12 @@
+<map id="RobotRunner::setupStep" name="RobotRunner::setupStep">
+<area shape="rect" id="node2" href="$d4/d21/rt__rc__interface_8h.html#ad6a8ac11fa0aaf62b23652bc1c3d1046" title="get_rc_control_settings" alt="" coords="231,37,385,64"/>
+<area shape="rect" id="node4" href="$d9/d42/class_robot_runner.html#a2690089988868e09ee5827788bded47a" title="RobotRunner::initializeState\lEstimator" alt="" coords="218,105,398,146"/>
+<area shape="rect" id="node8" href="$d0/d96/class_leg_controller.html#a47178c450659ac6793ac7a74351094e5" title="LegController::setEnabled" alt="" coords="225,171,391,197"/>
+<area shape="rect" id="node9" href="$d0/d96/class_leg_controller.html#a2ccb52cceb6b9ac1a6ef86c823d81fa1" title="LegController::setMaxTorque\lCheetah3" alt="" coords="215,222,401,263"/>
+<area shape="rect" id="node10" href="$d0/d96/class_leg_controller.html#aec19eaa7a02abc15dba5106b82c5a8bc" title="LegController::updateData" alt="" coords="223,288,393,315"/>
+<area shape="rect" id="node11" href="$d0/d96/class_leg_controller.html#a8fc971360d5ce54469d219c6aa4b51e4" title="LegController::zeroCommand" alt="" coords="215,339,401,365"/>
+<area shape="rect" id="node3" href="$d8/d68/rt__rc__interface_8cpp.html#aa5f4c06b7720f635aed7bf1462fa4465" title="v_memcpy" alt="" coords="489,5,573,32"/>
+<area shape="rect" id="node5" href="$d1/d3b/class_state_estimator_container.html#a82af04a884b97b78cabfa79e85fd353f" title="StateEstimatorContainer\l::addEstimator" alt="" coords="449,57,612,98"/>
+<area shape="rect" id="node6" href="$d1/d3b/class_state_estimator_container.html#ad14b9aedc91b17e460bec6f5b73e024e" title="StateEstimatorContainer\l::removeAllEstimators" alt="" coords="449,122,612,163"/>
+<area shape="rect" id="node7" href="$d1/d3b/class_state_estimator_container.html#a100bfcb62c735fef211ae5564ca2e4f6" title="StateEstimatorContainer\l::setContactPhase" alt="" coords="449,187,612,229"/>
+</map>

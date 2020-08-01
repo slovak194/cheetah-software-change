@@ -1,0 +1,4 @@
+<map id="SimControlPanel::loadRobotParameters" name="SimControlPanel::loadRobotParameters">
+<area shape="rect" id="node2" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="253,5,393,47"/>
+<area shape="rect" id="node3" href="$d1/d22/class_sim_control_panel.html#a932918fe9325002dec7f5585c4bfc4f3" title="SimControlPanel::on\l_loadRobotButton_clicked" alt="" coords="236,71,409,112"/>
+</map>

@@ -1,0 +1,31 @@
+<map id="SimulationBridge.cpp" name="SimulationBridge.cpp">
+<area shape="rect" id="node2" href="$db/d55/_simulation_bridge_8h.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="1132,80,1263,107"/>
+<area shape="rect" id="node12" href="$d0/d41/_leg_controller_8h.html" title="Common Leg Control Interface and Leg Control Algorithms. " alt="" coords="2548,505,2721,531"/>
+<area shape="rect" id="node28" href="$d4/d21/rt__rc__interface_8h.html" title="rt/rt_rc_interface.h" alt="" coords="2391,415,2518,442"/>
+<area shape="rect" id="node48" href="$dd/d6d/_segfault_handler_8h.html" title="Handler for segfaults. This will catch a segfault, print a stack trace, and put an error code in the ..." alt="" coords="2892,80,3063,107"/>
+<area shape="rect" id="node50" href="$d1/d95/rt__sbus_8h.html" title="Communication with RC controller receiver. " alt="" coords="168,326,253,353"/>
+<area shape="rect" id="node4" href="$d9/d53/_robot_parameters_8h.html" title="ControlParameters/RobotParameters.h" alt="" coords="1327,505,1569,531"/>
+<area shape="rect" id="node9" href="$d3/d41/_robot_runner_8h.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="2061,155,2168,181"/>
+<area shape="rect" id="node33" href="$dc/d87/_periodic_task_8h.html" title="Implementation of a periodic function running in a separate thread. Periodic tasks have a task manage..." alt="" coords="1194,237,1347,263"/>
+<area shape="rect" id="node37" href="$d1/db1/_simulator_message_8h.html" title="Messages sent to/from the development simulator. " alt="" coords="1157,415,1363,442"/>
+<area shape="rect" id="node38" href="$d2/dac/_shared_memory_8h.html" title="Shared memory utilities for connecting the simulator program to the robot program. " alt="" coords="509,505,675,531"/>
+<area shape="rect" id="node47" href="$d0/db6/_types_8h.html" title="Types.h" alt="" coords="1360,155,1427,181"/>
+<area shape="rect" id="node5" href="$d2/d01/_control_parameters_8h.html" title="Interface to set gains/control parameters for simulator and robot These are designed to be updated in..." alt="" coords="1026,587,1201,628"/>
+<area shape="rect" id="node7" href="$d0/d99/c_types_8h.html" title="Common types that are only valid in C++. " alt="" coords="1179,676,1253,703"/>
+<area shape="rect" id="node10" href="$d6/de9/_control_parameter_interface_8h.html" title="Types to allow remote access of control parameters, for use with LCM/Shared memory. " alt="" coords="1026,497,1201,539"/>
+<area shape="rect" id="node11" href="$d8/d87/_state_estimator_container_8h.html" title="Controllers/StateEstimator\lContainer.h" alt="" coords="1805,408,1977,449"/>
+<area shape="rect" id="node18" href="$d3/dc7/_quadruped_8h.html" title="Data structure containing parameters for quadruped robot. " alt="" coords="2755,594,2909,621"/>
+<area shape="rect" id="node25" href="$d0/df2/_i_m_u_types_8h.html" title="Data from IMUs. " alt="" coords="1645,505,1803,531"/>
+<area shape="rect" id="node26" href="$df/d0d/_visualization_data_8h.html" title="Data sent from robot code to simulator GUI for debugging. " alt="" coords="1828,497,1991,539"/>
+<area shape="rect" id="node29" href="$db/d94/_contact_estimator_8h.html" title="All Contact Estimation Algorithms. " alt="" coords="1679,326,1875,353"/>
+<area shape="rect" id="node30" href="$d8/dfc/_desired_state_command_8h.html" title="Logic to convert a joystick command into a desired trajectory for the robot. " alt="" coords="2103,319,2265,360"/>
+<area shape="rect" id="node31" href="$d7/d24/_gamepad_command_8h.html" title="The GamepadCommand type containing joystick information. " alt="" coords="2015,505,2231,531"/>
+<area shape="rect" id="node32" href="$d1/df4/_j_pos_initializer_8h.html" title="Controller to initialize the position of the legs on power&#45;on. " alt="" coords="2745,415,2857,442"/>
+<area shape="rect" id="node35" href="$d3/dff/_robot_controller_8h.html" title="Parent class of user robot controllers. This is an interface between the control code and the common ..." alt="" coords="2005,237,2126,263"/>
+<area shape="rect" id="node13" href="$d9/d8e/cpp_types_8h.html" title="cppTypes.h" alt="" coords="1937,594,2023,621"/>
+<area shape="rect" id="node23" href="$d0/d6a/_spine_board_8h.html" title="Spine Board Code, used to simulate the SpineBoard. " alt="" coords="1436,594,1604,621"/>
+<area shape="rect" id="node24" href="$d9/d42/ti__boardcontrol_8h.html" title="TI Board Code, used to simulate the TI board. " alt="" coords="1225,594,1412,621"/>
+<area shape="rect" id="node19" href="$db/dbb/_actuator_model_8h.html" title="Model of actuator Includes friction, max torque, and motor torque speed curve. " alt="" coords="2568,676,2744,703"/>
+<area shape="rect" id="node20" href="$d5/d9a/_floating_base_model_8h.html" title="Implementation of Rigid Body Floating Base model data structure. " alt="" coords="2293,676,2496,703"/>
+<area shape="rect" id="node21" href="$d4/d7d/_spatial_inertia_8h.html" title="Class representing spatial inertia tensors. " alt="" coords="2410,751,2518,777"/>
+</map>

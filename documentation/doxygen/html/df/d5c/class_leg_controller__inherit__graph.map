@@ -1,0 +1,3 @@
+<map id="LegController&lt; T &gt;" name="LegController&lt; T &gt;">
+<area shape="rect" id="node2" href="$d0/d96/class_leg_controller.html" title="{LegController\&lt; float \&gt;\n|+ commands\l+ datas\l+ _quadruped\l+ _legsEnabled\l+ _maxTorque\l+ _zeroEncoders\l+ _calibrateEncoders\l|+ LegController()\l+ zeroCommand()\l+ edampCommand()\l+ updateData()\l+ updateData()\l+ updateCommand()\l+ updateCommand()\l+ setEnabled()\l+ setLcm()\l+ setMaxTorqueCheetah3()\l}" alt="" coords="5,365,183,663"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="sbus_packet_complete" name="sbus_packet_complete">
+<area shape="rect" id="node2" href="$d8/d68/rt__rc__interface_8cpp.html#a4da54471eb33ea2176170766bcad6131" title="deadband" alt="" coords="235,5,314,32"/>
+<area shape="rect" id="node3" href="$d4/d76/class_edge_trigger.html#a69a2bd7f04c25864b2f5e7f7c2ffac80" title="EdgeTrigger::trigger" alt="" coords="208,56,341,83"/>
+<area shape="rect" id="node4" href="$d1/d95/rt__sbus_8h.html#a53f881ce4247a7932872dac11244ed00" title="update_taranis_x7" alt="" coords="211,107,338,133"/>
+<area shape="rect" id="node5" href="$d2/dad/rt__sbus_8cpp.html#aec42163b85a2b5563d84637dc4f339b2" title="scale_joystick" alt="" coords="389,81,492,108"/>
+<area shape="rect" id="node6" href="$d2/dad/rt__sbus_8cpp.html#aad7df7b6a51923a167c6876f77c0fe4a" title="map_switch" alt="" coords="395,132,486,159"/>
+</map>

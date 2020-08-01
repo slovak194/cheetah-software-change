@@ -1,0 +1,8 @@
+<map id="LegController::setMaxTorqueCheetah3" name="LegController::setMaxTorqueCheetah3">
+<area shape="rect" id="node2" href="$d9/d42/class_robot_runner.html#a350d9f78e20c990d39533024dce26759" title="RobotRunner::setupStep" alt="" coords="239,39,400,65"/>
+<area shape="rect" id="node3" href="$d9/d42/class_robot_runner.html#a00f9204f3367b9948a2053e66d92c844" title="RobotRunner::run" alt="" coords="448,39,569,65"/>
+<area shape="rect" id="node4" href="$d8/d3a/class_simulation_bridge.html#a3396c7d142b6d3be5c65fc17adad05a0" title="SimulationBridge::runRobot\lControl" alt="" coords="617,31,796,73"/>
+<area shape="rect" id="node5" href="$d8/d3a/class_simulation_bridge.html#a0a9846e88d9afe3370ffe10db348a366" title="SimulationBridge::run" alt="" coords="844,13,988,40"/>
+<area shape="rect" id="node7" href="$d8/d3a/class_simulation_bridge.html#a5cdefecff31a17a54c840de90020d230" title="SimulationBridge::Simulation\lBridge" alt="" coords="1036,57,1223,98"/>
+<area shape="rect" id="node6" href="$d3/dfa/main__helper_8cpp.html#acd1b6ffaae55ecc3c765c38ce5bf3a95" title="main_helper" alt="" coords="1083,5,1175,32"/>
+</map>

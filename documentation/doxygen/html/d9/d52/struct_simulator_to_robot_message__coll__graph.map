@@ -1,0 +1,10 @@
+<map id="SimulatorToRobotMessage" name="SimulatorToRobotMessage">
+<area shape="rect" id="node2" href="$d5/d09/struct_spi_data.html" title="{SpiData\n|+ q_abad\l+ q_hip\l+ q_knee\l+ qd_abad\l+ qd_hip\l+ qd_knee\l+ flags\l+ spi_driver_status\l|}" alt="" coords="5,263,133,443"/>
+<area shape="rect" id="node3" href="$df/d06/struct_vector_nav_data.html" title="{VectorNavData\n|+ accelerometer\l+ gyro\l+ quat\l|}" alt="" coords="157,299,272,406"/>
+<area shape="rect" id="node4" href="$d2/d3e/struct_cheater_state.html" title="{CheaterState\&lt; double \&gt;\n|+ orientation\l+ position\l+ omegaBody\l+ vBody\l+ acceleration\l|}" alt="" coords="297,285,455,421"/>
+<area shape="rect" id="node5" href="$d2/d3e/struct_cheater_state.html" title="{CheaterState\&lt; T \&gt;\n|+ orientation\l+ position\l+ omegaBody\l+ vBody\l+ acceleration\l|}" alt="" coords="312,5,440,141"/>
+<area shape="rect" id="node6" href="$d6/d6d/struct_control_parameter_request.html" title="{ControlParameterRequest\n|+ name\l+ requestNumber\l+ parameterKind\l+ requestKind\l|+ toString()\l}" alt="" coords="480,292,651,413"/>
+<area shape="rect" id="node7" href="$df/df2/union_control_parameter_value.html" title="{ControlParameterValue\n|+ f\l+ d\l+ i\l+ vec3f\l+ vec3d\l|}" alt="" coords="488,5,643,141"/>
+<area shape="rect" id="node8" href="$de/de1/struct_ti_board_data.html" title="{TiBoardData\n|+ position\l+ velocity\l+ force\l+ q\l+ dq\l+ tau\l+ tau_des\l+ loop_count_ti\l+ ethercat_count_ti\l+ microtime_ti\l|}" alt="" coords="675,248,808,457"/>
+<area shape="rect" id="node9" href="$d4/d51/struct_gamepad_command.html" title="{GamepadCommand\n|+ leftBumper\l+ rightBumper\l+ leftTriggerButton\l+ rightTriggerButton\l+ back\l+ start\l+ a\l+ b\l+ x\l+ y\land 7 more...\l|+ GamepadCommand()\l+ zero()\l+ set()\l+ get()\l+ applyDeadband()\l+ toString()\l}" alt="" coords="833,204,989,501"/>
+</map>

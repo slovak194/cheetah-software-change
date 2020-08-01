@@ -1,0 +1,14 @@
+<map id="PeriodicTask.h" name="PeriodicTask.h">
+<area shape="rect" id="node2" href="$de/df7/_periodic_task_8cpp.html" title="Implementation of a periodic function running in a separate thread. Periodic tasks have a task manage..." alt="" coords="5,80,127,107"/>
+<area shape="rect" id="node3" href="$dc/ddb/test__periodic__tasks_8cpp.html" title="test_periodic_tasks.cpp" alt="" coords="151,80,307,107"/>
+<area shape="rect" id="node4" href="$d3/d41/_robot_runner_8h.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="382,80,489,107"/>
+<area shape="rect" id="node5" href="$db/d55/_simulation_bridge_8h.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="249,155,379,181"/>
+<area shape="rect" id="node9" href="$d4/df6/_robot_interface_8h.html" title="Interface between simulator and hardware using LCM. " alt="" coords="555,80,673,107"/>
+<area shape="rect" id="node8" href="$db/d28/_robot_runner_8cpp.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="404,155,525,181"/>
+<area shape="rect" id="node6" href="$d3/dfa/main__helper_8cpp.html" title="main_helper.cpp" alt="" coords="196,229,312,256"/>
+<area shape="rect" id="node7" href="$dc/da6/_simulation_bridge_8cpp.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="337,229,481,256"/>
+<area shape="rect" id="node10" href="$d7/dab/_sim_control_panel_8h.html" title="QT gui for the simulator. " alt="" coords="549,155,679,181"/>
+<area shape="rect" id="node13" href="$dd/d4a/_robot_interface_8cpp.html" title="RobotInterface.cpp" alt="" coords="702,155,833,181"/>
+<area shape="rect" id="node11" href="$df/d0a/main_8cpp.html" title="Main Function for the robot program. " alt="" coords="541,229,615,256"/>
+<area shape="rect" id="node12" href="$d8/dcd/_sim_control_panel_8cpp.html" title="SimControlPanel.cpp" alt="" coords="639,229,781,256"/>
+</map>

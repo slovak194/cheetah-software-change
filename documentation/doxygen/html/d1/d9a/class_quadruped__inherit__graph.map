@@ -1,0 +1,4 @@
+<map id="Quadruped&lt; T &gt;" name="Quadruped&lt; T &gt;">
+<area shape="rect" id="node2" href="$dc/d66/class_quadruped.html" title="{Quadruped\&lt; double \&gt;\n|+ _robotType\l+ _bodyLength\l+ _bodyWidth\l+ _bodyHeight\l+ _bodyMass\l+ _abadGearRatio\l+ _hipGearRatio\l+ _kneeGearRatio\l+ _abadLinkLength\l+ _hipLinkLength\land 22 more...\l|+ buildModel()\l+ buildModel()\l+ buildActuatorModels()\l+ getHipLocation()\l+ getSideSign()\l}" alt="" coords="5,351,164,633"/>
+<area shape="rect" id="node3" href="$dc/d66/class_quadruped.html" title="{Quadruped\&lt; float \&gt;\n|+ _robotType\l+ _bodyLength\l+ _bodyWidth\l+ _bodyHeight\l+ _bodyMass\l+ _abadGearRatio\l+ _hipGearRatio\l+ _kneeGearRatio\l+ _abadLinkLength\l+ _hipLinkLength\land 22 more...\l|+ buildModel()\l+ buildModel()\l+ buildActuatorModels()\l+ getHipLocation()\l+ getSideSign()\l}" alt="" coords="188,351,347,633"/>
+</map>

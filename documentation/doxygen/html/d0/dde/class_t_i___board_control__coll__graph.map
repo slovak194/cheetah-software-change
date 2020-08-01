@@ -1,0 +1,4 @@
+<map id="TI_BoardControl" name="TI_BoardControl">
+<area shape="rect" id="node2" href="$de/de1/struct_ti_board_data.html" title="{TiBoardData\n|+ position\l+ velocity\l+ force\l+ q\l+ dq\l+ tau\l+ tau_des\l+ loop_count_ti\l+ ethercat_count_ti\l+ microtime_ti\l|}" alt="" coords="5,35,139,244"/>
+<area shape="rect" id="node3" href="$d8/d03/struct_ti_board_command.html" title="{TiBoardCommand\n|+ position_des\l+ velocity_des\l+ kp\l+ kd\l+ enable\l+ zero\l+ force_ff\l+ tau_ff\l+ zero_offset\l+ q_des\l+ qd_des\l+ kp_joint\l+ kd_joint\l+ max_torque\l|}" alt="" coords="163,5,290,273"/>
+</map>

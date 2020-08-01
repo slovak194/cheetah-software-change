@@ -1,0 +1,8 @@
+<map id="RobotRunner::init" name="RobotRunner::init">
+<area shape="rect" id="node2" href="$dc/d66/class_quadruped.html#ae3725898959888f0885981c43f127a07" title="Quadruped::buildModel" alt="" coords="187,5,340,32"/>
+<area shape="rect" id="node3" href="$d4/d6a/class_robot_controller.html#a4eef800145cb801ea6296630119b4a65" title="RobotController::initialize\lController" alt="" coords="182,57,345,98"/>
+<area shape="rect" id="node4" href="$d9/d42/class_robot_runner.html#a2690089988868e09ee5827788bded47a" title="RobotRunner::initializeState\lEstimator" alt="" coords="173,122,353,163"/>
+<area shape="rect" id="node5" href="$d1/d3b/class_state_estimator_container.html#ad14b9aedc91b17e460bec6f5b73e024e" title="StateEstimatorContainer\l::removeAllEstimators" alt="" coords="401,57,564,98"/>
+<area shape="rect" id="node6" href="$d1/d3b/class_state_estimator_container.html#a82af04a884b97b78cabfa79e85fd353f" title="StateEstimatorContainer\l::addEstimator" alt="" coords="401,122,564,163"/>
+<area shape="rect" id="node7" href="$d1/d3b/class_state_estimator_container.html#a100bfcb62c735fef211ae5564ca2e4f6" title="StateEstimatorContainer\l::setContactPhase" alt="" coords="401,187,564,229"/>
+</map>

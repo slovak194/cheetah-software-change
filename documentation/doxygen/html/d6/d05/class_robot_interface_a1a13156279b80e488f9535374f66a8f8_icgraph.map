@@ -1,0 +1,7 @@
+<map id="RobotInterface::handleVisualizationData" name="RobotInterface::handleVisualizationData">
+<area shape="rect" id="node2" href="$d6/d05/class_robot_interface.html#af09b1f8b1e20aa72ee5e02cad4ca43c9" title="RobotInterface::RobotInterface" alt="" coords="303,27,501,54"/>
+<area shape="rect" id="node3" href="$d6/d05/class_robot_interface.html#a273ece51bef7819a95e7924d2a130976" title="RobotInterface::getParams" alt="" coords="315,78,489,105"/>
+<area shape="rect" id="node4" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="566,5,706,47"/>
+<area shape="rect" id="node5" href="$d1/d22/class_sim_control_panel.html#aac45ac89880d2d316de41365cd6b7cfb" title="SimControlPanel::on\l_robotTable_cellChanged" alt="" coords="552,71,720,112"/>
+<area shape="rect" id="node6" href="$d1/d22/class_sim_control_panel.html#a932918fe9325002dec7f5585c4bfc4f3" title="SimControlPanel::on\l_loadRobotButton_clicked" alt="" coords="549,136,723,177"/>
+</map>

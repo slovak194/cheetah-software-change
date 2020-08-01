@@ -1,0 +1,4 @@
+<map id="PrintTaskStatus" name="PrintTaskStatus">
+<area shape="rect" id="node2" href="$de/d2f/class_periodic_task.html" title="{PeriodicTask\n|&#45; _period\l&#45; _running\l&#45; _lastRuntime\l&#45; _lastPeriodTime\l&#45; _maxPeriod\l&#45; _maxRuntime\l&#45; _name\l&#45; _thread\l|+ PeriodicTask()\l+ start()\l+ stop()\l+ printStatus()\l+ clearMax()\l+ isSlow()\l+ init()\l+ run()\l+ cleanup()\l+ ~PeriodicTask()\l+ getPeriod()\l+ getRuntime()\l+ getMaxPeriod()\l+ getMaxRuntime()\l&#45; loopFunction()\l}" alt="" coords="5,5,136,391"/>
+<area shape="rect" id="node3" href="$d2/d31/class_periodic_task_manager.html" title="{PeriodicTaskManager\n|&#45; _tasks\l|+ PeriodicTaskManager()\l+ ~PeriodicTaskManager()\l+ addTask()\l+ printStatus()\l+ printStatusOfSlowTasks()\l+ stopAll()\l}" alt="" coords="160,123,339,273"/>
+</map>

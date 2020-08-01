@@ -1,0 +1,14 @@
+<map id="ControlParameter::initializeInteger" name="ControlParameter::initializeInteger">
+<area shape="rect" id="node2" href="$d8/d86/class_control_parameters.html#a2b6c5ee9b0578bae6c795d7b93d1d295" title="ControlParameters::\linitializeFromIniFile" alt="" coords="264,25,399,66"/>
+<area shape="rect" id="node4" href="$d8/d86/class_control_parameters.html#ab20496fc55207ace7e7589fd652edcf4" title="ControlParameters::\ldefineAndInitializeFromYamlFile" alt="" coords="228,115,435,157"/>
+<area shape="rect" id="node8" href="$d8/d86/class_control_parameters.html#a18eb23794d712e6c56120e644883e4e0" title="ControlParameters::\linitializeFromYamlFile" alt="" coords="257,298,406,339"/>
+<area shape="rect" id="node3" href="$db/d74/test___control_parameters_8cpp.html#a11ae540e1d4b3ec1a0942df035ddb60f" title="TEST" alt="" coords="555,5,609,32"/>
+<area shape="rect" id="node5" href="$d1/d22/class_sim_control_panel.html#a728b28e7a0ccf97ce92ba1ebcc8d675a" title="SimControlPanel::SimControl\lPanel" alt="" coords="487,174,677,215"/>
+<area shape="rect" id="node6" href="$d1/d22/class_sim_control_panel.html#a9a891de8902696e8c1775978d517ed58" title="SimControlPanel::on\l_loadUserButton_clicked" alt="" coords="499,57,665,98"/>
+<area shape="rect" id="node7" href="$db/d74/test___control_parameters_8cpp.html#a691b752b53b7c9b93d7bf9241292c8bc" title="TEST" alt="" coords="555,123,609,149"/>
+<area shape="rect" id="node9" href="$d6/d05/class_robot_interface.html#af09b1f8b1e20aa72ee5e02cad4ca43c9" title="RobotInterface::RobotInterface" alt="" coords="483,240,681,267"/>
+<area shape="rect" id="node10" href="$d1/d22/class_sim_control_panel.html#a24375331e70d23b8e5f39703c009edb8" title="SimControlPanel::on\l_loadSimulatorButton\l_clicked" alt="" coords="509,291,655,347"/>
+<area shape="rect" id="node11" href="$d1/d22/class_sim_control_panel.html#a932918fe9325002dec7f5585c4bfc4f3" title="SimControlPanel::on\l_loadRobotButton_clicked" alt="" coords="495,370,669,411"/>
+<area shape="rect" id="node12" href="$dd/d14/class_simulation.html#a973095f827be06983911bd0547fe8c9e" title="Simulation::Simulation" alt="" coords="507,436,657,463"/>
+<area shape="rect" id="node13" href="$db/d74/test___control_parameters_8cpp.html#aa02b4ec347a36f8c0a1eecafe9c805ed" title="TEST" alt="" coords="555,487,609,513"/>
+</map>

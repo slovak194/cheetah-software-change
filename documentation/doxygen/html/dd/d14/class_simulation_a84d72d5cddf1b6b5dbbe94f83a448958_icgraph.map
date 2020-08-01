@@ -1,0 +1,12 @@
+<map id="Simulation::isRobotConnected" name="Simulation::isRobotConnected">
+<area shape="rect" id="node2" href="$d1/d22/class_sim_control_panel.html#afe9de8bed4d2d8c0e6825b27abb11571" title="SimControlPanel::updateUi\lEnable" alt="" coords="262,115,438,156"/>
+<area shape="rect" id="node8" href="$d1/d22/class_sim_control_panel.html#aac45ac89880d2d316de41365cd6b7cfb" title="SimControlPanel::on\l_robotTable_cellChanged" alt="" coords="266,180,434,221"/>
+<area shape="rect" id="node9" href="$d1/d22/class_sim_control_panel.html#a932918fe9325002dec7f5585c4bfc4f3" title="SimControlPanel::on\l_loadRobotButton_clicked" alt="" coords="263,245,437,287"/>
+<area shape="rect" id="node10" href="$d1/d22/class_sim_control_panel.html#a0228e09f693480d3975515c2536dd9d2" title="SimControlPanel::on\l_userControlTable_cellChanged" alt="" coords="248,311,452,352"/>
+<area shape="rect" id="node11" href="$d1/d22/class_sim_control_panel.html#a9a891de8902696e8c1775978d517ed58" title="SimControlPanel::on\l_loadUserButton_clicked" alt="" coords="267,376,433,417"/>
+<area shape="rect" id="node3" href="$d1/d22/class_sim_control_panel.html#a728b28e7a0ccf97ce92ba1ebcc8d675a" title="SimControlPanel::SimControl\lPanel" alt="" coords="506,5,695,47"/>
+<area shape="rect" id="node4" href="$d1/d22/class_sim_control_panel.html#ae6735f73ccc2a5c6996fea619de8247d" title="SimControlPanel::update_ui" alt="" coords="510,71,691,98"/>
+<area shape="rect" id="node5" href="$d1/d22/class_sim_control_panel.html#a328ded7eaa7983564e655f1b60ede8ce" title="SimControlPanel::errorCallback" alt="" coords="500,122,701,149"/>
+<area shape="rect" id="node6" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="749,140,889,181"/>
+<area shape="rect" id="node7" href="$d1/d22/class_sim_control_panel.html#af65b310d0bd0bc382519de762ce32f90" title="SimControlPanel::on\l_stopButton_clicked" alt="" coords="531,224,670,265"/>
+</map>

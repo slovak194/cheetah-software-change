@@ -1,0 +1,12 @@
+<map id="Cheetah3.h" name="Cheetah3.h">
+<area shape="rect" id="node2" href="$d9/d56/test__actuator_model_8cpp.html" title="Test the actuator model of the mini cheetah and cheetah 3 robots. " alt="" coords="5,80,161,107"/>
+<area shape="rect" id="node3" href="$d4/dc6/test__cheetah3__model_8cpp.html" title="test_cheetah3_model.cpp" alt="" coords="185,80,355,107"/>
+<area shape="rect" id="node4" href="$db/d42/test__dynamics_8cpp.html" title="Test dynamics algorithms. " alt="" coords="379,80,507,107"/>
+<area shape="rect" id="node5" href="$db/d28/_robot_runner_8cpp.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="532,80,653,107"/>
+<area shape="rect" id="node6" href="$d2/ded/_simulation_8h.html" title="Main simulation class. " alt="" coords="678,80,771,107"/>
+<area shape="rect" id="node8" href="$df/d0a/main_8cpp.html" title="Main Function for the robot program. " alt="" coords="721,229,795,256"/>
+<area shape="rect" id="node11" href="$dd/d4a/_robot_interface_8cpp.html" title="RobotInterface.cpp" alt="" coords="846,80,977,107"/>
+<area shape="rect" id="node7" href="$d7/dab/_sim_control_panel_8h.html" title="QT gui for the simulator. " alt="" coords="460,155,589,181"/>
+<area shape="rect" id="node10" href="$db/d98/_simulation_8cpp.html" title="Simulation.cpp" alt="" coords="614,155,721,181"/>
+<area shape="rect" id="node9" href="$d8/dcd/_sim_control_panel_8cpp.html" title="SimControlPanel.cpp" alt="" coords="453,229,596,256"/>
+</map>

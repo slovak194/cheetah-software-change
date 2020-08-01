@@ -1,0 +1,9 @@
+<map id="DrawList" name="DrawList">
+<area shape="rect" id="node2" href="$d3/d60/struct_visualization_data.html" title="{VisualizationData\n|+ num_paths\l+ num_arrows\l+ num_cones\l+ num_spheres\l+ num_blocks\l+ num_meshes\l|+ clear()\l+ addSphere()\l+ addBlock()\l+ addArrow()\l+ addCone()\l+ addPath()\l+ addMesh()\l}" alt="" coords="381,233,501,472"/>
+<area shape="rect" id="node3" href="$d4/d7b/struct_arrow_visualization.html" title="{ArrowVisualization\n|+ base_position\l+ direction\l+ color\l+ head_width\l+ head_length\l+ shaft_width\l|}" alt="" coords="5,13,132,163"/>
+<area shape="rect" id="node4" href="$df/da6/struct_cone_visualization.html" title="{ConeVisualization\n|+ point_position\l+ direction\l+ color\l+ radius\l|}" alt="" coords="157,27,279,149"/>
+<area shape="rect" id="node5" href="$d5/d38/struct_block_visualization.html" title="{BlockVisualization\n|+ dimension\l+ corner_position\l+ rpy\l+ color\l|}" alt="" coords="304,27,431,149"/>
+<area shape="rect" id="node6" href="$d1/d06/struct_path_visualization.html" title="{PathVisualization\n|+ num_points\l+ color\l+ position\l|+ clear()\l}" alt="" coords="455,35,575,141"/>
+<area shape="rect" id="node7" href="$d7/d94/struct_sphere_visualization.html" title="{SphereVisualization\n|+ position\l+ color\l+ radius\l|}" alt="" coords="600,35,735,141"/>
+<area shape="rect" id="node8" href="$d9/de7/struct_mesh_visualization.html" title="{MeshVisualization\n|+ left_corner\l+ height_map\l+ rows\l+ cols\l+ grid_size\l+ height_max\l+ height_min\l|}" alt="" coords="759,5,883,171"/>
+</map>

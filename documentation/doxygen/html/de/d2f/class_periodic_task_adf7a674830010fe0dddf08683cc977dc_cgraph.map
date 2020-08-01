@@ -1,0 +1,7 @@
+<map id="PeriodicTask::getMaxRuntime" name="PeriodicTask::getMaxRuntime">
+<area shape="rect" id="node2" href="$de/d2f/class_periodic_task.html#a749e849501c8369723c1b7822c5a2dc5" title="PeriodicTask::loopFunction" alt="" coords="247,56,424,83"/>
+<area shape="rect" id="node3" href="$d8/d08/class_timer.html#aa42cb0519d30540b49a8c73f8ea81470" title="Timer::getSeconds" alt="" coords="472,5,601,32"/>
+<area shape="rect" id="node5" href="$d8/d08/class_timer.html#a3a8b5272198d029779dc9302a54305a8" title="Timer::start" alt="" coords="493,56,580,83"/>
+<area shape="rect" id="node6" href="$de/d2f/class_periodic_task.html#ae6976f44c995555b6403b38443fb2eb5" title="PeriodicTask::run" alt="" coords="476,107,597,133"/>
+<area shape="rect" id="node4" href="$d8/d08/class_timer.html#a737da4ccd6ba451d0c03b6c4fef6e5e9" title="Timer::getNs" alt="" coords="649,5,744,32"/>
+</map>

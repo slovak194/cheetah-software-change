@@ -1,0 +1,18 @@
+<map id="Graphics3D::_drawArrow" name="Graphics3D::_drawArrow">
+<area shape="rect" id="node2" href="$de/d6f/class_graphics3_d.html#acead1eb9d74ac502ecd6a5c9633c3bea" title="Graphics3D::_drawVelArrow" alt="" coords="216,5,396,32"/>
+<area shape="rect" id="node3" href="$de/d6f/class_graphics3_d.html#a0b626c2d1757985f4dd53bacad38c8e2" title="Graphics3D::_Additional\l_Drawing" alt="" coords="663,125,821,166"/>
+<area shape="rect" id="node12" href="$de/d6f/class_graphics3_d.html#aed2632dbf9e0c7e3d5c0336738957cd8" title="Graphics3D::_DrawContact\lForce" alt="" coords="218,107,394,149"/>
+<area shape="rect" id="node13" href="$de/d6f/class_graphics3_d.html#ab827a56c12d8bd1f08c3d24e2b520e99" title="Graphics3D::_translate" alt="" coords="231,208,381,235"/>
+<area shape="rect" id="node4" href="$de/d6f/class_graphics3_d.html#ad92efa791431ec78b240c65c30df37e5" title="Graphics3D::paintGL" alt="" coords="869,132,1009,159"/>
+<area shape="rect" id="node5" href="$de/d6f/class_graphics3_d.html#abd94a301a824da9c921cd5d7bc671e1e" title="Graphics3D::wantSloMo" alt="" coords="1057,132,1216,159"/>
+<area shape="rect" id="node6" href="$dd/d14/class_simulation.html#a8639e8b6997a8e44a65a3ed820dc998d" title="Simulation::runAtSpeed" alt="" coords="1264,132,1421,159"/>
+<area shape="rect" id="node7" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="1485,95,1625,137"/>
+<area shape="rect" id="node8" href="$dd/d14/class_simulation.html#a8a3a6fa9691b58d5dc614d98b8e4fefb" title="Simulation::setRobotState" alt="" coords="1469,161,1640,188"/>
+<area shape="rect" id="node9" href="$d1/d22/class_sim_control_panel.html#a9fd8fa720052f15525637834f456c465" title="SimControlPanel::on\l_goHomeButton_clicked" alt="" coords="1688,89,1851,130"/>
+<area shape="rect" id="node10" href="$d1/d22/class_sim_control_panel.html#a18191363c7461cd1af623e790df2e71e" title="SimControlPanel::on\l_kickButton_clicked" alt="" coords="1700,154,1839,195"/>
+<area shape="rect" id="node11" href="$dd/d14/class_simulation.html#a973095f827be06983911bd0547fe8c9e" title="Simulation::Simulation" alt="" coords="1694,220,1845,247"/>
+<area shape="rect" id="node14" href="$de/d6f/class_graphics3_d.html#af4a38ac4c3cb98d9720acd07dd1ff38a" title="Graphics3D::_drawSphere" alt="" coords="444,157,615,184"/>
+<area shape="rect" id="node15" href="$de/d6f/class_graphics3_d.html#a5486700fa1514220acfd22461ecb37d9" title="Graphics3D::_drawCone" alt="" coords="450,208,609,235"/>
+<area shape="rect" id="node16" href="$de/d6f/class_graphics3_d.html#accfe6975a634047d2396cfad9b17b5d2" title="Graphics3D::_drawBlock" alt="" coords="448,259,611,285"/>
+<area shape="rect" id="node17" href="$de/d6f/class_graphics3_d.html#a7ee9862c8f631e256f5b17c1af5313d6" title="Graphics3D::_drawArrow" alt="" coords="448,309,611,336"/>
+</map>

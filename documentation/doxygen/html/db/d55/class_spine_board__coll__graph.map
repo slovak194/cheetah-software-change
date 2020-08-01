@@ -1,0 +1,4 @@
+<map id="SpineBoard" name="SpineBoard">
+<area shape="rect" id="node2" href="$d5/d09/struct_spi_data.html" title="{SpiData\n|+ q_abad\l+ q_hip\l+ q_knee\l+ qd_abad\l+ qd_hip\l+ qd_knee\l+ flags\l+ spi_driver_status\l|}" alt="" coords="5,27,133,207"/>
+<area shape="rect" id="node3" href="$d0/ddd/struct_spi_command.html" title="{SpiCommand\n|+ q_des_abad\l+ q_des_hip\l+ q_des_knee\l+ qd_des_abad\l+ qd_des_hip\l+ qd_des_knee\l+ kp_abad\l+ kp_hip\l+ kp_knee\l+ kd_abad\land 6 more...\l|}" alt="" coords="157,5,267,229"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Graphics3D::setHideRobot" name="Graphics3D::setHideRobot">
+<area shape="rect" id="node2" href="$de/d6f/class_graphics3_d.html#abd94a301a824da9c921cd5d7bc671e1e" title="Graphics3D::wantSloMo" alt="" coords="225,49,384,75"/>
+<area shape="rect" id="node3" href="$dd/d14/class_simulation.html#a8639e8b6997a8e44a65a3ed820dc998d" title="Simulation::runAtSpeed" alt="" coords="432,49,589,75"/>
+<area shape="rect" id="node4" href="$d1/d22/class_sim_control_panel.html#afdfa6b365805d23d5438862de97856ae" title="SimControlPanel::on\l_startButton_clicked" alt="" coords="653,12,793,53"/>
+<area shape="rect" id="node5" href="$dd/d14/class_simulation.html#a8a3a6fa9691b58d5dc614d98b8e4fefb" title="Simulation::setRobotState" alt="" coords="637,78,808,105"/>
+<area shape="rect" id="node6" href="$d1/d22/class_sim_control_panel.html#a9fd8fa720052f15525637834f456c465" title="SimControlPanel::on\l_goHomeButton_clicked" alt="" coords="856,5,1019,47"/>
+<area shape="rect" id="node7" href="$d1/d22/class_sim_control_panel.html#a18191363c7461cd1af623e790df2e71e" title="SimControlPanel::on\l_kickButton_clicked" alt="" coords="868,71,1007,112"/>
+<area shape="rect" id="node8" href="$dd/d14/class_simulation.html#a973095f827be06983911bd0547fe8c9e" title="Simulation::Simulation" alt="" coords="862,137,1013,163"/>
+</map>

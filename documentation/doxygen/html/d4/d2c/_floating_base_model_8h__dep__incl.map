@@ -1,0 +1,51 @@
+<map id="FloatingBaseModel.h" name="FloatingBaseModel.h">
+<area shape="rect" id="node2" href="$d5/d79/_contact_constraint_8h.html" title="Virtual class of Contact Constraint logic. " alt="" coords="521,80,655,107"/>
+<area shape="rect" id="node3" href="$da/daa/_contact_impulse_8h.html" title="Implementation of impulse&#45;based contact dynamics. " alt="" coords="183,155,305,181"/>
+<area shape="rect" id="node6" href="$da/d04/_contact_spring_damper_8h.html" title="Spring Damper based Contact dynamics. " alt="" coords="330,155,489,181"/>
+<area shape="rect" id="node7" href="$d6/da7/_contact_spring_damper_8cpp.html" title="Spring Damper based Contact dynamics. " alt="" coords="347,229,520,256"/>
+<area shape="rect" id="node8" href="$d0/d52/_dynamics_simulator_8h.html" title="Rigid Body Dynamics Simulator with Collisions. " alt="" coords="738,155,881,181"/>
+<area shape="rect" id="node9" href="$db/d42/test__dynamics_8cpp.html" title="Test dynamics algorithms. " alt="" coords="955,379,1083,405"/>
+<area shape="rect" id="node10" href="$d6/d6e/test__mini__cheetah__model_8cpp.html" title="test_mini_cheetah_model.cpp" alt="" coords="737,379,930,405"/>
+<area shape="rect" id="node11" href="$df/d65/_draw_list_8h.html" title="Data structure to store robot model to be drawn. " alt="" coords="647,229,729,256"/>
+<area shape="rect" id="node15" href="$df/d0a/main_8cpp.html" title="Main Function for the robot program. " alt="" coords="1083,528,1157,555"/>
+<area shape="rect" id="node23" href="$d6/dce/_cheetah3_8h.html" title="Utility function to build a Cheetah 3 Quadruped object. " alt="" coords="1439,304,1526,331"/>
+<area shape="rect" id="node25" href="$d4/dc6/test__cheetah3__model_8cpp.html" title="test_cheetah3_model.cpp" alt="" coords="1811,379,1981,405"/>
+<area shape="rect" id="node27" href="$d3/dc7/_quadruped_8h.html" title="Data structure containing parameters for quadruped robot. " alt="" coords="1475,229,1570,256"/>
+<area shape="rect" id="node37" href="$d3/dff/_robot_controller_8h.html" title="Parent class of user robot controllers. This is an interface between the control code and the common ..." alt="" coords="2234,528,2355,555"/>
+<area shape="rect" id="node45" href="$d8/db6/_mini_cheetah_8h.html" title="Utility function to build a Mini Cheetah Quadruped object. " alt="" coords="1209,304,1313,331"/>
+<area shape="rect" id="node47" href="$d2/da4/_imu_simulator_8h.html" title="Simulated IMU with noise. " alt="" coords="1919,80,2028,107"/>
+<area shape="rect" id="node50" href="$da/de7/_floating_base_model_8cpp.html" title="Implementation of Rigid Body Floating Base model data structure. " alt="" coords="2282,80,2438,107"/>
+<area shape="rect" id="node22" href="$d2/d02/_contact_constraint_8cpp.html" title="ContactConstraint virtual class. " alt="" coords="513,155,663,181"/>
+<area shape="rect" id="node4" href="$da/d75/_contact_impulse_8cpp.html" title="Implementation of impulse&#45;based contact dynamics. " alt="" coords="5,229,141,256"/>
+<area shape="rect" id="node5" href="$de/d4c/_dynamics_simulator_8cpp.html" title="Rigid Body Dynamics Simulator with Collisions. " alt="" coords="165,229,323,256"/>
+<area shape="rect" id="node12" href="$d2/de7/_graphics3_d_8h.html" title="Visualizer window for simulator. " alt="" coords="421,304,520,331"/>
+<area shape="rect" id="node21" href="$d1/d8b/_draw_list_8cpp.html" title="Data structure to store robot model to be drawn. " alt="" coords="641,304,735,331"/>
+<area shape="rect" id="node13" href="$d4/df6/_robot_interface_8h.html" title="Interface between simulator and hardware using LCM. " alt="" coords="595,379,712,405"/>
+<area shape="rect" id="node14" href="$d7/dab/_sim_control_panel_8h.html" title="QT gui for the simulator. " alt="" coords="759,453,889,480"/>
+<area shape="rect" id="node18" href="$d2/ded/_simulation_8h.html" title="Main simulation class. " alt="" coords="1208,379,1301,405"/>
+<area shape="rect" id="node20" href="$d7/d90/_graphics3_d_8cpp.html" title="Visualizer window for simulator. " alt="" coords="355,379,469,405"/>
+<area shape="rect" id="node17" href="$dd/d4a/_robot_interface_8cpp.html" title="RobotInterface.cpp" alt="" coords="1157,453,1288,480"/>
+<area shape="rect" id="node16" href="$d8/dcd/_sim_control_panel_8cpp.html" title="SimControlPanel.cpp" alt="" coords="753,528,895,555"/>
+<area shape="rect" id="node19" href="$db/d98/_simulation_8cpp.html" title="Simulation.cpp" alt="" coords="1395,453,1501,480"/>
+<area shape="rect" id="node24" href="$d9/d56/test__actuator_model_8cpp.html" title="Test the actuator model of the mini cheetah and cheetah 3 robots. " alt="" coords="1326,379,1482,405"/>
+<area shape="rect" id="node26" href="$db/d28/_robot_runner_8cpp.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="2301,677,2422,704"/>
+<area shape="rect" id="node28" href="$d0/d41/_leg_controller_8h.html" title="Common Leg Control Interface and Leg Control Algorithms. " alt="" coords="2426,304,2534,331"/>
+<area shape="rect" id="node32" href="$d3/d41/_robot_runner_8h.html" title="Common framework for running robot controllers. This code is a common interface between control code ..." alt="" coords="2759,603,2865,629"/>
+<area shape="rect" id="node42" href="$d6/dbf/test___leg_controller_8cpp.html" title="test_LegController.cpp" alt="" coords="2005,379,2155,405"/>
+<area shape="rect" id="node43" href="$d1/df4/_j_pos_initializer_8h.html" title="Controller to initialize the position of the legs on power&#45;on. " alt="" coords="2829,379,2941,405"/>
+<area shape="rect" id="node46" href="$da/dfc/_quadruped_8cpp.html" title="Data structure containing parameters for quadruped robot. " alt="" coords="1601,304,1711,331"/>
+<area shape="rect" id="node29" href="$d8/d87/_state_estimator_container_8h.html" title="StateEstimatorContainer.h" alt="" coords="2481,379,2653,405"/>
+<area shape="rect" id="node35" href="$dc/da6/_simulation_bridge_8cpp.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="2880,752,3024,779"/>
+<area shape="rect" id="node41" href="$da/d2d/_leg_controller_8cpp.html" title="Common Leg Control Interface. " alt="" coords="2333,379,2456,405"/>
+<area shape="rect" id="node30" href="$db/d94/_contact_estimator_8h.html" title="All Contact Estimation Algorithms. " alt="" coords="2519,528,2649,555"/>
+<area shape="rect" id="node36" href="$d8/dfc/_desired_state_command_8h.html" title="Logic to convert a joystick command into a desired trajectory for the robot. " alt="" coords="2484,453,2649,480"/>
+<area shape="rect" id="node39" href="$dd/df4/_orientation_estimator_8h.html" title="All Orientation Estimation Algorithms. " alt="" coords="2161,603,2311,629"/>
+<area shape="rect" id="node40" href="$df/ddd/_position_velocity_estimator_8h.html" title="All State Estimation Algorithms. " alt="" coords="2335,603,2513,629"/>
+<area shape="rect" id="node31" href="$d1/dfb/_contact_estimator_8cpp.html" title="All Contact Estimation Algorithms. " alt="" coords="2589,603,2734,629"/>
+<area shape="rect" id="node33" href="$db/d55/_simulation_bridge_8h.html" title="The SimulationBridge runs a RobotController and connects it to a Simulator, using shared memory..." alt="" coords="2747,677,2877,704"/>
+<area shape="rect" id="node34" href="$d3/dfa/main__helper_8cpp.html" title="main_helper.cpp" alt="" coords="2105,752,2221,779"/>
+<area shape="rect" id="node38" href="$d6/da5/main__helper_8h.html" title="Function which should be called in main to start your robot control code. " alt="" coords="2111,677,2214,704"/>
+<area shape="rect" id="node44" href="$d0/d85/_j_pos_initializer_8cpp.html" title="Controller to initialize the position of the legs on power&#45;on. " alt="" coords="2826,453,2953,480"/>
+<area shape="rect" id="node48" href="$d3/d6a/_imu_simulator_8cpp.html" title="Simulated IMU. " alt="" coords="2084,155,2207,181"/>
+<area shape="rect" id="node49" href="$d9/d1d/test___imu_simulator_8cpp.html" title="test_ImuSimulator.cpp" alt="" coords="1909,155,2059,181"/>
+</map>

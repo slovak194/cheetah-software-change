@@ -1,0 +1,21 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node2" href="$da/d9b/namespaceori.html#a537b8d0769c03e4cd8ef2b9a9dc8a760" title="ori::coordinateRotation" alt="" coords="581,121,732,147"/>
+<area shape="rect" id="node3" href="$da/d9b/namespaceori.html#a73c3872af6870d856cedd662856fcaea" title="ori::rotationMatrixToQuaternion" alt="" coords="319,54,517,81"/>
+<area shape="rect" id="node4" href="$d7/d9c/class_dynamics_simulator.html#a2310bcadca5b6ed12ec9cee898335625" title="DynamicsSimulator::\lsetAllExternalForces" alt="" coords="120,105,259,147"/>
+<area shape="rect" id="node5" href="$d7/d9c/class_dynamics_simulator.html#a1b185d90d2b15840ca57f8e2adcf84fb" title="DynamicsSimulator::\lsetState" alt="" coords="120,171,259,212"/>
+<area shape="rect" id="node6" href="$d7/d9c/class_dynamics_simulator.html#a84b25acaf7edf23f4f437a96a0d8ba05" title="Initialize simulator with given model. " alt="" coords="108,237,271,263"/>
+<area shape="rect" id="node7" href="$d7/d9c/class_dynamics_simulator.html#a3c057386e8d437e8c5dbcae02acf935c" title="Do forward kinematics for feet. " alt="" coords="349,105,487,147"/>
+<area shape="rect" id="node8" href="$d7/d9c/class_dynamics_simulator.html#ac2a79fc7a13298b6fa4b9fa87844106e" title="DynamicsSimulator::\lupdateCollisions" alt="" coords="349,171,487,212"/>
+<area shape="rect" id="node9" href="$da/d9b/namespaceori.html#add867f41c8046a8bba05611e25c8dfcd" title="ori::rpyToRotMat" alt="" coords="360,237,476,263"/>
+<area shape="rect" id="node10" href="$da/d9b/namespaceori.html#a90e9fca31a184b48790b43aa6f44fcbd" title="ori::quatToso3" alt="" coords="367,287,469,314"/>
+<area shape="rect" id="node11" href="$de/d1a/namespacespatial.html#a3b32f3f809891285d9f1a8cf3c7cd16e" title="spatial::forceToSpatialForce" alt="" coords="327,338,509,365"/>
+<area shape="rect" id="node12" href="$d7/d9c/class_dynamics_simulator.html#ab7c1b6d1eb8d4893458b6910b1f9d331" title="Simulate forward one step. " alt="" coords="349,389,487,431"/>
+<area shape="rect" id="node13" href="$d7/d9c/class_dynamics_simulator.html#aa713195f636bdfd32743ad5cd5385fcd" title="Integrate to find new _state. " alt="" coords="349,455,487,496"/>
+<area shape="rect" id="node14" href="$de/d1a/namespacespatial.html#ae4a2145f3028087511b4f17c0152ec83" title="spatial::createSXform" alt="" coords="584,345,729,371"/>
+<area shape="rect" id="node16" href="$da/d9b/namespaceori.html#af88fa91d686c646d41f9b747a6bc90f0" title="ori::quaternionToRotation\lMatrix" alt="" coords="574,396,739,437"/>
+<area shape="rect" id="node17" href="$de/d1a/namespacespatial.html#abdc3cd991206414d80d9f89be27e3633" title="spatial::rotationFromSXform" alt="" coords="565,462,748,489"/>
+<area shape="rect" id="node18" href="$da/d9b/namespaceori.html#ac12ecf143879de178929ecaad1714a6a" title="ori::integrateQuat" alt="" coords="597,513,717,539"/>
+<area shape="rect" id="node20" href="$da/d9b/namespaceori.html#a24ac869b814e7e46a63c4ee97e3279ea" title="ori::integrateQuatImplicit" alt="" coords="575,563,738,590"/>
+<area shape="rect" id="node15" href="$da/d9b/namespaceori.html#a153f2a76610f0c5524da3f8bf8fa4dfa" title="ori::vectorToSkewMat" alt="" coords="796,345,943,371"/>
+<area shape="rect" id="node19" href="$da/d9b/namespaceori.html#a89494866325446c634184782e56113ff" title="ori::quatProduct" alt="" coords="813,538,925,565"/>
+</map>

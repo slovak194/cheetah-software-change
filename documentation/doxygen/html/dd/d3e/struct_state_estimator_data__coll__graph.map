@@ -1,0 +1,8 @@
+<map id="StateEstimatorData&lt; T &gt;" name="StateEstimatorData&lt; T &gt;">
+<area shape="rect" id="node2" href="$df/d06/struct_vector_nav_data.html" title="{VectorNavData\n|+ accelerometer\l+ gyro\l+ quat\l|}" alt="" coords="5,637,120,744"/>
+<area shape="rect" id="node3" href="$d2/d3e/struct_cheater_state.html" title="{CheaterState\&lt; double \&gt;\n|+ orientation\l+ position\l+ omegaBody\l+ vBody\l+ acceleration\l|}" alt="" coords="145,623,303,759"/>
+<area shape="rect" id="node4" href="$d2/d3e/struct_cheater_state.html" title="{CheaterState\&lt; T \&gt;\n|+ orientation\l+ position\l+ omegaBody\l+ vBody\l+ acceleration\l|}" alt="" coords="159,343,287,479"/>
+<area shape="rect" id="node5" href="$d0/d73/class_robot_control_parameters.html" title="{RobotControlParameters\n||+ RobotControlParameters()\l+ DECLARE_PARAMETER()\l}" alt="" coords="328,645,515,737"/>
+<area shape="rect" id="node6" href="$d8/d86/class_control_parameters.html" title="{ControlParameters\n|# _name\l# _mutex\l|+ ControlParameters()\l+ isFullyInitialized()\l+ initializeDouble()\l+ initializeFloat()\l+ initializeInteger()\l+ initializeVec3f()\l+ initializeVec3d()\l+ lockMutex()\l+ unlockMutex()\l+ writeToIniFile()\l+ initializeFromIniFile()\l+ initializeFromYamlFile()\l+ defineAndInitializeFromYamlFile()\l+ writeToYamlFile()\l+ generateUnitializedList()\l}" alt="" coords="311,263,537,560"/>
+<area shape="rect" id="node7" href="$dd/da1/class_control_parameter_collection.html" title="{ControlParameterCollection\n|+ _map\l&#45; _name\l|+ ControlParameterCollection()\l+ addParameter()\l+ lookup()\l+ printToIniString()\l+ printToYamlString()\l+ checkIfAllSet()\l+ clearAllSet()\l+ deleteAll()\l}" alt="" coords="325,5,523,200"/>
+</map>

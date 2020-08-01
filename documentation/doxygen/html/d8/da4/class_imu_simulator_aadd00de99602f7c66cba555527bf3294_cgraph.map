@@ -1,0 +1,4 @@
+<map id="ImuSimulator::updateCheaterState" name="ImuSimulator::updateCheaterState">
+<area shape="rect" id="node2" href="$da/d9b/namespaceori.html#af88fa91d686c646d41f9b747a6bc90f0" title="ori::quaternionToRotation\lMatrix" alt="" coords="243,5,408,47"/>
+<area shape="rect" id="node3" href="$de/d1a/namespacespatial.html#a13df9ec1359ecd4150251eaae0895198" title="spatial::spatialToLinear\lAcceleration" alt="" coords="249,71,401,112"/>
+</map>

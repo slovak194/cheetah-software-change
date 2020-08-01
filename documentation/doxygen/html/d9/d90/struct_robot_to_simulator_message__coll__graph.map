@@ -1,0 +1,14 @@
+<map id="RobotToSimulatorMessage" name="RobotToSimulatorMessage">
+<area shape="rect" id="node2" href="$d4/d34/struct_control_parameter_response.html" title="{ControlParameterResponse\n|+ name\l+ requestNumber\l+ nParameters\l+ parameterKind\l+ requestKind\l|+ isResponseTo()\l+ toString()\l}" alt="" coords="13,292,192,443"/>
+<area shape="rect" id="node3" href="$df/df2/union_control_parameter_value.html" title="{ControlParameterValue\n|+ f\l+ d\l+ i\l+ vec3f\l+ vec3d\l|}" alt="" coords="5,20,160,156"/>
+<area shape="rect" id="node4" href="$d0/d6d/struct_cheetah_visualization.html" title="{CheetahVisualization\n|+ q\l+ quat\l+ p\l+ color\l|}" alt="" coords="292,307,433,428"/>
+<area shape="rect" id="node5" href="$d3/d60/struct_visualization_data.html" title="{VisualizationData\n|+ num_paths\l+ num_arrows\l+ num_cones\l+ num_spheres\l+ num_blocks\l+ num_meshes\l|+ clear()\l+ addSphere()\l+ addBlock()\l+ addArrow()\l+ addCone()\l+ addPath()\l+ addMesh()\l}" alt="" coords="487,248,607,487"/>
+<area shape="rect" id="node6" href="$d4/d7b/struct_arrow_visualization.html" title="{ArrowVisualization\n|+ base_position\l+ direction\l+ color\l+ head_width\l+ head_length\l+ shaft_width\l|}" alt="" coords="185,13,311,163"/>
+<area shape="rect" id="node7" href="$df/da6/struct_cone_visualization.html" title="{ConeVisualization\n|+ point_position\l+ direction\l+ color\l+ radius\l|}" alt="" coords="336,27,459,149"/>
+<area shape="rect" id="node8" href="$d5/d38/struct_block_visualization.html" title="{BlockVisualization\n|+ dimension\l+ corner_position\l+ rpy\l+ color\l|}" alt="" coords="483,27,610,149"/>
+<area shape="rect" id="node9" href="$d1/d06/struct_path_visualization.html" title="{PathVisualization\n|+ num_points\l+ color\l+ position\l|+ clear()\l}" alt="" coords="635,35,755,141"/>
+<area shape="rect" id="node10" href="$d7/d94/struct_sphere_visualization.html" title="{SphereVisualization\n|+ position\l+ color\l+ radius\l|}" alt="" coords="779,35,914,141"/>
+<area shape="rect" id="node11" href="$d9/de7/struct_mesh_visualization.html" title="{MeshVisualization\n|+ left_corner\l+ height_map\l+ rows\l+ cols\l+ grid_size\l+ height_max\l+ height_min\l|}" alt="" coords="938,5,1062,171"/>
+<area shape="rect" id="node12" href="$d8/d03/struct_ti_board_command.html" title="{TiBoardCommand\n|+ position_des\l+ velocity_des\l+ kp\l+ kd\l+ enable\l+ zero\l+ force_ff\l+ tau_ff\l+ zero_offset\l+ q_des\l+ qd_des\l+ kp_joint\l+ kd_joint\l+ max_torque\l|}" alt="" coords="631,233,758,501"/>
+<area shape="rect" id="node13" href="$d0/ddd/struct_spi_command.html" title="{SpiCommand\n|+ q_des_abad\l+ q_des_hip\l+ q_des_knee\l+ qd_des_abad\l+ qd_des_hip\l+ qd_des_knee\l+ kp_abad\l+ kp_hip\l+ kp_knee\l+ kd_abad\land 6 more...\l|}" alt="" coords="783,255,892,479"/>
+</map>

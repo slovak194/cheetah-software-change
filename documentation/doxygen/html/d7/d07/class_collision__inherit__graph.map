@@ -1,0 +1,5 @@
+<map id="Collision&lt; T &gt;" name="Collision&lt; T &gt;">
+<area shape="rect" id="node2" href="$d1/db3/class_collision_box.html" title="{CollisionBox\&lt; T \&gt;\n|&#45; _size\l&#45; _position\l&#45; _orientation\l|+ CollisionBox()\l+ ~CollisionBox()\l+ ContactDetection()\l}" alt="" coords="5,226,147,362"/>
+<area shape="rect" id="node3" href="$d4/daa/class_collision_mesh.html" title="{CollisionMesh\&lt; T \&gt;\n|&#45; _size\l&#45; _left_corner_loc\l&#45; _height_map\l&#45; _grid\l&#45; _x_max\l&#45; _y_max\l|+ CollisionMesh()\l+ ~CollisionMesh()\l+ ContactDetection()\l}" alt="" coords="171,204,312,384"/>
+<area shape="rect" id="node4" href="$d4/d38/class_collision_plane.html" title="{CollisionPlane\&lt; T \&gt;\n|&#45; _height\l|+ CollisionPlane()\l+ ~CollisionPlane()\l+ ContactDetection()\l}" alt="" coords="336,241,477,347"/>
+</map>

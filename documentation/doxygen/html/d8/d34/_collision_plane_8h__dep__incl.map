@@ -1,0 +1,18 @@
+<map id="CollisionPlane.h" name="CollisionPlane.h">
+<area shape="rect" id="node2" href="$d0/d52/_dynamics_simulator_8h.html" title="Rigid Body Dynamics Simulator with Collisions. " alt="" coords="393,80,536,107"/>
+<area shape="rect" id="node6" href="$df/d65/_draw_list_8h.html" title="Data structure to store robot model to be drawn. " alt="" coords="659,155,740,181"/>
+<area shape="rect" id="node10" href="$df/d0a/main_8cpp.html" title="Main Function for the robot program. " alt="" coords="678,453,753,480"/>
+<area shape="rect" id="node17" href="$d4/d05/_collision_plane_8cpp.html" title="Collision logic for an infinite plane. " alt="" coords="709,80,836,107"/>
+<area shape="rect" id="node3" href="$de/d4c/_dynamics_simulator_8cpp.html" title="Rigid Body Dynamics Simulator with Collisions. " alt="" coords="223,155,381,181"/>
+<area shape="rect" id="node4" href="$db/d42/test__dynamics_8cpp.html" title="Test dynamics algorithms. " alt="" coords="455,155,583,181"/>
+<area shape="rect" id="node5" href="$d6/d6e/test__mini__cheetah__model_8cpp.html" title="test_mini_cheetah_model.cpp" alt="" coords="5,155,199,181"/>
+<area shape="rect" id="node7" href="$d2/de7/_graphics3_d_8h.html" title="Visualizer window for simulator. " alt="" coords="886,229,985,256"/>
+<area shape="rect" id="node16" href="$d1/d8b/_draw_list_8cpp.html" title="Data structure to store robot model to be drawn. " alt="" coords="709,229,804,256"/>
+<area shape="rect" id="node8" href="$d4/df6/_robot_interface_8h.html" title="Interface between simulator and hardware using LCM. " alt="" coords="1066,304,1183,331"/>
+<area shape="rect" id="node9" href="$d7/dab/_sim_control_panel_8h.html" title="QT gui for the simulator. " alt="" coords="1016,379,1145,405"/>
+<area shape="rect" id="node13" href="$d2/ded/_simulation_8h.html" title="Main simulation class. " alt="" coords="847,304,941,331"/>
+<area shape="rect" id="node15" href="$d7/d90/_graphics3_d_8cpp.html" title="Visualizer window for simulator. " alt="" coords="709,304,823,331"/>
+<area shape="rect" id="node12" href="$dd/d4a/_robot_interface_8cpp.html" title="RobotInterface.cpp" alt="" coords="1169,379,1299,405"/>
+<area shape="rect" id="node11" href="$d8/dcd/_sim_control_panel_8cpp.html" title="SimControlPanel.cpp" alt="" coords="1009,453,1152,480"/>
+<area shape="rect" id="node14" href="$db/d98/_simulation_8cpp.html" title="Simulation.cpp" alt="" coords="834,379,941,405"/>
+</map>

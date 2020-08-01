@@ -1,4 +1,5 @@
 ## Cheetah-Software
+## 以下建议参考源程序readme
 This repository contains the Robot and Simulation software project.  For a getting started guide, see the documentation folder.
 
 The common folder contains the common library with dynamics and utilities
@@ -71,4 +72,3 @@ s: simulation, r: robot
 - `libblas-dev liblapack-dev`
 
 To use Ipopt, use CMake Ipopt option. Ex) cmake -DIPOPT_OPTION=ON ..
-# cheetah-software-change

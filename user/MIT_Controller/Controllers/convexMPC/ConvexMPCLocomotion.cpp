@@ -16,7 +16,7 @@ ConvexMPCLocomotion::ConvexMPCLocomotion(float _dt, int _iterations_between_mpc,
   //trotting(24, Vec4<int>(0,12,12,0), Vec4<int>(12,12,12,12),"Trotting"),
   trotting(18, Vec4<int>(0,9,9,0), Vec4<int>(9,9,9,9),"Trotting"),
   //trotting(12, Vec4<int>(0,6,6,0), Vec4<int>(6,6,6,6),"Trotting"),
-  //trotting(30, Vec4<int>(0,15,15,0), Vec4<int>(20,20,20,20),"Trotting"),
+  //trotting(30, Vec4<int>(0,15,15,0), Vec4<int>(15,15,15,15),"Trotting"),
   //trotting(120, Vec4<int>(0,60,60,0), Vec4<int>(110,110,110,110),"Trotting"),
   bounding(10, Vec4<int>(5,5,0,0),Vec4<int>(5,5,5,5),"Bounding"),
   //bounding(horizonLength, Vec4<int>(5,5,0,0),Vec4<int>(3,3,3,3),"Bounding"),
@@ -70,7 +70,7 @@ void ConvexMPCLocomotion::_SetupCommand(ControlFSMData<float> & data){
   _yaw_des = data._stateEstimator->getResult().rpy[2] + dt * _yaw_turn_rate;
   //height
   _body_height_cmd = data.userParameters->stand_up_height; 
-  if(data._gamepadCommand->a) _body_height_cmd -= 0.1;  //下蹲指令
+  if(data._gamepadCommand->a) _body_height_cmd *= 0.7;  //下蹲指令
  
   _body_height = _body_height*(1-filter2) + _body_height_cmd*filter2;
 }
@@ -329,12 +329,14 @@ void ConvexMPCLocomotion::updateMPCIfNeeded(int *mpcTable, ControlFSMData<float>
 void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &data) {
   auto seResult = data._stateEstimator->getResult();
 
-  float Q[12] = {0.25, 0.25, 10, 2, 2, 50, 0, 0, 0.3, 0.2, 0.2, 0.1};
+   float Q[12] = {0.25, 0.25, 10,    //角度
+                  2, 2, 50,          //位置
+                  0, 0, 0.3,         //角速度
+                  0.2, 0.2, 0.1};    //速度
 
   float yaw = seResult.rpy[2];
   float* weights = Q;
-  //float alpha = 4e-5; // make setting eventually
-  float alpha = 4e-7; // make setting eventually: DH
+  float alpha = 4e-7;         // 力的权重
   float* p = seResult.position.data();
   float* v = seResult.vWorld.data();
   float* w = seResult.omegaWorld.data();

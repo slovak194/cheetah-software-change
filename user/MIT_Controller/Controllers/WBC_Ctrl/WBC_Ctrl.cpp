@@ -25,7 +25,7 @@ WBC_Ctrl<T>::WBC_Ctrl(FloatingBaseModel<T> model):
   _wbic_data->_W_rf = DVec<T>::Constant(12, 1.);
 
   _Kp_joint.resize(cheetah::num_leg_joint, 5.);
-  _Kd_joint.resize(cheetah::num_leg_joint, 1.5);
+  _Kd_joint.resize(cheetah::num_leg_joint, 1.5);     //魔法数字
 
   //_Kp_joint_swing.resize(cheetah::num_leg_joint, 10.);
   //_Kd_joint_swing.resize(cheetah::num_leg_joint, 1.5);
@@ -78,17 +78,6 @@ void WBC_Ctrl<T>::run(void* input, ControlFSMData<T> & data){
 
   // WBC Computation
   _ComputeWBC();
-  
-  // TEST
-  //T dt(0.002);
-  //for(size_t i(0); i<12; ++i){
-    //_des_jpos[i] = _state.q[i] + _state.qd[i] * dt + 0.5 * _wbic_data->_qddot[i+6] * dt * dt;
-    //_des_jvel[i] = _state.qd[i] + _wbic_data->_qddot[i+6]*dt;
-  //}
-
-  //_ContactTaskUpdateTEST(input, data);
-  //_ComputeWBC();
-  // END of TEST
 
   // Update Leg Command
   _UpdateLegCMD(data);
@@ -113,15 +102,6 @@ void WBC_Ctrl<T>::_UpdateLegCMD(ControlFSMData<T> & data){
 
         cmd[leg].kpJoint(jidx, jidx) = _Kp_joint[jidx];
         cmd[leg].kdJoint(jidx, jidx) = _Kd_joint[jidx];
-       
-       //if(contact[leg] > 0.){ // Contact
-        //cmd[leg].kpJoint(jidx, jidx) = _Kp_joint[jidx];
-        //cmd[leg].kdJoint(jidx, jidx) = _Kd_joint[jidx];
-      //}else{
-        //cmd[leg].kpJoint(jidx, jidx) = _Kp_joint_swing[jidx];
-        //cmd[leg].kdJoint(jidx, jidx) = _Kd_joint_swing[jidx];
-      //}
-
     }
   }
 

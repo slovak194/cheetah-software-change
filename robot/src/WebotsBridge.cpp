@@ -56,7 +56,6 @@ void WebotsBridge::initCommon() {
   // 这个线程用来运行handle函数
   _interfaceLcmThread = std::thread(&WebotsBridge::handleInterfaceLCM, this);
 }
-
 /*!
  * Run interface LCM
  */

@@ -244,25 +244,23 @@ void FSM_State_Locomotion<T>::LocomotionControlStep() {
     Kd_backup[leg] = this->_data->_legController->commands[leg].kdCartesian;
   }
 
-  if(this->_data->userParameters->use_wbc > 0.9){
-    _wbc_data->pBody_des = cMPCOld->pBody_des;
-    _wbc_data->vBody_des = cMPCOld->vBody_des;
-    _wbc_data->aBody_des = cMPCOld->aBody_des;
+  _wbc_data->pBody_des = cMPCOld->pBody_des;
+  _wbc_data->vBody_des = cMPCOld->vBody_des;
+  _wbc_data->aBody_des = cMPCOld->aBody_des;
 
-    _wbc_data->pBody_RPY_des = cMPCOld->pBody_RPY_des;
-    _wbc_data->vBody_Ori_des = cMPCOld->vBody_Ori_des;
-    
-    for(size_t i(0); i<4; ++i){
-      _wbc_data->pFoot_des[i] = cMPCOld->pFoot_des[i];
-      _wbc_data->vFoot_des[i] = cMPCOld->vFoot_des[i];
-      _wbc_data->aFoot_des[i] = cMPCOld->aFoot_des[i];
-      _wbc_data->Fr_des[i] = cMPCOld->Fr_des[i]; 
-    }
-    _wbc_data->contact_state = cMPCOld->contact_state;
-    //Timer t1;
-    _wbc_ctrl->run(_wbc_data, *this->_data);
-    //printf("MPC Solve time %f ms\n", t1.getMs());
+  _wbc_data->pBody_RPY_des = cMPCOld->pBody_RPY_des;
+  _wbc_data->vBody_Ori_des = cMPCOld->vBody_Ori_des;
+  
+  for(size_t i(0); i<4; ++i){
+    _wbc_data->pFoot_des[i] = cMPCOld->pFoot_des[i];
+    _wbc_data->vFoot_des[i] = cMPCOld->vFoot_des[i];
+    _wbc_data->aFoot_des[i] = cMPCOld->aFoot_des[i];
+    _wbc_data->Fr_des[i] = cMPCOld->Fr_des[i]; 
   }
+  _wbc_data->contact_state = cMPCOld->contact_state;
+  //Timer t1;
+  _wbc_ctrl->run(_wbc_data, *this->_data);
+  //printf("MPC Solve time %f ms\n", t1.getMs());
   
   for(int leg(0); leg<4; ++leg){
     //this->_data->_legController->commands[leg].pDes = pDes_backup[leg];

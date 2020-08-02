@@ -17,7 +17,6 @@
 //#include "rt/rt_rc_interface.h"
 #include "rt/rt_sbus.h"
 #include "rt/rt_spi.h"
-#include "rt/rt_ethercat.h"
 #include "Utilities/Utilities_print.h"
 
 //使用MICROSTRAIN陀螺仪,注意,猎豹mini提供了两种陀螺仪驱动

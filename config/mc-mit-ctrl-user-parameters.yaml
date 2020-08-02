@@ -1,6 +1,18 @@
 # Generated on Sun Aug  2 17:55:51 2020
 __collection-name__: user-parameters
 
+
+Swing_step_offset   : [0, 0, 0]
+cmpc_fmax           : 234
+cmpc_gait           : 9
+cmpc_mu             : 0.4
+foot_hight          : 0.1
+foot_location_k     : 0.03
+sit_down_height     : 0.098
+sit_down_time       : 1
+stand_up_height     : 0.4
+stride_max          : 0.3
+
 Kd_body             : [4, 4, 4]
 Kd_foot             : [8, 8, 8]
 Kd_joint            : [0.64, 3.2, 3.2]
@@ -9,21 +21,3 @@ Kp_body             : [40, 40, 40]
 Kp_foot             : [400, 400, 400]
 Kp_joint            : [9.6, 48, 48]
 Kp_ori              : [800, 800, 800]
-Swing_step_offset   : [0, -0.03, 0]
-cmpc_fmax           : 234
-cmpc_gait           : 9
-cmpc_mu             : 0.4
-foot_hight          : 0.1
-foot_location_k     : 0.03
-gait_max_leg_angle  : 15
-gait_max_stance_time: 0.25
-gait_min_stance_time: 0.1
-gait_override       : 4
-gait_period_time    : 0.5
-gait_switching_phase: 0.5
-gait_type           : 4
-sit_down_height     : 0.098
-sit_down_time       : 1
-stand_up_height     : 0.4
-stride_max          : 0.3
-use_wbc             : 1

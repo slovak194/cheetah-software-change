@@ -22,7 +22,6 @@ RobotRunner::RobotRunner(RobotController* robot_ctrl,
     float period, std::string name):
   PeriodicTask(manager, period, name),
   _lcm(getLcmUrl(255)) {
-
     _robot_ctrl = robot_ctrl;
   }
 
@@ -39,7 +38,7 @@ void RobotRunner::init() {
 
   // Initialize the model and robot data
   _model = _quadruped.buildModel();
-  _jpos_initializer = new JPosInitializer<float>(3., controlParameters->controller_dt);
+  _jpos_initializer = new JPosInitializer<float>(1.5, controlParameters->controller_dt);
 
   // Always initialize the leg controller and state entimator
   _legController = new LegController<float>(_quadruped);
@@ -84,37 +83,27 @@ void RobotRunner::run() {
     _legController->setEnabled(false);
   } else {
     _legController->setEnabled(true);
+    // Controller
+    if (!_jpos_initializer->IsInitialized(_legController)) {
+      Mat3<float> kpMat;
+      Mat3<float> kdMat;
+      // Update the jpos feedback gains
+      kpMat << 20, 0, 0, 0, 18, 0, 0, 0, 15;
+      kdMat << 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5;
 
-    if( (rc_control.mode == 0) && controlParameters->use_rc ) {
-      if(count_ini%1000 ==0)   printf("ESTOP!\n");
       for (int leg = 0; leg < 4; leg++) {
-        _legController->commands[leg].zero();
+        _legController->commands[leg].kpJoint = kpMat;
+        _legController->commands[leg].kdJoint = kdMat;
       }
-      _robot_ctrl->Estop();
-    }else {
-      // Controller
-      if (!_jpos_initializer->IsInitialized(_legController)) {
-        Mat3<float> kpMat;
-        Mat3<float> kdMat;
-        // Update the jpos feedback gains
-        kpMat << 20, 0, 0, 0, 18, 0, 0, 0, 15;
-        kdMat << 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5;
+    } else {
+      // Run Control 
+      _robot_ctrl->runController();
+      cheetahMainVisualization->p = _stateEstimate.position;
 
-        for (int leg = 0; leg < 4; leg++) {
-          _legController->commands[leg].kpJoint = kpMat;
-          _legController->commands[leg].kdJoint = kdMat;
-        }
-      } else {
-        // Run Control 
-        _robot_ctrl->runController();
-        cheetahMainVisualization->p = _stateEstimate.position;
-
-        // Update Visualization
-        _robot_ctrl->updateVisualization();
-        cheetahMainVisualization->p = _stateEstimate.position;
-      }
+      // Update Visualization
+      _robot_ctrl->updateVisualization();
+      cheetahMainVisualization->p = _stateEstimate.position;
     }
-
   }
 
   // Visualization (will make this into a separate function later)

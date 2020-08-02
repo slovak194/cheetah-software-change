@@ -42,8 +42,6 @@ FSM_State_RecoveryStand<T>::FSM_State_RecoveryStand(ControlFSMData<T>* _controlF
   rolling_jpos[1] << 1.3f, -3.1f, 2.77f;
   rolling_jpos[2] << 1.5f, -1.6f, 2.77f;
   rolling_jpos[3] << 1.3f, -3.1f, 2.77f;
-
-  f_ff << 0.f, 0.f, -25.f;
 }
 
 template <typename T>
@@ -68,7 +66,7 @@ void FSM_State_RecoveryStand<T>::onEnter() {
 
   _flag = FoldLegs;
   if( !_UpsideDown() ) { // Proper orientation
-    if (  (0.2 < body_height) && (body_height < 0.45) ){
+    if (  (0.1 < body_height) && (body_height < 0.45) ){
       printf("[Recovery Balance] body height is %f; Stand Up \n", body_height);
       _flag = StandUp;
     }else{
@@ -82,8 +80,6 @@ void FSM_State_RecoveryStand<T>::onEnter() {
 
 template <typename T>
 bool FSM_State_RecoveryStand<T>::_UpsideDown(){
-  //pretty_print(this->_data->_stateEstimator->getResult().rBody, std::cout, "Rot");
-  //if(this->_data->_stateEstimator->getResult().aBody[2] < 0){
   if(this->_data->_stateEstimator->getResult().rBody(2,2) < 0){
     return true;
   }
@@ -186,11 +182,6 @@ void FSM_State_RecoveryStand<T>::_StandUp(const int & curr_iter){
           leg, initial_jpos[leg], stand_jpos[leg]);
     }
   }
-  // feed forward mass of robot.
-  // 为什么没加上?后面加上测试下
-  //for(int i = 0; i < 4; i++)
-  //this->_data->_legController->commands[i].forceFeedForward = f_ff;
-  //Vec4<T> se_contactState(0.,0.,0.,0.);
   Vec4<T> se_contactState(0.5,0.5,0.5,0.5);
   this->_data->_stateEstimator->setContactPhase(se_contactState);
 }

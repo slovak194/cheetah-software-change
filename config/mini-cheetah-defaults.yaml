@@ -2,7 +2,7 @@
 __collection-name__: robot-parameters
 
 cheater_mode               : 0
-control_mode               : 6
+control_mode               : 0
 controller_dt              : 0.002
 foot_height_sensor_noise   : 0.001
 foot_process_noise_position: 0.002
@@ -10,4 +10,3 @@ foot_sensor_noise_position : 0.001
 foot_sensor_noise_velocity : 0.1
 imu_process_noise_position : 0.02
 imu_process_noise_velocity : 0.02
-use_rc                     : 0

@@ -81,14 +81,6 @@ void ControlFSM<T>::initialize() {
 template <typename T>
 void ControlFSM<T>::runFSM() {
   static bool err_flag = false;
-  // Publish state estimator data to other computer
-  //for(size_t i(0); i<3; ++i){
-    //_state_estimator.p[i] = data._stateEstimator->getResult().position[i];
-    //_state_estimator.quat[i] = data._stateEstimator->getResult().orientation[i];
-  //}
-    //_state_estimator.quat[3] = data._stateEstimator->getResult().orientation[3];
-  //state_estimator_lcm.publish("state_estimator_ctrl_pc", &_state_estimator);
-
   // Check the robot state for safe operation
   //操作模式,包括正常,转换,estop,edamp
   if(!err_flag)
@@ -111,9 +103,6 @@ void ControlFSM<T>::runFSM() {
         // Get the next FSM State by name
         nextState = getNextState(nextStateName);
 
-        // Print transition initialized info
-        //printInfo(1);
-
       } else {
         // Run the iteration for the current state normally
         currentState->run();
@@ -132,9 +121,6 @@ void ControlFSM<T>::runFSM() {
         // Exit the current state cleanly
         currentState->onExit();   //一般 do nothing
 
-        // Print finalizing transition info
-        //printInfo(2);
-
         // Complete the transition
         currentState = nextState;
 
@@ -148,7 +134,6 @@ void ControlFSM<T>::runFSM() {
       // Check the robot state for safe operation
       safetyPostCheck();
     }
-
   } else { // if ESTOP
     currentState = statesList.passive; //让机器人被动腿软摔倒
     currentState->onEnter();
@@ -173,7 +158,7 @@ void ControlFSM<T>::runFSM() {
 template <typename T>
 FSM_OperatingMode ControlFSM<T>::safetyPreCheck() {
   // Check for safe orientation if the current state requires it
-  // K_RECOVERY_STAND是一种特殊的步态,此时可能会有不安全状态产生
+  // K_RECOVERY_STAND是一种特殊的状态,此时可能会有不安全状态产生
   if (currentState->checkSafeOrientation && data.controlParameters->control_mode != K_RECOVERY_STAND) {
     if (!safetyChecker->checkSafeOrientation()) {
       operatingMode = FSM_OperatingMode::ESTOP;
@@ -202,7 +187,6 @@ FSM_OperatingMode ControlFSM<T>::safetyPostCheck() {
   if (currentState->checkPDesFoot) {
     safetyChecker->checkPDesFoot();
   }
-
   // Check for safe desired feedforward forces
   // 检测期望足底前馈力是否安全
   if (currentState->checkForceFeedForward) {

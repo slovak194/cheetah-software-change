@@ -1,8 +1,0 @@
-package cheetahlcm;
-
-struct vectornav_data_t
-{
-    float quat[4];
-    float acc [4];
-    float gyro[4];
-}

@@ -47,28 +47,14 @@ class FSM_State_RecoveryStand : public FSM_State<T> {
   Vec3<T> initial_jpos[4];
   Vec3<T> zero_vec3;
 
-  Vec3<T> f_ff;
-
-  // iteration setup
-  //const int rollover_ramp_iter = 300;
-  //const int rollover_settle_iter = 300;
-
-  //const int fold_ramp_iter = 1000;
-  //const int fold_settle_iter = 1000;
-
-  //const int standup_ramp_iter = 500;
-  //const int standup_settle_iter = 500;
-
-  // 0.5 kHz
+  // 0.5 kHz 0.02ms 
   const int rollover_ramp_iter = 150;
-  const int rollover_settle_iter = 150;
+  const int rollover_settle_iter = 300;
 
-  //const int fold_ramp_iter = 500;
-  //const int fold_settle_iter = 500;
-  const int fold_ramp_iter = 400;
-  const int fold_settle_iter = 700;
+  const int fold_ramp_iter = 800;
+  const int fold_settle_iter = 250;
 
-  const int standup_ramp_iter = 250;
+  const int standup_ramp_iter = 800;
   const int standup_settle_iter = 250;
 
   void _RollOver(const int & iter);

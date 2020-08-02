@@ -10,9 +10,9 @@
 #define K_INVALID         (-1)
 #define K_PASSIVE         (0)
 #define K_SIT_DOWN        (1)
-#define K_BALANCE_STAND   (3)
-#define K_LOCOMOTION      (4)
-#define K_RECOVERY_STAND  (6)
+#define K_BALANCE_STAND   (2)
+#define K_LOCOMOTION      (3)
+#define K_RECOVERY_STAND  (4)
 
 /**
  * Enumerate all of the FSM states so we can keep track of them.

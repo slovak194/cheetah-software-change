@@ -1,36 +1,29 @@
-# Generated on Mon Aug  5 18:20:08 2019
+# Generated on Sun Aug  2 17:55:51 2020
 __collection-name__: user-parameters
 
-stride_max        : 0.3    #一步最大距离
-cmpc_mu           : 0.4    #设置摩擦锥
-cmpc_fmax         : 234    #最大足底力
-foot_hight        : 0.1    #抬腿高度
-foot_location_k   : 0.03   #落脚点设置系数
-sit_down_height   : 0.098  #蹲下后的高度
-stand_up_height   : 0.4    #站起时的高度
-sit_down_time     : 1.0    #蹲下所需时间
-
-Swing_step_offset : [0, -0.03, 0]           #落足点偏移量,向外为正方向
-Kd_joint          : [1.6, 3.2, 3.2]
-Kp_joint          : [4.8, 48, 48]
-
-Kp_body           : [40, 40, 40]
-Kd_body           : [4, 4, 4]
-
-Kp_foot           : [4000, 4000, 4000]
-Kd_foot           : [80, 80, 80]
-
-Kp_ori            : [800, 800, 800]
-Kd_ori            : [80, 80, 80]
-
-cmpc_gait         : 9    #确定当前步态
-use_wbc           : 1
-
-# Gait parameters
-gait_type             : 4        #gait_override = 1时生效,不用
-gait_period_time      : 0.5      #gait_override = 2时生效,不用
-gait_switching_phase  : 0.5      #gait_override = 2时生效,不用
-gait_override         : 4        #调试步态的模式,不用
-gait_max_leg_angle    : 15
-gait_max_stance_time  : 0.25
-gait_min_stance_time  : 0.1
+Kd_body             : [4, 4, 4]
+Kd_foot             : [8, 8, 8]
+Kd_joint            : [0.64, 3.2, 3.2]
+Kd_ori              : [80, 80, 80]
+Kp_body             : [40, 40, 40]
+Kp_foot             : [400, 400, 400]
+Kp_joint            : [9.6, 48, 48]
+Kp_ori              : [800, 800, 800]
+Swing_step_offset   : [0, -0.03, 0]
+cmpc_fmax           : 234
+cmpc_gait           : 9
+cmpc_mu             : 0.4
+foot_hight          : 0.1
+foot_location_k     : 0.03
+gait_max_leg_angle  : 15
+gait_max_stance_time: 0.25
+gait_min_stance_time: 0.1
+gait_override       : 4
+gait_period_time    : 0.5
+gait_switching_phase: 0.5
+gait_type           : 4
+sit_down_height     : 0.098
+sit_down_time       : 1
+stand_up_height     : 0.4
+stride_max          : 0.3
+use_wbc             : 1

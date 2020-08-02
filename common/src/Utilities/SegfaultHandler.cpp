@@ -17,8 +17,6 @@
 #include "Utilities/SegfaultHandler.h"
 #include "Utilities/Utilities_print.h"
 
-
-
 static char* error_message_buffer;
 
 /*!

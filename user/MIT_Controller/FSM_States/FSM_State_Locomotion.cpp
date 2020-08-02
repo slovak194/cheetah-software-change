@@ -226,20 +226,9 @@ void FSM_State_Locomotion<T>::onExit() {
  */
 template <typename T>
 void FSM_State_Locomotion<T>::LocomotionControlStep() {
-
+  //mpc计算
   cMPCOld->run<T>(*this->_data);
-  Vec3<T> pDes_backup[4];
-  Vec3<T> vDes_backup[4];
-  Mat3<T> Kp_backup[4];
-  Mat3<T> Kd_backup[4];
-
-  for(int leg(0); leg<4; ++leg){
-    pDes_backup[leg] = this->_data->_legController->commands[leg].pDes;
-    vDes_backup[leg] = this->_data->_legController->commands[leg].vDes;
-    Kp_backup[leg] = this->_data->_legController->commands[leg].kpCartesian;
-    Kd_backup[leg] = this->_data->_legController->commands[leg].kdCartesian;
-  }
-
+  //wbc期望数据填充
   _wbc_data->pBody_des = cMPCOld->pBody_des;
   _wbc_data->vBody_des = cMPCOld->vBody_des;
   _wbc_data->aBody_des = cMPCOld->aBody_des;
@@ -254,14 +243,8 @@ void FSM_State_Locomotion<T>::LocomotionControlStep() {
     _wbc_data->Fr_des[i] = cMPCOld->Fr_des[i]; 
   }
   _wbc_data->contact_state = cMPCOld->contact_state;
+  //wbc计算
   _wbc_ctrl->run(_wbc_data, *this->_data);
-  
-  for(int leg(0); leg<4; ++leg){
-    //this->_data->_legController->commands[leg].pDes = pDes_backup[leg];
-    this->_data->_legController->commands[leg].vDes = vDes_backup[leg];
-    //this->_data->_legController->commands[leg].kpCartesian = Kp_backup[leg];
-    this->_data->_legController->commands[leg].kdCartesian = Kd_backup[leg];
-  }
 }
 
 // template class FSM_State_Locomotion<double>;

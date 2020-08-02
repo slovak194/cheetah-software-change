@@ -64,9 +64,7 @@ class LegController {
   void zeroCommand();
   void edampCommand(T gain);
   void updateData(const SpiData* spiData);
-  void updateData(const TiBoardData* tiBoardData);
   void updateCommand(SpiCommand* spiCommand);
-  void updateCommand(TiBoardCommand* tiBoardCommand);
   void setEnabled(bool enabled) { _legsEnabled = enabled; };
   void setLcm(leg_control_data_lcmt* data, leg_control_command_lcmt* command);
 

@@ -54,7 +54,6 @@ class WBC_Ctrl{
     DVec<T> _des_jvel;
 
     std::vector<T> _Kp_joint, _Kd_joint;
-    //std::vector<T> _Kp_joint_swing, _Kd_joint_swing;
 
     unsigned long long _iter;
 

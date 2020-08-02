@@ -23,12 +23,10 @@ WBC_Ctrl<T>::WBC_Ctrl(FloatingBaseModel<T> model):
   //_wbic_data->_W_floating = DVec<T>::Constant(6, 50.);
   //_wbic_data->_W_floating[5] = 0.1;
   _wbic_data->_W_rf = DVec<T>::Constant(12, 1.);
-
+  
+  //下面两个数字不用在意,kp和kd将被yaml中的数据填充
   _Kp_joint.resize(cheetah::num_leg_joint, 5.);
-  _Kd_joint.resize(cheetah::num_leg_joint, 1.5);     //魔法数字
-
-  //_Kp_joint_swing.resize(cheetah::num_leg_joint, 10.);
-  //_Kd_joint_swing.resize(cheetah::num_leg_joint, 1.5);
+  _Kd_joint.resize(cheetah::num_leg_joint, 1.5);
 
   _state.q = DVec<T>::Zero(cheetah::num_act_joint);
   _state.qd = DVec<T>::Zero(cheetah::num_act_joint);
@@ -92,7 +90,7 @@ void WBC_Ctrl<T>::_UpdateLegCMD(ControlFSMData<T> & data){
   //Vec4<T> contact = data._stateEstimator->getResult().contactEstimate;
   //关节力矩前馈, 关节期望位置, 关节期望速度, 关节p, 关节d
   for (size_t leg(0); leg < cheetah::num_leg; ++leg) {
-    cmd[leg].zero();
+    cmd[leg].zero();   //注意这里完全清空了cmd,因此前面的所有数据填充都无效
     for (size_t jidx(0); jidx < cheetah::num_leg_joint; ++jidx) {
       cmd[leg].tauFeedForward[jidx] = _tau_ff[cheetah::num_leg_joint * leg + jidx];
       cmd[leg].qDes[jidx] = _des_jpos[cheetah::num_leg_joint * leg + jidx];
@@ -103,7 +101,7 @@ void WBC_Ctrl<T>::_UpdateLegCMD(ControlFSMData<T> & data){
     }
   }
     // Knee joint non flip barrier
-    // 防止奇异位置,后面我们或许会用到
+    // 防止奇异位置,后面或许会用到
     /*
     for(size_t leg(0); leg<4; ++leg){
       if(cmd[leg].qDes[2] < 0.3){

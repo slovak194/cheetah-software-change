@@ -20,7 +20,7 @@ using std::endl;
 using Eigen::Dynamic;   //dynamic 表示矩阵行列大小未知
 
 //qpOASES::real_t a;
-//Matrix<元素类型,行数,列数> 矩阵名称; 
+//Matrix<元素类型,行数,列数> 矩阵名称;
 Matrix<fpt,13*HORIZON_LENGTH,13> A_qp;  
 Matrix<fpt,13*HORIZON_LENGTH,12*HORIZON_LENGTH> B_qp;
 Matrix<fpt,13,12> Bdt;
@@ -49,8 +49,6 @@ qpOASES::real_t* A_red;
 qpOASES::real_t* lb_red;
 qpOASES::real_t* ub_red;
 qpOASES::real_t* q_red;
-u8 real_allocated = 0;
-
 
 char var_elim[2000];
 char con_elim[2000];
@@ -122,12 +120,9 @@ void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
   cout<<"AQP:\n"<<A_qp<<"\nBQP:\n"<<B_qp<<endl;
 #endif
 }
-//根据预测时域,重新定义矩阵大小
-void resize_qp_mats(s16 horizon)
+//定义矩阵大小
+void resize_qp_mats()
 {
-  int mcount = 0;
-  int h2 = horizon*horizon;
-
   A_qp.setZero();
   B_qp.setZero();
   S.setZero();
@@ -137,59 +132,18 @@ void resize_qp_mats(s16 horizon)
   qH.setZero();
   eye_12h.setIdentity();
 
-  //TODO: use realloc instead of free/malloc on size changes
-
-  if(real_allocated)
-  {
-
-    free(H_qpoases);
-    free(g_qpoases);
-    free(A_qpoases);
-    free(lb_qpoases);
-    free(ub_qpoases);
-    free(q_soln);
-    free(H_red);
-    free(g_red);
-    free(A_red);
-    free(lb_red);
-    free(ub_red);
-    free(q_red);
-  }
-
-  H_qpoases = (qpOASES::real_t*)malloc(12*12*horizon*horizon*sizeof(qpOASES::real_t));
-  mcount += 12*12*h2;
-  g_qpoases = (qpOASES::real_t*)malloc(12*1*horizon*sizeof(qpOASES::real_t));
-  mcount += 12*horizon;
-  A_qpoases = (qpOASES::real_t*)malloc(12*20*horizon*horizon*sizeof(qpOASES::real_t));
-  mcount += 12*20*h2;
-  lb_qpoases = (qpOASES::real_t*)malloc(20*1*horizon*sizeof(qpOASES::real_t));
-  mcount += 20*horizon;
-  ub_qpoases = (qpOASES::real_t*)malloc(20*1*horizon*sizeof(qpOASES::real_t));
-  mcount += 20*horizon;
-  q_soln = (qpOASES::real_t*)malloc(12*horizon*sizeof(qpOASES::real_t));
-  mcount += 12*horizon;
-
-  H_red = (qpOASES::real_t*)malloc(12*12*horizon*horizon*sizeof(qpOASES::real_t));
-  mcount += 12*12*h2;
-  g_red = (qpOASES::real_t*)malloc(12*1*horizon*sizeof(qpOASES::real_t));
-  mcount += 12*horizon;
-  A_red = (qpOASES::real_t*)malloc(12*20*horizon*horizon*sizeof(qpOASES::real_t));
-  mcount += 12*20*h2;
-  lb_red = (qpOASES::real_t*)malloc(20*1*horizon*sizeof(qpOASES::real_t));
-  mcount += 20*horizon;
-  ub_red = (qpOASES::real_t*)malloc(20*1*horizon*sizeof(qpOASES::real_t));
-  mcount += 20*horizon;
-  q_red = (qpOASES::real_t*)malloc(12*horizon*sizeof(qpOASES::real_t));
-  mcount += 12*horizon;
-  real_allocated = 1;
-
-  //printf("malloc'd %d floating point numbers.\n",mcount);
-
-
-
-#ifdef K_DEBUG
-  printf("RESIZED MATRICES FOR HORIZON: %d\n",horizon);
-#endif
+  H_qpoases = (qpOASES::real_t*)malloc(12*12*HORIZON_LENGTH*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  g_qpoases = (qpOASES::real_t*)malloc(12*1*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  A_qpoases = (qpOASES::real_t*)malloc(12*20*HORIZON_LENGTH*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  lb_qpoases = (qpOASES::real_t*)malloc(20*1*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  ub_qpoases = (qpOASES::real_t*)malloc(20*1*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  q_soln = (qpOASES::real_t*)malloc(12*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  H_red = (qpOASES::real_t*)malloc(12*12*HORIZON_LENGTH*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  g_red = (qpOASES::real_t*)malloc(12*1*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  A_red = (qpOASES::real_t*)malloc(12*20*HORIZON_LENGTH*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  lb_red = (qpOASES::real_t*)malloc(20*1*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  ub_red = (qpOASES::real_t*)malloc(20*1*HORIZON_LENGTH*sizeof(qpOASES::real_t));
+  q_red = (qpOASES::real_t*)malloc(12*HORIZON_LENGTH*sizeof(qpOASES::real_t));
 }
 
 inline Matrix<fpt,3,3> cross_mat(Matrix<fpt,3,3> I_inv, Matrix<fpt,3,1> r)
@@ -284,18 +238,17 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
 
   //initial state (13 state representation)
   x_0 << rpy(2), rpy(1), rpy(0), rs.p , rs.w, rs.v, -9.8f;
+
   I_world = rs.R_yaw * rs.I_body * rs.R_yaw.transpose(); //original
-  //I_world = rs.R_yaw.transpose() * rs.I_body * rs.R_yaw;
-  //cout<<rs.R_yaw<<endl;
+  //连续时间状态矩阵
   ct_ss_mats(I_world,rs.m,rs.r_feet,rs.R_yaw,A_ct,B_ct_r);
 
-
-#ifdef K_PRINT_EVERYTHING
+ #ifdef K_PRINT_EVERYTHING
   cout<<"Initial state: \n"<<x_0<<endl;
     cout<<"World Inertia: \n"<<I_world<<endl;
     cout<<"A CT: \n"<<A_ct<<endl;
     cout<<"B CT (simplified): \n"<<B_ct_r<<endl;
-#endif
+ #endif
   //QP matrices
   c2qp(A_ct,B_ct_r,setup->dt,setup->horizon);
 
@@ -349,7 +302,6 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
   matrix_to_real(g_qpoases,qg,setup->horizon*12, 1);
   matrix_to_real(A_qpoases,fmat,setup->horizon*20, setup->horizon*12);
   matrix_to_real(ub_qpoases,U_b,setup->horizon*20, 1);
-
 
 
   for(s16 i = 0; i < 20*setup->horizon; i++)

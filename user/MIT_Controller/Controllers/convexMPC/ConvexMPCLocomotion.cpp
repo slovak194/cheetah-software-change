@@ -355,7 +355,7 @@ void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &da
 
   float yaw = seResult.rpy[2];
   float* weights = Q;
-  float alpha = 4e-7;         // 力的权重
+  float alpha = 1e-6;         // 力的权重
   float* p = seResult.position.data();
   float* v = seResult.vWorld.data();
   float* w = seResult.omegaWorld.data();
@@ -372,8 +372,7 @@ void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &da
 
   Vec3<float> pxy_act(p[0], p[1], 0);
   Vec3<float> pxy_des(world_position_desired[0], world_position_desired[1], 0);
-
-  Timer t2;
+  //Timer t2;
   update_problem_data_floats(p,v,q,w,r,yaw,weights,trajAll,alpha,mpcTable);
   //printf("MPC Solve time %f ms\n", t2.getMs());
 

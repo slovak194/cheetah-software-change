@@ -20,11 +20,11 @@ template <typename T>
 Quadruped<T> buildMiniCheetah() {
   Quadruped<T> cheetah;
   //机器人基本尺寸参数
-  cheetah._bodyMass         = 6.89;
-  cheetah._bodyLength       = 0.275*2;
+  cheetah._bodyMass         = 6.89;       //机身质量
+  cheetah._bodyLength       = 0.275*2;    //机身长度
   cheetah._bodyWidth        = 0.0625*2;   //左右电机轴距
-  cheetah._bodyHeight       = 0.047*2;
-  cheetah._abadGearRatio    = 6;
+  cheetah._bodyHeight       = 0.047*2;    //机身高度
+  cheetah._abadGearRatio    = 6;          //减速比
   cheetah._hipGearRatio     = 6;
   cheetah._kneeGearRatio    = 6;
   cheetah._abadLinkLength   = 0.088;      //第一连杆长度

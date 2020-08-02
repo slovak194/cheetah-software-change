@@ -28,10 +28,6 @@ class WBC_Ctrl{
 
   protected:
     virtual void _ContactTaskUpdate(void * input, ControlFSMData<T> & data) = 0;
-    virtual void _ContactTaskUpdateTEST(void * input, ControlFSMData<T> & data){
-      (void)input;
-      (void)data;
-    }
     virtual void _LCM_PublishData(){}
     void _UpdateModel(const StateEstimate<T> & state_est, const LegControllerData<T> * leg_data);
     void _UpdateLegCMD(ControlFSMData<T> & data);

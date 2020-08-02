@@ -20,8 +20,6 @@ void RobotState::set(flt* p_, flt* v_, flt* q_, flt* w_, flt* r_,flt yaw_)
     this->q.z() = q_[3];
     this->yaw = yaw_;
 
-    //for(u8 i = 0; i < 12; i++)
-    //    this->r_feet(i) = r[i];
     for(u8 rs = 0; rs < 3; rs++)
         for(u8 c = 0; c < 4; c++)
             this->r_feet(rs,c) = r_[rs*4 + c];
@@ -34,12 +32,9 @@ void RobotState::set(flt* p_, flt* v_, flt* q_, flt* w_, flt* r_,flt yaw_)
               ys,  yc,   0,
                0,   0,   1;
 
-    Matrix<fpt,3,1> Id;
-    Id << .07f, 0.26f, 0.242f;
-    //Id << 0.3f, 2.1f, 2.1f; // DH
-    I_body.diagonal() = Id;
-
-    //TODO: Consider normalizing quaternion??
+    I_body << 0.317, 0.000, -0.053,
+	          0.000, 1.117,  0.000,
+	         -0.053, 0.000,  1.139;
 }
 
 void RobotState::print()

@@ -86,13 +86,11 @@ void WBC_Ctrl<T>::run(void* input, ControlFSMData<T> & data){
   _LCM_PublishData();
 }
 
-
-
 template<typename T>
 void WBC_Ctrl<T>::_UpdateLegCMD(ControlFSMData<T> & data){
   LegControllerCommand<T> * cmd = data._legController->commands;
   //Vec4<T> contact = data._stateEstimator->getResult().contactEstimate;
-
+  //关节力矩前馈, 关节期望位置, 关节期望速度, 关节p, 关节d
   for (size_t leg(0); leg < cheetah::num_leg; ++leg) {
     cmd[leg].zero();
     for (size_t jidx(0); jidx < cheetah::num_leg_joint; ++jidx) {
@@ -104,18 +102,19 @@ void WBC_Ctrl<T>::_UpdateLegCMD(ControlFSMData<T> & data){
         cmd[leg].kdJoint(jidx, jidx) = _Kd_joint[jidx];
     }
   }
-
-
-  // Knee joint non flip barrier
-  for(size_t leg(0); leg<4; ++leg){
-    if(cmd[leg].qDes[2] < 0.3){
-      cmd[leg].qDes[2] = 0.3;
+    // Knee joint non flip barrier
+    // 防止奇异位置,后面我们或许会用到
+    /*
+    for(size_t leg(0); leg<4; ++leg){
+      if(cmd[leg].qDes[2] < 0.3){
+        cmd[leg].qDes[2] = 0.3;
+      }
+      if(data._legController->datas[leg].q[2] < 0.3){
+        T knee_pos = data._legController->datas[leg].q[2]; 
+        cmd[leg].tauFeedForward[2] = 1./(knee_pos * knee_pos + 0.02);
+      }
     }
-    if(data._legController->datas[leg].q[2] < 0.3){
-      T knee_pos = data._legController->datas[leg].q[2]; 
-      cmd[leg].tauFeedForward[2] = 1./(knee_pos * knee_pos + 0.02);
-    }
-  }
+    */
 }
 
 template<typename T>

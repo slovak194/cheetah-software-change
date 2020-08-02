@@ -10,8 +10,6 @@
 void DrawList::loadFiles() {
   printf("[DrawList] Load object files...\n");
   std::vector<std::string> names = {
-      "c3_body.obj",         "mini_abad.obj",
-      "c3_upper_link.obj",   "c3_lower_link.obj",
       "mini_body.obj",       "mini_abad.obj",
       "mini_upper_link.obj", "mini_lower_link.obj",
       "sphere.obj",          "cube.obj"};
@@ -35,94 +33,9 @@ void DrawList::loadFiles() {
 
     _nUnique++;
   }
-  _sphereLoadIndex = 8;
-  _cubeLoadIndex = 9;
-  _miniCheetahLoadIndex = 4;
-  _cheetah3LoadIndex = 0;
-}
-/*!
- * Load the cheetah 3 model and build the draw list.
- * Returns an index number that can later be used to update the position of the
- * robot.
- */
-size_t DrawList::addCheetah3(Vec4<float> color, bool useOld, bool canHide) {
-  size_t i0 = _cheetah3LoadIndex;
-  size_t j0 = _nTotal;
-
-  // set model offsets:
-  QMatrix4x4 bodyOffset, abadOffset, lowerOffset, eye;
-  eye.setToIdentity();
-  QMatrix4x4 upperOffsets[2];
-
-  // body
-  bodyOffset.setToIdentity();
-  bodyOffset.rotate(90, 1, 0, 0);
-  bodyOffset.rotate(90, 0, 0, 1);
-
-  // abad
-  abadOffset.setToIdentity();
-
-  // upper link
-  upperOffsets[0].setToIdentity();
-  upperOffsets[0].rotate(-180, 0, 1, 0);
-  upperOffsets[0].translate(0, -.045f, 0);
-  upperOffsets[0].rotate(-180, 0, 0, 1);
-
-  upperOffsets[1].setToIdentity();
-  upperOffsets[1].rotate(-180, 0, 1, 0);
-  upperOffsets[1].translate(0, .045f, 0);
-
-  lowerOffset.setToIdentity();
-  lowerOffset.rotate(180, 0, 1, 0);
-  lowerOffset.translate(0, 0, 0);
-
-  SolidColor bodyColor, abadColor, link1Color, link2Color;
-  bodyColor.rgba = useOld ? Vec4<float>(.2, .2, .4, .3) : color;
-  bodyColor.useSolidColor = true;
-
-  abadColor.rgba = useOld ? Vec4<float>(.2, .2, .4, .3) : color;
-  abadColor.useSolidColor = true;
-
-  link1Color.rgba = useOld ? Vec4<float>(.2, .2, .4, .3) : color;
-  link1Color.useSolidColor = true;
-
-  link2Color.rgba = useOld ? Vec4<float>(.2, .2, .4, .3) : color;
-  link2Color.useSolidColor = true;
-
-  _canBeHidden.push_back(canHide);
-
-  // add bodies
-  _objectMap.push_back(i0 + 0);
-  _modelOffsets.push_back(bodyOffset);
-  _kinematicXform.push_back(eye);
-  _instanceColor.push_back(bodyColor);
-  _nTotal++;
-
-  for (int i = 0; i < 4; i++) {
-    _objectMap.push_back(i0 + 1);
-    _canBeHidden.push_back(canHide);
-    _modelOffsets.push_back(abadOffset);
-    _kinematicXform.push_back(eye);
-    _instanceColor.push_back(abadColor);
-
-    _objectMap.push_back(i0 + 2);
-    _canBeHidden.push_back(canHide);
-    _modelOffsets.push_back(upperOffsets[i % 2]);
-    _kinematicXform.push_back(eye);
-    _instanceColor.push_back(link1Color);
-
-    _objectMap.push_back(i0 + 3);
-    _canBeHidden.push_back(canHide);
-    _modelOffsets.push_back(lowerOffset);
-    _kinematicXform.push_back(eye);
-    _instanceColor.push_back(link2Color);
-    _nTotal += 3;
-  }
-
-  printf("size of kinematicXform: %lu, j0: %lu\n", _kinematicXform.size(), j0);
-
-  buildDrawList();
-  return j0;
+  _sphereLoadIndex = 4;
+  _cubeLoadIndex = 5;
+  _miniCheetahLoadIndex = 0;
 }
 
 /*!

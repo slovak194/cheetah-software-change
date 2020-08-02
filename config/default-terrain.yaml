@@ -19,29 +19,9 @@ ground-plane:
     #left_corner_loc: [-0.02, -2.2, -0.498]
     heightmap_file: true
     #heightmap_file: false 
-    #heightmap_file_name: "heightmap_demo.txt"
-    #heightmap_file_name: "heightmap.txt"
-    #heightmap_file_name: "../optimization/optimization_data/2019-02-20-13_09_26/HeightMap.txt"
-    #heightmap_file_name: "../optimization/optimization_data/2019-02-20-11_11_36/HeightMap.txt"
-    #heightmap_file_name: "../optimization/optimization_data/2019-03-03-00_00_00/HeightMap.txt"
-    #heightmap_file_name: "../optimization/optimization_data/2019-03-04-00_00_00/heightmap2_fixed.txt"
-    #heightmap_file_name: "../optimization/optimization_data/2019-03-05-00_00_01/manual_heightmap.txt"
-    #heightmap_file_name: "../optimization/optimization_data/2019-03-05-00_00_02/manual_heightmap.txt"
-    #heightmap_file_name: "../optimization/optimization_data/2019-03-05-00_00_03/heightmap.txt"
     heightmap_file_name: "../algorithms/optimization/saved_optimization_data/2019-03-05-00_00_03_2/HeightMap.txt"
 
-box-1:
-    type: "box"
-    mu: 1.5
-    restitution: 0
-    depth: 2.0
-    width: 3.0
-    height: .1
-    position:  [1.5, 0, -0.0]
-    orientation: [0.15,0.0,0.0]  # roll pitch yaw
-    transparent: 1
-
-box-2:
+#box-1:
     type: "box"
     mu: 1.5
     restitution: 0
@@ -52,27 +32,6 @@ box-2:
     orientation: [0.0,0.0,0.0]  # roll pitch yaw
     transparent: 1
 
-box-3:
-    type: "box"
-    mu: 1.5
-    restitution: 0
-    depth: 0.05
-    width: 0.5
-    height: 0.05
-    position:  [6.8, 0, 0.0]
-    orientation: [0.0,0.0,0.2]  # roll pitch yaw
-    transparent: 1
-
-box-4:
-    type: "box"
-    mu: 1.5
-    restitution: 0
-    depth: 0.05
-    width: 0.5
-    height: 0.05
-    position:  [7.0, 0, 0.0]
-    orientation: [0.0,0.0,0.3]  # roll pitch yaw
-    transparent: 1
 #box-2:
     #type: "box"
     #mu: 0.7

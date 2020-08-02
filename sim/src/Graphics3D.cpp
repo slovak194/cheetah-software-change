@@ -123,11 +123,6 @@ Graphics3D::Graphics3D(QWidget *parent)
 Graphics3D::~Graphics3D() {}
 
 /*!
- * Configure the window for displaying cheetah 3
- */
-size_t Graphics3D::setupCheetah3(Vec4<float> color, bool useOld, bool canHide) { return _drawList.addCheetah3(color, useOld, canHide); }
-
-/*!
  * Configure the window for displaying mini cheetah
  */
 size_t Graphics3D::setupMiniCheetah(Vec4<float> color, bool useOld, bool canHide) { return _drawList.addMiniCheetah(color, useOld, canHide); }

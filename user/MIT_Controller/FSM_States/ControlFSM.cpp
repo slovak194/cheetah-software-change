@@ -44,9 +44,9 @@ ControlFSM<T>::ControlFSM(GamepadCommand* gamepadCommand,
   statesList.invalid = nullptr;
   statesList.passive = new FSM_State_Passive<T>(&data);
   statesList.sitDown = new FSM_State_SitDown<T>(&data);
+  statesList.standUp = new FSM_State_StandUp<T>(&data);
   statesList.balanceStand = new FSM_State_BalanceStand<T>(&data);
   statesList.locomotion = new FSM_State_Locomotion<T>(&data);
-  statesList.recoveryStand = new FSM_State_RecoveryStand<T>(&data);
 
   safetyChecker = new SafetyChecker<T>(&data);
 
@@ -80,6 +80,10 @@ void ControlFSM<T>::initialize() {
  */
 template <typename T>
 void ControlFSM<T>::runFSM() {
+
+  // logic,根据手柄信号,切换状态
+  
+
   static bool err_flag = false;
   // Check the robot state for safe operation
   //操作模式,包括正常,转换,estop,edamp
@@ -108,28 +112,16 @@ void ControlFSM<T>::runFSM() {
         currentState->run();
       }
     }
-
     // Run the transition code while transition is occuring
     if (operatingMode == FSM_OperatingMode::TRANSITIONING) {
-      transitionData = currentState->transition();
-
       // Check the robot state for safe operation
       safetyPostCheck();
-
-      // Run the state transition
-      if (transitionData.done) {
-        // Exit the current state cleanly
-        currentState->onExit();   //一般 do nothing
-
-        // Complete the transition
-        currentState = nextState;
-
-        // Enter the new current state cleanly
-        currentState->onEnter();
-
-        // Return the FSM to normal operation mode
-        operatingMode = FSM_OperatingMode::NORMAL;
-      }
+      // Complete the transition
+      currentState = nextState;
+      // Enter the new current state cleanly
+      currentState->onEnter();
+      // Return the FSM to normal operation mode
+      operatingMode = FSM_OperatingMode::NORMAL;
     } else {
       // Check the robot state for safe operation
       safetyPostCheck();
@@ -159,7 +151,7 @@ template <typename T>
 FSM_OperatingMode ControlFSM<T>::safetyPreCheck() {
   // Check for safe orientation if the current state requires it
   // K_RECOVERY_STAND是一种特殊的状态,此时可能会有不安全状态产生
-  if (currentState->checkSafeOrientation && data.controlParameters->control_mode != K_RECOVERY_STAND) {
+  if (currentState->checkSafeOrientation) {
     if (!safetyChecker->checkSafeOrientation()) {
       operatingMode = FSM_OperatingMode::ESTOP;
       std::cout << "broken: Orientation Safety Ceck FAIL" << std::endl;
@@ -213,6 +205,9 @@ FSM_State<T>* ControlFSM<T>::getNextState(FSM_StateName stateName) {
     case FSM_StateName::PASSIVE:
       return statesList.passive;
 
+    case FSM_StateName::STAND_UP:
+      return statesList.standUp;
+
     case FSM_StateName::SIT_DOWN:
       return statesList.sitDown;
 
@@ -221,9 +216,6 @@ FSM_State<T>* ControlFSM<T>::getNextState(FSM_StateName stateName) {
 
     case FSM_StateName::LOCOMOTION:
       return statesList.locomotion;
-
-    case FSM_StateName::RECOVERY_STAND:
-      return statesList.recoveryStand;
 
     default:
       return statesList.invalid;

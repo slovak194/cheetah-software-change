@@ -16,7 +16,6 @@
 #include "Controllers/ContactEstimator.h"
 #include "Controllers/LegController.h"
 #include "Dynamics/Quadruped.h"
-#include "JPosInitializer.h"
 
 #include "SimUtilities/GamepadCommand.h"
 #include "SimUtilities/VisualizationData.h"
@@ -61,7 +60,6 @@ class RobotRunner : public PeriodicTask {
   void setupStep();
   void finalizeStep();
 
-  JPosInitializer<float>* _jpos_initializer;
   Quadruped<float> _quadruped;
   LegController<float>* _legController = nullptr;
   StateEstimate<float> _stateEstimate;

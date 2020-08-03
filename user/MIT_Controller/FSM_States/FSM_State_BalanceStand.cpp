@@ -36,9 +36,6 @@ template <typename T>
 void FSM_State_BalanceStand<T>::onEnter() {
   // Default is to not transition
   this->nextStateName = this->stateName;
-
-  // Reset the transition data
-  this->transitionData.zero();
   
   _ini_body_pos = (this->_data->_stateEstimator->getResult()).position;
 
@@ -69,14 +66,11 @@ void FSM_State_BalanceStand<T>::run() {
  */
 template <typename T>
 FSM_StateName FSM_State_BalanceStand<T>::checkTransition() {
-  // Get the next state
-  _iter++;
 
   // Switch FSM control mode
   switch ((int)this->_data->controlParameters->control_mode) {
     case K_BALANCE_STAND:
       break;
-
     case K_LOCOMOTION:
       // Requested change to balance stand
       this->nextStateName = FSM_StateName::LOCOMOTION;
@@ -91,12 +85,6 @@ FSM_StateName FSM_State_BalanceStand<T>::checkTransition() {
       this->transitionDuration = 0.0;
       break;
 
-    case K_RECOVERY_STAND:
-      this->nextStateName = FSM_StateName::RECOVERY_STAND;
-      // Transition time is immediate
-      this->transitionDuration = 0.0;
-      break;
-
     default:
       std::cout << "[CONTROL FSM] Bad Request: Cannot transition from "
                 << K_BALANCE_STAND << " to "
@@ -105,54 +93,6 @@ FSM_StateName FSM_State_BalanceStand<T>::checkTransition() {
 
   // Return the next state name to the FSM
   return this->nextStateName;
-}
-
-/**
- * Handles the actual transition for the robot between states.
- * Returns true when the transition is completed.
- *
- * @return true if transition is complete
- */
-template <typename T>
-TransitionData<T> FSM_State_BalanceStand<T>::transition() {
-  // Switch FSM control mode
-  switch (this->nextStateName) {
-    case FSM_StateName::LOCOMOTION:
-      BalanceStandStep();
-
-      _iter++;
-      if (_iter >= this->transitionDuration * 1000) {
-        this->transitionData.done = true;
-      } else {
-        this->transitionData.done = false;
-      }
-
-      break;
-
-    case FSM_StateName::PASSIVE:
-      this->turnOffAllSafetyChecks();
-      this->transitionData.done = true;
-      break;
-
-    case FSM_StateName::RECOVERY_STAND:
-      this->transitionData.done = true;
-      break;
-
-    default:
-      std::cout << "[CONTROL FSM] Something went wrong in transition"
-                << std::endl;
-  }
-
-  // Return the transition data to the FSM
-  return this->transitionData;
-}
-
-/**
- * Cleans up the state information on exiting the state.
- */
-template <typename T>
-void FSM_State_BalanceStand<T>::onExit() {
-  _iter = 0;
 }
 
 /**

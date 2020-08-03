@@ -9,7 +9,7 @@
 #include "ControlParameters/ControlParameterInterface.h"
 #include "ControlParameters/RobotParameters.h"
 #include "ControlParameters/SimulatorParameters.h"
-#include "Dynamics/MiniCheetah.h"
+#include "Dynamics/cheetah.h"
 #include "Dynamics/Quadruped.h"
 #include "Graphics3D.h"
 #include "SimUtilities/ImuSimulator.h"

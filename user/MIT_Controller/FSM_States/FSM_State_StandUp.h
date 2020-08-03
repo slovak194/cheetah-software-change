@@ -1,5 +1,5 @@
-#ifndef FSM_STATE_SITDOWN_H
-#define FSM_STATE_SITDOWN_H
+#ifndef FSM_STATE_STANDUP_H
+#define FSM_STATE_STANDUP_H
 
 #include "FSM_State.h"
 
@@ -7,9 +7,9 @@
  *
  */
 template <typename T>
-class FSM_State_SitDown : public FSM_State<T> {
+class FSM_State_StandUp : public FSM_State<T> {
  public:
-  FSM_State_SitDown(ControlFSMData<T>* _controlFSMData);
+  FSM_State_StandUp(ControlFSMData<T>* _controlFSMData);
 
   // Behavior to be carried out when entering a state
   void onEnter();
@@ -26,4 +26,4 @@ class FSM_State_SitDown : public FSM_State<T> {
   std::vector< Vec3<T> > _ini_foot_pos;
 };
 
-#endif  // FSM_STATE_SITDOWN_H
+#endif  // FSM_STATE_STANDUP_H

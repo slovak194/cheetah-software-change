@@ -4,15 +4,14 @@
 #include <stdio.h>
 
 #include "ControlFSMData.h"
-#include "TransitionData.h"
 
 // Normal robot states
-#define K_INVALID         (-1)
-#define K_PASSIVE         (0)
-#define K_SIT_DOWN        (1)
-#define K_BALANCE_STAND   (2)
-#define K_LOCOMOTION      (3)
-#define K_RECOVERY_STAND  (4)
+#define K_INVALID         (0)
+#define K_PASSIVE         (1)
+#define K_STAND_UP        (2)
+#define K_SIT_DOWN        (3)
+#define K_LOCOMOTION      (4)
+#define K_BALANCE_STAND   (5)
 
 /**
  * Enumerate all of the FSM states so we can keep track of them.
@@ -20,10 +19,10 @@
 enum class FSM_StateName {
   INVALID,
   PASSIVE,
+  STAND_UP,
   SIT_DOWN,
-  BALANCE_STAND,
   LOCOMOTION,
-  RECOVERY_STAND
+  BALANCE_STAND
 };
 
 /**
@@ -47,19 +46,6 @@ class FSM_State {
   // Manages state specific transitions
   virtual FSM_StateName checkTransition() { return FSM_StateName::INVALID; }
 
-  // Runs the transition behaviors and returns true when done transitioning
-  virtual TransitionData<T> transition() { return transitionData; }
-
-  // Behavior to be carried out when exiting a state
-  virtual void onExit() = 0; // {}
-
-  //
-  void jointPDControl(int leg, Vec3<T> qDes, Vec3<T> qdDes);
-  void cartesianImpedanceControl(int leg, Vec3<T> pDes, Vec3<T> vDes,
-                                 Vec3<double> kp_cartesian,
-                                 Vec3<double> kd_cartesian);
-  void footstepHeuristicPlacement(int leg);
-
   //
   void turnOnAllSafetyChecks();
   void turnOffAllSafetyChecks();
@@ -75,7 +61,6 @@ class FSM_State {
   // Transition parameters
   T transitionDuration;  // transition duration time
   T tStartTransition;    // time transition starts
-  TransitionData<T> transitionData;
 
   // Pre controls safety checks
   bool checkSafeOrientation = false;  // check roll and pitch

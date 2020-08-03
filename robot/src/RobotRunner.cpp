@@ -10,7 +10,7 @@
 #include "RobotRunner.h"
 #include "Controllers/ContactEstimator.h"
 #include "Controllers/OrientationEstimator.h"
-#include "Dynamics/MiniCheetah.h"
+#include "Dynamics/cheetah.h"
 #include "Utilities/Utilities_print.h"
 #include "ParamHandler.hpp"
 #include "Utilities/Timer.h"
@@ -34,11 +34,10 @@ void RobotRunner::init() {
 
   // Build the appropriate Quadruped object
   // 建立机器人各项物理参数
-  _quadruped = buildMiniCheetah<float>();
+  _quadruped = buildCheetah<float>();
 
   // Initialize the model and robot data
   _model = _quadruped.buildModel();
-  _jpos_initializer = new JPosInitializer<float>(1.5, controlParameters->controller_dt);
 
   // Always initialize the leg controller and state entimator
   _legController = new LegController<float>(_quadruped);
@@ -84,28 +83,12 @@ void RobotRunner::run() {
   } else {
     _legController->setEnabled(true);
     // Controller
-    if (!_jpos_initializer->IsInitialized(_legController)) {
-      Mat3<float> kpMat;
-      Mat3<float> kdMat;
-      // Update the jpos feedback gains
-      kpMat << 20, 0, 0, 0, 18, 0, 0, 0, 15;
-      kdMat << 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5;
-
-      for (int leg = 0; leg < 4; leg++) {
-        _legController->commands[leg].kpJoint = kpMat;
-        _legController->commands[leg].kdJoint = kdMat;
-      }
-    } else {
-      // Run Control 
-      _robot_ctrl->runController();
-      cheetahMainVisualization->p = _stateEstimate.position;
-
-      // Update Visualization
-      _robot_ctrl->updateVisualization();
-      cheetahMainVisualization->p = _stateEstimate.position;
-    }
+    _robot_ctrl->runController();
+    cheetahMainVisualization->p = _stateEstimate.position;
+    // Update Visualization
+    _robot_ctrl->updateVisualization();
+    cheetahMainVisualization->p = _stateEstimate.position;
   }
-
   // Visualization (will make this into a separate function later)
   for (int leg = 0; leg < 4; leg++) {
     for (int joint = 0; joint < 3; joint++) {
@@ -191,7 +174,6 @@ void RobotRunner::initializeStateEstimator(bool cheaterMode) {
 RobotRunner::~RobotRunner() {
   delete _legController;
   delete _stateEstimator;
-  delete _jpos_initializer;
 }
 
 void RobotRunner::cleanup() {}

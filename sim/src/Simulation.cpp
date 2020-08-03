@@ -43,7 +43,7 @@ Simulation::Simulation( Graphics3D* window,
 
   // init quadruped info
   printf("[Simulation] Build quadruped...\n");
-  _quadruped = buildMiniCheetah<double>();
+  _quadruped = buildCheetah<double>();
   printf("[Simulation] Build actuator model...\n");
   _actuatorModels = _quadruped.buildActuatorModels();
   _window = window;

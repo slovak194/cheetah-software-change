@@ -28,9 +28,6 @@ template <typename T>
 void FSM_State_Passive<T>::onEnter() {
   // Default is to not transition
   this->nextStateName = this->stateName;
-
-  // Reset the transition data
-  this->transitionData.zero();
 }
 
 /**
@@ -38,20 +35,6 @@ void FSM_State_Passive<T>::onEnter() {
  */
 template <typename T>
 void FSM_State_Passive<T>::run() {
-  // Do nothing, all commands should begin as zeros
-  testTransition();
-}
-
-/**
- * Handles the actual transition for the robot between states.
- * Returns true when the transition is completed.
- *
- * @return true if transition is complete
- */
-template <typename T>
-TransitionData<T> FSM_State_Passive<T>::testTransition() {
-  this->transitionData.done = true;
-  return this->transitionData;
 }
 
 /**
@@ -63,7 +46,6 @@ TransitionData<T> FSM_State_Passive<T>::testTransition() {
 template <typename T>
 FSM_StateName FSM_State_Passive<T>::checkTransition() {
   this->nextStateName = this->stateName;
-  iter++;
 
   // Switch FSM control mode
   switch ((int)this->_data->controlParameters->control_mode) {
@@ -76,11 +58,6 @@ FSM_StateName FSM_State_Passive<T>::checkTransition() {
       this->nextStateName = FSM_StateName::SIT_DOWN;
       break;
 
-    case K_RECOVERY_STAND:
-      // Requested switch to joint PD control
-      this->nextStateName = FSM_StateName::RECOVERY_STAND;
-      break;
-
     default:
       std::cout << "[CONTROL FSM] Bad Request: Cannot transition from "
                 << K_PASSIVE << " to "
@@ -89,29 +66,6 @@ FSM_StateName FSM_State_Passive<T>::checkTransition() {
 
   // Get the next state
   return this->nextStateName;
-}
-
-/**
- * Handles the actual transition for the robot between states.
- * Returns true when the transition is completed.
- *
- * @return true if transition is complete
- */
-template <typename T>
-TransitionData<T> FSM_State_Passive<T>::transition() {
-  // Finish Transition
-  this->transitionData.done = true;
-
-  // Return the transition data to the FSM
-  return this->transitionData;
-}
-
-/**
- * Cleans up the state information on exiting the state.
- */
-template <typename T>
-void FSM_State_Passive<T>::onExit() {
-  // Nothing to clean up when exiting
 }
 
 // template class FSM_State_Passive<double>;

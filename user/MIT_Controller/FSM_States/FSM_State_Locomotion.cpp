@@ -40,8 +40,6 @@ void FSM_State_Locomotion<T>::onEnter() {
   // Default is to not transition
   this->nextStateName = this->stateName;
 
-  // Reset the transition data
-  this->transitionData.zero();
   cMPCOld->initialize();
 
   printf("[FSM LOCOMOTION] On Enter\n");
@@ -64,8 +62,6 @@ void FSM_State_Locomotion<T>::run() {
  */
 template <typename T>
 FSM_StateName FSM_State_Locomotion<T>::checkTransition() {
-  // Get the next state
-  iter++;
 
   // Switch FSM control mode
   if(locomotionSafe()) {
@@ -96,18 +92,13 @@ FSM_StateName FSM_State_Locomotion<T>::checkTransition() {
         this->transitionDuration = 0.;
         break;
 
-      case K_RECOVERY_STAND:
-        this->nextStateName = FSM_StateName::RECOVERY_STAND;
-        this->transitionDuration = 0.;
-        break;
-
       default:
         std::cout << "[CONTROL FSM] Bad Request: Cannot transition from "
                   << K_LOCOMOTION << " to "
                   << this->_data->controlParameters->control_mode << std::endl;
     }
   } else {
-    this->nextStateName = FSM_StateName::RECOVERY_STAND;
+    this->nextStateName = FSM_StateName::PASSIVE;   //这里要调整一下,后面改成damp或者stop
     this->transitionDuration = 0.;
   }
 
@@ -115,54 +106,6 @@ FSM_StateName FSM_State_Locomotion<T>::checkTransition() {
   // Return the next state name to the FSM
   return this->nextStateName;
 }
-
-/**
- * Handles the actual transition for the robot between states.
- * Returns true when the transition is completed.
- *
- * @return true if transition is complete
- */
-template <typename T>
-TransitionData<T> FSM_State_Locomotion<T>::transition() {
-  // Switch FSM control mode
-  switch (this->nextStateName) {
-    case FSM_StateName::BALANCE_STAND:
-      LocomotionControlStep();
-
-      iter++;
-      if (iter >= this->transitionDuration * 1000) {
-        this->transitionData.done = true;
-      } else {
-        this->transitionData.done = false;
-      }
-
-      break;
-
-    case FSM_StateName::PASSIVE:
-      this->turnOffAllSafetyChecks();
-
-      this->transitionData.done = true;
-
-      break;
-
-    case FSM_StateName::SIT_DOWN:
-      this->transitionData.done = true;
-      break;
-
-    case FSM_StateName::RECOVERY_STAND:
-      this->transitionData.done = true;
-      break;
-
-
-    default:
-      std::cout << "[CONTROL FSM] Something went wrong in transition"
-                << std::endl;
-  }
-
-  // Return the transition data to the FSM
-  return this->transitionData;
-}
-
 template<typename T>
 bool FSM_State_Locomotion<T>::locomotionSafe() {
   auto& seResult = this->_data->_stateEstimator->getResult();
@@ -210,14 +153,6 @@ bool FSM_State_Locomotion<T>::locomotionSafe() {
 
 }
 
-/**
- * Cleans up the state information on exiting the state.
- */
-template <typename T>
-void FSM_State_Locomotion<T>::onExit() {
-  // Nothing to clean up when exiting
-  iter = 0;
-}
 
 /**
  * Calculate the commands for the leg controllers for each of the feet by

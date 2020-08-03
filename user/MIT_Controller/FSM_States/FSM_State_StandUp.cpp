@@ -4,7 +4,7 @@
  * balance control mode.
  */
 
-#include "FSM_State_SitDown.h"
+#include "FSM_State_StandUp.h"
 
 /**
  * Constructor for the FSM State that passes in state specific info to
@@ -13,8 +13,8 @@
  * @param _controlFSMData holds all of the relevant control data
  */
 template <typename T>
-FSM_State_SitDown<T>::FSM_State_SitDown(ControlFSMData<T>* _controlFSMData)
-    : FSM_State<T>(_controlFSMData, FSM_StateName::SIT_DOWN, "SIT_DOWN"),
+FSM_State_StandUp<T>::FSM_State_StandUp(ControlFSMData<T>* _controlFSMData)
+    : FSM_State<T>(_controlFSMData, FSM_StateName::STAND_UP, "STAND_UP"),
 _ini_foot_pos(4){
   // Do nothing
   // Set the pre controls safety checks
@@ -26,13 +26,11 @@ _ini_foot_pos(4){
 }
 
 template <typename T>
-void FSM_State_SitDown<T>::onEnter() {
+void FSM_State_StandUp<T>::onEnter() {
   // Default is to not transition
   this->nextStateName = this->stateName;
-
   // Reset iteration counter
   iter = 0;
-
   for(size_t leg(0); leg<4; ++leg){
     _ini_foot_pos[leg] = this->_data->_legController->datas[leg].p;
   }
@@ -42,9 +40,9 @@ void FSM_State_SitDown<T>::onEnter() {
  * Calls the functions to be executed on each control loop iteration.
  */
 template <typename T>
-void FSM_State_SitDown<T>::run() {
+void FSM_State_StandUp<T>::run() {
 
-  T hMax = this->_data->userParameters->sit_down_height;
+  T hMax = this->_data->userParameters->stand_up_height;
   T progress = (iter * this->_data->controlParameters->controller_dt)/
                 (this->_data->userParameters->sit_down_time);
 
@@ -67,7 +65,7 @@ void FSM_State_SitDown<T>::run() {
  * @return the enumerated FSM state name to transition into
  */
 template <typename T>
-FSM_StateName FSM_State_SitDown<T>::checkTransition() {
+FSM_StateName FSM_State_StandUp<T>::checkTransition() {
   this->nextStateName = this->stateName;
   iter++;
   // Switch FSM control mode
@@ -97,4 +95,4 @@ FSM_StateName FSM_State_SitDown<T>::checkTransition() {
 }
 
 // template class FSM_State_StandUp<double>;
-template class FSM_State_SitDown<float>;
+template class FSM_State_StandUp<float>;

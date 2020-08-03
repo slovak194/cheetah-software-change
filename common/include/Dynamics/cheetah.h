@@ -1,14 +1,12 @@
-/*! @file MiniCheetah.h
- *  @brief Utility function to build a Mini Cheetah Quadruped object
+/*! @file Q2.h
+ *  @brief Utility function to build a Q2 Quadruped object
  *
- * This file is based on MiniCheetahFullRotorModel_mex.m and builds a model
- * of the Mini Cheetah robot.  The inertia parameters of all bodies are
- * determined from CAD.
+ * The inertia parameters of all bodies are determined from CAD.
  *
  */
 
-#ifndef PROJECT_MINICHEETAH_H
-#define PROJECT_MINICHEETAH_H
+#ifndef PROJECT_CHEETAH_H
+#define PROJECT_CHEETAH_H
 
 #include "FloatingBaseModel.h"
 #include "Quadruped.h"
@@ -17,29 +15,29 @@
  * Generate a Quadruped model of Mini Cheetah
  */
 template <typename T>
-Quadruped<T> buildMiniCheetah() {
-  Quadruped<T> cheetah;
+Quadruped<T> buildCheetah() {
+  Quadruped<T> quadruped;
   //机器人基本尺寸参数
-  cheetah._bodyMass         = 6.89;       //机身质量
-  cheetah._bodyLength       = 0.275*2;    //机身长度
-  cheetah._bodyWidth        = 0.0625*2;   //左右电机轴距
-  cheetah._bodyHeight       = 0.047*2;    //机身高度
-  cheetah._abadGearRatio    = 6;          //减速比
-  cheetah._hipGearRatio     = 6;
-  cheetah._kneeGearRatio    = 6;
-  cheetah._abadLinkLength   = 0.088;      //第一连杆长度
-  cheetah._hipLinkLength    = 0.270;      //第二连杆长度
-  cheetah._kneeLinkY_offset = 0;          //足底碰撞模型的偏移量，不需要
-  cheetah._kneeLinkLength   = 0.270;      //第三连杆长度
-  cheetah._maxLegLength     = 0.465-0.01; //腿总长。abad总是垂直于hip和knee，因此该值取决于大小腿角度，1厘米安全距离
+  quadruped._bodyMass         = 6.89;       //机身质量
+  quadruped._bodyLength       = 0.275*2;    //机身长度
+  quadruped._bodyWidth        = 0.0625*2;   //左右电机轴距
+  quadruped._bodyHeight       = 0.047*2;    //机身高度
+  quadruped._abadGearRatio    = 6;          //减速比
+  quadruped._hipGearRatio     = 6;
+  quadruped._kneeGearRatio    = 6;
+  quadruped._abadLinkLength   = 0.088;      //第一连杆长度
+  quadruped._hipLinkLength    = 0.270;      //第二连杆长度
+  quadruped._kneeLinkY_offset = 0;          //足底碰撞模型的偏移量，不需要
+  quadruped._kneeLinkLength   = 0.270;      //第三连杆长度
+  quadruped._maxLegLength     = 0.465-0.01; //腿总长。abad总是垂直于hip和knee，因此该值取决于大小腿角度，1厘米安全距离
 
   //以下参数仅在simulator模式下使用，用于仿真器中模拟电机，我们用不到
-  cheetah._motorTauMax      = 8.0f;       //3.f;
-  cheetah._batteryV         = 36;         //24;
-  cheetah._motorKT          = .05;        //this is flux linkage * pole pairs
-  cheetah._motorR           = 0.173;
-  cheetah._jointDamping     = .01;
-  cheetah._jointDryFriction = .2;
+  quadruped._motorTauMax      = 8.0f;       //3.f;
+  quadruped._batteryV         = 36;         //24;
+  quadruped._motorKT          = .05;        //this is flux linkage * pole pairs
+  quadruped._motorR           = 0.173;
+  quadruped._jointDamping     = .01;
+  quadruped._jointDryFriction = .2;
 
   // rotor inertia if the rotor is oriented so it spins around the z-axis
   // 转子转动惯量
@@ -87,28 +85,28 @@ Quadruped<T> buildMiniCheetah() {
   bodyRotationalInertia << 32742.5, 0, 0, 0, 151025, 0, 0, 0, 174847.4;
   bodyRotationalInertia = bodyRotationalInertia * 1e-6;
   Vec3<T> bodyCOM(0, 0, 0);
-  SpatialInertia<T> bodyInertia(cheetah._bodyMass, bodyCOM,
+  SpatialInertia<T> bodyInertia(quadruped._bodyMass, bodyCOM,
                                 bodyRotationalInertia);
 
-  cheetah._abadInertia = abadInertia;
-  cheetah._hipInertia = hipInertia;
-  cheetah._kneeInertia = kneeInertia;
-  cheetah._abadRotorInertia = rotorInertiaX;
-  cheetah._hipRotorInertia = rotorInertiaY;
-  cheetah._kneeRotorInertia = rotorInertiaY;
-  cheetah._bodyInertia = bodyInertia;
+  quadruped._abadInertia = abadInertia;
+  quadruped._hipInertia = hipInertia;
+  quadruped._kneeInertia = kneeInertia;
+  quadruped._abadRotorInertia = rotorInertiaX;
+  quadruped._hipRotorInertia = rotorInertiaY;
+  quadruped._kneeRotorInertia = rotorInertiaY;
+  quadruped._bodyInertia = bodyInertia;
 
   // locations
   // 转子与关节的坐标
-  cheetah._abadRotorLocation = Vec3<T>(0.195, 0.0625, 0);
-  cheetah._abadLocation =
-      Vec3<T>(cheetah._bodyLength, cheetah._bodyWidth, 0) * 0.5;
-  cheetah._hipLocation = Vec3<T>(0, cheetah._abadLinkLength, 0);
-  cheetah._hipRotorLocation = Vec3<T>(0, 0, 0);
-  cheetah._kneeLocation = Vec3<T>(0, 0, -cheetah._hipLinkLength);
-  cheetah._kneeRotorLocation = Vec3<T>(0, 0.035, 0);
+  quadruped._abadRotorLocation = Vec3<T>(0.195, 0.0625, 0);
+  quadruped._abadLocation =
+      Vec3<T>(quadruped._bodyLength, quadruped._bodyWidth, 0) * 0.5;
+  quadruped._hipLocation = Vec3<T>(0, quadruped._abadLinkLength, 0);
+  quadruped._hipRotorLocation = Vec3<T>(0, 0, 0);
+  quadruped._kneeLocation = Vec3<T>(0, 0, -quadruped._hipLinkLength);
+  quadruped._kneeRotorLocation = Vec3<T>(0, 0.035, 0);
 
-  return cheetah;
+  return quadruped;
 }
 
-#endif  // PROJECT_MINICHEETAH_H
+#endif  // PROJECT_CHEETAH_H

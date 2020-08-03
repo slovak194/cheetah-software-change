@@ -15,7 +15,7 @@
 #include "../FSM_States/FSM_State_Locomotion.h"
 #include "../FSM_States/FSM_State_Passive.h"
 #include "../FSM_States/FSM_State_SitDown.h"
-#include "../FSM_States/FSM_State_RecoveryStand.h"
+#include "../FSM_States/FSM_State_StandUp.h"
 #include "SimUtilities/GamepadCommand.h"
 
 /**
@@ -31,20 +31,11 @@ template <typename T>
 struct FSM_StatesList {
   FSM_State<T>* invalid;
   FSM_State_Passive<T>* passive;
+  FSM_State_StandUp<T>* standUp;
   FSM_State_SitDown<T>* sitDown;
   FSM_State_BalanceStand<T>* balanceStand;
   FSM_State_Locomotion<T>* locomotion;
-  FSM_State_RecoveryStand<T>* recoveryStand;
 };
-
-
-/**
- *
- */
-template <typename T>
-struct FSM_ControllerList {
-};
-
 
 /**
  * Control FSM handles the FSM states from a higher level
@@ -90,8 +81,6 @@ class ControlFSM {
 
   // Checks all of the inputs and commands for safety
   SafetyChecker<T>* safetyChecker;
-
-  TransitionData<T> transitionData;
 
  private:
   // Operating mode of the FSM

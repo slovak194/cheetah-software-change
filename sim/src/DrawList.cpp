@@ -10,8 +10,8 @@
 void DrawList::loadFiles() {
   printf("[DrawList] Load object files...\n");
   std::vector<std::string> names = {
-      "mini_body.obj",       "mini_abad.obj",
-      "mini_upper_link.obj", "mini_lower_link.obj",
+      "body.obj",       "abad.obj",
+      "upper_link.obj", "lower_link.obj",
       "sphere.obj",          "cube.obj"};
   for (const auto& name : names) {
     std::string filename = _baseFileName + name;
@@ -35,7 +35,7 @@ void DrawList::loadFiles() {
   }
   _sphereLoadIndex = 4;
   _cubeLoadIndex = 5;
-  _miniCheetahLoadIndex = 0;
+  _cheetahLoadIndex = 0;
 }
 
 /*!
@@ -46,7 +46,7 @@ void DrawList::loadFiles() {
  */
 size_t DrawList::addMiniCheetah(Vec4<float> color, bool useOld, bool canHide) {
   
-  size_t i0 = _miniCheetahLoadIndex;  // todo don't hard code this
+  size_t i0 = _cheetahLoadIndex;  // todo don't hard code this
   size_t j0 = _nTotal;
 
   // set model offsets:

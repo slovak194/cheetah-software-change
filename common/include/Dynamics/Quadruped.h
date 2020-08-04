@@ -17,14 +17,11 @@
 
 #include <eigen3/Eigen/StdVector>
 
-
-
 /*!
  * Basic parameters for a cheetah-shaped robot
  */
 namespace cheetah {
-constexpr size_t num_act_joint = 12;
-constexpr size_t num_q = 19;
+constexpr size_t num_act_joint = 12;   //关节数
 constexpr size_t dim_config = 18;
 constexpr size_t num_leg = 4;
 constexpr size_t num_leg_joint = 3;
@@ -32,17 +29,13 @@ constexpr size_t num_leg_joint = 3;
 
 /*!
  * Link indices for cheetah-shaped robots
+ * 足底接触点的序号
  */
 namespace linkID {
-constexpr size_t FR = 9;   // Front Right Foot
-constexpr size_t FL = 11;  // Front Left Foot
-constexpr size_t HR = 13;  // Hind Right Foot
-constexpr size_t HL = 15;  // Hind Left Foot
-
-constexpr size_t FR_abd = 2;  // Front Right Abduction
-constexpr size_t FL_abd = 0;  // Front Left Abduction
-constexpr size_t HR_abd = 3;  // Hind Right Abduction
-constexpr size_t HL_abd = 1;  // Hind Left Abduction
+constexpr size_t FR = 10;   // Front Right Foot
+constexpr size_t FL = 13;  // Front Left Foot
+constexpr size_t HR = 16;  // Hind Right Foot
+constexpr size_t HL = 19;  // Hind Left Foot
 }  // namespace linkID
 
 using std::vector;

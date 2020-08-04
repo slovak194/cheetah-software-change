@@ -38,7 +38,7 @@ todo:将所有魔法数字调整到yaml中
 
 精简FSM
 
-出于安全考虑,大改recover_stand,形成类似stand_up,或者考虑新建一个stand_up状态
+出于安全考虑,recover_stand,改成简单的stand_up状态
 
 todo:四元数统一格式
 
@@ -46,7 +46,11 @@ todo:完善foot速度位置状态估计,并根据foot位置与速度以及时间
 # 2020.08.04
 删去未使用task
 
-去掉control_mode,设计操作逻辑流程,改用手柄完全操作FSM,记得printf
+去掉control_mode,设计操作逻辑流程,改用手柄完全操作FSM
+
+添加为abad link添加了接触点,防止passive状态下穿模
+
+todo:统一笛卡尔坐标系下足底PD控制器参数
 
 
 

@@ -12,7 +12,6 @@ LocomotionCtrl<T>::LocomotionCtrl(FloatingBaseModel<T> model):
   _body_pos_task = new BodyPosTask<T>(&(WBCtrl::_model));
   _body_ori_task = new BodyOriTask<T>(&(WBCtrl::_model));
 
-
   _foot_contact[0] = new SingleContact<T>(&(WBCtrl::_model), linkID::FR);
   _foot_contact[1] = new SingleContact<T>(&(WBCtrl::_model), linkID::FL);
   _foot_contact[2] = new SingleContact<T>(&(WBCtrl::_model), linkID::HR);

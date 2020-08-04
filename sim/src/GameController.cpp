@@ -60,6 +60,10 @@ void GameController::findNewController() {
  */
 void GameController::updateGamepadCommand(GamepadCommand &gamepadCommand) {
   if (_qGamepad) {
+    gamepadCommand.up = _qGamepad->buttonUp();
+    gamepadCommand.down = _qGamepad->buttonDown();
+    gamepadCommand.left = _qGamepad->buttonLeft();
+    gamepadCommand.right = _qGamepad->buttonRight();
     gamepadCommand.leftBumper = _qGamepad->buttonL1();
     gamepadCommand.rightBumper = _qGamepad->buttonR1();
     gamepadCommand.leftTriggerButton = _qGamepad->buttonL2() != 0.;

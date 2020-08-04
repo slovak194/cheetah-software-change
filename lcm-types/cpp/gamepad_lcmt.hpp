@@ -14,6 +14,14 @@
 class gamepad_lcmt
 {
     public:
+        int32_t    up;
+
+        int32_t    down;
+
+        int32_t    left;
+
+        int32_t    right;
+
         int32_t    leftBumper;
 
         int32_t    rightBumper;
@@ -142,6 +150,18 @@ int gamepad_lcmt::_encodeNoHash(void *buf, int offset, int maxlen) const
 {
     int pos = 0, tlen;
 
+    tlen = __int32_t_encode_array(buf, offset + pos, maxlen - pos, &this->up, 1);
+    if(tlen < 0) return tlen; else pos += tlen;
+
+    tlen = __int32_t_encode_array(buf, offset + pos, maxlen - pos, &this->down, 1);
+    if(tlen < 0) return tlen; else pos += tlen;
+
+    tlen = __int32_t_encode_array(buf, offset + pos, maxlen - pos, &this->left, 1);
+    if(tlen < 0) return tlen; else pos += tlen;
+
+    tlen = __int32_t_encode_array(buf, offset + pos, maxlen - pos, &this->right, 1);
+    if(tlen < 0) return tlen; else pos += tlen;
+
     tlen = __int32_t_encode_array(buf, offset + pos, maxlen - pos, &this->leftBumper, 1);
     if(tlen < 0) return tlen; else pos += tlen;
 
@@ -196,6 +216,18 @@ int gamepad_lcmt::_encodeNoHash(void *buf, int offset, int maxlen) const
 int gamepad_lcmt::_decodeNoHash(const void *buf, int offset, int maxlen)
 {
     int pos = 0, tlen;
+
+    tlen = __int32_t_decode_array(buf, offset + pos, maxlen - pos, &this->up, 1);
+    if(tlen < 0) return tlen; else pos += tlen;
+
+    tlen = __int32_t_decode_array(buf, offset + pos, maxlen - pos, &this->down, 1);
+    if(tlen < 0) return tlen; else pos += tlen;
+
+    tlen = __int32_t_decode_array(buf, offset + pos, maxlen - pos, &this->left, 1);
+    if(tlen < 0) return tlen; else pos += tlen;
+
+    tlen = __int32_t_decode_array(buf, offset + pos, maxlen - pos, &this->right, 1);
+    if(tlen < 0) return tlen; else pos += tlen;
 
     tlen = __int32_t_decode_array(buf, offset + pos, maxlen - pos, &this->leftBumper, 1);
     if(tlen < 0) return tlen; else pos += tlen;
@@ -263,6 +295,10 @@ int gamepad_lcmt::_getEncodedSizeNoHash() const
     enc_size += __int32_t_encoded_array_size(NULL, 1);
     enc_size += __int32_t_encoded_array_size(NULL, 1);
     enc_size += __int32_t_encoded_array_size(NULL, 1);
+    enc_size += __int32_t_encoded_array_size(NULL, 1);
+    enc_size += __int32_t_encoded_array_size(NULL, 1);
+    enc_size += __int32_t_encoded_array_size(NULL, 1);
+    enc_size += __int32_t_encoded_array_size(NULL, 1);
     enc_size += __float_encoded_array_size(NULL, 1);
     enc_size += __float_encoded_array_size(NULL, 1);
     enc_size += __float_encoded_array_size(NULL, 2);
@@ -272,7 +308,7 @@ int gamepad_lcmt::_getEncodedSizeNoHash() const
 
 uint64_t gamepad_lcmt::_computeHash(const __lcm_hash_ptr *)
 {
-    uint64_t hash = 0x37c71cc8957b05cfLL;
+    uint64_t hash = 0xa857d7961e448703LL;
     return (hash<<1) + ((hash>>63)&1);
 }
 

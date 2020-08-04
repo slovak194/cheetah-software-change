@@ -20,7 +20,7 @@ struct GamepadCommand {
    */
   GamepadCommand() { zero(); }
 
-  bool leftBumper, rightBumper, leftTriggerButton, rightTriggerButton, back,
+  bool up, down, left, right, leftBumper, rightBumper, leftTriggerButton, rightTriggerButton, back,
       start, a, b, x, y, leftStickButton, rightStickButton, logitechButton;
 
   Vec2<float> leftStickAnalog, rightStickAnalog;
@@ -31,6 +31,10 @@ struct GamepadCommand {
    * 设置所有参数为0
    */
   void zero() {
+    up = false;
+    down = false;
+    left = false;
+    right = false;
     leftBumper = false;
     rightBumper = false;
     leftTriggerButton = false;
@@ -56,6 +60,10 @@ struct GamepadCommand {
    * @param lcmt : LCM message
    */
   void set(const gamepad_lcmt* lcmt) {
+    up = lcmt->up;
+    down = lcmt->down;
+    left = lcmt->left;
+    right = lcmt->right;
     leftBumper = lcmt->leftBumper;
     rightBumper = lcmt->rightBumper;
     leftTriggerButton = lcmt->leftTriggerButton;
@@ -82,6 +90,10 @@ struct GamepadCommand {
    * @param lcmt : LCM message
    */
   void get(gamepad_lcmt* lcmt) {
+    lcmt->up = up;
+    lcmt->down = down;
+    lcmt->left = left;
+    lcmt->right = right;
     lcmt->leftBumper = leftBumper;
     lcmt->rightBumper = rightBumper;
     lcmt->leftTriggerButton = leftTriggerButton;
@@ -122,7 +134,11 @@ struct GamepadCommand {
    */
   std::string toString() {
     std::string result =
-        "Result:\nleftBumper: " + boolToString(leftBumper) + "\n" +
+        "Result:\nup: " + boolToString(up) + "\n" +
+        "down: " + boolToString(down) + "\n" +
+        "left: " + boolToString(left) + "\n" +
+        "right: " + boolToString(right) + "\n" +
+        "leftBumper: " + boolToString(leftBumper) + "\n" +
         "rightBumper: " + boolToString(rightBumper) + "\n" +
         "leftTriggerButton: " + boolToString(leftTriggerButton) + "\n" +
         "rightTriggerButton: " + boolToString(rightTriggerButton) + "\n" +

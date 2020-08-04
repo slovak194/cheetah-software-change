@@ -1,5 +1,5 @@
 #include "MIT_Controller.hpp"
-
+#include "string.h"
 MIT_Controller::MIT_Controller():RobotController("mit_ctrl"){ }
 
 //#define RC_ESTOP

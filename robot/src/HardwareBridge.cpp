@@ -12,7 +12,7 @@
 #include <cstring>
 #include <thread>
 #include "Configuration.h"
-
+#include "string.h"
 #include "HardwareBridge.h"
 //#include "rt/rt_rc_interface.h"
 #include "rt/rt_sbus.h"

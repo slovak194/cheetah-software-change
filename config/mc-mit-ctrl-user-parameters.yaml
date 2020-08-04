@@ -7,11 +7,15 @@ cmpc_fmax           : 234
 cmpc_gait           : 9
 cmpc_mu             : 0.4
 foot_hight          : 0.1
+
 foot_location_k     : 0.03
-sit_down_height     : 0.098
-sit_down_time       : 1
-stand_up_height     : 0.4
 stride_max          : 0.3
+
+
+sit_down_height     : 0.098      #机器人趴下时的高度
+stand_up_height     : 0.4        #机器人站立时的高度
+sit_down_time       : 1.5        #机器人趴下去的时间
+stand_up_time       : 1.5        #机器人站起来的时间
 
 Kd_body             : [4, 4, 4]
 Kd_foot             : [8, 8, 8]

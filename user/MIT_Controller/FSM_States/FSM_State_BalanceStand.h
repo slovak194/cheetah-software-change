@@ -21,12 +21,6 @@ class FSM_State_BalanceStand : public FSM_State<T> {
   // Run the normal behavior for the state
   void run();
 
-  // Checks for any transition triggers
-  FSM_StateName checkTransition();
-
-  // Behavior to be carried out when exiting a state
-  void onExit();
-
  private:
 
   // Parses contact specific controls to the leg controller

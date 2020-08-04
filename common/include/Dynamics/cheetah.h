@@ -27,7 +27,6 @@ Quadruped<T> buildCheetah() {
   quadruped._kneeGearRatio    = 6;
   quadruped._abadLinkLength   = 0.088;      //第一连杆长度
   quadruped._hipLinkLength    = 0.270;      //第二连杆长度
-  quadruped._kneeLinkY_offset = 0;          //足底碰撞模型的偏移量，不需要
   quadruped._kneeLinkLength   = 0.270;      //第三连杆长度
   quadruped._maxLegLength     = 0.465-0.01; //腿总长。abad总是垂直于hip和knee，因此该值取决于大小腿角度，1厘米安全距离
 

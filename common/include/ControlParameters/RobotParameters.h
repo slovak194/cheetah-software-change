@@ -22,7 +22,6 @@ class RobotControlParameters : public ControlParameters {
    */
   RobotControlParameters()
       : ControlParameters("robot-parameters"),
-        INIT_PARAMETER(control_mode),
         INIT_PARAMETER(controller_dt),
         INIT_PARAMETER(cheater_mode),
         INIT_PARAMETER(imu_process_noise_position),
@@ -32,7 +31,6 @@ class RobotControlParameters : public ControlParameters {
         INIT_PARAMETER(foot_sensor_noise_velocity),
         INIT_PARAMETER(foot_height_sensor_noise){}
 
-  DECLARE_PARAMETER(double, control_mode)
   DECLARE_PARAMETER(double, controller_dt)
 
   // state estimator

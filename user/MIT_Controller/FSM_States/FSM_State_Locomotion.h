@@ -21,12 +21,6 @@ class FSM_State_Locomotion : public FSM_State<T> {
   // Run the normal behavior for the state
   void run();
 
-  // Checks for any transition triggers
-  FSM_StateName checkTransition();
-
-  // Behavior to be carried out when exiting a state
-  void onExit();
-
  private:
   ConvexMPCLocomotion* cMPCOld;
   WBC_Ctrl<T> * _wbc_ctrl;

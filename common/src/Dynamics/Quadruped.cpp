@@ -49,12 +49,12 @@ bool Quadruped<T>::buildModel(FloatingBaseModel<T>& model) {
                     _abadRotorInertia.flipAlongAxis(CoordinateAxis::Y),
                     _abadGearRatio, baseID, JointType::Revolute,
                     CoordinateAxis::X, xtreeAbad, xtreeAbadRotor);
-     // model.addGroundContactPoint(bodyID, Vec3<T>(0, -_abadLinkLength, -_bodyHeight/2));
+     model.addGroundContactPoint(bodyID, Vec3<T>(0, -_abadLinkLength, -_bodyHeight/2));
     } else {
       model.addBody(_abadInertia, _abadRotorInertia, _abadGearRatio, baseID,  //第一关节连接到base ID
                     JointType::Revolute, CoordinateAxis::X, xtreeAbad,
                     xtreeAbadRotor); 
-      //model.addGroundContactPoint(bodyID, Vec3<T>(0, _abadLinkLength, -_bodyHeight/2));
+     model.addGroundContactPoint(bodyID, Vec3<T>(0, _abadLinkLength, -_bodyHeight/2));
     }
 
     // Hip Joint
@@ -89,13 +89,13 @@ bool Quadruped<T>::buildModel(FloatingBaseModel<T>& model) {
                     _kneeGearRatio, bodyID - 1, JointType::Revolute,
                     CoordinateAxis::Y, xtreeKnee, xtreeKneeRotor);
 
-      model.addGroundContactPoint(bodyID, Vec3<T>(0, _kneeLinkY_offset, -_kneeLinkLength), true);
+      model.addGroundContactPoint(bodyID, Vec3<T>(0, 0, -_kneeLinkLength), true);
     } else {
       model.addBody(_kneeInertia, _kneeRotorInertia, _kneeGearRatio, bodyID - 1,
                     JointType::Revolute, CoordinateAxis::Y, xtreeKnee,
                     xtreeKneeRotor);
 
-      model.addGroundContactPoint(bodyID, Vec3<T>(0, -_kneeLinkY_offset, -_kneeLinkLength), true);
+      model.addGroundContactPoint(bodyID, Vec3<T>(0, 0, -_kneeLinkLength), true);
     }
 
     sideSign *= -1;

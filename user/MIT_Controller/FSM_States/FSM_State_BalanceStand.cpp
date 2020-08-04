@@ -23,9 +23,7 @@ FSM_State_BalanceStand<T>::FSM_State_BalanceStand(
   this->checkPDesFoot = false;
 
 
-  // Initialize GRF to 0s
-  this->footFeedForwardForces = Mat34<T>::Zero();
-
+  // Initialize
   _wbc_ctrl = new LocomotionCtrl<T>(_controlFSMData->_quadruped->buildModel());
   _wbc_data = new LocomotionCtrlData<T>();
 
@@ -34,9 +32,8 @@ FSM_State_BalanceStand<T>::FSM_State_BalanceStand(
 
 template <typename T>
 void FSM_State_BalanceStand<T>::onEnter() {
-  // Default is to not transition
-  this->nextStateName = this->stateName;
   
+  printf("[FSM_State_BalanceStand] onEnter...\n");
   _ini_body_pos = (this->_data->_stateEstimator->getResult()).position;
 
   if(_ini_body_pos[2] < 0.2) {
@@ -56,43 +53,6 @@ void FSM_State_BalanceStand<T>::run() {
   contactState<< 0.5, 0.5, 0.5, 0.5;
   this->_data->_stateEstimator->setContactPhase(contactState);
   BalanceStandStep();
-}
-
-/**
- * Manages which states can be transitioned into either by the user
- * commands or state event triggers.
- *
- * @return the enumerated FSM state name to transition into
- */
-template <typename T>
-FSM_StateName FSM_State_BalanceStand<T>::checkTransition() {
-
-  // Switch FSM control mode
-  switch ((int)this->_data->controlParameters->control_mode) {
-    case K_BALANCE_STAND:
-      break;
-    case K_LOCOMOTION:
-      // Requested change to balance stand
-      this->nextStateName = FSM_StateName::LOCOMOTION;
-
-      // Transition instantaneously to locomotion state on request
-      this->transitionDuration = 0.0;
-      break;
-
-    case K_PASSIVE:
-      this->nextStateName = FSM_StateName::PASSIVE;
-      // Transition time is immediate
-      this->transitionDuration = 0.0;
-      break;
-
-    default:
-      std::cout << "[CONTROL FSM] Bad Request: Cannot transition from "
-                << K_BALANCE_STAND << " to "
-                << this->_data->controlParameters->control_mode << std::endl;
-  }
-
-  // Return the next state name to the FSM
-  return this->nextStateName;
 }
 
 /**

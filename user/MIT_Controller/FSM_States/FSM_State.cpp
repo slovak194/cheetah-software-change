@@ -14,11 +14,10 @@
  */
 template <typename T>
 FSM_State<T>::FSM_State(ControlFSMData<T>* _controlFSMData,
-                        FSM_StateName stateNameIn, std::string stateStringIn)
+                        FSM_StateName stateNameIn, std::string stateStringNameIn)
     : _data(_controlFSMData),
-      stateName(stateNameIn),
-      stateString(stateStringIn) {
-  std::cout << "[FSM_State] Initialized FSM state: " << stateStringIn
+      stateName(stateNameIn) {
+  std::cout << "[FSM_State] Initialized FSM state: " << stateStringNameIn
             << std::endl;
 }
 /**

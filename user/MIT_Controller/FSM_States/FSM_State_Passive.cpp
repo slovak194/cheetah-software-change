@@ -26,8 +26,8 @@ FSM_State_Passive<T>::FSM_State_Passive(ControlFSMData<T>* _controlFSMData)
 
 template <typename T>
 void FSM_State_Passive<T>::onEnter() {
-  // Default is to not transition
-  this->nextStateName = this->stateName;
+
+  printf("[FSM_State_Passive] onEnter...\n");
 }
 
 /**
@@ -36,37 +36,5 @@ void FSM_State_Passive<T>::onEnter() {
 template <typename T>
 void FSM_State_Passive<T>::run() {
 }
-
-/**
- * Manages which states can be transitioned into either by the user
- * commands or state event triggers.
- *
- * @return the enumerated FSM state name to transition into
- */
-template <typename T>
-FSM_StateName FSM_State_Passive<T>::checkTransition() {
-  this->nextStateName = this->stateName;
-
-  // Switch FSM control mode
-  switch ((int)this->_data->controlParameters->control_mode) {
-    case K_PASSIVE:  // normal c (0)
-      // Normal operation for state based transitions
-      break;
-
-    case K_SIT_DOWN:
-      // Requested switch to joint PD control
-      this->nextStateName = FSM_StateName::SIT_DOWN;
-      break;
-
-    default:
-      std::cout << "[CONTROL FSM] Bad Request: Cannot transition from "
-                << K_PASSIVE << " to "
-                << this->_data->controlParameters->control_mode << std::endl;
-  }
-
-  // Get the next state
-  return this->nextStateName;
-}
-
 // template class FSM_State_Passive<double>;
 template class FSM_State_Passive<float>;

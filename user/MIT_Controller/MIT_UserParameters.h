@@ -15,6 +15,7 @@ public:
         INIT_PARAMETER(sit_down_height),
         INIT_PARAMETER(stand_up_height),
         INIT_PARAMETER(sit_down_time),
+        INIT_PARAMETER(stand_up_time),
         INIT_PARAMETER(cmpc_gait),
         INIT_PARAMETER(Swing_step_offset),
         INIT_PARAMETER(Kp_body),
@@ -35,6 +36,7 @@ public:
   DECLARE_PARAMETER(double, sit_down_height);
   DECLARE_PARAMETER(double, stand_up_height);
   DECLARE_PARAMETER(double, sit_down_time);
+  DECLARE_PARAMETER(double, stand_up_time);
   DECLARE_PARAMETER(double, cmpc_gait);
   DECLARE_PARAMETER(Vec3<double>, Swing_step_offset);
 

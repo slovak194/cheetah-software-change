@@ -29,20 +29,15 @@ FSM_State_Locomotion<T>::FSM_State_Locomotion(ControlFSMData<T>* _controlFSMData
   this->checkPDesFoot = false;
 
   // Initialize GRF and footstep locations to 0s
-  this->footFeedForwardForces = Mat34<T>::Zero();
-  this->footstepLocations = Mat34<T>::Zero();
   _wbc_ctrl = new LocomotionCtrl<T>(_controlFSMData->_quadruped->buildModel());
   _wbc_data = new LocomotionCtrlData<T>();
 }
 
 template <typename T>
 void FSM_State_Locomotion<T>::onEnter() {
-  // Default is to not transition
-  this->nextStateName = this->stateName;
 
+  printf("[FSM_State_Locomotion] onEnter...\n");
   cMPCOld->initialize();
-
-  printf("[FSM LOCOMOTION] On Enter\n");
 }
 
 /**
@@ -52,59 +47,6 @@ template <typename T>
 void FSM_State_Locomotion<T>::run() {
   // Call the locomotion control logic for this iteration
   LocomotionControlStep();
-}
-
-/**
- * Manages which states can be transitioned into either by the user
- * commands or state event triggers.
- *
- * @return the enumerated FSM state name to transition into
- */
-template <typename T>
-FSM_StateName FSM_State_Locomotion<T>::checkTransition() {
-
-  // Switch FSM control mode
-  if(locomotionSafe()) {
-    switch ((int)this->_data->controlParameters->control_mode) {
-      case K_LOCOMOTION:
-        break;
-
-      case K_BALANCE_STAND:
-        // Requested change to BALANCE_STAND
-        this->nextStateName = FSM_StateName::BALANCE_STAND;
-
-        // Transition time is immediate
-        this->transitionDuration = 0.0;
-
-        break;
-
-      case K_PASSIVE:
-        // Requested change to BALANCE_STAND
-        this->nextStateName = FSM_StateName::PASSIVE;
-
-        // Transition time is immediate
-        this->transitionDuration = 0.0;
-
-        break;
-
-      case K_SIT_DOWN:
-        this->nextStateName = FSM_StateName::SIT_DOWN;
-        this->transitionDuration = 0.;
-        break;
-
-      default:
-        std::cout << "[CONTROL FSM] Bad Request: Cannot transition from "
-                  << K_LOCOMOTION << " to "
-                  << this->_data->controlParameters->control_mode << std::endl;
-    }
-  } else {
-    this->nextStateName = FSM_StateName::PASSIVE;   //这里要调整一下,后面改成damp或者stop
-    this->transitionDuration = 0.;
-  }
-
-
-  // Return the next state name to the FSM
-  return this->nextStateName;
 }
 template<typename T>
 bool FSM_State_Locomotion<T>::locomotionSafe() {

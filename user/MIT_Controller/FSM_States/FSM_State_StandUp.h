@@ -17,6 +17,8 @@ class FSM_State_StandUp : public FSM_State<T> {
   // Run the normal behavior for the state
   void run();
 
+  bool isBusy();
+
  private:
   // Keep track of the control iterations
   int iter = 0;

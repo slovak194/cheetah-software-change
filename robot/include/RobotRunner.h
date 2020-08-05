@@ -12,7 +12,6 @@
 #include "ControlParameters/RobotParameters.h"
 #include "Controllers/StateEstimatorContainer.h"
 #include "SimUtilities/IMUTypes.h"
-#include "rt/rt_rc_interface.h"
 #include "Controllers/ContactEstimator.h"
 #include "Controllers/LegController.h"
 #include "Dynamics/Quadruped.h"
@@ -46,8 +45,6 @@ class RobotRunner : public PeriodicTask {
   CheaterState<double>* cheaterState;
   SpiData* spiData;
   SpiCommand* spiCommand;
-  TiBoardCommand* tiBoardCommand;
-  TiBoardData* tiBoardData;
   RobotControlParameters* controlParameters;
   VisualizationData* visualizationData;
   CheetahVisualization* cheetahMainVisualization;
@@ -65,7 +62,6 @@ class RobotRunner : public PeriodicTask {
   StateEstimate<float> _stateEstimate;
   StateEstimatorContainer<float>* _stateEstimator;
   bool _cheaterModeEnabled = false;
-  rc_control_settings rc_control;
   lcm::LCM _lcm;
   leg_control_command_lcmt leg_control_command_lcm;
   state_estimator_lcmt state_estimator_lcm;

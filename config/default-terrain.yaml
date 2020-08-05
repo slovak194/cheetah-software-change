@@ -1,3 +1,4 @@
+# 此文件为仿真环境的地形文件
 ground-plane:
     type: "infinite-plane"
     mu: 0.5

@@ -4,7 +4,6 @@
 #include "SolverMPC.h"
 #include "ConvexMPCLocomotion.h"
 #include "convexMPC_interface.h"
-#include "../../../../common/FootstepPlanner/GraphSearch.h"
 
 #include "Gait.h"
 
@@ -264,6 +263,7 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
 
   //contact_state = gait->getContactState();
   contact_state = gait->getContactState();
+  swing_state = gait->getContactState();
   // END of WBC Update
 }
 

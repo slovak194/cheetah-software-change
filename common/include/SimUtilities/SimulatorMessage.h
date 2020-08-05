@@ -14,7 +14,6 @@
 #include "SimUtilities/IMUTypes.h"
 #include "SimUtilities/SpineBoard.h"
 #include "SimUtilities/VisualizationData.h"
-#include "SimUtilities/ti_boardcontrol.h"
 #include "Utilities/SharedMemory.h"
 
 /*!
@@ -40,7 +39,6 @@ struct SimulatorToRobotMessage {
 
   // leg data
   SpiData spiData;
-  TiBoardData tiBoardData[4];
   // todo cheetah 3
   ControlParameterRequest controlParameterRequest;
 
@@ -52,7 +50,6 @@ struct SimulatorToRobotMessage {
  */
 struct RobotToSimulatorMessage {
   SpiCommand spiCommand;
-  TiBoardCommand tiBoardCommand[4];
 
   VisualizationData visualizationData;
   CheetahVisualization mainCheetahVisualization;

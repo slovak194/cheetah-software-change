@@ -90,6 +90,13 @@ void FSM_State_BalanceStand<T>::BalanceStandStep() {
 
   _wbc_ctrl->run(_wbc_data, *this->_data);
 }
+/**
+ * 判断动作是否完成,Busy状态下不允许切换状态
+*/
+template <typename T>
+bool FSM_State_BalanceStand<T>::isBusy() {
 
+  return false;
+}
 // template class FSM_State_BalanceStand<double>;
 template class FSM_State_BalanceStand<float>;

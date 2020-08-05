@@ -43,13 +43,13 @@ void CheaterOrientationEstimator<T>::run() {
 template <typename T>
 void VectorNavOrientationEstimator<T>::run() {
   this->_stateEstimatorData.result->orientation[0] =
-      this->_stateEstimatorData.vectorNavData->quat[3];
-  this->_stateEstimatorData.result->orientation[1] =
       this->_stateEstimatorData.vectorNavData->quat[0];
-  this->_stateEstimatorData.result->orientation[2] =
+  this->_stateEstimatorData.result->orientation[1] =
       this->_stateEstimatorData.vectorNavData->quat[1];
-  this->_stateEstimatorData.result->orientation[3] =
+  this->_stateEstimatorData.result->orientation[2] =
       this->_stateEstimatorData.vectorNavData->quat[2];
+  this->_stateEstimatorData.result->orientation[3] =
+      this->_stateEstimatorData.vectorNavData->quat[3];
 
   if(_b_first_visit){
     Vec3<T> rpy_ini = ori::quatToRPY(this->_stateEstimatorData.result->orientation);

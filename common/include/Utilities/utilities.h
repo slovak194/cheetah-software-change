@@ -14,6 +14,41 @@
 #include "cppTypes.h"
 
 /*!
+ * T形加减速曲线
+ * t取值范围 [0-1]
+ */
+template <typename T>
+T T_Curve(const T start, const T end, float t) {
+	T x0   = start;
+	T x1   = end;
+	
+	T Vmax = (x1-x0)*1.3333f;
+	T a    = Vmax*4.0f;
+	T dx   = 0.0f;
+	
+	if((t>0.0f)&&(t<=0.25f))
+	{
+		dx = 0.5f*a*t*t;
+	}
+	else if((t>=0.25f)&&(t<=0.75f))
+	{
+		dx = Vmax*0.125f + (t-0.25f)*Vmax;
+	}
+	else if((t>=0.75f)&&(t<1.0f))
+	{
+		dx = x1 - x0 - 0.5f*a*(1.0f-t)*(1.0f-t);
+	}
+	else if(t<=0)
+	{
+		dx = 0;
+	}
+	else if(t>=1)
+	{
+		dx = x1 - x0;
+	}
+	return x0 + dx;
+}
+/*!
  * Are two floating point values almost equal?
  * @param a : first value
  * @param b : second value

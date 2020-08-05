@@ -2,7 +2,7 @@
  * @file RobotRunner.cpp
  * @brief Common framework for running robot controllers.
  * This code is a common interface between control code and hardware/simulation
- * for mini cheetah and cheetah 3
+ * for mini cheetah
  */
 
 #include <unistd.h>
@@ -45,8 +45,6 @@ void RobotRunner::init() {
       cheaterState, vectorNavData, _legController->datas,
       &_stateEstimate, controlParameters);
   initializeStateEstimator(false);
-
-  memset(&rc_control, 0, sizeof(rc_control_settings));
 
   // Controller initializations
   _robot_ctrl->_model = &_model;
@@ -114,7 +112,6 @@ void RobotRunner::setupStep() {
   // Setup the leg controller for a new iteration
   _legController->zeroCommand();
   _legController->setEnabled(true);
-  _legController->setMaxTorqueCheetah3(208.5);
 
   // state estimator
   // check transition to cheater mode:
@@ -132,8 +129,6 @@ void RobotRunner::setupStep() {
     // todo any configuration
     _cheaterModeEnabled = false;
   }
-
-  get_rc_control_settings(&rc_control);
 
   // todo safety checks, sanity checks, etc...
 }

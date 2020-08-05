@@ -6,7 +6,6 @@
  */
 
 #include "ControlFSM.h"
-#include <rt/rt_rc_interface.h>
 #include "FSM_State.h"
 #include "SimUtilities/GamepadCommand.h"
 #include "string.h"
@@ -75,34 +74,45 @@ void ControlFSM<T>::initialize() {
 template <typename T>
 void ControlFSM<T>::runFSM() {
 
-  switch(currentState->stateName){
-    case FSM_StateName::PASSIVE:
-    {
-      if(data._gamepadCommand->leftBumper)
-          nextState = statesList.standUp;
-      break;
+  if(nextState == currentState){
+
+    switch(currentState->stateName){
+      // PASSIVE  =>  STAND_UP
+      case FSM_StateName::PASSIVE:
+        if(data._gamepadCommand->leftBumper)
+            nextState = statesList.standUp;
+        break;
+      // STAND_UP  =>  LOCOMOTION
+      // STAND_UP  =>  SIT_DOWN
+      case FSM_StateName::STAND_UP:
+        if(currentState->isBusy()) break;
+        if(data._gamepadCommand->x)
+            nextState = statesList.locomotion;
+        else if(data._gamepadCommand->rightBumper)
+            nextState = statesList.sitDown;
+        break;
+      // LOCOMOTION  =>  STAND_UP
+      case FSM_StateName::LOCOMOTION:
+        if(data._gamepadCommand->b)
+            nextState = statesList.standUp;
+        break;
+      //  SIT_DOWN  =>  PASSIVE
+      case FSM_StateName::SIT_DOWN:
+        if(currentState->isBusy()) break;
+        if(data._gamepadCommand->rightBumper)
+            nextState = statesList.passive;
+        break;
+      default: break;
     }
-    case FSM_StateName::STAND_UP:
-    {
-      if(data._gamepadCommand->x)
-          nextState = statesList.locomotion;
-      else if(data._gamepadCommand->rightStickButton)
-          nextState = statesList.sitDown;
-      break;
-    }
-    case FSM_StateName::LOCOMOTION:
-    {
-      if(data._gamepadCommand->b)
-          nextState = statesList.standUp;
-      break;
-    }
-    default: break;
   }
-  //状态初始化
-  if(currentState != nextState)
+  //状态切换
+  if(nextState != currentState)
   {
-    currentState = nextState;
-    currentState->onEnter();
+    if(!currentState->isBusy())
+    {
+      currentState = nextState;
+      currentState->onEnter();
+    }
   }
 
   safetyPreCheck();

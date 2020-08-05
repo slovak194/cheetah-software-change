@@ -14,8 +14,6 @@
 #include "Configuration.h"
 #include "string.h"
 #include "HardwareBridge.h"
-//#include "rt/rt_rc_interface.h"
-#include "rt/rt_sbus.h"
 #include "rt/rt_spi.h"
 #include "Utilities/Utilities_print.h"
 
@@ -361,10 +359,10 @@ void MiniCheetahHardwareBridge::runMicrostrain() {
 //在这里,读取了陀螺数据,如果想用其他型号陀螺仪,应该新建一个类似的函数,并替换run中的线程
 #ifdef USE_MICROSTRAIN
     _vectorNavData.accelerometer = _microstrainImu.acc;
-    _vectorNavData.quat[0] = _microstrainImu.quat[1];   //x
-    _vectorNavData.quat[1] = _microstrainImu.quat[2];   //y
-    _vectorNavData.quat[2] = _microstrainImu.quat[3];   //z
-    _vectorNavData.quat[3] = _microstrainImu.quat[0];   //w
+    _vectorNavData.quat[0] = _microstrainImu.quat[0];
+    _vectorNavData.quat[1] = _microstrainImu.quat[1];
+    _vectorNavData.quat[2] = _microstrainImu.quat[2];
+    _vectorNavData.quat[3] = _microstrainImu.quat[3];
     _vectorNavData.gyro = _microstrainImu.gyro;
 #endif
   }

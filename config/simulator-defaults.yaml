@@ -7,7 +7,6 @@ floor_kp                         : 500000
 game_controller_deadband         : 0.01
 high_level_dt                    : 0.002
 low_level_dt                     : 0.0002
-simulation_paused                : 0
 simulation_speed                 : 1.
 sim_lcm_ttl                      : 0
 sim_state_lcm                    : 1

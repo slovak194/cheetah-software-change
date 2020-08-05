@@ -9,7 +9,7 @@ class FSM_State_Passive : public FSM_State<T> {
   FSM_State_Passive(ControlFSMData<T>* _controlFSMData);
   void onEnter();
   void run();
-  FSM_StateName checkTransition();
+  bool isBusy();
 };
 
 #endif  // FSM_STATE_PASSIVE_H

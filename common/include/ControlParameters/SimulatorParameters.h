@@ -27,7 +27,6 @@ class SimulatorControlParameters : public ControlParameters {
         INIT_PARAMETER(vectornav_imu_quat_noise),
         INIT_PARAMETER(game_controller_deadband),
         INIT_PARAMETER(simulation_speed),
-        INIT_PARAMETER(simulation_paused),
         INIT_PARAMETER(high_level_dt),
         INIT_PARAMETER(low_level_dt),
         INIT_PARAMETER(dynamics_dt),
@@ -51,7 +50,6 @@ class SimulatorControlParameters : public ControlParameters {
   DECLARE_PARAMETER(float, game_controller_deadband)
 
   DECLARE_PARAMETER(double, simulation_speed)
-  DECLARE_PARAMETER(s64, simulation_paused)
   DECLARE_PARAMETER(double, high_level_dt)
   DECLARE_PARAMETER(double, low_level_dt)
   DECLARE_PARAMETER(double, dynamics_dt)

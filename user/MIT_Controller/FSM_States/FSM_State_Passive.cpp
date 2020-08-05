@@ -31,10 +31,23 @@ void FSM_State_Passive<T>::onEnter() {
 }
 
 /**
+ * Busy状态下不允许切换状态
+*/
+template <typename T>
+bool FSM_State_Passive<T>::isBusy() {
+
+  return false;
+}
+
+/**
  * Calls the functions to be executed on each control loop iteration.
  */
 template <typename T>
 void FSM_State_Passive<T>::run() {
+
+  for(int i = 0; i < 4; i++) {
+  this->_data->_legController->commands[i].zero();
+  }
 }
 // template class FSM_State_Passive<double>;
 template class FSM_State_Passive<float>;

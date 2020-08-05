@@ -16,7 +16,6 @@
 #include "leg_control_data_lcmt.hpp"
 #include "Dynamics/Quadruped.h"
 #include "SimUtilities/SpineBoard.h"
-#include "SimUtilities/ti_boardcontrol.h"
 
 /*!
  * Data sent from the control algorithm to the legs.
@@ -68,16 +67,10 @@ class LegController {
   void setEnabled(bool enabled) { _legsEnabled = enabled; };
   void setLcm(leg_control_data_lcmt* data, leg_control_command_lcmt* command);
 
-  /*!
-   * Set the maximum torque.  This only works on cheetah 3!
-   */
-  void setMaxTorqueCheetah3(T tau) { _maxTorque = tau; }
-
   LegControllerCommand<T> commands[4];
   LegControllerData<T> datas[4];
   Quadruped<T>& _quadruped;
   bool _legsEnabled = false;
-  T _maxTorque = 0;
   bool _zeroEncoders = false;
   u32 _calibrateEncoders = 0;
 };

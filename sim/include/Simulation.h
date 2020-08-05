@@ -15,7 +15,6 @@
 #include "SimUtilities/ImuSimulator.h"
 #include "SimUtilities/SimulatorMessage.h"
 #include "SimUtilities/SpineBoard.h"
-#include "SimUtilities/ti_boardcontrol.h"
 #include "Utilities/SharedMemory.h"
 #include "Utilities/Timer.h"
 
@@ -139,7 +138,6 @@ class Simulation {
   SpiCommand _spiCommand;
   SpiData _spiData;
   SpineBoard _spineBoards[4];
-  TI_BoardControl _tiBoards[4];
   lcm::LCM* _lcm = nullptr;
 
   std::function<void(void)> _uiUpdate;

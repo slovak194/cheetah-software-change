@@ -7,8 +7,6 @@
 #include "SimulationBridge.h"
 #include "Utilities/SegfaultHandler.h"
 #include "Controllers/LegController.h"
-#include "rt/rt_rc_interface.h"
-#include "rt/rt_sbus.h"
 
 /*!
  * Connect to a simulation
@@ -227,12 +225,9 @@ void SimulationBridge::runRobotControl() {
     _robotRunner->driverCommand =
         &_sharedMemory().simToRobot.gamepadCommand;
     _robotRunner->spiData = &_sharedMemory().simToRobot.spiData;
-    _robotRunner->tiBoardData = _sharedMemory().simToRobot.tiBoardData;
     _robotRunner->vectorNavData = &_sharedMemory().simToRobot.vectorNav;
     _robotRunner->cheaterState = &_sharedMemory().simToRobot.cheaterState;
     _robotRunner->spiCommand = &_sharedMemory().robotToSim.spiCommand;
-    _robotRunner->tiBoardCommand =
-        _sharedMemory().robotToSim.tiBoardCommand;
     _robotRunner->controlParameters = &_robotParams;
     _robotRunner->visualizationData =
         &_sharedMemory().robotToSim.visualizationData;
@@ -241,25 +236,6 @@ void SimulationBridge::runRobotControl() {
 
     _robotRunner->init();
     _firstControllerRun = false;
-
-    sbus_thread = new std::thread(&SimulationBridge::run_sbus, this);
   }
   _robotRunner->run();
-}
-
-/*!
- * Run the RC receive thread
- */
-void SimulationBridge::run_sbus() {
-  printf("[run_sbus] starting...\n");
-  int port = init_sbus(true);  // Simulation
-  while (true) {
-    if (port > 0) {
-      int x = receive_sbus(port);
-      if (x) {
-        sbus_packet_complete();
-      }
-    }
-    usleep(5000);
-  }
 }

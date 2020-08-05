@@ -63,10 +63,10 @@ void ImuSimulator<T>::updateVectornav(
   } else {
     ori_quat = robotState.bodyOrientation.template cast<float>();
   }
-  data->quat[3] = ori_quat[0];
-  data->quat[0] = ori_quat[1];
-  data->quat[1] = ori_quat[2];
-  data->quat[2] = ori_quat[3];
+  data->quat[0] = ori_quat[0];
+  data->quat[1] = ori_quat[1];
+  data->quat[2] = ori_quat[2];
+  data->quat[3] = ori_quat[3];
 }
 
 /*!

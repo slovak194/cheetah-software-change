@@ -2,7 +2,7 @@
  *  @brief Common Leg Control Interface
  *
  *  Implements low-level leg control for Mini Cheetah and Cheetah 3 Robots
- *  Abstracts away the difference between the SPIne and the TI Boards
+ *  Abstracts away the difference between the SPIne
  *  All quantities are in the "leg frame" which has the same orientation as the
  * body frame, but is shifted so that 0,0,0 is at the ab/ad pivot (the "hip
  * frame").

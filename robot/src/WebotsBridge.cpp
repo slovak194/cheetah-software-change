@@ -262,10 +262,10 @@ void MiniCheetahWebotsBridge::handleWebots2ControllerLCM(const lcm::ReceiveBuffe
   Vec3<float> RPY(msg->rpy[0], msg->rpy[1], msg->rpy[2]);
   Quat<float> q_wxyz = rpyToQuat(RPY);
   //xyzw = wxyz
-  _vectorNavData.quat[0] = q_wxyz[1];   //x
-  _vectorNavData.quat[1] = q_wxyz[2];   //y
-  _vectorNavData.quat[2] = q_wxyz[3];   //z
-  _vectorNavData.quat[3] = q_wxyz[0];   //w
+  _vectorNavData.quat[0] = q_wxyz[0];   //w
+  _vectorNavData.quat[1] = q_wxyz[1];   //x
+  _vectorNavData.quat[2] = q_wxyz[2];   //y
+  _vectorNavData.quat[3] = q_wxyz[3];   //z
 }
 /*!
  * 加载机器人参数与用户参数

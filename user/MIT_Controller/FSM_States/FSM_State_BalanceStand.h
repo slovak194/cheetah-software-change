@@ -14,12 +14,9 @@ class FSM_State_BalanceStand : public FSM_State<T> {
  public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   FSM_State_BalanceStand(ControlFSMData<T>* _controlFSMData);
-
-  // Behavior to be carried out when entering a state
   void onEnter() override;
-
-  // Run the normal behavior for the state
   void run();
+  bool isBusy();
 
  private:
 

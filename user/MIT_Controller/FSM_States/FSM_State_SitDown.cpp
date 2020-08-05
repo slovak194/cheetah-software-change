@@ -43,21 +43,35 @@ void FSM_State_SitDown<T>::onEnter() {
 template <typename T>
 void FSM_State_SitDown<T>::run() {
 
-  T hMax = this->_data->userParameters->sit_down_height;
-  T progress = (iter * this->_data->controlParameters->controller_dt)/
-                (this->_data->userParameters->sit_down_time);
+  iter++;
+  T sit_down_height = this->_data->userParameters->sit_down_height;
+  T t               = (iter * this->_data->controlParameters->controller_dt)/
+                      (this->_data->userParameters->sit_down_time);
 
-  if (progress > 1.){ progress = 1.; }
+  if (t > 1.){ t = 1.; }
 
   for(int i = 0; i < 4; i++) {
     this->_data->_legController->commands[i].kpCartesian = Vec3<T>(1000, 1000, 1000).asDiagonal();
     this->_data->_legController->commands[i].kdCartesian = Vec3<T>(16, 16, 40).asDiagonal();
 
     this->_data->_legController->commands[i].pDes = _ini_foot_pos[i];
-    this->_data->_legController->commands[i].pDes[2] = 
-      progress*(-hMax) + (1. - progress) * _ini_foot_pos[i][2];
+    this->_data->_legController->commands[i].pDes[2] = T_Curve(_ini_foot_pos[i][2], -sit_down_height, t);
     }
 }
 
+/**
+ * 判断动作是否完成,Busy状态下不允许切换状态
+*/
+template <typename T>
+bool FSM_State_SitDown<T>::isBusy() {
+
+  T t = (iter * this->_data->controlParameters->controller_dt)/
+        (this->_data->userParameters->sit_down_time);
+
+  if(t < 1.0f)
+    return true;
+  else
+    return false;
+}
 // template class FSM_State_StandUp<double>;
 template class FSM_State_SitDown<float>;

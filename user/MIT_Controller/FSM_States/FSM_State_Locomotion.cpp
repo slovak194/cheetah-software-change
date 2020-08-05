@@ -123,6 +123,35 @@ void FSM_State_Locomotion<T>::LocomotionControlStep() {
   //wbc计算
   _wbc_ctrl->run(_wbc_data, *this->_data);
 }
+/**
+ * 判断动作是否完成,Busy状态下不允许切换状态
+ * locomotion状态下,什么时候适合切换到站立状态呢?
+ * 支撑腿不需要考虑,任何时候都适合
+ * 摆动腿的摆动动作刚刚开始,或者即将结束的时候,适合切换
+ * 因此应该让x=sum(abs(swing_state-0.5)),尽量大
+ * 对x求导得到dx,当首次dx<0,既x为减函数时允许切换
+*/
+template <typename T>
+bool FSM_State_Locomotion<T>::isBusy() {
 
+  float x,dx;
+  static float pre_x  = 0.0;
+  static float pre_dx = 0.0;
+  float filter = 0.1;
+
+  Vec4<float> s = cMPCOld->swing_state;
+
+  x = fabs(s[0] - 0.5) + fabs(s[1] - 0.5) + fabs(s[2] - 0.5) + fabs(s[3] - 0.5);
+  
+  dx = x - pre_x;
+  dx = dx*filter + pre_dx*(1-filter);
+
+  bool busyFlag = true;
+  if((dx<0)&&(pre_dx>=0)) busyFlag = false;
+  pre_x  = x;
+  pre_dx = dx;
+  
+  return busyFlag;
+}
 // template class FSM_State_Locomotion<double>;
 template class FSM_State_Locomotion<float>;

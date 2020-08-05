@@ -10,12 +10,9 @@ template <typename T>
 class FSM_State_SitDown : public FSM_State<T> {
  public:
   FSM_State_SitDown(ControlFSMData<T>* _controlFSMData);
-
-  // Behavior to be carried out when entering a state
   void onEnter();
-
-  // Run the normal behavior for the state
   void run();
+  bool isBusy();
 
  private:
   // Keep track of the control iterations

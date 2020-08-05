@@ -69,9 +69,6 @@ class HardwareBridge {
   SpiData _spiData;                                  //spi过来的数据
   SpiCommand _spiCommand;                            //spi命令
 
-  TiBoardCommand _tiBoardCommand[4];                 //Tiboard命令
-  TiBoardData _tiBoardData[4];
-
   bool _firstRun = true;                             //首次运行标志
   RobotRunner* _robotRunner = nullptr;               //机器人运行器,比较重要
   RobotControlParameters _robotParams;               //机器人控制参数

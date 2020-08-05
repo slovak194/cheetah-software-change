@@ -40,8 +40,6 @@ todo:将所有魔法数字调整到yaml中
 
 出于安全考虑,大改recover_stand,形成类似stand_up,或者考虑新建一个stand_up状态
 
-todo:四元数统一格式
-
 todo:完善foot速度位置状态估计,并根据foot位置与速度以及时间,做足底估计接触.可以考虑在webots下用接触传感器辅助调参
 # 2020.08.04
 删去未使用task
@@ -50,9 +48,25 @@ todo:完善foot速度位置状态估计,并根据foot位置与速度以及时间
 
 解决手柄左边4个按键无效问题
 
-todo:加入standup与sitdown加减速过程
+todo:设计策略,侧向运动时腿与腿不打架
 
+删去tiboatd相关内容
 
+四元数统一格式xyzw
+
+删除 common/FootstepPlanner
+
+添加梯形加减速曲线T_Curve,原来的B样条曲线只是规划路径,在路径上匀速,无法实现启动后加速与到位前减速的效果.
+
+为abad link添加接触点
+# 2020.08.04
+加入standup与sitdown加减速过程
+
+解决使用手柄调度FSM的一个bug
+
+todo:修改设计安全检查策略
+
+todo:设计调参打印绘图机制,研究源代码中plot相关内容
 
 
 

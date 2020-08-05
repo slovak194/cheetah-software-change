@@ -42,6 +42,8 @@ public:
   Vec3<float> Fr_des[4];
 
   Vec4<float> contact_state;
+  Vec4<float> swing_state;
+
 
 private:
   void _SetupCommand(ControlFSMData<float> & data);

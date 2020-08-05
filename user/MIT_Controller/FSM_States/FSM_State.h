@@ -39,7 +39,9 @@ class FSM_State {
 
   // Run the normal behavior for the state
   virtual void run() = 0; //{}
-
+  
+  //在busy状态下,不允许进行状态切换
+  virtual bool isBusy() = 0;
   //
   void turnOnAllSafetyChecks();
   void turnOffAllSafetyChecks();

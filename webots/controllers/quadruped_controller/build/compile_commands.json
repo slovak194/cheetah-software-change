@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/yxy/Desktop/quad_sim/controllers/quadruped_controller/build",
+  "command": "/usr/bin/g++-5   -I/home/yxy/Desktop/quad_sim/controllers/quadruped_controller/./lcm_types -I/usr/local/include -I/home/yxy/Desktop/quad_sim/controllers/quadruped_controller -I/usr/local/webots/include/controller/c -I/usr/local/webots/include/controller/cpp   -std=c++11 -g   -o CMakeFiles/quadruped_controller.dir/quadruped_controller.cpp.o -c /home/yxy/Desktop/quad_sim/controllers/quadruped_controller/quadruped_controller.cpp",
+  "file": "/home/yxy/Desktop/quad_sim/controllers/quadruped_controller/quadruped_controller.cpp"
+},
+{
+  "directory": "/home/yxy/Desktop/quad_sim/controllers/quadruped_controller/build",
+  "command": "/usr/bin/g++-5   -I/home/yxy/Desktop/quad_sim/controllers/quadruped_controller/./lcm_types -I/usr/local/include -I/home/yxy/Desktop/quad_sim/controllers/quadruped_controller -I/usr/local/webots/include/controller/c -I/usr/local/webots/include/controller/cpp   -std=c++11 -g   -o CMakeFiles/quadruped_controller.dir/webots_interface.cpp.o -c /home/yxy/Desktop/quad_sim/controllers/quadruped_controller/webots_interface.cpp",
+  "file": "/home/yxy/Desktop/quad_sim/controllers/quadruped_controller/webots_interface.cpp"
+}
+]

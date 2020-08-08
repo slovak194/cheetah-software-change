@@ -1,3 +1,0 @@
-/home/yxy/Desktop/quad_sim/controllers/quadruped_controller/build/CMakeFiles/rebuild_cache.dir
-/home/yxy/Desktop/quad_sim/controllers/quadruped_controller/build/CMakeFiles/edit_cache.dir
-/home/yxy/Desktop/quad_sim/controllers/quadruped_controller/build/CMakeFiles/quadruped_controller.dir

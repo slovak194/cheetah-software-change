@@ -3,6 +3,7 @@
 
 #include <Controllers/convexMPC/ConvexMPCLocomotion.h>
 #include "FSM_State.h"
+#include <MIT_UserParameters.h>
 
 template<typename T> class WBC_Ctrl;
 template<typename T> class LocomotionCtrlData;
@@ -19,6 +20,7 @@ class FSM_State_Locomotion : public FSM_State<T> {
   bool isBusy();
 
  private:
+  MIT_UserParameters* userParameters;
   ConvexMPCLocomotion* cMPCOld;
   WBC_Ctrl<T> * _wbc_ctrl;
   LocomotionCtrlData<T> * _wbc_data;

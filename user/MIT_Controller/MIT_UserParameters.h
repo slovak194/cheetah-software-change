@@ -7,6 +7,7 @@ class MIT_UserParameters : public ControlParameters {
 public:
   MIT_UserParameters()
       : ControlParameters("user-parameters"),
+        INIT_PARAMETER(floating_base_weight),
         INIT_PARAMETER(stride_max),
         INIT_PARAMETER(cmpc_mu),
         INIT_PARAMETER(cmpc_fmax),
@@ -18,6 +19,8 @@ public:
         INIT_PARAMETER(stand_up_time),
         INIT_PARAMETER(cmpc_gait),
         INIT_PARAMETER(Swing_step_offset),
+        INIT_PARAMETER(Kp_stand),
+        INIT_PARAMETER(Kd_stand),
         INIT_PARAMETER(Kp_body),
         INIT_PARAMETER(Kd_body),
         INIT_PARAMETER(Kp_ori),
@@ -28,6 +31,7 @@ public:
         INIT_PARAMETER(Kd_joint)
 
   {}
+  DECLARE_PARAMETER(double, floating_base_weight);
   DECLARE_PARAMETER(double, stride_max);
   DECLARE_PARAMETER(double, cmpc_mu);
   DECLARE_PARAMETER(double, cmpc_fmax);
@@ -39,6 +43,9 @@ public:
   DECLARE_PARAMETER(double, stand_up_time);
   DECLARE_PARAMETER(double, cmpc_gait);
   DECLARE_PARAMETER(Vec3<double>, Swing_step_offset);
+  
+  DECLARE_PARAMETER(Vec3<double>, Kp_stand);
+  DECLARE_PARAMETER(Vec3<double>, Kd_stand);
 
   DECLARE_PARAMETER(Vec3<double>, Kp_body);
   DECLARE_PARAMETER(Vec3<double>, Kd_body);

@@ -708,10 +708,10 @@ void Simulation::updateGraphics() {
         _sharedMemory().robotToSim.mainCheetahVisualization.q[i];
   _robotDataSimulator->setState(_robotControllerState);
   _robotDataSimulator->forwardKinematics();  // calc all body positions
+  //第一个是物理引擎中的机器人,第二个是传感器读取的机器人
   _window->_drawList.updateRobotFromModel(*_simulator, _simRobotID, true);
-  //不画另一个机器人
-  _window->_drawList.updateRobotFromModel(*_robotDataSimulator,
-                                          _controllerRobotID, false);
+  _window->_drawList.updateRobotFromModel(*_robotDataSimulator, _controllerRobotID, false);
+
   _window->_drawList.updateAdditionalInfo(*_simulator);
   _window->update();
 }

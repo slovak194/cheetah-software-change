@@ -84,15 +84,24 @@ void ControlFSM<T>::runFSM() {
         break;
       // STAND_UP  =>  LOCOMOTION
       // STAND_UP  =>  SIT_DOWN
+      // STAND_UP  =>  BALANCE_STAND
       case FSM_StateName::STAND_UP:
         if(currentState->isBusy()) break;
         if(data._gamepadCommand->x)
             nextState = statesList.locomotion;
         else if(data._gamepadCommand->rightBumper)
             nextState = statesList.sitDown;
+        else if(data._gamepadCommand->y)
+            nextState = statesList.balanceStand;
         break;
       // LOCOMOTION  =>  STAND_UP
       case FSM_StateName::LOCOMOTION:
+        if(data._gamepadCommand->b)
+            nextState = statesList.standUp;
+        break;
+      //  BALANCE_STAND  =>  STAND_UP
+      case FSM_StateName::BALANCE_STAND:
+        if(currentState->isBusy()) break;
         if(data._gamepadCommand->b)
             nextState = statesList.standUp;
         break;

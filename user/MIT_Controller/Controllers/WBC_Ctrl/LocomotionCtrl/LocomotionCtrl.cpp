@@ -85,14 +85,10 @@ void LocomotionCtrl<T>::_ParameterSetup(const MIT_UserParameters* param){
     for(size_t j(0); j<4; ++j){
       ((LinkPosTask<T>*)_foot_task[j])->_Kp[i] = param->Kp_foot[i];
       ((LinkPosTask<T>*)_foot_task[j])->_Kd[i] = param->Kd_foot[i];
-      //((LinkPosTask<T>*)_foot_task[j])->_Kp_kin[i] = 1.5;
     }
 
     WBCtrl::_Kp_joint[i] = param->Kp_joint[i];
     WBCtrl::_Kd_joint[i] = param->Kd_joint[i];
-
-    //WBCtrl::_Kp_joint_swing[i] = param->Kp_joint_swing[i];
-    //WBCtrl::_Kd_joint_swing[i] = param->Kd_joint_swing[i];
    }
 }
 

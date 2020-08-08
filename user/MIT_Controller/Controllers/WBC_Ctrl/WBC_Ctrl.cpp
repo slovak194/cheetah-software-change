@@ -19,10 +19,8 @@ WBC_Ctrl<T>::WBC_Ctrl(FloatingBaseModel<T> model):
   _wbic = new WBIC<T>(cheetah::dim_config, &(_contact_list), &(_task_list));
   _wbic_data = new WBIC_ExtraData<T>();
   
-  //魔法数字
+  //下面两个数字不用在意,是松弛变量,其中_W_floating会在后续程序中即时修改
   _wbic_data->_W_floating = DVec<T>::Constant(6, 0.1);
-  //_wbic_data->_W_floating = DVec<T>::Constant(6, 50.);
-  //_wbic_data->_W_floating[5] = 0.1;
   _wbic_data->_W_rf = DVec<T>::Constant(12, 1.);
   
   //下面两个数字不用在意,kp和kd将被yaml中的数据填充

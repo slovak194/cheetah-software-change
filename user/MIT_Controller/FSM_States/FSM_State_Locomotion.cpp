@@ -24,6 +24,7 @@ FSM_State_Locomotion<T>::FSM_State_Locomotion(ControlFSMData<T>* _controlFSMData
       30 / (1000. * _controlFSMData->controlParameters->controller_dt),
       _controlFSMData->userParameters);
 
+  userParameters = _controlFSMData->userParameters;
   this->turnOnAllSafetyChecks();
   // Turn off Foot pos command since it is set in WBC as operational task
   this->checkPDesFoot = false;
@@ -103,6 +104,7 @@ bool FSM_State_Locomotion<T>::locomotionSafe() {
  */
 template <typename T>
 void FSM_State_Locomotion<T>::LocomotionControlStep() {
+  _wbc_ctrl->setFloatingBaseWeight(userParameters->floating_base_weight);
   //mpc计算
   cMPCOld->run<T>(*this->_data);
   //wbc期望数据填充

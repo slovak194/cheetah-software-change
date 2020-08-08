@@ -21,13 +21,13 @@ ground-plane:
     #heightmap_file: false 
     heightmap_file_name: "../algorithms/optimization/saved_optimization_data/2019-03-05-00_00_03_2/HeightMap.txt"
 
-#box-1:
+box-1:
     type: "box"
     mu: 1.5
     restitution: 0
-    depth: 0.05
+    depth: 0.5
     width: 0.5
-    height: 0.05
+    height: 0.15
     position:  [6.5, 0, 0.0]
     orientation: [0.0,0.0,0.0]  # roll pitch yaw
     transparent: 1
@@ -38,7 +38,7 @@ ground-plane:
     #restitution: 0
     #depth: 0.45
     #width: 0.6
-    #height: .1
+    #height: .15
     #position:  [1.175, 0, -0.7]
     #orientation: [0,.0,0]  # roll pitch yaw
     #transparent: 1

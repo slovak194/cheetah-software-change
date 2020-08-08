@@ -50,9 +50,15 @@ void FSM_State_SitDown<T>::run() {
 
   if (t > 1.){ t = 1.; }
 
+  Vec3<T> kp(this->_data->userParameters->Kp_stand[0],
+             this->_data->userParameters->Kp_stand[1],
+             this->_data->userParameters->Kp_stand[2]);
+  Vec3<T> kd(this->_data->userParameters->Kd_stand[0],
+             this->_data->userParameters->Kd_stand[1],
+             this->_data->userParameters->Kd_stand[2]);
   for(int i = 0; i < 4; i++) {
-    this->_data->_legController->commands[i].kpCartesian = Vec3<T>(1000, 1000, 1000).asDiagonal();
-    this->_data->_legController->commands[i].kdCartesian = Vec3<T>(16, 16, 40).asDiagonal();
+    this->_data->_legController->commands[i].kpCartesian = kp.asDiagonal();
+    this->_data->_legController->commands[i].kdCartesian = kd.asDiagonal();
 
     this->_data->_legController->commands[i].pDes = _ini_foot_pos[i];
     this->_data->_legController->commands[i].pDes[2] = T_Curve(_ini_foot_pos[i][2], -sit_down_height, t);

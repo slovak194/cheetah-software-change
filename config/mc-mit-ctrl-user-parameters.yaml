@@ -4,7 +4,6 @@ __collection-name__: user-parameters
 
 Swing_step_offset    : [0, 0, 0]
 cmpc_fmax            : 234
-cmpc_gait            : 9
 cmpc_mu              : 0.4
 foot_hight           : 0.1
 

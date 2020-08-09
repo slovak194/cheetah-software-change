@@ -45,7 +45,6 @@ void ConvexMPCLocomotion::initialize(){
 }
 
 void ConvexMPCLocomotion::_SetupCommand(ControlFSMData<float> & data){
-
   //确定步态
   static int iter = 0;
   iter++;
@@ -84,6 +83,7 @@ void ConvexMPCLocomotion::_SetupCommand(ControlFSMData<float> & data){
       printf("[Gait Change to]:  %d %s\n", nextGaitNumber, (gait->_name).c_str());
       currentGaitNumber = nextGaitNumber;
       iter = 0;
+      //
     }
   }
 

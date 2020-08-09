@@ -168,6 +168,24 @@
        </item>
        <item>
         <widget class="QTableWidget" name="simulatorTable">
+         <property name="minimumSize">
+          <size>
+           <width>407</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="rowCount">
           <number>1</number>
          </property>

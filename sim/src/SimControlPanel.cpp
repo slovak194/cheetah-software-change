@@ -594,7 +594,7 @@ void SimControlPanel::on_robotTable_cellChanged(int row, int column) {
   if (column != 1) {
     return;
   }
-
+  
   auto cell = ui->robotTable->item(row, 0);
   std::string cellName = cell->text().toStdString();
 

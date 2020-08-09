@@ -11,26 +11,12 @@ ConvexMPCLocomotion::ConvexMPCLocomotion(float _dt, int _iterations_between_mpc,
   iterationsBetweenMPC(_iterations_between_mpc),
   horizonLength(HORIZON_LENGTH),
   dt(_dt),
-  //trotting(10, Vec4<int>(0,5,5,0), Vec4<int>(5,5,5,5),"Trotting"),
-  //trotting(24, Vec4<int>(0,12,12,0), Vec4<int>(12,12,12,12),"Trotting"),
-  trotting(18, Vec4<int>(0,9,9,0), Vec4<int>(9,9,9,9),"Trotting"),
-  //trotting(12, Vec4<int>(0,6,6,0), Vec4<int>(6,6,6,6),"Trotting"),
-  //trotting(30, Vec4<int>(0,15,15,0), Vec4<int>(15,15,15,15),"Trotting"),
-  //trotting(120, Vec4<int>(0,60,60,0), Vec4<int>(110,110,110,110),"Trotting"),
+  trotting(20, Vec4<int>(0,10,10,0), Vec4<int>(12,12,12,12),"Trotting"),
+  trotRunning(16, Vec4<int>(0,8,8,0),Vec4<int>(6,6,6,6),"Trot Running"),
+  walking(40, Vec4<int>(0,20,30,10), Vec4<int>(30,30,30,30), "Walking"),
   bounding(10, Vec4<int>(5,5,0,0),Vec4<int>(5,5,5,5),"Bounding"),
-  //bounding(horizonLength, Vec4<int>(5,5,0,0),Vec4<int>(3,3,3,3),"Bounding"),
   pronking(10, Vec4<int>(0,0,0,0),Vec4<int>(5,5,5,5),"Pronking"),
-  //galloping(horizonLength, Vec4<int>(0,2,7,9),Vec4<int>(6,6,6,6),"Galloping"),
-  //galloping(horizonLength, Vec4<int>(0,2,7,9),Vec4<int>(3,3,3,3),"Galloping"),
-  galloping(horizonLength, Vec4<int>(0,4,14,17),Vec4<int>(8,8,8,8),"Galloping"),
-  standing(horizonLength, Vec4<int>(0,0,0,0),Vec4<int>(18,18,18,18),"Standing"),
-  //trotRunning(horizonLength, Vec4<int>(0,5,5,0),Vec4<int>(3,3,3,3),"Trot Running"),
-  trotRunning(horizonLength, Vec4<int>(0,9,9,0),Vec4<int>(7,7,7,7),"Trot Running"),
-  walking(horizonLength, Vec4<int>(0,6,10,16), Vec4<int>(9,9,9,9), "Walking"),
-  walking2(horizonLength, Vec4<int>(0,9,9,0), Vec4<int>(14,14,14,14), "Walking2"),
-  pacing(horizonLength, Vec4<int>(9,0,9,0),Vec4<int>(9,9,9,9),"Pacing"),
-  random(horizonLength, Vec4<int>(9,13,13,9), 0.4, "Flying nine thirteenths trot"),
-  random2(horizonLength, Vec4<int>(8,16,16,8), 0.5, "Double Trot")
+  pacing(14, Vec4<int>(7,0,7,0),Vec4<int>(7,7,7,7),"Pacing")
 {
   _parameters = parameters;
   dtMPC = dt * iterationsBetweenMPC;
@@ -48,20 +34,75 @@ ConvexMPCLocomotion::ConvexMPCLocomotion(float _dt, int _iterations_between_mpc,
 }
 
 void ConvexMPCLocomotion::initialize(){
+  gait = &trotting;
+  currentGaitNumber = TROT;
+  nextGaitNumber = currentGaitNumber;
+
+  iterationCounter = 0;
+
   for(int i = 0; i < 4; i++) firstSwing[i] = true;
   firstRun = true;
 }
 
 void ConvexMPCLocomotion::_SetupCommand(ControlFSMData<float> & data){
 
+  //确定步态
+  static int iter = 0;
+  iter++;
+  float total_vel =  fabs(_x_vel_des) + fabs(_y_vel_des) + fabs(_yaw_turn_rate);
+
+  //已经有步态切换命令时,刚刚切换完步态还没稳定时,机身速度较大时,不检查手柄
+  if((currentGaitNumber == nextGaitNumber)&&(iter > 200)&&(total_vel<0.15))
+  {
+    if(data._gamepadCommand->right)
+        nextGaitNumber = currentGaitNumber + 1;
+    else if(data._gamepadCommand->left)
+        nextGaitNumber = currentGaitNumber - 1;
+    else if(data._gamepadCommand->down)
+        nextGaitNumber = TROT;
+    
+    if(nextGaitNumber < 0)nextGaitNumber = GAIT_SUM - 1;
+    if(nextGaitNumber == GAIT_SUM)nextGaitNumber = 0;
+  }
+
+  if(currentGaitNumber != nextGaitNumber)
+  {
+    if(gait->isGaitEnd())
+    {
+      if(nextGaitNumber == TROT)
+        gait = &trotting;
+      else if(nextGaitNumber == TROT_RUN)
+        gait = &trotRunning;
+      else if(nextGaitNumber == WALK)
+        gait = &walking;
+      else if(nextGaitNumber == BOUND)
+        gait = &bounding;
+      else if(nextGaitNumber == PRONK)
+        gait = &pronking;
+      else if(nextGaitNumber == PACE)
+        gait = &pacing;
+      printf("[Gait Change to]:  %d %s\n", nextGaitNumber, (gait->_name).c_str());
+      currentGaitNumber = nextGaitNumber;
+      iter = 0;
+    }
+  }
+
   float x_vel_cmd, y_vel_cmd,_body_height_cmd;
-  float filter(0.002);              //注意这个滤波器,决定了行走的加速度,很重要
-  float filter2(0.006);              //注意这个滤波器,很重要
-  //cmpc_gait  _yaw_turn_rate   x_vel_cmd   y_vel_cmd  _body_height
-  //vel
-  _yaw_turn_rate = 0.5*(data._gamepadCommand->leftTriggerAnalog - data._gamepadCommand->rightTriggerAnalog);
-  x_vel_cmd =  data._gamepadCommand->leftStickAnalog[1]*0.8;
-  y_vel_cmd = -data._gamepadCommand->rightStickAnalog[0]*0.35;
+  float filter(0.002);               //注意这个滤波器,决定了行走的加速度,很重要
+  float filter2(0.006);              //注意这个滤波器,决定了上下蹲的速度,很重要
+  
+  //trotting, trotRunning, walking, bounding, pronking, pacing;
+  float scale_x[GAIT_SUM] = {0.35, 0.35, 0.30, 0.20, 0.20, 0.20};
+  float scale_y[GAIT_SUM] = {0.35, 0.35, 0.35, 0.10, 0.03, 0.20};
+  float scale_z[GAIT_SUM] = {0.25, 0.25, 0.40, 0.00, 0.10, 0.20};
+
+  float gaitTime = gait->getCurrentGaitTime(dtMPC);
+  x_vel_cmd      =  data._gamepadCommand->leftStickAnalog[1]
+                   *scale_x[currentGaitNumber]/gaitTime;
+  y_vel_cmd      = -data._gamepadCommand->rightStickAnalog[0]
+                   *scale_y[currentGaitNumber]/gaitTime;
+  _yaw_turn_rate = (data._gamepadCommand->leftTriggerAnalog - data._gamepadCommand->rightTriggerAnalog)
+                   *scale_z[currentGaitNumber]/gaitTime;
   //filter
   _x_vel_des = _x_vel_des*(1-filter) + x_vel_cmd*filter;
   _y_vel_des = _y_vel_des*(1-filter) + y_vel_cmd*filter;
@@ -95,40 +136,6 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
   }
   // 从手柄读取命令
   _SetupCommand(data);
-  gaitNumber = data.userParameters->cmpc_gait;
-
- // Check if transition to standing
-  if(((gaitNumber == 4) && current_gait != 4) || firstRun)
-  {
-    stand_traj[0] = seResult.position[0];
-    stand_traj[1] = seResult.position[1];
-    stand_traj[2] = _body_height;
-    stand_traj[3] = 0;
-    stand_traj[4] = 0;
-    stand_traj[5] = seResult.rpy[2];
-    world_position_desired[0] = stand_traj[0];
-    world_position_desired[1] = stand_traj[1];
-  }
-  // pick gait
-  Gait* gait = &trotting;
-  if(gaitNumber == 1)
-    gait = &bounding;
-  else if(gaitNumber == 2)
-    gait = &pronking;
-  else if(gaitNumber == 3)
-    gait = &random;
-  else if(gaitNumber == 4)
-    gait = &standing;
-  else if(gaitNumber == 5)
-    gait = &trotRunning;
-  else if(gaitNumber == 6)
-    gait = &random2;
-  else if(gaitNumber == 7)
-    gait = &random2;
-  else if(gaitNumber == 8)
-    gait = &pacing;
-  current_gait = gaitNumber;
-
   // calc gait
   gait->setIterations(iterationsBetweenMPC, iterationCounter);
   iterationCounter++;
@@ -144,14 +151,12 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
   }
 
   //y方向随波逐流,x方向保证不后退
-  if(gait != &standing) {
-    world_position_desired[0] += dt * v_des_world[0];
-    world_position_desired[1] = seResult.position[1] +  dt * v_des_world[1];
-  }
+  world_position_desired[0] += dt * v_des_world[0];
+  world_position_desired[1] = seResult.position[1] +  dt * v_des_world[1];
 
   // foot placement
   for(int l = 0; l < 4; l++)
-    swingTimes[l] = gait->getCurrentSwingTime(dtMPC, l);
+    swingTimes[l] = gait->getCurrentSwingTime(dtMPC);
 
   float x_side_sign[4] = {1, 1, -1, -1};
   float y_side_sign[4] = {-1, 1, -1, 1};
@@ -170,7 +175,7 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
 
     Vec3<float> pRobotFrame = (data._quadruped->getHipLocation(i) + abad_offset + user_offset);
 
-    float stance_time = gait->getCurrentStanceTime(dtMPC, i);
+    float stance_time = gait->getCurrentStanceTime(dtMPC);
     Vec3<float> pYawCorrected = 
       coordinateRotation(CoordinateAxis::Z, -_yaw_turn_rate* stance_time / 2.0f) * pRobotFrame;
 
@@ -277,64 +282,46 @@ void ConvexMPCLocomotion::updateMPCIfNeeded(int *mpcTable, ControlFSMData<float>
     Vec3<float> v_des_robot(_x_vel_des, _y_vel_des,0);
     Vec3<float> v_des_world = seResult.rBody.transpose() * v_des_robot;
 
-    if(current_gait == 4)
+    const float max_pos_error = .01;
+    float xStart = world_position_desired[0];
+    float yStart = world_position_desired[1];
+
+    if(xStart - p[0] > max_pos_error) xStart = p[0] + max_pos_error;
+    if(p[0] - xStart > max_pos_error) xStart = p[0] - max_pos_error;
+
+    if(yStart - p[1] > max_pos_error) yStart = p[1] + max_pos_error;
+    if(p[1] - yStart > max_pos_error) yStart = p[1] - max_pos_error;
+
+    world_position_desired[0] = xStart;
+    world_position_desired[1] = yStart;
+    float trajInitial[12] = {
+      0.0,                                      // 0
+      0.0,                                      // 1
+      _yaw_des,                                 // 2
+      xStart,                                   // 3
+      yStart,                                   // 4
+      (float)_body_height,                      // 5
+      0,                                        // 6
+      0,                                        // 7
+      _yaw_turn_rate,                           // 8
+      v_des_world[0],                           // 9
+      v_des_world[1],                           // 10
+      0};                                       // 11
+
+    for(int i = 0; i < horizonLength; i++)
     {
-      float trajInitial[12] = {
-        0,
-        0,
-        (float)stand_traj[5],
-        (float)stand_traj[0],
-        (float)stand_traj[1],
-        (float)_body_height,
-        0,0,0,0,0,0};
+      for(int j = 0; j < 12; j++)
+        trajAll[12*i+j] = trajInitial[j];
 
-      for(int i = 0; i < horizonLength; i++)
-        for(int j = 0; j < 12; j++)
-          trajAll[12*i+j] = trajInitial[j];
-    }
-    else
-    {
-      const float max_pos_error = .01;
-      float xStart = world_position_desired[0];
-      float yStart = world_position_desired[1];
-
-      if(xStart - p[0] > max_pos_error) xStart = p[0] + max_pos_error;
-      if(p[0] - xStart > max_pos_error) xStart = p[0] - max_pos_error;
-
-      if(yStart - p[1] > max_pos_error) yStart = p[1] + max_pos_error;
-      if(p[1] - yStart > max_pos_error) yStart = p[1] - max_pos_error;
-
-      world_position_desired[0] = xStart;
-      world_position_desired[1] = yStart;
-      float trajInitial[12] = {
-        0.0,                                      // 0
-        0.0,                                      // 1
-        _yaw_des,                                 // 2
-        xStart,                                   // 3
-        yStart,                                   // 4
-        (float)_body_height,                      // 5
-        0,                                        // 6
-        0,                                        // 7
-        _yaw_turn_rate,                           // 8
-        v_des_world[0],                           // 9
-        v_des_world[1],                           // 10
-        0};                                       // 11
-
-      for(int i = 0; i < horizonLength; i++)
+      if(i == 0) // start at current position  TODO consider not doing this
       {
-        for(int j = 0; j < 12; j++)
-          trajAll[12*i+j] = trajInitial[j];
-
-        if(i == 0) // start at current position  TODO consider not doing this
-        {
-          trajAll[2] = seResult.rpy[2];
-        }
-        else
-        {
-          trajAll[12*i + 3] = trajAll[12 * (i - 1) + 3] + dtMPC * v_des_world[0];
-          trajAll[12*i + 4] = trajAll[12 * (i - 1) + 4] + dtMPC * v_des_world[1];
-          trajAll[12*i + 2] = trajAll[12 * (i - 1) + 2] + dtMPC * _yaw_turn_rate;
-        }
+        trajAll[2] = seResult.rpy[2];
+      }
+      else
+      {
+        trajAll[12*i + 3] = trajAll[12 * (i - 1) + 3] + dtMPC * v_des_world[0];
+        trajAll[12*i + 4] = trajAll[12 * (i - 1) + 4] + dtMPC * v_des_world[1];
+        trajAll[12*i + 2] = trajAll[12 * (i - 1) + 2] + dtMPC * _yaw_turn_rate;
       }
     }
     Timer solveTimer;

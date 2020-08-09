@@ -15,13 +15,14 @@ public:
   virtual Vec4<float> getSwingState() = 0;
   virtual int* getMpcTable() = 0;
   virtual void setIterations(int iterationsBetweenMPC, int currentIteration) = 0;
-  virtual float getCurrentStanceTime(float dtMPC, int leg) = 0;
-  virtual float getCurrentSwingTime(float dtMPC, int leg) = 0;
-  virtual int getCurrentGaitPhase() = 0;
+  virtual float getCurrentStanceTime(float dtMPC) = 0;
+  virtual float getCurrentSwingTime(float dtMPC) = 0;
+  virtual float getCurrentGaitTime(float dtMPC) = 0;
   virtual void debugPrint() { }
-
-protected:
+  virtual bool isGaitEnd() = 0;
   std::string _name;
+//protected:
+  
 };
 
 using Eigen::Array4f;
@@ -35,10 +36,11 @@ public:
   Vec4<float> getSwingState();
   int* getMpcTable();
   void setIterations(int iterationsBetweenMPC, int currentIteration);
-  float getCurrentStanceTime(float dtMPC, int leg);
-  float getCurrentSwingTime(float dtMPC, int leg);
-  int getCurrentGaitPhase();
+  float getCurrentStanceTime(float dtMPC);
+  float getCurrentSwingTime(float dtMPC);
+  float getCurrentGaitTime(float dtMPC);
   void debugPrint();
+  bool isGaitEnd();
 
 private:
   int* _mpc_table;
@@ -53,28 +55,5 @@ private:
   float _phase;                // _phase是指目前迈步周期的完成度,(0%->100%)
 };
 
-
-
-class MixedFrequncyGait : public Gait {
-public:
-  MixedFrequncyGait(int nSegment, Vec4<int> periods, float duty_cycle, const std::string& name);
-  ~MixedFrequncyGait();
-  Vec4<float> getContactState();
-  Vec4<float> getSwingState();
-  int* getMpcTable();
-  void setIterations(int iterationsBetweenMPC, int currentIteration);
-  float getCurrentStanceTime(float dtMPC, int leg);
-  float getCurrentSwingTime(float dtMPC, int leg);
-  int getCurrentGaitPhase();
-  void debugPrint();
-
-private:
-  float _duty_cycle;
-  int* _mpc_table;
-  Array4i _periods;
-  Array4f _phase;
-  int _iteration;
-  int _nIterations;
-};
 
 #endif //PROJECT_GAIT_H

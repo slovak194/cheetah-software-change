@@ -11,6 +11,13 @@
 using Eigen::Array4f;
 using Eigen::Array4i;
 
+#define TROT      (0)
+#define TROT_RUN  (1)
+#define WALK      (2)
+#define BOUND     (3)
+#define PRONK     (4)
+#define PACE      (5)
+#define GAIT_SUM  (6)
 
 template<typename T>
 struct CMPC_Result {
@@ -66,14 +73,12 @@ private:
   Vec3<float> f_ff[4];
   Vec4<float> swingTimes;
   FootSwingTrajectory<float> footSwingTrajectories[4];
-  OffsetDurationGait trotting, bounding, pronking, galloping, standing, trotRunning, walking, walking2, pacing;
-  MixedFrequncyGait random, random2;
+  OffsetDurationGait trotting, trotRunning, walking, bounding, pronking, pacing;
   bool firstRun = true;
   bool firstSwing[4];
   float swingTimeRemaining[4];
-  int current_gait;
-  int gaitNumber;
-  float stand_traj[6];
+  Gait* gait;
+  int currentGaitNumber, nextGaitNumber;
   Vec3<float> world_position_desired;
   Vec3<float> rpy_int;
   Vec3<float> rpy_comp;

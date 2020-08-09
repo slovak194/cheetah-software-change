@@ -33,4 +33,4 @@ Kd_foot              : [20, 20, 20]
 Kp_ori               : [200, 200, 200]
 Kd_ori               : [20, 20, 20]
 
-floating_base_weight : 500                #QP问题中浮基动力学的权重(MPC权重为1),注意,论文上显示此处为0.1
+floating_base_weight : 0.1                #QP问题中浮基动力学的权重(MPC权重为1),注意,论文上显示此处为0.1

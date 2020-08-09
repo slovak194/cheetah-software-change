@@ -70,11 +70,12 @@ void FSM_State_BalanceStand<T>::BalanceStandStep() {
   _wbc_data->pBody_RPY_des = des_Ori;
   _wbc_data->vBody_Ori_des.setZero();
   // height
-  _wbc_data->pBody_des[2] -= 0.5*sin(fabs(des_Ori[0]))*
-                             (this->_data->_quadruped->_bodyWidth + this->_data->_quadruped->_abadLinkLength);
-  _wbc_data->pBody_des[2] -= 0.5*sin(fabs(des_Ori[1]))* this->_data->_quadruped->_bodyLength;  
-    
-
+  T angle = sqrt(des_Ori[0]*des_Ori[0]/0.6/0.6 + des_Ori[1]*des_Ori[1]/0.2/0.2);
+  T length =  this->_data->_quadruped->_bodyLength + 
+              this->_data->_quadruped->_bodyWidth + 
+              this->_data->_quadruped->_abadLinkLength;
+  _wbc_data->pBody_des[2] -= 0.1*sin(fabs(angle))* length;
+  // zero others
   for(size_t i(0); i<4; ++i){
     _wbc_data->pFoot_des[i].setZero();
     _wbc_data->vFoot_des[i].setZero();

@@ -195,6 +195,11 @@
          <row/>
          <column/>
          <column/>
+         <item row="0" column="0">
+          <property name="textAlignment">
+           <set>AlignJustify|AlignVCenter</set>
+          </property>
+         </item>
         </widget>
        </item>
        <item>
@@ -253,6 +258,14 @@
          <row/>
          <column/>
          <column/>
+         <item row="0" column="0">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="textAlignment">
+           <set>AlignJustify|AlignVCenter</set>
+          </property>
+         </item>
         </widget>
        </item>
        <item>

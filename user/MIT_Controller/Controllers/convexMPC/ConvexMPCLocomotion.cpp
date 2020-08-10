@@ -16,7 +16,7 @@ ConvexMPCLocomotion::ConvexMPCLocomotion(float _dt, int _iterations_between_mpc,
   walking(40, Vec4<int>(0,20,30,10), Vec4<int>(30,30,30,30), "Walking"),
   bounding(10, Vec4<int>(5,5,0,0),Vec4<int>(5,5,5,5),"Bounding"),
   pronking(10, Vec4<int>(0,0,0,0),Vec4<int>(5,5,5,5),"Pronking"),
-  pacing(14, Vec4<int>(7,0,7,0),Vec4<int>(7,7,7,7),"Pacing")
+  pacing(16, Vec4<int>(8,0,8,0),Vec4<int>(9,9,9,9),"Pacing")
 {
   _parameters = parameters;
   dtMPC = dt * iterationsBetweenMPC;
@@ -83,7 +83,6 @@ void ConvexMPCLocomotion::_SetupCommand(ControlFSMData<float> & data){
       printf("[Gait Change to]:  %d %s\n", nextGaitNumber, (gait->_name).c_str());
       currentGaitNumber = nextGaitNumber;
       iter = 0;
-      //
     }
   }
 
@@ -92,8 +91,8 @@ void ConvexMPCLocomotion::_SetupCommand(ControlFSMData<float> & data){
   float filter2(0.006);              //注意这个滤波器,决定了上下蹲的速度,很重要
   
   //trotting, trotRunning, walking, bounding, pronking, pacing;
-  float scale_x[GAIT_SUM] = {0.35, 0.35, 0.30, 0.20, 0.20, 0.20};
-  float scale_y[GAIT_SUM] = {0.35, 0.35, 0.35, 0.10, 0.03, 0.20};
+  float scale_x[GAIT_SUM] = {0.40, 0.60, 0.30, 0.20, 0.20, 0.20};
+  float scale_y[GAIT_SUM] = {0.30, 0.30, 0.30, 0.10, 0.03, 0.20};
   float scale_z[GAIT_SUM] = {0.25, 0.25, 0.40, 0.00, 0.10, 0.20};
 
   float gaitTime = gait->getCurrentGaitTime(dtMPC);
@@ -359,9 +358,9 @@ void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &da
 
   Vec3<float> pxy_act(p[0], p[1], 0);
   Vec3<float> pxy_des(world_position_desired[0], world_position_desired[1], 0);
-  //Timer t2;
+  Timer t2;
   update_problem_data_floats(p,v,q,w,r,yaw,weights,trajAll,alpha,mpcTable);
-  //printf("MPC Solve time %f ms\n", t2.getMs());
+  printf("MPC Solve time %f ms\n", t2.getMs());
 
   for(int leg = 0; leg < 4; leg++)
   {

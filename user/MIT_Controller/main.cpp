@@ -16,7 +16,7 @@
 #include "WebotsBridge.hpp"
 // main函数解析命令行参数并启动相应的驱动程序。
 int main(int argc, char** argv) {
-    
+
   #ifdef PRINTF_TO_FILE
     time_t t = time(0); 
     char tmp[64]; 

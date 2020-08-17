@@ -3,6 +3,7 @@
 #include "convexMPC_interface.h"
 #include "RobotState.h"
 #include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/Sparse>
 #include <cmath>
 #include <eigen3/unsupported/Eigen/MatrixFunctions>
 #include <qpOASES.hpp>
@@ -60,7 +61,7 @@ s8 near_one(fpt a)
 {
   return near_zero(a-1);
 }
-
+/*
 void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
 {
   ABc.setZero();
@@ -71,15 +72,55 @@ void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
   Adt = expmm.block(0,0,13,13);
   Bdt = expmm.block(0,13,13,12);
 
-  if(horizon > 30) {
-    throw std::runtime_error("horizon is too long!");
+  Eigen::SparseMatrix<fpt> powerMats[HORIZON_LENGTH+1];
+
+  for(int i=0;i<HORIZON_LENGTH+1;i++)
+  {
+    powerMats[i].resize(13,13);
+  }
+  for(int i=0;i<13;i++)
+  {
+    powerMats[0].insert(i,i) = 1;
   }
 
-  Matrix<fpt,13,13> powerMats[31];
-  powerMats[0].setIdentity();
   for(int i = 1; i < horizon+1; i++) {
     powerMats[i] = Adt * powerMats[i-1];
   }
+
+  for(s16 r = 0; r < horizon; r++)
+  {
+    A_qp.block(13*r,0,13,13) =   powerMats[r+1];
+    for(s16 c = 0; c < horizon; c++)
+    {
+      if(r >= c)
+      {
+        s16 a_num = r-c;
+        B_qp.block(13*r,12*c,13,12) = powerMats[a_num]* Bdt;
+      }
+    }
+  }
+}
+*/
+Matrix<fpt,13,13> powerMats[HORIZON_LENGTH+1];
+void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
+{
+  ABc.setZero();
+  ABc.block(0,0,13,13) = Ac;
+  ABc.block(0,13,13,12) = Bc;
+  ABc = dt*ABc;
+  expmm = ABc.exp();
+  Adt = expmm.block(0,0,13,13);
+  Bdt = expmm.block(0,13,13,12);
+
+  powerMats[0].setIdentity();
+
+  //std::cout<<"Adt"<<std::endl<<Adt<<std::endl;
+  //std::cout<<"Bdt"<<std::endl<<Bdt<<std::endl;
+
+  for(int i = 1; i < horizon+1; i++) {
+    powerMats[i].noalias() = Adt * powerMats[i-1];
+  }
+
   for(s16 r = 0; r < horizon; r++)
   {
     A_qp.block(13*r,0,13,13) = powerMats[r+1];//Adt.pow(r+1);
@@ -88,11 +129,12 @@ void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
       if(r >= c)
       {
         s16 a_num = r-c;
-        B_qp.block(13*r,12*c,13,12) = powerMats[a_num] /*Adt.pow(a_num)*/ * Bdt;
+        B_qp.block(13*r,12*c,13,12).noalias() = powerMats[a_num] * Bdt;
       }
     }
   }
 }
+
 //矩阵初始化
 void resize_qp_mats()
 {
@@ -224,8 +266,9 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
     fmat.block(i*5,i*3,5,3) = f_block;
   }
 
-  qH = 2*(B_qp.transpose()*S*B_qp + alpha12);
-  qg = 2*B_qp.transpose()*S*(A_qp*x_0 - X_d);
+  qH.noalias()  = 2*(B_qp.transpose()*S*B_qp + alpha12);
+  qg.noalias()  = 2*B_qp.transpose()*S*(A_qp*x_0 - X_d);
+
   
   H_qpoases = qH.data();
   g_qpoases = qg.data();
@@ -320,7 +363,8 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
     ub_red[i] = ub_qpoases[old];
     lb_red[i] = lb_qpoases[old];
   }
-  
+  Timer t;
+  /*
   qpOASES::QProblem problem_red (new_vars, new_cons);
   qpOASES::Options op;
   op.setToMPC();
@@ -333,6 +377,36 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
   if(rval2 != qpOASES::SUCCESSFUL_RETURN)
     printf("failed to solve!\n");
 
+  */
+  static qpOASES::SQProblem* problem_red;
+  qpOASES::Options op;
+  op.setToMPC();
+  op.printLevel = qpOASES::PL_NONE;
+
+  static int pre_new_vars = -1;
+  static int pre_new_cons = -1;
+  static bool first_run = true;
+  if((firstRun)||(pre_new_vars!=new_vars)||(pre_new_cons!=new_cons))
+  {
+    if(!first_run) delete problem_red;
+    problem_red = new qpOASES::SQProblem(new_vars, new_cons);
+    problem_red->setOptions(op);
+    problem_red->init(H_red, g_red, A_red, NULL, NULL, lb_red, ub_red, nWSR);
+
+    first_run = false;
+    pre_new_vars = new_vars;
+    pre_new_cons = new_cons;
+  }
+  else
+  {
+    problem_red->hotstart(H_red, g_red, A_red, NULL, NULL, lb_red, ub_red, nWSR);
+  }
+  int rval2 = problem_red->getPrimalSolution(q_red);
+  if(rval2 != qpOASES::SUCCESSFUL_RETURN)
+    printf("failed to solve!\n");
+
+
+  printf("SOLVE TIME: %.3f\n", t.getMs());  //查看计算时间 
   vc = 0;
   for(int i = 0; i < num_variables; i++)
   {
@@ -346,4 +420,5 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
       vc++;
     }
   }
+  
 }

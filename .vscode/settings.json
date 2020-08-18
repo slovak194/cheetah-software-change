@@ -52,6 +52,7 @@
         "core": "cpp",
         "string": "cpp",
         "random": "cpp",
-        "matrixfunctions": "cpp"
+        "matrixfunctions": "cpp",
+        "orderingmethods": "cpp"
     }
 }

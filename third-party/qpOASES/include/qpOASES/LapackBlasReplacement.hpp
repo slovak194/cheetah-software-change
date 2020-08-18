@@ -40,42 +40,42 @@
 #ifdef __USE_SINGLE_PRECISION__
 
 	/** Macro for calling level 3 BLAS operation in single precision. */
-	#define GEMM sgemm_
+	#define GEMM _sgemm_
 	/** Macro for calling level 3 BLAS operation in single precision. */
-	#define SYR ssyr_
+	#define SYR _ssyr_
 	/** Macro for calling level 3 BLAS operation in single precision. */
-	#define SYR2 ssyr2_
+	#define SYR2 _ssyr2_
 	/** Macro for calling level 3 BLAS operation in single precision. */
-	#define POTRF spotrf_
+	#define POTRF _spotrf_
 
 	/** Macro for calling level 3 BLAS operation in single precision. */
 	/* #define GEQRF sgeqrf_ */
 	/** Macro for calling level 3 BLAS operation in single precision. */
 	/* #define ORMQR sormqr_ */
 	/** Macro for calling level 3 BLAS operation in single precision. */
-	#define TRTRS strtrs_
+	#define TRTRS _strtrs_
 	/** Macro for calling level 3 BLAS operation in single precision. */
-	#define TRCON strcon_
+	#define TRCON _strcon_
 
 #else
 
 	/** Macro for calling level 3 BLAS operation in double precision. */
-	#define GEMM dgemm_
+	#define GEMM _dgemm_
 	/** Macro for calling level 3 BLAS operation in double precision. */
-	#define SYR  dsyr_
+	#define SYR  _dsyr_
 	/** Macro for calling level 3 BLAS operation in double precision. */
-	#define SYR2 dsyr2_
+	#define SYR2 _dsyr2_
 	/** Macro for calling level 3 BLAS operation in double precision. */
-	#define POTRF dpotrf_
+	#define POTRF _dpotrf_
 
 	/** Macro for calling level 3 BLAS operation in double precision. */
 	/* #define GEQRF dgeqrf_ */
 	/** Macro for calling level 3 BLAS operation in double precision. */
 	/* #define ORMQR dormqr_ */
 	/** Macro for calling level 3 BLAS operation in double precision. */
-	#define TRTRS dtrtrs_
+	#define TRTRS _dtrtrs_
 	/** Macro for calling level 3 BLAS operation in double precision. */
-	#define TRCON dtrcon_
+	#define TRCON _dtrcon_
 
 #endif /* __USE_SINGLE_PRECISION__ */
 
@@ -83,32 +83,32 @@
 extern "C"
 {
 	/** Performs one of the matrix-matrix operation in double precision. */
-	void dgemm_(	const char*, const char*, const la_uint_t*, const la_uint_t*, const la_uint_t*,
+	void _dgemm_(	const char*, const char*, const la_uint_t*, const la_uint_t*, const la_uint_t*,
 					const double*, const double*, const la_uint_t*, const double*, const la_uint_t*,
 					const double*, double*, const la_uint_t* );
 	/** Performs one of the matrix-matrix operation in single precision. */
-	void sgemm_(	const char*, const char*, const la_uint_t*, const la_uint_t*, const la_uint_t*,
+	void _sgemm_(	const char*, const char*, const la_uint_t*, const la_uint_t*, const la_uint_t*,
 					const float*, const float*, const la_uint_t*, const float*, const la_uint_t*,
 					const float*, float*, const la_uint_t* );
 
 	/** Performs a symmetric rank 1 operation in double precision. */
-	void dsyr_(		const char*, const la_uint_t*, const double*, const double*,
+	void _dsyr_(		const char*, const la_uint_t*, const double*, const double*,
 					const la_uint_t*, double*, const la_uint_t* );
 	/** Performs a symmetric rank 1 operation in single precision. */
-	void ssyr_(		const char*, const la_uint_t*, const float*, const float*,
+	void _ssyr_(		const char*, const la_uint_t*, const float*, const float*,
 					const la_uint_t*, float*, const la_uint_t* );
 
 	/** Performs a symmetric rank 2 operation in double precision. */
-	void dsyr2_(	const char*, const la_uint_t*, const double*, const double*,
+	void _dsyr2_(	const char*, const la_uint_t*, const double*, const double*,
 					const la_uint_t*, const double*, const la_uint_t*, double*, const la_uint_t*);
 	/** Performs a symmetric rank 2 operation in single precision. */
-	void ssyr2_(	const char*, const la_uint_t*, const float*, const float*,
+	void _ssyr2_(	const char*, const la_uint_t*, const float*, const float*,
 					const la_uint_t*, const float*, const la_uint_t*, float*, const la_uint_t*);
 
 	/** Calculates the Cholesky factorization of a real symmetric positive definite matrix in double precision. */
-	void dpotrf_(	const char*, const la_uint_t*, double*, const la_uint_t*, la_int_t* );
+	void _dpotrf_(	const char*, const la_uint_t*, double*, const la_uint_t*, la_int_t* );
 	/** Calculates the Cholesky factorization of a real symmetric positive definite matrix in single precision. */
-	void spotrf_(	const char*, const la_uint_t*, float*, const la_uint_t*, la_int_t* );
+	void _spotrf_(	const char*, const la_uint_t*, float*, const la_uint_t*, la_int_t* );
 
 
 	/** Computes a QR factorization of a real M-by-N matrix A in double precision */
@@ -128,17 +128,17 @@ extern "C"
 						float* WORK, const la_uint_t* LWORK, int *INFO );*/
 
 	/** Solves a triangular system (double precision) */
-	void dtrtrs_(	const char* UPLO, const char* TRANS, const char* DIAG, const la_uint_t* N, const la_uint_t* NRHS,
+	void _dtrtrs_(	const char* UPLO, const char* TRANS, const char* DIAG, const la_uint_t* N, const la_uint_t* NRHS,
 					double* A, const la_uint_t* LDA, double* B, const la_uint_t* LDB, la_int_t* INFO );
 	/** Solves a triangular system (single precision) */
-	void strtrs_(	const char* UPLO, const char* TRANS, const char* DIAG, const la_uint_t* N, const la_uint_t* NRHS,
+	void _strtrs_(	const char* UPLO, const char* TRANS, const char* DIAG, const la_uint_t* N, const la_uint_t* NRHS,
 					float* A, const la_uint_t* LDA, float* B, const la_uint_t* LDB, la_int_t* INFO );
 
 	/** Estimate the reciprocal of the condition number of a triangular matrix in double precision */
-	void dtrcon_(	const char* NORM, const char* UPLO, const char* DIAG, const la_uint_t* N, double* A, const la_uint_t* LDA,
+	void _dtrcon_(	const char* NORM, const char* UPLO, const char* DIAG, const la_uint_t* N, double* A, const la_uint_t* LDA,
 					double* RCOND, double* WORK, const la_uint_t* IWORK, la_int_t* INFO );
 	/** Estimate the reciprocal of the condition number of a triangular matrix in single precision */
-	void strcon_(	const char* NORM, const char* UPLO, const char* DIAG, const la_uint_t* N, float* A, const la_uint_t* LDA,
+	void _strcon_(	const char* NORM, const char* UPLO, const char* DIAG, const la_uint_t* N, float* A, const la_uint_t* LDA,
 					float* RCOND, float* WORK, const la_uint_t* IWORK, la_int_t* INFO );
 }
 

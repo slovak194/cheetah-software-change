@@ -15,4 +15,5 @@ file(GLOB_RECURSE sources "src/*.cpp")                   # common library cpp fi
 # Library
 add_library(biomimetics SHARED ${sources})       # produce a library used by sim/robot
 target_link_libraries(biomimetics inih dynacore_param_handler osqp)
+target_link_libraries(biomimetics  -L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl)
 

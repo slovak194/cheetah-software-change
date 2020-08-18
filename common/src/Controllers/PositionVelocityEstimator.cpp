@@ -8,7 +8,8 @@
  */
 
 #include "Controllers/PositionVelocityEstimator.h"
-
+#include <eigen3/Eigen/Dense>
+#include "Utilities/Timer.h"
 /*!
  * Initialize the state estimator
  */
@@ -59,8 +60,9 @@ LinearKFPositionVelocityEstimator<T>::LinearKFPositionVelocityEstimator() {}
 /*!
  * Run state estimator
  */
-template <typename T>
+ template <typename T>
 void LinearKFPositionVelocityEstimator<T>::run() {
+
   T process_noise_pimu =
       this->_stateEstimatorData.parameters->imu_process_noise_position;
   T process_noise_vimu =
@@ -148,7 +150,6 @@ void LinearKFPositionVelocityEstimator<T>::run() {
     _vs.segment(i1, 3) = (1.0f - trust) * v0 + trust * (-dp_f);
     pzs(i) = (1.0f - trust) * (p0(2) + p_f(2));
   }
-
   Eigen::Matrix<T, 28, 1> y;
   y << _ps, _vs, pzs;
   _xhat = _A * _xhat + _B * a;
@@ -158,17 +159,14 @@ void LinearKFPositionVelocityEstimator<T>::run() {
   Eigen::Matrix<T, 28, 1> yModel = _C * _xhat;
   Eigen::Matrix<T, 28, 1> ey = y - yModel;
   Eigen::Matrix<T, 28, 28> S = _C * Pm * Ct + R;
-
   // todo compute LU only once
   Eigen::Matrix<T, 28, 1> S_ey = S.lu().solve(ey);
   _xhat += Pm * Ct * S_ey;
 
   Eigen::Matrix<T, 28, 18> S_C = S.lu().solve(_C);
   _P = (Eigen::Matrix<T, 18, 18>::Identity() - Pm * Ct * S_C) * Pm;
-
   Eigen::Matrix<T, 18, 18> Pt = _P.transpose();
   _P = (_P + Pt) / T(2);
-
   if (_P.block(0, 0, 2, 2).determinant() > T(0.000001)) {
     _P.block(0, 2, 2, 16).setZero();
     _P.block(2, 0, 16, 2).setZero();

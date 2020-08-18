@@ -11,7 +11,7 @@
 #define PROJECT_POSITIONVELOCITYESTIMATOR_H
 
 #include "Controllers/StateEstimatorContainer.h"
-
+#include <eigen3/Eigen/Dense>
 /*!
  * Position and velocity estimator based on a Kalman Filter.
  * This is the algorithm used in Mini Cheetah and Cheetah 3.

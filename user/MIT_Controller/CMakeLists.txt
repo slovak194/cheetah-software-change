@@ -21,7 +21,9 @@ add_subdirectory(Controllers/WBC)
 add_subdirectory(Controllers/WBC_Ctrl)
 
 add_executable(mit_ctrl ${sources} MIT_Controller.cpp main.cpp)
+target_link_libraries(mit_ctrl -L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_sequential -lmkl_core -lpthread -lm -ldl)
 target_link_libraries(mit_ctrl robot biomimetics)
 target_link_libraries(mit_ctrl dynacore_param_handler qpOASES)
 target_link_libraries(mit_ctrl Goldfarb_Optimizer osqp)
 target_link_libraries(mit_ctrl WBC_Ctrl)
+

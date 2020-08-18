@@ -18,7 +18,7 @@ set(BUILD_TYPE_RELEASE TRUE)
 
 option(NO_SIM "Do not build simulator" OFF)
 
-SET (MKLROOT "/opt/intel" )
+SET (MKLROOT "/home/yxy/intel/mkl" )
 
 if(MINI_CHEETAH_BUILD)
   SET (THIS_COM "../" )
@@ -38,7 +38,8 @@ else(MINI_CHEETAH_BUILD)
   set(CMAKE_CXX_FLAGS "-O3 -no-pie -march=native -ggdb -Wall \
   -Wextra -Wcast-align -Wdisabled-optimization -Wformat=2 \
   -Winit-self -Wmissing-include-dirs -Woverloaded-virtual \
-  -Wshadow -Wsign-promo")
+  -Wshadow -Wsign-promo \
+  -DMKL_ILP64 -m64 -I${MKLROOT}/include")
 
   set(CMAKE_C_FLAGS "-O3  -ggdb  -march=native -std=gnu99 -I.")
   message("**** Mini-Cheetah build disabled ****")
@@ -46,6 +47,8 @@ endif(MINI_CHEETAH_BUILD)
 
 set(CMAKE_CXX_STANDARD 14)
 add_definitions(-DEIGEN_STACK_ALLOCATION_LIMIT=0)
+#add_definitions(-DEIGEN_USE_MKL_ALL)
+
 #find_package(lcm)
 
 add_subdirectory(robot)

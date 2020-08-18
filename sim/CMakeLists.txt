@@ -38,6 +38,8 @@ include_directories("../lcm-types/cpp")
 include_directories("/usr/local/include/lcm/")   # lcm includes
 include_directories("../third-party/ParamHandler")
 include_directories(${CMAKE_BINARY_DIR})
+include_directories("${MKLROOT}/lib/intel64/")
+
 file(GLOB sources "src/*.cpp")
 
 find_package(Qt5Core COMPONENTS QtGamepad REQUIRED)
@@ -60,5 +62,5 @@ endif (CMAKE_SYSTEM_NAME MATCHES Linux)
 if (APPLE)
   target_link_libraries(sim "-framework GLUT")
 endif (APPLE)
-
+target_link_libraries(sim  -L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl)
 

@@ -324,7 +324,6 @@ void ConvexMPCLocomotion::updateMPCIfNeeded(int *mpcTable, ControlFSMData<float>
       }
     }
     Timer solveTimer;
-
     solveDenseMPC(mpcTable, data);
     //printf("TOTAL SOLVE TIME: %.3f\n", solveTimer.getMs());  //查看计算时间
   }

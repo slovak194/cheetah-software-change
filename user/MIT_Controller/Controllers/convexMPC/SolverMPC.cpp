@@ -3,7 +3,6 @@
 #include "convexMPC_interface.h"
 #include "RobotState.h"
 #include <eigen3/Eigen/Dense>
-#include <eigen3/Eigen/Sparse>
 #include <cmath>
 #include <eigen3/unsupported/Eigen/MatrixFunctions>
 #include <qpOASES.hpp>
@@ -14,9 +13,10 @@
 #define BIG_NUMBER 5e10
 
 RobotState rs;
+using Eigen::Dynamic;
 using Eigen::StorageOptions::RowMajor;
 
-Matrix<fpt,13*HORIZON_LENGTH,13> A_qp;  
+Matrix<fpt,13*HORIZON_LENGTH,13> A_qp;
 Matrix<fpt,13*HORIZON_LENGTH,12*HORIZON_LENGTH> B_qp;
 Matrix<fpt,13,12> Bdt;
 Matrix<fpt,13,13> Adt;
@@ -61,69 +61,27 @@ s8 near_one(fpt a)
 {
   return near_zero(a-1);
 }
-/*
-void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
-{
-  ABc.setZero();
-  ABc.block(0,0,13,13) = Ac;
-  ABc.block(0,13,13,12) = Bc;
-  ABc = dt*ABc;
-  expmm = ABc.exp();
-  Adt = expmm.block(0,0,13,13);
-  Bdt = expmm.block(0,13,13,12);
 
-  Eigen::SparseMatrix<fpt> powerMats[HORIZON_LENGTH+1];
-
-  for(int i=0;i<HORIZON_LENGTH+1;i++)
-  {
-    powerMats[i].resize(13,13);
-  }
-  for(int i=0;i<13;i++)
-  {
-    powerMats[0].insert(i,i) = 1;
-  }
-
-  for(int i = 1; i < horizon+1; i++) {
-    powerMats[i] = Adt * powerMats[i-1];
-  }
-
-  for(s16 r = 0; r < horizon; r++)
-  {
-    A_qp.block(13*r,0,13,13) =   powerMats[r+1];
-    for(s16 c = 0; c < horizon; c++)
-    {
-      if(r >= c)
-      {
-        s16 a_num = r-c;
-        B_qp.block(13*r,12*c,13,12) = powerMats[a_num]* Bdt;
-      }
-    }
-  }
-}
-*/
 Matrix<fpt,13,13> powerMats[HORIZON_LENGTH+1];
 void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
 {
+  B_qp.setZero();
   ABc.setZero();
-  ABc.block(0,0,13,13) = Ac;
-  ABc.block(0,13,13,12) = Bc;
-  ABc = dt*ABc;
+  ABc.block(0,0,13,13) = dt*Ac;
+  ABc.block(0,13,13,12) = dt*Bc; 
   expmm = ABc.exp();
   Adt = expmm.block(0,0,13,13);
   Bdt = expmm.block(0,13,13,12);
 
   powerMats[0].setIdentity();
 
-  //std::cout<<"Adt"<<std::endl<<Adt<<std::endl;
-  //std::cout<<"Bdt"<<std::endl<<Bdt<<std::endl;
-
   for(int i = 1; i < horizon+1; i++) {
-    powerMats[i].noalias() = Adt * powerMats[i-1];
+    powerMats[i].noalias() = Adt*powerMats[i-1];
   }
 
   for(s16 r = 0; r < horizon; r++)
   {
-    A_qp.block(13*r,0,13,13) = powerMats[r+1];//Adt.pow(r+1);
+    A_qp.block(13*r,0,13,13).noalias() = powerMats[r+1];//Adt.pow(r+1);
     for(s16 c = 0; c < horizon; c++)
     {
       if(r >= c)
@@ -227,12 +185,12 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
   quat_to_rpy(rs.q,rpy);
   //x0
   x_0 << rpy(2), rpy(1), rpy(0), rs.p , rs.w, rs.v, -9.8f;
-  // I
+  //I
   I_world = rs.R_yaw * rs.I_body * rs.R_yaw.transpose();
   //连续时间状态矩阵
   ct_ss_mats(I_world,rs.m,rs.r_feet,rs.R_yaw,A_ct,B_ct_r);
   //QP matrices
-  c2qp(A_ct,B_ct_r,setup->dt,setup->horizon);  //0.13ms
+  c2qp(A_ct,B_ct_r,setup->dt,setup->horizon);
   //x_d
   for(s16 i = 0; i < setup->horizon; i++)
   {
@@ -266,10 +224,9 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
     fmat.block(i*5,i*3,5,3) = f_block;
   }
 
-  qH.noalias()  = 2*(B_qp.transpose()*S*B_qp + alpha12);
-  qg.noalias()  = 2*B_qp.transpose()*S*(A_qp*x_0 - X_d);
+  qH.noalias() = 2*(B_qp.transpose()*S*B_qp + alpha12);
+  qg.noalias() = 2*B_qp.transpose()*S*(A_qp*x_0 - X_d);
 
-  
   H_qpoases = qH.data();
   g_qpoases = qg.data();
   A_qpoases = fmat.data();
@@ -363,8 +320,7 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
     ub_red[i] = ub_qpoases[old];
     lb_red[i] = lb_qpoases[old];
   }
-  Timer t;
-  /*
+  
   qpOASES::QProblem problem_red (new_vars, new_cons);
   qpOASES::Options op;
   op.setToMPC();
@@ -377,7 +333,26 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
   if(rval2 != qpOASES::SUCCESSFUL_RETURN)
     printf("failed to solve!\n");
 
-  */
+  vc = 0;
+  for(int i = 0; i < num_variables; i++)
+  {
+    if(var_elim[i])
+    {
+      q_soln[i] = 0.0f;
+    }
+    else
+    {
+      q_soln[i] = q_red[vc];
+      vc++;
+    }
+  }
+}
+
+
+
+
+
+ /*
   static qpOASES::SQProblem* problem_red;
   qpOASES::Options op;
   op.setToMPC();
@@ -404,21 +379,69 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
   int rval2 = problem_red->getPrimalSolution(q_red);
   if(rval2 != qpOASES::SUCCESSFUL_RETURN)
     printf("failed to solve!\n");
+*/
 
+/**
+ * 用于判断并打印矩阵是否为上、下三角矩阵
+*/
+/*
+void printfMatType(Matrix<fpt,Dynamic,Dynamic> mat,char* matName)
+{
+  int rows = mat.rows();
+  int cols = mat.cols();
+  bool isUpperTriangularMatrix = true;
+  bool isLowerTriangularMatrix = true;
 
-  printf("SOLVE TIME: %.3f\n", t.getMs());  //查看计算时间 
-  vc = 0;
-  for(int i = 0; i < num_variables; i++)
+  for(int r=0;r<rows;r++)
+  for(int c=0;c<cols;c++)
   {
-    if(var_elim[i])
+    if((r<c)&&(mat(r,c)!=0)) isUpperTriangularMatrix=false;
+    if((r>c)&&(mat(r,c)!=0)) isLowerTriangularMatrix=false;
+  }
+  if(isUpperTriangularMatrix) printf("%s: is Upper Triangular Matrix\n",matName);
+  if(isLowerTriangularMatrix) printf("%s: is Lower Triangular Matrix\n",matName);
+  if((!isUpperTriangularMatrix)&&(!isLowerTriangularMatrix))
+    printf("%s: is not Upper or Lower Triangular Matrix\n",matName);
+}
+*/
+
+/*
+void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
+{
+  ABc.setZero();
+  ABc.block(0,0,13,13) = Ac;
+  ABc.block(0,13,13,12) = Bc;
+  ABc = dt*ABc;
+  expmm = ABc.exp();
+  Adt = expmm.block(0,0,13,13);
+  Bdt = expmm.block(0,13,13,12);
+
+  Eigen::SparseMatrix<fpt> powerMats[HORIZON_LENGTH+1];
+
+  for(int i=0;i<HORIZON_LENGTH+1;i++)
+  {
+    powerMats[i].resize(13,13);
+  }
+  for(int i=0;i<13;i++)
+  {
+    powerMats[0].insert(i,i) = 1;
+  }
+
+  for(int i = 1; i < horizon+1; i++) {
+    powerMats[i] = Adt * powerMats[i-1];
+  }
+
+  for(s16 r = 0; r < horizon; r++)
+  {
+    A_qp.block(13*r,0,13,13) =   powerMats[r+1];
+    for(s16 c = 0; c < horizon; c++)
     {
-      q_soln[i] = 0.0f;
-    }
-    else
-    {
-      q_soln[i] = q_red[vc];
-      vc++;
+      if(r >= c)
+      {
+        s16 a_num = r-c;
+        B_qp.block(13*r,12*c,13,12) = powerMats[a_num]* Bdt;
+      }
     }
   }
-  
 }
+*/

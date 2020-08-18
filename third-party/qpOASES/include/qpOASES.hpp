@@ -29,7 +29,6 @@
  *	\date 2007-2017
  */
 
-
 #if defined(__SINGLE_OBJECT__) || defined(__C_WRAPPER__)
 
 #include <MessageHandling.cpp>

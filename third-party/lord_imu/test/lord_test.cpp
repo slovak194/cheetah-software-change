@@ -1,7 +1,7 @@
 #include <cstdio>
 
 #include "mip_sdk.h"
-#include "mip_gx4_25.h"
+//#include "mip_gx4_25.h"
 #include "../LordImu.h"
 #include "Math/orientation_tools.h"
 

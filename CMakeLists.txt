@@ -38,8 +38,8 @@ else(MINI_CHEETAH_BUILD)
   set(CMAKE_CXX_FLAGS "-O3 -no-pie -march=native -ggdb -Wall \
   -Wextra -Wcast-align -Wdisabled-optimization -Wformat=2 \
   -Winit-self -Wmissing-include-dirs -Woverloaded-virtual \
-  -Wshadow -Wsign-promo \
-  -DMKL_ILP64 -m64 -I${MKLROOT}/include")
+  -Wshadow -Wsign-promo") 
+  #-DMKL_ILP64 -m64 -I${MKLROOT}/include")
 
   set(CMAKE_C_FLAGS "-O3  -ggdb  -march=native -std=gnu99 -I.")
   message("**** Mini-Cheetah build disabled ****")

@@ -5,7 +5,6 @@
  * This class initializes the hardware of both robots and allows the robot
  * controller to access it
  */
-#ifdef linux
 
 #include <sys/mman.h>
 #include <unistd.h>
@@ -17,7 +16,7 @@
 #include "rt/rt_spi.h"
 #include "Utilities/Utilities_print.h"
 
-//使用MICROSTRAIN陀螺仪,注意,猎豹mini提供了两种陀螺仪驱动
+//使用MICROSTRAIN陀螺仪
 #define USE_MICROSTRAIN    
 
 /*!
@@ -427,4 +426,3 @@ void HardwareBridge::publishVisualizationLCM() {
 
   _visualizationLCM.publish("main_cheetah_visualization", &visualization_data);
 }
-#endif

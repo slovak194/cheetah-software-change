@@ -9,7 +9,6 @@
 #ifndef PROJECT_HARDWAREBRIDGE_H
 #define PROJECT_HARDWAREBRIDGE_H
 
-#ifdef linux 
 
 #define MAX_STACK_SIZE 16384  // 16KB  of stack
 #define TASK_PRIORITY 49      // linux priority, this is not the nice value
@@ -104,5 +103,5 @@ class MiniCheetahHardwareBridge : public HardwareBridge {
   bool _microstrainInit = false;
   bool _load_parameters_from_file;
 };
-#endif // END of #ifdef linux
+
 #endif  // PROJECT_HARDWAREBRIDGE_H

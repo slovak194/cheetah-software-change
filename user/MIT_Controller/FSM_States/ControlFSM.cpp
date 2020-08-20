@@ -7,7 +7,7 @@
 
 #include "ControlFSM.h"
 #include "FSM_State.h"
-#include "SimUtilities/GamepadCommand.h"
+#include "gamepad/Gamepad.hpp"
 #include "string.h"
 
 /**
@@ -23,7 +23,7 @@
  * @param controlParameters passes in the control parameters from the GUI
  */
 template <typename T>
-ControlFSM<T>::ControlFSM(GamepadCommand* gamepadCommand,
+ControlFSM<T>::ControlFSM(Gamepad* gamepad,
                           Quadruped<T>* _quadruped,
                           StateEstimatorContainer<T>* _stateEstimator,
                           LegController<T>* _legController,
@@ -32,7 +32,7 @@ ControlFSM<T>::ControlFSM(GamepadCommand* gamepadCommand,
                           MIT_UserParameters* userParameters)
 {
   // Add the pointers to the ControlFSMData struct
-  data._gamepadCommand = gamepadCommand;
+  data._gamepad = gamepad;
   data._quadruped = _quadruped;
   data._stateEstimator = _stateEstimator;
   data._legController = _legController;
@@ -73,13 +73,12 @@ void ControlFSM<T>::initialize() {
  */
 template <typename T>
 void ControlFSM<T>::runFSM() {
-
   if(nextState == currentState){
 
     switch(currentState->stateName){
       // PASSIVE  =>  STAND_UP
       case FSM_StateName::PASSIVE:
-        if(data._gamepadCommand->leftBumper)
+        if(data._gamepad->get().leftBumper)
             nextState = statesList.standUp;
         break;
       // STAND_UP  =>  LOCOMOTION
@@ -87,33 +86,34 @@ void ControlFSM<T>::runFSM() {
       // STAND_UP  =>  BALANCE_STAND
       case FSM_StateName::STAND_UP:
         if(currentState->isBusy()) break;
-        if(data._gamepadCommand->x)
+        if(data._gamepad->get().x)
             nextState = statesList.locomotion;
-        else if(data._gamepadCommand->rightBumper)
+        else if(data._gamepad->get().rightBumper)
             nextState = statesList.sitDown;
-        else if(data._gamepadCommand->y)
+        else if(data._gamepad->get().y)
             nextState = statesList.balanceStand;
         break;
       // LOCOMOTION  =>  STAND_UP
       case FSM_StateName::LOCOMOTION:
-        if(data._gamepadCommand->b)
+        if(data._gamepad->get().b)
             nextState = statesList.standUp;
         break;
       //  BALANCE_STAND  =>  STAND_UP
       case FSM_StateName::BALANCE_STAND:
         if(currentState->isBusy()) break;
-        if(data._gamepadCommand->b)
+        if(data._gamepad->get().b)
             nextState = statesList.standUp;
         break;
       //  SIT_DOWN  =>  PASSIVE
       case FSM_StateName::SIT_DOWN:
         if(currentState->isBusy()) break;
-        if(data._gamepadCommand->rightBumper)
+        if(data._gamepad->get().rightBumper)
             nextState = statesList.passive;
         break;
       default: break;
     }
   }
+
   //状态切换
   if(nextState != currentState)
   {

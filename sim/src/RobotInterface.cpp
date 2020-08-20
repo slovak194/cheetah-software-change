@@ -75,8 +75,6 @@ void RobotInterface::run() {
   if (_gfx) {
     _gfx->_drawList.updateRobotFromModel(*_simulator, _robotID, true);
     _gfx->update();
-    _gfx->getDriverCommand().get(&_gamepad_lcmt);
-    _lcm.publish(INTERFACE_LCM_NAME, &_gamepad_lcmt);
   }
 }
 

@@ -23,12 +23,7 @@ find_package(Qt5Gui CONFIG REQUIRED)
 
 set(QOBJECT_HEADERS
         include/Graphics3D.h
-        include/GameController.h
-        include/SimControlPanel.h
-        include/JoystickTest.h)
-#        include/main_window.h
-#        include/gamepad_monitor.h
-#        include/spi_debug.h)
+        include/SimControlPanel.h)
 
 QT5_WRAP_CPP(tst_hdr_moc ${QOBJECT_HEADERS})
 
@@ -37,13 +32,11 @@ include_directories("../common/include/")
 include_directories("../lcm-types/cpp")
 include_directories("/usr/local/include/lcm/")   # lcm includes
 include_directories("../third-party/ParamHandler")
+include_directories("../third-party")
+
 include_directories(${CMAKE_BINARY_DIR})
-include_directories("${MKLROOT}/lib/intel64/")
 
 file(GLOB sources "src/*.cpp")
-
-find_package(Qt5Core COMPONENTS QtGamepad REQUIRED)
-find_package(Qt5Gamepad REQUIRED)
 
 set(OpenGL_GL_PREFERENCE LEGACY)
 
@@ -51,16 +44,10 @@ find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIR})
 
 add_executable(sim ${sources} ${tst_hdr_moc})
-target_link_libraries(sim biomimetics pthread lcm inih dynacore_param_handler 
-    Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Gamepad ${QT_LIBRARIES} ${OPENGL_LIBRARIES})
+target_link_libraries(sim gamepad biomimetics pthread lcm inih dynacore_param_handler 
+    Qt5::Widgets Qt5::Core Qt5::Gui ${QT_LIBRARIES} ${OPENGL_LIBRARIES})
 
-if (CMAKE_SYSTEM_NAME MATCHES Linux)
-  target_link_libraries(sim rt ${GLUT_glut_LIBRARIES})
-  include (CheckIncludeFileCXX)
-endif (CMAKE_SYSTEM_NAME MATCHES Linux)
-
-if (APPLE)
-  target_link_libraries(sim "-framework GLUT")
-endif (APPLE)
-target_link_libraries(sim  -L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl)
+target_link_libraries(sim rt ${GLUT_glut_LIBRARIES})
+include (CheckIncludeFileCXX)
+#target_link_libraries(sim  -L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl)
 

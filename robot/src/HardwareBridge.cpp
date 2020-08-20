@@ -49,8 +49,6 @@ void HardwareBridge::initCommon() {
   }
 
   printf("[HardwareBridge] Subscribe LCM\n");
-  // 订阅手柄LCM消息
-  _interfaceLCM.subscribe("interface", &HardwareBridge::handleGamepadLCM, this);
   // 订阅控制参数LCM消息,包括机器人参数与用户参数
   _interfaceLCM.subscribe("interface_request",
                           &HardwareBridge::handleControlParameter, this);
@@ -103,19 +101,6 @@ void HardwareBridge::setupScheduler() {
   if (sched_setscheduler(0, SCHED_FIFO, &params) == -1) {  
     initError("sched_setscheduler failed.\n", true);
   }
-}
-
-/*!
- * LCM Handler for gamepad message
- * 游戏手柄的LCM回调函数
- * 在这里,从外部某个地方传来手柄信息,lcm消息由sim面板发送
- */
-void HardwareBridge::handleGamepadLCM(const lcm::ReceiveBuffer* rbuf,
-                                      const std::string& chan,
-                                      const gamepad_lcmt* msg) {
-  (void)rbuf;
-  (void)chan;
-  _gamepadCommand.set(msg);
 }
 
 /*!
@@ -309,7 +294,7 @@ void MiniCheetahHardwareBridge::run() {
   _robotRunner =
       new RobotRunner(_controller, &taskManager, _robotParams.controller_dt, "robot-control");
 
-  _robotRunner->driverCommand = &_gamepadCommand; //手柄数据
+  _robotRunner->gamepad = &_gamepad;              //手柄
   _robotRunner->spiData = &_spiData;              //spiData指针
   _robotRunner->spiCommand = &_spiCommand;        //spiCommand命令
   _robotRunner->vectorNavData = &_vectorNavData;  //陀螺仪

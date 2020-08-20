@@ -15,6 +15,7 @@
 #include "Types.h"
 #include "Utilities/PeriodicTask.h"
 #include "Utilities/SharedMemory.h"
+#include "gamepad/Gamepad.hpp"
 
 class SimulationBridge {
  public:
@@ -22,7 +23,6 @@ class SimulationBridge {
      _fakeTaskManager = new PeriodicTaskManager;
     _robotRunner = new RobotRunner(robot_ctrl, _fakeTaskManager, 0, "robot-task");
     _userParams = robot_ctrl->getUserControlParameters();
-
  }
   void run();
   void handleControlParameters();
@@ -34,6 +34,7 @@ class SimulationBridge {
 
  private:
   PeriodicTaskManager taskManager;
+  Gamepad _gamepad;                                  //游戏手柄
   bool _firstControllerRun = true;
   PeriodicTaskManager* _fakeTaskManager = nullptr;
   RobotRunner* _robotRunner = nullptr;

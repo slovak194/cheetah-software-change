@@ -53,7 +53,7 @@ void RobotRunner::init() {
   _robot_ctrl->_stateEstimator = _stateEstimator;
   _robot_ctrl->_stateEstimate = &_stateEstimate;
   _robot_ctrl->_visualizationData= visualizationData;
-  _robot_ctrl->_gamepadCommand = driverCommand;
+  _robot_ctrl->_gamepad = gamepad;
   _robot_ctrl->_controlParameters = controlParameters;
 
   _robot_ctrl->initializeController();

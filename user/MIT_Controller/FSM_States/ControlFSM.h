@@ -16,7 +16,7 @@
 #include "../FSM_States/FSM_State_Passive.h"
 #include "../FSM_States/FSM_State_SitDown.h"
 #include "../FSM_States/FSM_State_StandUp.h"
-#include "SimUtilities/GamepadCommand.h"
+#include "gamepad/Gamepad.hpp"
 
 /**
  *
@@ -38,7 +38,7 @@ template <typename T>
 class ControlFSM {
  public:
   ControlFSM(
-             GamepadCommand* gamepadCommand,
+             Gamepad* gamepad,
              Quadruped<T>* _quadruped,
              StateEstimatorContainer<T>* _stateEstimator,
              LegController<T>* _legController,

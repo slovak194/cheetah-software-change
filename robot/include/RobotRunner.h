@@ -16,7 +16,7 @@
 #include "Controllers/LegController.h"
 #include "Dynamics/Quadruped.h"
 
-#include "SimUtilities/GamepadCommand.h"
+#include "gamepad/Gamepad.hpp"
 #include "SimUtilities/VisualizationData.h"
 #include "Utilities/PeriodicTask.h"
 #include "cheetah_visualization_lcmt.hpp"
@@ -40,7 +40,7 @@ class RobotRunner : public PeriodicTask {
 
   RobotController* _robot_ctrl;
 
-  GamepadCommand* driverCommand;
+  Gamepad* gamepad;
   VectorNavData* vectorNavData;         //陀螺仪
   CheaterState<double>* cheaterState;
   SpiData* spiData;

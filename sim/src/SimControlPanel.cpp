@@ -5,7 +5,6 @@
 #include <ParamHandler.hpp>
 #include <leg_control_command_lcmt.hpp>
 #include "ui_SimControlPanel.h"
-#include "JoystickTest.h"
 
 
 /*!
@@ -292,7 +291,6 @@ void SimControlPanel::update_ui() {
 void SimControlPanel::updateUiEnable() {
   ui->startButton->setEnabled(!(isRunning() || isError()));
   ui->stopButton->setEnabled(isRunning() || isError());
-  ui->joystickButton->setEnabled(isRunning() || isError());
   ui->robotTable->setEnabled(isRunning() || isError());
   ui->goHomeButton->setEnabled(isRunning() || isError());
 
@@ -474,18 +472,6 @@ void SimControlPanel::loadUserParameters(ControlParameters& params) {
   _ignoreTableCallbacks = true;
   updateQtableWithParameters(params, *ui->userControlTable);
   _ignoreTableCallbacks = false;
-}
-
-/*!
- * Attempt to reset the joystick if a new one is connected
- */
-void SimControlPanel::on_joystickButton_clicked() {
-  if(isRunning()) {
-    _graphicsWindow->resetGameController();
-    JoystickTestWindow* window = new JoystickTestWindow(_graphicsWindow->getGameController());
-    window->exec();
-    delete window;
-  }
 }
 
 void SimControlPanel::on_driverButton_clicked() {

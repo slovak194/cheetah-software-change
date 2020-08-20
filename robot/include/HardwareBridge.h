@@ -21,11 +21,10 @@
 #include "Utilities/PeriodicTask.h"
 #include "control_parameter_request_lcmt.hpp"
 #include "control_parameter_respones_lcmt.hpp"
-#include "gamepad_lcmt.hpp"
 #include "microstrain_lcmt.hpp"
 #include "ecat_command_t.hpp"
 #include "ecat_data_t.hpp"
-
+#include "gamepad/Gamepad.hpp"
 
 
 /*!
@@ -46,8 +45,6 @@ class HardwareBridge {
   void initError(const char* reason, bool printErrno = false);
   void initCommon();
   ~HardwareBridge() { delete _robotRunner; }
-  void handleGamepadLCM(const lcm::ReceiveBuffer* rbuf, const std::string& chan,
-                        const gamepad_lcmt* msg);
 
   void handleInterfaceLCM();
   void handleControlParameter(const lcm::ReceiveBuffer* rbuf,
@@ -59,7 +56,7 @@ class HardwareBridge {
  protected:
   PeriodicTaskManager taskManager;                   //任务管理器
   PrintTaskStatus statusTask;                        //打印任务状态类,似乎取消了
-  GamepadCommand _gamepadCommand;                    //游戏手柄数据
+  Gamepad _gamepad;                                  //游戏手柄
   VisualizationData _visualizationData;              //可视化数据,调试用
   CheetahVisualization _mainCheetahVisualization;    //在仿真环境上绘制当前机器人?
   lcm::LCM _interfaceLCM;                            //lcm接口

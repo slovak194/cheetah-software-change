@@ -505,8 +505,6 @@ void Graphics3D::configOpenGLPass(int pass) {
 }
 
 void Graphics3D::paintGL() {
-  // update joystick:
-  _gameController.updateGamepadCommand(_driverCommand);
   if (!_animating) return;
   if (_frame % 60 == 0) {
     qint64 now = QDateTime::currentMSecsSinceEpoch();

@@ -3,7 +3,6 @@
 #include "ParamHandler.hpp"
 
 #include <Configuration.h>
-#include <include/GameController.h>
 #include <unistd.h>
 #include <fstream>
 
@@ -312,10 +311,6 @@ void Simulation::lowLevelControl() {
 }
 
 void Simulation::highLevelControl() {
-  // send joystick data to robot:
-  _sharedMemory().simToRobot.gamepadCommand = _window->getDriverCommand();
-  _sharedMemory().simToRobot.gamepadCommand.applyDeadband(
-      _simParams.game_controller_deadband);
 
   // send IMU data to robot:
   _imuSimulator->updateCheaterState(_simulator->getState(),

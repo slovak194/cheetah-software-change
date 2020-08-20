@@ -28,7 +28,6 @@
 #include <QWheelEvent>
 
 #include <mutex>
-#include "GameController.h"
 
 class Graphics3D : public QOpenGLWidget, protected QOpenGLFunctions {
   Q_OBJECT
@@ -48,11 +47,6 @@ class Graphics3D : public QOpenGLWidget, protected QOpenGLFunctions {
   double _fps = 0;
   DrawList _drawList;
   char infoString[200] = "";
-
-  GamepadCommand &getDriverCommand() { return _driverCommand; }
-  GameController &getGameController() { return _gameController; }
-
-  void resetGameController() { _gameController.findNewController(); }
 
   bool IsPaused() { return _pause; }
   bool wantTurbo() { return _turbo; }
@@ -87,8 +81,6 @@ class Graphics3D : public QOpenGLWidget, protected QOpenGLFunctions {
   bool show_robot = true;
 
  private:
-  GameController _gameController;
-  GamepadCommand _driverCommand;
 
   std::mutex _gfxMutex;
   void scrollGround();

@@ -53,11 +53,11 @@ void ConvexMPCLocomotion::_SetupCommand(ControlFSMData<float> & data){
   //已经有步态切换命令时,刚刚切换完步态还没稳定时,机身速度较大时,不检查手柄
   if((currentGaitNumber == nextGaitNumber)&&(iter > 200)&&(total_vel<0.15))
   {
-    if(data._gamepadCommand->right)
+    if(data._gamepad->get().right)
         nextGaitNumber = currentGaitNumber + 1;
-    else if(data._gamepadCommand->left)
+    else if(data._gamepad->get().left)
         nextGaitNumber = currentGaitNumber - 1;
-    else if(data._gamepadCommand->down)
+    else if(data._gamepad->get().down)
         nextGaitNumber = TROT;
     
     if(nextGaitNumber < 0)nextGaitNumber = GAIT_SUM - 1;
@@ -96,11 +96,11 @@ void ConvexMPCLocomotion::_SetupCommand(ControlFSMData<float> & data){
   float scale_z[GAIT_SUM] = {0.25, 0.25, 0.40, 0.00, 0.10, 0.20};
 
   float gaitTime = gait->getCurrentGaitTime(dtMPC);
-  x_vel_cmd      =  data._gamepadCommand->leftStickAnalog[1]
+  x_vel_cmd      =  data._gamepad->get().leftStickAnalog[1]
                    *scale_x[currentGaitNumber]/gaitTime;
-  y_vel_cmd      = -data._gamepadCommand->rightStickAnalog[0]
+  y_vel_cmd      = -data._gamepad->get().rightStickAnalog[0]
                    *scale_y[currentGaitNumber]/gaitTime;
-  _yaw_turn_rate = (data._gamepadCommand->leftTriggerAnalog - data._gamepadCommand->rightTriggerAnalog)
+  _yaw_turn_rate = (data._gamepad->get().leftTriggerAnalog - data._gamepad->get().rightTriggerAnalog)
                    *scale_z[currentGaitNumber]/gaitTime;
   //filter
   _x_vel_des = _x_vel_des*(1-filter) + x_vel_cmd*filter;
@@ -109,7 +109,7 @@ void ConvexMPCLocomotion::_SetupCommand(ControlFSMData<float> & data){
   _yaw_des = data._stateEstimator->getResult().rpy[2] + dt * _yaw_turn_rate;
   //height
   _body_height_cmd = data.userParameters->stand_up_height; 
-  if(data._gamepadCommand->a) _body_height_cmd *= 0.7;  //下蹲指令
+  if(data._gamepad->get().a) _body_height_cmd *= 0.7;  //下蹲指令
  
   _body_height = _body_height*(1-filter2) + _body_height_cmd*filter2;
 }

@@ -6,8 +6,6 @@
 #ifndef PROJECT_WEBOTSBRIDGE_H
 #define PROJECT_WEBOTSBRIDGE_H
 
-#ifdef linux
-
 #define MAX_STACK_SIZE 16384  // 16KB  of stack
 #define TASK_PRIORITY 49      // linux priority, this is not the nice value
 
@@ -18,10 +16,9 @@
 #include "Utilities/PeriodicTask.h"
 #include "control_parameter_request_lcmt.hpp"
 #include "control_parameter_respones_lcmt.hpp"
-#include "gamepad_lcmt.hpp"
 #include "controller2webots_t.hpp"
 #include "webots2controller_t.hpp"
-
+#include "gamepad/Gamepad.hpp"
 /*!
  * Interface between robot code and webots simulator
  * 机器人与webots仿真器之间的接口
@@ -39,9 +36,6 @@ class WebotsBridge {
   void initError(const char* reason, bool printErrno = false);
   void initCommon();
   ~WebotsBridge() { delete _robotRunner; }
-  void handleGamepadLCM(const lcm::ReceiveBuffer* rbuf, 
-                        const std::string& chan,
-                        const gamepad_lcmt* msg);
 
   void handleControlParameter(const lcm::ReceiveBuffer* rbuf,
                               const std::string& chan,
@@ -51,7 +45,7 @@ class WebotsBridge {
 
  protected:
   PeriodicTaskManager taskManager;                   //任务管理器
-  GamepadCommand _gamepadCommand;                    //游戏手柄数据
+  Gamepad _gamepad;                                  //游戏手柄
   VisualizationData _visualizationData;              //可视化数据,调试用
   CheetahVisualization _mainCheetahVisualization;    //在仿真环境上绘制当前机器人?
   lcm::LCM _interfaceLCM;                            //lcm接口
@@ -88,5 +82,4 @@ class MiniCheetahWebotsBridge : public WebotsBridge {
   lcm::LCM webots2ControllerLCM;
   lcm::LCM controller2WebotsLCM;
 };
-#endif // END of #ifdef linux
 #endif  // PROJECT_HARDWAREBRIDGE_H

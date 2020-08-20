@@ -54,8 +54,6 @@ public slots:
 
   void on_stopButton_clicked();
 
-  void on_joystickButton_clicked();
-
   void on_driverButton_clicked();
 
   void on_simulatorTable_cellChanged(int row, int column);

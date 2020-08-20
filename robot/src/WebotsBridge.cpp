@@ -3,7 +3,6 @@
  * @brief Interface between robot code and webots simulator
  * @brief 阻塞式等待webots发来的信息,经控制器计算后再发回去.
  */
-#ifdef linux
 
 #include <sys/mman.h>
 #include <unistd.h>
@@ -46,8 +45,6 @@ void WebotsBridge::initCommon() {
   }
 
   printf("[WebotsBridge] Subscribe LCM\n");
-  // 订阅手柄LCM消息,用于接受手柄信息
-  _interfaceLCM.subscribe("interface", &WebotsBridge::handleGamepadLCM, this);
   // 订阅控制参数LCM消息,包括机器人参数与用户参数
   _interfaceLCM.subscribe("interface_request",
                           &WebotsBridge::handleControlParameter, this);
@@ -101,18 +98,6 @@ void WebotsBridge::setupScheduler() {
   }
 }
 
-/*!
- * LCM Handler for gamepad message
- * 游戏手柄的LCM回调函数
- * 在这里,从外部某个地方传来手柄信息,lcm消息由sim面板发送
- */
-void WebotsBridge::handleGamepadLCM(const lcm::ReceiveBuffer* rbuf,
-                                      const std::string& chan,
-                                      const gamepad_lcmt* msg) {
-  (void)rbuf;
-  (void)chan;
-  _gamepadCommand.set(msg);
-}
 /*!
  * LCM Handler for control parameters
  * 控制参数的LCM回调函数
@@ -324,7 +309,7 @@ void MiniCheetahWebotsBridge::run() {
   _robotRunner =
       new RobotRunner(_controller, &taskManager, _robotParams.controller_dt, "robot-control");
 
-  _robotRunner->driverCommand = &_gamepadCommand; //手柄数据
+  _robotRunner->gamepad = &_gamepad;              //手柄
   _robotRunner->spiData = &_spiData;              //spiData指针
   _robotRunner->spiCommand = &_spiCommand;        //spiCommand命令
   _robotRunner->vectorNavData = &_vectorNavData;  //陀螺仪
@@ -374,5 +359,3 @@ void WebotsBridge::publishVisualizationLCM() {
 
   _visualizationLCM.publish("main_cheetah_visualization", &visualization_data);
 }
-
-#endif

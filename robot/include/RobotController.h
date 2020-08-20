@@ -7,11 +7,12 @@
 #ifndef ROBOT_CONTROLLER_H
 #define ROBOT_CONTROLLER_H
 
+#include "gamepad/Gamepad.hpp"
 #include "Controllers/LegController.h"
 #include "Dynamics/FloatingBaseModel.h"
 #include "Controllers/StateEstimatorContainer.h"
 #include "SimUtilities/VisualizationData.h"
-#include "SimUtilities/GamepadCommand.h"
+
 
 /*!
  * Parent class of user robot controllers
@@ -38,7 +39,7 @@ protected:
   LegController<float>* _legController = nullptr;
   StateEstimatorContainer<float>* _stateEstimator = nullptr;
   StateEstimate<float>* _stateEstimate = nullptr;
-  GamepadCommand* _gamepadCommand = nullptr;
+  Gamepad* _gamepad = nullptr;
   RobotControlParameters* _controlParameters = nullptr;
 
   VisualizationData* _visualizationData = nullptr;

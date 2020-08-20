@@ -221,9 +221,7 @@ void SimulationBridge::runRobotControl() {
       _simMode = SimulatorMode::RUN_CONTROLLER;
     }
 
-
-    _robotRunner->driverCommand =
-        &_sharedMemory().simToRobot.gamepadCommand;
+    _robotRunner->gamepad = &_gamepad;              //手柄
     _robotRunner->spiData = &_sharedMemory().simToRobot.spiData;
     _robotRunner->vectorNavData = &_sharedMemory().simToRobot.vectorNav;
     _robotRunner->cheaterState = &_sharedMemory().simToRobot.cheaterState;

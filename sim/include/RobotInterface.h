@@ -17,10 +17,8 @@
 #include "Graphics3D.h"
 #include "control_parameter_request_lcmt.hpp"
 #include "control_parameter_respones_lcmt.hpp"
-#include "gamepad_lcmt.hpp"
 
 #define ROBOT_INTERFACE_UPDATE_PERIOD (1.f / 60.f)
-#define INTERFACE_LCM_NAME "interface"
 #define TIMES_TO_RESEND_CONTROL_PARAM 5
 
 class RobotInterface : PeriodicTask {
@@ -54,7 +52,6 @@ class RobotInterface : PeriodicTask {
 
  private:
   PeriodicTaskManager _taskManager;
-  gamepad_lcmt _gamepad_lcmt;
   control_parameter_request_lcmt _parameter_request_lcmt;
   bool _pendingControlParameterSend = false;
   lcm::LCM _lcm;

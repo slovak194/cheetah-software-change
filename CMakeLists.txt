@@ -18,7 +18,7 @@ set(BUILD_TYPE_RELEASE TRUE)
 
 option(NO_SIM "Do not build simulator" OFF)
 
-SET (MKLROOT "/home/yxy/intel/mkl" )
+#SET (MKLROOT "/home/yxy/intel/mkl" )
 
 if(MINI_CHEETAH_BUILD)
   SET (THIS_COM "../" )
@@ -51,9 +51,9 @@ add_definitions(-DEIGEN_STACK_ALLOCATION_LIMIT=0)
 
 #find_package(lcm)
 
-add_subdirectory(robot)
 add_subdirectory(third-party)
 add_subdirectory(common)
+add_subdirectory(robot)
 
 if(NO_SIM)
 

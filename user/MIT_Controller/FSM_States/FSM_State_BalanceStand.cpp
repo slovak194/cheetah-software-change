@@ -60,9 +60,9 @@ void FSM_State_BalanceStand<T>::BalanceStandStep() {
   // Orientation
   static Vec3<T> pre_des_Ori(0,0,0);
   Vec3<T> des_Ori(
-  0.6*this->_data->_gamepadCommand->leftStickAnalog[0],
-  0.2*this->_data->_gamepadCommand->leftStickAnalog[1],
-  0.4*(this->_data->_gamepadCommand->leftTriggerAnalog - this->_data->_gamepadCommand->rightTriggerAnalog)
+  0.6*this->_data->_gamepad->get().leftStickAnalog[0],
+  0.2*this->_data->_gamepad->get().leftStickAnalog[1],
+  0.4*(this->_data->_gamepad->get().leftTriggerAnalog - this->_data->_gamepad->get().rightTriggerAnalog)
   );
   T filter(0.007);
   des_Ori = des_Ori*filter + pre_des_Ori*(1-filter);
@@ -93,12 +93,12 @@ void FSM_State_BalanceStand<T>::BalanceStandStep() {
 template <typename T>
 bool FSM_State_BalanceStand<T>::isBusy() {
   if(
-    fabs((this->_data->_gamepadCommand->leftStickAnalog[0] > 5))||
-    fabs((this->_data->_gamepadCommand->leftStickAnalog[1] > 5))||
-    fabs((this->_data->_gamepadCommand->rightStickAnalog[0] > 5))||
-    fabs((this->_data->_gamepadCommand->rightStickAnalog[1] > 5))||
-    fabs((this->_data->_gamepadCommand->rightTriggerAnalog > 5))||
-    fabs((this->_data->_gamepadCommand->leftTriggerAnalog > 5))
+    fabs((this->_data->_gamepad->get().leftStickAnalog[0] > 5))||
+    fabs((this->_data->_gamepad->get().leftStickAnalog[1] > 5))||
+    fabs((this->_data->_gamepad->get().rightStickAnalog[0] > 5))||
+    fabs((this->_data->_gamepad->get().rightStickAnalog[1] > 5))||
+    fabs((this->_data->_gamepad->get().rightTriggerAnalog > 5))||
+    fabs((this->_data->_gamepad->get().leftTriggerAnalog > 5))
   )
   return true; //不能在操作过程中切换状态
 

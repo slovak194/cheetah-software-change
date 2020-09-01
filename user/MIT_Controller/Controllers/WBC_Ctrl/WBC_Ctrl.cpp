@@ -89,16 +89,19 @@ void WBC_Ctrl<T>::_UpdateLegCMD(ControlFSMData<T> & data){
   //Vec4<T> contact = data._stateEstimator->getResult().contactEstimate;
   //关节力矩前馈, 关节期望位置, 关节期望速度, 关节p, 关节d
   for (size_t leg(0); leg < cheetah::num_leg; ++leg) {
-    cmd[leg].zero();   //注意这里完全清空了cmd,因此前面的所有数据填充都无效
+    cmd[leg].zero();                                          //注意这里完全清空了cmd,因此前面的所有数据填充都无效
     for (size_t jidx(0); jidx < cheetah::num_leg_joint; ++jidx) {
       cmd[leg].tauFeedForward[jidx] = _tau_ff[cheetah::num_leg_joint * leg + jidx];
       cmd[leg].qDes[jidx] = _des_jpos[cheetah::num_leg_joint * leg + jidx];
       cmd[leg].qdDes[jidx] = _des_jvel[cheetah::num_leg_joint * leg + jidx];
 
-        cmd[leg].kpJoint(jidx, jidx) = _Kp_joint[jidx];
-        cmd[leg].kdJoint(jidx, jidx) = _Kd_joint[jidx];
+      cmd[leg].kpJoint(jidx, jidx) = _Kp_joint[jidx];
+      cmd[leg].kdJoint(jidx, jidx) = _Kd_joint[jidx];
+     // printf("%.3f  ",cmd[leg].qDes[jidx]);
     }
+   // printf(" | ");
   }
+  printf("\n");
     // Knee joint non flip barrier
     // 防止奇异位置,后面或许会用到
     /*

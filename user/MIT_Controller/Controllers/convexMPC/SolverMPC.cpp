@@ -229,7 +229,6 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
     fmat.block(i*5,i*3,5,3) = f_block;
   }
   
-  qH.setZero();
   qH.triangularView<Eigen::Upper>() = B_qp.transpose()*S*B_qp;
   qH.triangularView<Eigen::Lower>() = qH.transpose();
   qH.diagonal() += alpha12.diagonal();

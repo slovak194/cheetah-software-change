@@ -2,6 +2,7 @@
 #include <Utilities/Timer.h>
 #include <eigen3/Eigen/LU>
 #include <eigen3/Eigen/SVD>
+#include <iostream>
 
   template <typename T>
 WBIC<T>::WBIC(size_t num_qdot, const std::vector<ContactSpec<T>*>* contact_list,
@@ -62,6 +63,7 @@ void WBIC<T>::MakeTorque(DVec<T>& cmd, void* extra_input) {
     WB::_WeightedInverse(JtPre, WB::Ainv_, JtBar);
 
     qddot_pre += JtBar * (xddot - JtDotQdot - Jt * qddot_pre);
+
     Npre = Npre * (_eye - JtBar * JtPre);
 
     // pretty_print(xddot, std::cout, "xddot");
@@ -87,6 +89,9 @@ void WBIC<T>::MakeTorque(DVec<T>& cmd, void* extra_input) {
   (void)f;
 
   // pretty_print(qddot_pre, std::cout, "qddot_cmd");
+  printf("_dim_floating   %d  ",(int)_dim_floating);
+  printf("z   %.3f  ",z[0]);
+  
   for (size_t i(0); i < _dim_floating; ++i) qddot_pre[i] += z[i];
   _GetSolution(qddot_pre, cmd);
 
@@ -236,7 +241,6 @@ void WBIC<T>::_GetSolution(const DVec<T>& qddot, DVec<T>& cmd) {
   }
   _data->_qddot = qddot;
   cmd = tot_tau.tail(WB::num_act_joint_);
-
   // Torque check
   // DVec<T> delta_tau = DVec<T>::Zero(WB::num_qdot_);
   // for(size_t i(0); i<_dim_floating; ++i) delta_tau[i] = z[i];

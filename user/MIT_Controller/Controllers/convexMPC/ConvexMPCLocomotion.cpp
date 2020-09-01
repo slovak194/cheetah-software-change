@@ -29,6 +29,14 @@ ConvexMPCLocomotion::ConvexMPCLocomotion(float _dt, int _iterations_between_mpc,
    pBody_des.setZero();
    vBody_des.setZero();
    aBody_des.setZero();
+   pBody_RPY_des.setZero();
+   vBody_Ori_des.setZero();
+     for(size_t i(0); i<4; ++i){
+    pFoot_des[i].setZero();;
+    vFoot_des[i].setZero();;
+    aFoot_des[i].setZero();;
+    Fr_des[i].setZero();
+  }
 
    _body_height = parameters->stand_up_height; 
 }
@@ -137,7 +145,6 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
   _SetupCommand(data);
   // calc gait
   gait->setIterations(iterationsBetweenMPC, iterationCounter);
-  iterationCounter++;
 
   // integrate position setpoint
   Vec3<float> v_des_robot(_x_vel_des, _y_vel_des, 0);
@@ -265,10 +272,11 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
   vBody_Ori_des[1] = 0.;
   vBody_Ori_des[2] = _yaw_turn_rate;
 
-  //contact_state = gait->getContactState();
   contact_state = gait->getContactState();
   swing_state = gait->getContactState();
   // END of WBC Update
+
+  iterationCounter++;
 }
 
 void ConvexMPCLocomotion::updateMPCIfNeeded(int *mpcTable, ControlFSMData<float> &data) {
@@ -325,7 +333,7 @@ void ConvexMPCLocomotion::updateMPCIfNeeded(int *mpcTable, ControlFSMData<float>
     }
     Timer solveTimer;
     solveDenseMPC(mpcTable, data);
-    printf("TOTAL SOLVE TIME: %.3f\n", solveTimer.getMs());  //查看计算时间
+    //printf("TOTAL SOLVE TIME: %.3f\n", solveTimer.getMs());  //查看计算时间
   }
 }
 void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &data) {
@@ -362,8 +370,9 @@ void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &da
   {
     Vec3<float> f;
     for(int axis = 0; axis < 3; axis++)
+    {
       f[axis] = get_solution(leg*3 + axis);
-
+    }
     f_ff[leg] = -seResult.rBody * f;
     // Update for WBC
     Fr_des[leg] = f;

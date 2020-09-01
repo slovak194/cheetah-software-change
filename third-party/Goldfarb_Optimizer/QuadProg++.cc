@@ -214,6 +214,8 @@ double solve_quadprog(GMatr<double>& G, GVect<double>& g0,
    * x = G^-1 * g0
    */
   cholesky_solve(G, x, g0);
+
+
   for (i = 0; i < n; i++) x[i] = -x[i];
   /* and compute the current solution value */
   f_value = 0.5 * scalar_product(g0, x);

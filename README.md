@@ -88,6 +88,12 @@ todo:joint PD是否需要摆动相与支持项分离？
 测试mkl,效果不明显
 # 2020.08.20
 controller使用独立gamepad,不使用Qt库
+# 2020.08.31
+提高eigen矩阵乘法效率
+# 2020.09.01
+解决了机器人启动踏步瞬间抽搐问题，iterationCounter应该在最后自增
+todo:重新加入use_wbc用于调试
+
 
 
 

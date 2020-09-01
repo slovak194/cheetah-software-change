@@ -11,7 +11,7 @@ ConvexMPCLocomotion::ConvexMPCLocomotion(float _dt, int _iterations_between_mpc,
   iterationsBetweenMPC(_iterations_between_mpc),
   horizonLength(HORIZON_LENGTH),
   dt(_dt),
-  trotting(20, Vec4<int>(0,10,10,0), Vec4<int>(12,12,12,12),"Trotting"),
+  trotting(20, Vec4<int>(0,10,10,0), Vec4<int>(10,10,10,10),"Trotting"),
   trotRunning(16, Vec4<int>(0,8,8,0),Vec4<int>(6,6,6,6),"Trot Running"),
   walking(40, Vec4<int>(0,20,30,10), Vec4<int>(30,30,30,30), "Walking"),
   bounding(10, Vec4<int>(5,5,0,0),Vec4<int>(5,5,5,5),"Bounding"),
@@ -325,7 +325,7 @@ void ConvexMPCLocomotion::updateMPCIfNeeded(int *mpcTable, ControlFSMData<float>
     }
     Timer solveTimer;
     solveDenseMPC(mpcTable, data);
-    //printf("TOTAL SOLVE TIME: %.3f\n", solveTimer.getMs());  //查看计算时间
+    printf("TOTAL SOLVE TIME: %.3f\n", solveTimer.getMs());  //查看计算时间
   }
 }
 void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &data) {

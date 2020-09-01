@@ -17,11 +17,14 @@ using Eigen::Dynamic;
 using Eigen::StorageOptions::RowMajor;
 
 Matrix<fpt,13*HORIZON_LENGTH,13> A_qp;
+
 Matrix<fpt,13*HORIZON_LENGTH,12*HORIZON_LENGTH> B_qp;
+
 Matrix<fpt,13,12> Bdt;
 Matrix<fpt,13,13> Adt;
 Matrix<fpt,25,25> ABc,expmm;
 Eigen::DiagonalMatrix<fpt,13*HORIZON_LENGTH> S;
+
 Matrix<fpt,13*HORIZON_LENGTH,1> X_d;
 Matrix<fpt,20*HORIZON_LENGTH,1> U_b;
 Matrix<fpt,20*HORIZON_LENGTH,12*HORIZON_LENGTH,RowMajor> fmat;
@@ -68,7 +71,7 @@ void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
   B_qp.setZero();
   ABc.setZero();
   ABc.block(0,0,13,13) = dt*Ac;
-  ABc.block(0,13,13,12) = dt*Bc; 
+  ABc.block(0,13,13,12) = dt*Bc;
   expmm = ABc.exp();
   Adt = expmm.block(0,0,13,13);
   Bdt = expmm.block(0,13,13,12);
@@ -81,13 +84,13 @@ void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
 
   for(s16 r = 0; r < horizon; r++)
   {
-    A_qp.block(13*r,0,13,13).noalias() = powerMats[r+1];//Adt.pow(r+1);
+    A_qp.block(13*r,0,13,13).noalias() = powerMats[r+1];
     for(s16 c = 0; c < horizon; c++)
     {
       if(r >= c)
       {
         s16 a_num = r-c;
-        B_qp.block(13*r,12*c,13,12).noalias() = powerMats[a_num] * Bdt;
+        B_qp.block(13*r,12*c,13,12).noalias() = powerMats[a_num]*Bdt;
       }
     }
   }
@@ -171,7 +174,9 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
     //weights
     Matrix<fpt,13,1> full_weight;
     for(u8 i = 0; i < 12; i++)
+    {
       full_weight(i) = update->weights[i];
+    }
     full_weight(12) = 0.f;
     S.diagonal() = full_weight.replicate(setup->horizon,1);
     //alpha
@@ -223,9 +228,13 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
   {
     fmat.block(i*5,i*3,5,3) = f_block;
   }
+  
+  qH.setZero();
+  qH.triangularView<Eigen::Upper>() = B_qp.transpose()*S*B_qp;
+  qH.triangularView<Eigen::Lower>() = qH.transpose();
+  qH.diagonal() += alpha12.diagonal();
 
-  qH.noalias() = 2*(B_qp.transpose()*S*B_qp + alpha12);
-  qg.noalias() = 2*B_qp.transpose()*S*(A_qp*x_0 - X_d);
+  qg.noalias() = B_qp.transpose()*S*(A_qp*x_0 - X_d);
 
   H_qpoases = qH.data();
   g_qpoases = qg.data();
@@ -320,7 +329,7 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
     ub_red[i] = ub_qpoases[old];
     lb_red[i] = lb_qpoases[old];
   }
-  
+  Timer t2;
   qpOASES::QProblem problem_red (new_vars, new_cons);
   qpOASES::Options op;
   op.setToMPC();
@@ -332,7 +341,7 @@ void solve_mpc(update_data_t* update, problem_setup* setup)
   int rval2 = problem_red.getPrimalSolution(q_red);
   if(rval2 != qpOASES::SUCCESSFUL_RETURN)
     printf("failed to solve!\n");
-
+ //printf("t2 %.3f\n",t2.getMs());
   vc = 0;
   for(int i = 0; i < num_variables; i++)
   {
@@ -445,3 +454,54 @@ void c2qp(Matrix<fpt,13,13> Ac, Matrix<fpt,13,12> Bc,fpt dt,s16 horizon)
   }
 }
 */
+/*
+
+  for(int i=0;i<B_SB.rows();i++)
+  for(int j=0;j<B_SB.cols();j++)
+  {
+    B_SB(i,j)=0;
+    if(i>j)
+    {
+       B_SB(i,j) = B_SB(j,i);
+    }
+    else
+    {
+      for(int n = 0;n<B_qpS.cols();n++)
+      {
+        if((B_qpS(i,n) == 0)||(B_qp(n,j) == 0)) zero++;
+        else no_zero++;
+        B_SB(i,j) += B_qpS(i,n)*B_qp(n,j);
+      }
+    }
+  }
+  */
+
+   /*
+  int zero_num = 0;
+  int no_zero_num = 0;
+  for(int i=0;i<B_qp.rows();i++)
+  for(int j=0;j<B_qp.cols();j++)
+  {
+    if(B_qp(i,j)==0) zero_num++;
+    else no_zero_num++;
+  }
+  printf("zero_num: %d  no_zero_num :%d\n",zero_num,no_zero_num);
+*/
+  
+  /*
+  BTS = B_qp.transpose()*S;
+  for(s16 r = 0; r < HORIZON_LENGTH; r++)
+  {
+    for(s16 c = 0; c < HORIZON_LENGTH; c++)
+    {
+      if(r <= c)
+      {
+        BTSB.block(12*r,12*c,12,12).setZero();
+        for(int n=c; n<HORIZON_LENGTH; n++)
+        {
+          BTSB.block(12*r,12*c,12,12).noalias() += BTS.block(12*r,13*n,12,13)*B_qp.block(13*n,12*c,13,12);
+        }
+      }
+    }
+  }
+  */

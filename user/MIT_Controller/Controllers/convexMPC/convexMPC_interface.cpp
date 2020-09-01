@@ -56,6 +56,7 @@ void update_problem_data_floats(float* p, float* v, float* q, float* w,
 double get_solution(int index)
 {
   if(!first_solved) return 0.f;
+  
   mfp* qs = get_q_soln();
   return qs[index];
 }

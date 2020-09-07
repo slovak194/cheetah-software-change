@@ -1,7 +1,7 @@
 #ifndef _solver_mpc
 #define _solver_mpc
 
-#define HORIZON_LENGTH  (16)  //预测时域
+#define HORIZON_LENGTH  (12)  //预测时域
 
 #include <eigen3/Eigen/Dense>
 #include "common_types.h"

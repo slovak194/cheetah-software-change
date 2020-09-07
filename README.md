@@ -93,7 +93,14 @@ controller使用独立gamepad,不使用Qt库
 # 2020.09.01
 解决了机器人启动踏步瞬间抽搐问题，iterationCounter应该在最后自增
 todo:重新加入use_wbc用于调试
+# 2020.09.02
+重新加入use_wbc用于调试
+todo:思考调参流程，dt,mpc权重，wbc的pd,预测时域等等
 
+#2020.09.07
+sit down 与stand up 参数重新整定
+添加了一个新的插值方法，但是效果并不好
+todo:mpc调差以及调参流程
 
 
 

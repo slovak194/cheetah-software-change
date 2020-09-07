@@ -11,7 +11,8 @@ ConvexMPCLocomotion::ConvexMPCLocomotion(float _dt, int _iterations_between_mpc,
   iterationsBetweenMPC(_iterations_between_mpc),
   horizonLength(HORIZON_LENGTH),
   dt(_dt),
-  trotting(20, Vec4<int>(0,10,10,0), Vec4<int>(10,10,10,10),"Trotting"),
+  trotting(50, Vec4<int>(0,25,25,0), Vec4<int>(25,25,25,25),"Trotting"),
+  //trotting(20, Vec4<int>(0,10,10,0), Vec4<int>(10,10,10,10),"Trotting"),
   trotRunning(16, Vec4<int>(0,8,8,0),Vec4<int>(6,6,6,6),"Trot Running"),
   walking(40, Vec4<int>(0,20,30,10), Vec4<int>(30,30,30,30), "Walking"),
   bounding(10, Vec4<int>(5,5,0,0),Vec4<int>(5,5,5,5),"Bounding"),
@@ -231,10 +232,27 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
 
       Vec3<float> pDesFootWorld = footSwingTrajectories[foot].getPosition();
       Vec3<float> vDesFootWorld = footSwingTrajectories[foot].getVelocity();
+      //if(foot == 0)printf("%.3f  %.3f  %.3f\n",vDesFootWorld[0],vDesFootWorld[1],vDesFootWorld[2] );
+      Vec3<float> pDesLeg = seResult.rBody * (pDesFootWorld - seResult.position) 
+        - data._quadruped->getHipLocation(foot);
+      Vec3<float> vDesLeg = seResult.rBody * (vDesFootWorld - seResult.vWorld);
       // Update for WBC
       pFoot_des[foot] = pDesFootWorld;
       vFoot_des[foot] = vDesFootWorld;
       aFoot_des[foot] = footSwingTrajectories[foot].getAcceleration();
+      if(!data.userParameters->use_wbc){
+        // Update leg control command regardless of the usage of WBIC
+        data._legController->commands[foot].pDes = pDesLeg;
+        data._legController->commands[foot].vDes = vDesLeg;
+
+        for (size_t jidx(0); jidx < cheetah::num_leg_joint; ++jidx) {
+          data._legController->commands[foot].kpCartesian(jidx,jidx)
+           = data.userParameters->mpc_kp_foot(jidx);
+          data._legController->commands[foot].kdCartesian(jidx,jidx)
+           = data.userParameters->mpc_kd_foot(jidx);
+        }
+        
+      }
     }
     else // foot is in stance
     {
@@ -242,15 +260,26 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
 
       Vec3<float> pDesFootWorld = footSwingTrajectories[foot].getPosition();
       Vec3<float> vDesFootWorld = footSwingTrajectories[foot].getVelocity();
-      Vec3<float> pDesLeg = seResult.rBody * (pDesFootWorld - seResult.position) - data._quadruped->getHipLocation(foot);
+      Vec3<float> pDesLeg = seResult.rBody * (pDesFootWorld - seResult.position)
+       - data._quadruped->getHipLocation(foot);
       Vec3<float> vDesLeg = seResult.rBody * (vDesFootWorld - seResult.vWorld);
 
-      data._legController->commands[foot].pDes = pDesLeg;
-      data._legController->commands[foot].vDes = vDesLeg;
+      if(!data.userParameters->use_wbc){
+        data._legController->commands[foot].pDes = pDesLeg;
+        data._legController->commands[foot].vDes = vDesLeg;
+
+        for (size_t jidx(0); jidx < cheetah::num_leg_joint; ++jidx) {
+          data._legController->commands[foot].kpCartesian(jidx,jidx)
+           = data.userParameters->mpc_kp_stance_foot(jidx);
+          data._legController->commands[foot].kdCartesian(jidx,jidx)
+           = data.userParameters->mpc_kd_stance_foot(jidx);
+        }
+
+        data._legController->commands[foot].forceFeedForward = f_ff[foot];
+        //这里或许应该给关节一个阻尼，MIT这么做了，但是我不知道为什么要这么做
+      }
     }
   }
-
-  // se->set_contact_state(se_contactState); todo removed
   data._stateEstimator->setContactPhase(contactStates);
 
   // Update For WBC
@@ -339,7 +368,7 @@ void ConvexMPCLocomotion::updateMPCIfNeeded(int *mpcTable, ControlFSMData<float>
 void ConvexMPCLocomotion::solveDenseMPC(int *mpcTable, ControlFSMData<float> &data) {
   auto seResult = data._stateEstimator->getResult();
 
-   float Q[12] = {0.25, 0.25, 10,    //角度
+   float Q[12] = {25, 25, 10,    //角度
                   1, 1, 50,          //位置
                   0, 0, 0.3,         //角速度
                   0.2, 0.2, 0.1};    //速度

@@ -7,6 +7,7 @@ class MIT_UserParameters : public ControlParameters {
 public:
   MIT_UserParameters()
       : ControlParameters("user-parameters"),
+        INIT_PARAMETER(use_wbc),
         INIT_PARAMETER(floating_base_weight),
         INIT_PARAMETER(stride_max),
         INIT_PARAMETER(cmpc_mu),
@@ -27,9 +28,14 @@ public:
         INIT_PARAMETER(Kp_foot),
         INIT_PARAMETER(Kd_foot),
         INIT_PARAMETER(Kp_joint),
-        INIT_PARAMETER(Kd_joint)
+        INIT_PARAMETER(Kd_joint),
+        INIT_PARAMETER(mpc_kp_foot),
+        INIT_PARAMETER(mpc_kd_foot),
+        INIT_PARAMETER(mpc_kp_stance_foot),
+        INIT_PARAMETER(mpc_kd_stance_foot)
 
   {}
+  DECLARE_PARAMETER(double, use_wbc);
   DECLARE_PARAMETER(double, floating_base_weight);
   DECLARE_PARAMETER(double, stride_max);
   DECLARE_PARAMETER(double, cmpc_mu);
@@ -56,6 +62,12 @@ public:
 
   DECLARE_PARAMETER(Vec3<double>, Kp_joint);
   DECLARE_PARAMETER(Vec3<double>, Kd_joint);
+
+  DECLARE_PARAMETER(Vec3<double>, mpc_kp_foot);
+  DECLARE_PARAMETER(Vec3<double>, mpc_kd_foot);
+
+  DECLARE_PARAMETER(Vec3<double>, mpc_kp_stance_foot);
+  DECLARE_PARAMETER(Vec3<double>, mpc_kd_stance_foot);
 };
 
 #endif //PROJECT_MITUSERPARAMETERS_H

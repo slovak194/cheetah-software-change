@@ -66,21 +66,18 @@ void WBC_Ctrl<T>::_ComputeWBC() {
 template<typename T>
 void WBC_Ctrl<T>::run(void* input, ControlFSMData<T> & data){
   ++_iter;
-
   // Update Model
   _UpdateModel(data._stateEstimator->getResult(), data._legController->datas);
-
   // Task & Contact Update
   _ContactTaskUpdate(input, data);
-
   // WBC Computation
   _ComputeWBC();
-
   // Update Leg Command
   _UpdateLegCMD(data);
-
-  // LCM publish
+/*
+  // LCM publish, 耗时占wbc的1/8，非调试情况不需要，注释掉
   _LCM_PublishData();
+*/
 }
 
 template<typename T>
@@ -97,11 +94,8 @@ void WBC_Ctrl<T>::_UpdateLegCMD(ControlFSMData<T> & data){
 
       cmd[leg].kpJoint(jidx, jidx) = _Kp_joint[jidx];
       cmd[leg].kdJoint(jidx, jidx) = _Kd_joint[jidx];
-     // printf("%.3f  ",cmd[leg].qDes[jidx]);
     }
-   // printf(" | ");
   }
-  printf("\n");
     // Knee joint non flip barrier
     // 防止奇异位置,后面或许会用到
     /*

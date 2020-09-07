@@ -1,7 +1,7 @@
 # Generated on Sun Aug  2 17:55:51 2020
 __collection-name__: user-parameters
 
-
+use_wbc              : 1
 Swing_step_offset    : [0, 0, 0]
 cmpc_fmax            : 234
 cmpc_mu              : 0.4
@@ -11,15 +11,15 @@ foot_location_k      : 0.03
 stride_max           : 0.3
 
 #stand up && sit down
-sit_down_height      : 0.098      #机器人趴下时的高度
+sit_down_height      : 0.07       #机器人趴下时的高度
 stand_up_height      : 0.4        #机器人站立时的高度
 sit_down_time        : 1.5        #机器人趴下去的时间
 stand_up_time        : 1.5        #机器人站起来的时间
 
-Kp_stand             : [1000, 1000, 3000]      # stand_up 与 sit_down 的足底笛卡尔坐标系pd参数
-Kd_stand             : [100, 100, 150]
+Kp_stand             : [160, 120, 550]      # stand_up 与 sit_down 的足底笛卡尔坐标系pd参数
+Kd_stand             : [3, 2, 5]
 
-Kp_joint             : [9.6, 48, 48]         #关节pd参数,该参数直接作用于legcontroller,没有参与wbc
+Kp_joint             : [9.6, 48, 48]         #关节pd参数,该参数直接作用于legcontroller,没有参与wbc计算
 Kd_joint             : [0.64, 3.2, 3.2]
 
 #wbc参数
@@ -31,5 +31,12 @@ Kd_foot              : [20, 20, 20]
 
 Kp_ori               : [200, 200, 200]
 Kd_ori               : [20, 20, 20]
+
+mpc_kp_foot          : [700, 700, 250]
+mpc_kd_foot          : [7, 7, 5]
+
+mpc_kp_stance_foot   : [70, 70, 25]
+mpc_kd_stance_foot   : [7, 7, 5]
+
 
 floating_base_weight : 0.1                #QP问题中浮基动力学的权重(MPC权重为1),注意,论文上显示此处为0.1

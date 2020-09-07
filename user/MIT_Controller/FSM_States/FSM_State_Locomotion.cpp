@@ -20,8 +20,10 @@ template <typename T>
 FSM_State_Locomotion<T>::FSM_State_Locomotion(ControlFSMData<T>* _controlFSMData)
     : FSM_State<T>(_controlFSMData, FSM_StateName::LOCOMOTION, "LOCOMOTION")
 {
+  //_iterations_between_mpc*dt = 40/1000
+  // 第二个参数的第一个数字，是以ms为单位的一个dtMPC的长度，同时，除以2是wbc个数（dt=2ms时）
   cMPCOld = new ConvexMPCLocomotion(_controlFSMData->controlParameters->controller_dt,
-      30 / (1000. * _controlFSMData->controlParameters->controller_dt),
+      10 / (1000. * _controlFSMData->controlParameters->controller_dt),
       _controlFSMData->userParameters);
 
   userParameters = _controlFSMData->userParameters;
@@ -95,8 +97,6 @@ bool FSM_State_Locomotion<T>::locomotionSafe() {
   return true;
 
 }
-
-
 /**
  * Calculate the commands for the leg controllers for each of the feet by
  * calling the appropriate balance controller and parsing the results for
@@ -105,25 +105,28 @@ bool FSM_State_Locomotion<T>::locomotionSafe() {
 template <typename T>
 void FSM_State_Locomotion<T>::LocomotionControlStep() {
   _wbc_ctrl->setFloatingBaseWeight(userParameters->floating_base_weight);
-  //mpc计算
+  
   cMPCOld->run<T>(*this->_data);
-  //wbc期望数据填充
-  _wbc_data->pBody_des = cMPCOld->pBody_des;
-  _wbc_data->vBody_des = cMPCOld->vBody_des;
-  _wbc_data->aBody_des = cMPCOld->aBody_des;
-  
-  _wbc_data->pBody_RPY_des = cMPCOld->pBody_RPY_des;
-  _wbc_data->vBody_Ori_des = cMPCOld->vBody_Ori_des;
-  
-  for(size_t i(0); i<4; ++i){
-    _wbc_data->pFoot_des[i] = cMPCOld->pFoot_des[i];
-    _wbc_data->vFoot_des[i] = cMPCOld->vFoot_des[i];
-    _wbc_data->aFoot_des[i] = cMPCOld->aFoot_des[i];
-    _wbc_data->Fr_des[i] = cMPCOld->Fr_des[i]; 
+  //wbc
+  if(this->_data->userParameters->use_wbc > 0.9){
+    _wbc_data->pBody_des = cMPCOld->pBody_des;
+    _wbc_data->vBody_des = cMPCOld->vBody_des;
+    _wbc_data->aBody_des = cMPCOld->aBody_des;
+
+    _wbc_data->pBody_RPY_des = cMPCOld->pBody_RPY_des;
+    _wbc_data->vBody_Ori_des = cMPCOld->vBody_Ori_des;
+    
+    for(size_t i(0); i<4; ++i){
+      _wbc_data->pFoot_des[i] = cMPCOld->pFoot_des[i];
+      _wbc_data->vFoot_des[i] = cMPCOld->vFoot_des[i];
+      _wbc_data->aFoot_des[i] = cMPCOld->aFoot_des[i];
+      _wbc_data->Fr_des[i] = cMPCOld->Fr_des[i]; 
+    }
+    _wbc_data->contact_state = cMPCOld->contact_state;
+
+    _wbc_ctrl->run(_wbc_data, *this->_data);
+
   }
-  _wbc_data->contact_state = cMPCOld->contact_state;
-  //wbc计算
-  _wbc_ctrl->run(_wbc_data, *this->_data);
 }
 /**
  * 判断动作是否完成,Busy状态下不允许切换状态

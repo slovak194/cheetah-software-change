@@ -18,35 +18,38 @@
  * t取值范围 [0-1]
  */
 template <typename T>
-T T_Curve(const T start, const T end, float t) {
+void T_Curve(const T start, const T end, T t, T* x, T* v) {
 	T x0   = start;
 	T x1   = end;
 	
 	T Vmax = (x1-x0)*1.3333f;
 	T a    = Vmax*4.0f;
-	T dx   = 0.0f;
 	
 	if((t>0.0f)&&(t<=0.25f))
 	{
-		dx = 0.5f*a*t*t;
+		*x = x0 + 0.5f*a*t*t;
+    *v = a*t;
 	}
 	else if((t>=0.25f)&&(t<=0.75f))
 	{
-		dx = Vmax*0.125f + (t-0.25f)*Vmax;
+		*x = x0 + Vmax*0.125f + (t-0.25f)*Vmax;
+    *v = Vmax;
 	}
 	else if((t>=0.75f)&&(t<1.0f))
 	{
-		dx = x1 - x0 - 0.5f*a*(1.0f-t)*(1.0f-t);
+		*x = x1 - 0.5f*a*(1.0f-t)*(1.0f-t);
+    *v = a*(1.0f-t); 
 	}
 	else if(t<=0)
 	{
-		dx = 0;
+		*x = x0;
+    *v = 0;
 	}
 	else if(t>=1)
 	{
-		dx = x1 - x0;
+		*x = x1;
+    *v = 0;
 	}
-	return x0 + dx;
 }
 /*!
  * Are two floating point values almost equal?

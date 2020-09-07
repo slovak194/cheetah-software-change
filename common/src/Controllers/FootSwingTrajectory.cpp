@@ -2,7 +2,7 @@
  * @file FootSwingTrajectory.cpp
  * @brief Utility to generate foot swing trajectories.
  *
- * Currently uses Bezier curves like Cheetah 3 does
+ * Currently uses Bezier curves
  */
 
 #include "Math/Interpolation.h"
@@ -15,11 +15,12 @@
  */
 template <typename T>
 void FootSwingTrajectory<T>::computeSwingTrajectoryBezier(T phase, T swingTime) {
+
+  T zp, zv, za;
+
   _p = Interpolate::cubicBezier<Vec3<T>>(_p0, _pf, phase);
   _v = Interpolate::cubicBezierFirstDerivative<Vec3<T>>(_p0, _pf, phase) / swingTime;
   _a = Interpolate::cubicBezierSecondDerivative<Vec3<T>>(_p0, _pf, phase) / (swingTime * swingTime);
-
-  T zp, zv, za;
 
   if(phase < T(0.5)) {
     zp = Interpolate::cubicBezier<T>(_p0[2], _p0[2] + _height, phase * 2);

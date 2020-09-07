@@ -3,9 +3,8 @@
  * @brief Implementation of a periodic function running in a separate thread.
  * Periodic tasks have a task manager, which measure how long they take to run.
  */
-#ifdef linux
+
  #include <sys/timerfd.h>
-#endif
 
 #include <unistd.h>
 #include <cmath>
@@ -91,15 +90,15 @@ void PeriodicTask::printStatus() {
  * Call the task in a timed loop.  Uses a timerfd
  */
 void PeriodicTask::loopFunction() {
-#ifdef linux
+
   auto timerFd = timerfd_create(CLOCK_MONOTONIC, 0);
-#endif
+
   int seconds = (int)_period;
   int nanoseconds = (int)(1e9 * std::fmod(_period, 1.f));
 
   Timer t;
 
-#ifdef linux
+
   itimerspec timerSpec;
   timerSpec.it_interval.tv_sec = seconds;
   timerSpec.it_value.tv_sec = seconds;
@@ -107,7 +106,7 @@ void PeriodicTask::loopFunction() {
   timerSpec.it_interval.tv_nsec = nanoseconds;
 
   timerfd_settime(timerFd, 0, &timerSpec, nullptr);   //启动定时器
-#endif
+
   unsigned long long missed = 0;
 
   printf("[PeriodicTask] Start %s (%d s, %d ns)\n", _name.c_str(), seconds,
@@ -117,10 +116,10 @@ void PeriodicTask::loopFunction() {
     t.start();
     run();
     _lastRuntime = (float)t.getSeconds();
-#ifdef linux
-    int m = read(timerFd, &missed, sizeof(missed));  //阻塞延时,这里即将改成lcm阻塞
+
+    int m = read(timerFd, &missed, sizeof(missed));  //阻塞延时
     (void)m;
-#endif
+
     _maxPeriod = std::max(_maxPeriod, _lastPeriodTime);
     _maxRuntime = std::max(_maxRuntime, _lastRuntime);
   }

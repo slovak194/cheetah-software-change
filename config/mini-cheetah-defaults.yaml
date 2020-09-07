@@ -1,7 +1,7 @@
 # Generated on Wed Jul 15 14:47:05 2020
 __collection-name__: robot-parameters
 
-cheater_mode               : 1        #机器人状态,需要设置为0
+cheater_mode               : 0       #机器人状态,需要设置为0
 controller_dt              : 0.002
 foot_height_sensor_noise   : 0.001
 foot_process_noise_position: 0.002
